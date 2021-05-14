@@ -110,11 +110,12 @@ body {
 
 .main {
 	margin-top: 45px;
+	position: relative;
 }
 
 /* Card */
 .card-warp{
-
+	box-sizing: border-box;
 }
 
 .card-section {
