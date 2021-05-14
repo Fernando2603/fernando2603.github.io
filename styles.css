@@ -197,7 +197,7 @@ body {
 	font-size: 1rem;
 }
 
-.score {
+#number {
 	font-size: 1.1rem;
 	text-align: right;
 	right: 0;
