@@ -24,6 +24,64 @@
 	color: rgb(152, 251, 152);
 }
 
+/*Style Main AL*/
+.site-theme-dark {
+--color-background:11,22,34;
+--color-foreground:21,31,46;
+--color-foreground-grey:15,22,31;
+--color-foreground-grey-dark:6,12,19;
+--color-foreground-blue:15,22,31;
+--color-foreground-blue-dark:6,12,19;
+--color-text:159,173,189;
+--color-text-light:114,138,161;
+--color-text-lighter:133,150,165;
+--color-shadow-blue:0,5,15;
+--color-background-1200:251,251,251;
+--color-background-1100:240,243,246;
+--color-background-1000:221,230,238;
+--color-background-900:201,215,227;
+--color-background-800:173,192,210;
+--color-background-700:139,160,178;
+--color-background-600:116,136,153;
+--color-background-500:100,115,128;
+--color-background-400:81,97,112;
+--color-background-300:30,42,56;
+--color-background-100:21,31,46;
+--color-background-200:11,22,34;
+--color-gray-1200:251,251,251;
+--color-gray-1100:240,243,246;
+--color-gray-1000:221,230,238;
+--color-gray-900:201,215,227;
+--color-gray-800:173,192,210;
+--color-gray-700:139,160,178;
+--color-gray-600:116,136,153;
+--color-gray-500:100,115,128;
+--color-gray-400:81,97,112;
+--color-gray-300:30,42,56;
+--color-gray-100:21,31,46;
+--color-gray-200:11,22,34
+}
+
+/* AzurLane Ship Name Link */
+.shipname a {
+	color: white;
+}
+.shipname a:link {
+  text-decoration: none;
+}
+
+.shipname a:visited {
+  text-decoration: none;
+}
+
+.shipname a:hover {
+  text-decoration: none;
+}
+
+.shipname a:active {
+  text-decoration: none;
+}
+
 /* card settings */
 .ship-warp {
 	box-sizing: border-box;
@@ -41,6 +99,7 @@
 	display: grid;
 	grid-gap: 0;
 	grid-row-gap: 20px;
+	grid-column-gap: 10px;
 	grid-template-columns: repeat(auto-fill, 135px);
 	justify-content: space-evenly;
 	font-weight: bolder;
@@ -74,12 +133,12 @@
 	background-repeat: no-repeat;
 	border-radius: 1px;
 	color: rgb(var(--color-text-bright));
-	height: 28px;
 	justify-content: center;
 	position: absolute;
 	left:1px;
 	top: 1px;
-	width: 45px;
+	width: 32px;
+	height: 20px;
 }
 
 .shipimage {
@@ -191,60 +250,59 @@
 	background: var(--URare-AL);
 }
 
-/* AzurLane Ship Name Link */
-.shipname a {
-	color: white;
-}
-.shipname a:link {
-  text-decoration: none;
+/* AL Ship hull type */
+.AE {
+	background-image: url("AL/Type/AE.png");
 }
 
-.shipname a:visited {
-  text-decoration: none;
+.AR {
+	background-image: url("AL/Type/AR.png");
 }
 
-.shipname a:hover {
-  text-decoration: none;
+.BB {
+	background-image: url("AL/Type/BB.png");
 }
 
-.shipname a:active {
-  text-decoration: none;
-}
-/*Style Main AL*/
-.site-theme-dark {
---color-background:11,22,34;
---color-foreground:21,31,46;
---color-foreground-grey:15,22,31;
---color-foreground-grey-dark:6,12,19;
---color-foreground-blue:15,22,31;
---color-foreground-blue-dark:6,12,19;
---color-text:159,173,189;
---color-text-light:114,138,161;
---color-text-lighter:133,150,165;
---color-shadow-blue:0,5,15;
---color-background-1200:251,251,251;
---color-background-1100:240,243,246;
---color-background-1000:221,230,238;
---color-background-900:201,215,227;
---color-background-800:173,192,210;
---color-background-700:139,160,178;
---color-background-600:116,136,153;
---color-background-500:100,115,128;
---color-background-400:81,97,112;
---color-background-300:30,42,56;
---color-background-100:21,31,46;
---color-background-200:11,22,34;
---color-gray-1200:251,251,251;
---color-gray-1100:240,243,246;
---color-gray-1000:221,230,238;
---color-gray-900:201,215,227;
---color-gray-800:173,192,210;
---color-gray-700:139,160,178;
---color-gray-600:116,136,153;
---color-gray-500:100,115,128;
---color-gray-400:81,97,112;
---color-gray-300:30,42,56;
---color-gray-100:21,31,46;
---color-gray-200:11,22,34
+.BBV {
+	background-image: url("AL/Type/BBV.png");
 }
 
+.BC {
+	background-image: url("AL/Type/BC.png");
+}
+
+.BM {
+	background-image: url("AL/Type/BM.png");
+}
+
+.CA {
+	background-image: url("AL/Type/CA.png");
+}
+
+.CB {
+	background-image: url("AL/Type/CB.png");
+}
+
+.CL {
+	background-image: url("AL/Type/CL.png");
+}
+
+.CV {
+	background-image: url("AL/Type/CV.png");
+}
+
+.CVL {
+	background-image: url("AL/Type/CVL.png");
+}
+
+.DD {
+	background-image: url("AL/Type/DD.png");
+}
+
+.SS {
+	background-image: url("AL/Type/SS.png");
+}
+
+.SSV {
+	background-image: url("AL/Type/SSV.png");
+}

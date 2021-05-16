@@ -39,7 +39,7 @@ function cards (cardid, cardtype, cardlink, cardimage, cardtitle, cardidnumber, 
     var lx = 'Common'; //shiprarity
     var l3 = '">' +
              '<div class="shipcover">' +
-             '<div class="shipstype';
+             '<div class="shiptype ';
     var Lz = 'BB/CV/CVL'; //shiptype 
     var l4 = '">' +
              '</div>' +
