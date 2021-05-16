@@ -1,6 +1,6 @@
 // Index Cards
 var A1 = '<div class="card" id="';
-var Ax = 'Azur-Lane'; //Card ID
+var Ash = 'Azur-Lane'; //Card ID
 var A3 = '">' +
          '<div class="cover">' +
          '<div class="edit ';
