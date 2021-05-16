@@ -222,6 +222,7 @@ a:active {
 	width: 100%;
 	z-index: 2;
 	font-size: 1rem;
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 #number {
@@ -235,6 +236,7 @@ a:active {
 	position: absolute;
 	width: 50%;
 	z-index: 2;
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 .progress {
@@ -247,6 +249,7 @@ a:active {
 	text-align: left;
 	width: 50%;
 	z-index: 2;
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 /* Card Status */

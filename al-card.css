@@ -88,11 +88,12 @@
 }
 
 .ship-section {
-	font-size: 1.5rem;
+	font-size: 2rem;
 	color: #9FADBD;
 	display: block;
 	margin-bottom: 10px;
-	width: 100%
+	width: 100%;
+	text-align: center;
 }
 
 .ship-container {
@@ -135,8 +136,8 @@
 	color: rgb(var(--color-text-bright));
 	justify-content: center;
 	position: absolute;
-	left:1px;
-	top: 1px;
+	left: 2px;
+	top: 2px;
 	width: 32px;
 	height: 20px;
 }
@@ -162,6 +163,7 @@
 	z-index: 2;
 	text-align: center;
 	font-size: 12px;
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 #shipid {
@@ -175,6 +177,7 @@
 	position: absolute;
 	width: 60%;
 	z-index: 2;
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 .rarity {
@@ -187,28 +190,41 @@
 	text-align: left;
 	width: 75%;
 	z-index: 2;
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 
 /* card shadow */
+/* 	-webkit-box-shadow: 0 20px 100px 22px rgb(222 222 222 / 100%);
+        	box-shadow: 0 20px 100px 22px rgb(222 222 222 / 100%); 
+			0 horizontal length
+			20 vertikal length
+			100 blur radius
+			22 spread radius
+*/
 #Normal {
-	box-shadow: 0 2px 8px rgb(222 222 222 / 100%);
+	-webkit-box-shadow: 0 0 8px 1px rgb(222 222 222 / 100%);
+        	box-shadow: 0 0 8px 1px rgb(222 222 222 / 100%);
 }
 
 #Rare {
-	box-shadow: 0 2px 8px rgb(0 255 255 / 100%);
+	-webkit-box-shadow: 0 0 8px 1px rgb(0 255 255 / 100%);
+        	box-shadow: 0 0 8px 1px rgb(0 255 255 / 100%);
 }
 
 #Elite {
-	box-shadow: 0 2px 8px rgb(255 0 255 / 100%);
+	-webkit-box-shadow: 0 0 8px 1px rgb(255 0 255 / 100%);
+        	box-shadow: 0 0 8px 1px rgb(255 0 255 / 100%);
 }
 
 #Super-Rare, #Priority {
-	box-shadow: 0 2px 8px rgb(255 255 0 / 100%);
+	-webkit-box-shadow: 0 0 8px 1px rgb(255 255 0 / 100%);
+        	box-shadow: 0 0 8px 1px rgb(255 255 0 / 100%);
 }
 
 #Ultra-Rare, #Decisive {
-	box-shadow: 0 2px 8px rgb(255 0 0 / 100%);
+	-webkit-box-shadow: 0 0 8px 1px rgb(255 0 0 / 100%);
+        	box-shadow: 0 0 8px 1px rgb(255 0 0 / 100%);
 }
 
 
@@ -250,59 +266,94 @@
 	background: var(--URare-AL);
 }
 
+/* META */
+[id='30001'], [id='30002'] {
+	-webkit-box-shadow: 0 0 5px 1px rgb(255 0 0 / 100%);
+        	box-shadow: 0 0 5px 1px rgb(255 0 0 / 100%);
+}
+
 /* AL Ship hull type */
 .AE {
+	-webkit-box-shadow: 0 0 5px 1px rgb(144 238 144 / 100%);
+        	box-shadow: 0 0 5px 1px rgb(144 238 144 / 100%);
 	background-image: url("AL/Type/AE.png");
 }
 
 .AR {
+	-webkit-box-shadow: 0 0 5px 1px rgb(0 255 0 / 100%);
+        	box-shadow: 0 0 5px 1px rgb(0 255 0 / 100%);
 	background-image: url("AL/Type/AR.png");
 }
 
 .BB {
+	-webkit-box-shadow: 0 0 5px 1px rgb(255 0 0 / 100%);
+        	box-shadow: 0 0 5px 1px rgb(255 0 0 / 100%);
 	background-image: url("AL/Type/BB.png");
 }
 
 .BBV {
+	-webkit-box-shadow: 0 0 5px 1px rgb(255 0 0 / 100%);
+        	box-shadow: 0 0 5px 1px rgb(255 0 0 / 100%);
 	background-image: url("AL/Type/BBV.png");
 }
 
 .BC {
+	-webkit-box-shadow: 0 0 5px 1px rgb(255 0 0 / 100%);
+        	box-shadow: 0 0 5px 1px rgb(255 0 0 / 100%);
 	background-image: url("AL/Type/BC.png");
 }
 
 .BM {
+	-webkit-box-shadow: 0 0 5px 1px rgb(255 255 0 / 100%);
+        	box-shadow: 0 0 5px 1px rgb(255 255 0 / 100%);
 	background-image: url("AL/Type/BM.png");
 }
 
 .CA {
+	-webkit-box-shadow: 0 0 5px 1px rgb(255 255 0 / 100%);
+        	box-shadow: 0 0 5px 1px rgb(255 255 0 / 100%);
 	background-image: url("AL/Type/CA.png");
 }
 
 .CB {
+	-webkit-box-shadow: 0 0 5px 1px rgb(255 165 0 / 100%);
+        	box-shadow: 0 0 5px 1px rgb(255 165 0 / 100%);
 	background-image: url("AL/Type/CB.png");
 }
 
 .CL {
+	-webkit-box-shadow: 0 0 5px 1px rgb(255 255 0 / 100%);
+        	box-shadow: 0 0 5px 1px rgb(255 255 0 / 100%);
 	background-image: url("AL/Type/CL.png");
 }
 
 .CV {
+	-webkit-box-shadow: 0 0 5px 1px rgb(255 0 255 / 100%);
+        	box-shadow: 0 0 5px 1px rgb(255 0 255 / 100%);
 	background-image: url("AL/Type/CV.png");
 }
 
 .CVL {
+	-webkit-box-shadow: 0 0 5px 1px rgb(255 0 255 / 100%);
+        	box-shadow: 0 0 5px 1px rgb(255 0 255 / 100%);
 	background-image: url("AL/Type/CVL.png");
 }
 
 .DD {
+	-webkit-box-shadow: 0 0 5px 1px rgb(0 0 255 / 100%);
+        	box-shadow: 0 0 5px 1px rgb(0 0 255 / 100%);
 	background-image: url("AL/Type/DD.png");
 }
 
 .SS {
+	box-shadow: 0 1px 10px rgb(0 255 0 / 100%);
+	-webkit-box-shadow: 0 0 5px 1px rgb(0 255 0 / 100%);
+        	box-shadow: 0 0 5px 1px rgb(0 255 0 / 100%);
 	background-image: url("AL/Type/SS.png");
 }
 
 .SSV {
+	-webkit-box-shadow: 0 0 5px 1px rgb(255 0 0 / 100%);
+        	box-shadow: 0 0 5px 1px rgb(255 0 0 / 100%);
 	background-image: url("AL/Type/SSV.png");
 }
