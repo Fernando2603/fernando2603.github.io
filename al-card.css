@@ -99,8 +99,8 @@
 .ship-container {
 	display: grid;
 	grid-gap: 0;
-	grid-row-gap: 20px;
-	grid-column-gap: 10px;
+	grid-row-gap: 30px;
+	grid-column-gap: 15px;
 	grid-template-columns: repeat(auto-fill, 135px);
 	justify-content: space-evenly;
 	font-weight: bolder;
@@ -127,6 +127,14 @@
 	position: absolute;
 	top: 0;
 	z-index: 0;
+}
+
+.shipcard:hover {
+  transform: scale(1.2, 1.2);
+}
+
+.shipcard:hover::after {
+  opacity: 1;
 }
 
 .shiptype {
