@@ -285,82 +285,96 @@
 	-webkit-box-shadow: 0 0 5px 1px rgb(144 238 144 / 100%);
         	box-shadow: 0 0 5px 1px rgb(144 238 144 / 100%);
 	background-image: url("AL/Type/AE.png");
+	z-index: 2;
 }
 
 .AR {
 	-webkit-box-shadow: 0 0 5px 1px rgb(0 255 0 / 100%);
         	box-shadow: 0 0 5px 1px rgb(0 255 0 / 100%);
 	background-image: url("AL/Type/AR.png");
+	z-index: 2;
 }
 
 .BB {
 	-webkit-box-shadow: 0 0 5px 1px rgb(255 0 0 / 100%);
         	box-shadow: 0 0 5px 1px rgb(255 0 0 / 100%);
 	background-image: url("AL/Type/BB.png");
+	z-index: 2;
 }
 
 .BBV {
 	-webkit-box-shadow: 0 0 5px 1px rgb(255 0 0 / 100%);
         	box-shadow: 0 0 5px 1px rgb(255 0 0 / 100%);
 	background-image: url("AL/Type/BBV.png");
+	z-index: 2;
 }
 
 .BC {
 	-webkit-box-shadow: 0 0 5px 1px rgb(255 0 0 / 100%);
         	box-shadow: 0 0 5px 1px rgb(255 0 0 / 100%);
 	background-image: url("AL/Type/BC.png");
+	z-index: 2;
 }
 
 .BM {
 	-webkit-box-shadow: 0 0 5px 1px rgb(255 255 0 / 100%);
         	box-shadow: 0 0 5px 1px rgb(255 255 0 / 100%);
 	background-image: url("AL/Type/BM.png");
+	z-index: 2;
 }
 
 .CA {
 	-webkit-box-shadow: 0 0 5px 1px rgb(255 255 0 / 100%);
         	box-shadow: 0 0 5px 1px rgb(255 255 0 / 100%);
 	background-image: url("AL/Type/CA.png");
+	z-index: 2;
 }
 
 .CB {
 	-webkit-box-shadow: 0 0 5px 1px rgb(255 165 0 / 100%);
         	box-shadow: 0 0 5px 1px rgb(255 165 0 / 100%);
 	background-image: url("AL/Type/CB.png");
+	z-index: 2;
 }
 
 .CL {
 	-webkit-box-shadow: 0 0 5px 1px rgb(255 255 0 / 100%);
         	box-shadow: 0 0 5px 1px rgb(255 255 0 / 100%);
 	background-image: url("AL/Type/CL.png");
+	z-index: 2;
 }
 
 .CV {
 	-webkit-box-shadow: 0 0 5px 1px rgb(255 0 255 / 100%);
         	box-shadow: 0 0 5px 1px rgb(255 0 255 / 100%);
 	background-image: url("AL/Type/CV.png");
+	z-index: 2;
 }
 
 .CVL {
 	-webkit-box-shadow: 0 0 5px 1px rgb(255 0 255 / 100%);
         	box-shadow: 0 0 5px 1px rgb(255 0 255 / 100%);
 	background-image: url("AL/Type/CVL.png");
+	z-index: 2;
 }
 
 .DD {
 	-webkit-box-shadow: 0 0 5px 1px rgb(0 0 255 / 100%);
         	box-shadow: 0 0 5px 1px rgb(0 0 255 / 100%);
 	background-image: url("AL/Type/DD.png");
+	z-index: 2;
 }
 
 .SS {
 	-webkit-box-shadow: 0 0 5px 1px rgb(0 255 0 / 100%);
         	box-shadow: 0 0 5px 1px rgb(0 255 0 / 100%);
 	background-image: url("AL/Type/SS.png");
+	z-index: 2;
 }
 
 .SSV {
 	-webkit-box-shadow: 0 0 5px 1px rgb(255 0 0 / 100%);
         	box-shadow: 0 0 5px 1px rgb(255 0 0 / 100%);
 	background-image: url("AL/Type/SSV.png");
+	z-index: 2;
 }
