@@ -170,7 +170,7 @@ a:active {
 	color: rgb(var(--color-text-bright));
 	display: inline-block;
 	position: relative;
-	width: 100%
+	width: 100%;
 }
 
 .cover {
