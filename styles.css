@@ -157,7 +157,6 @@ a:active {
 	display: grid;
 	grid-gap: 0;
 	grid-row-gap: 20px;
-	grid-template-columns: repeat(auto-fill, 120px);
 	grid-template-columns: repeat(auto-fill, 160px);
 	justify-content: space-evenly;
 }
@@ -248,4 +247,20 @@ a:active {
 	text-align: left;
 	width: 50%;
 	z-index: 2;
+}
+
+/* Card Status */
+/* Color for text color */
+.Developing {
+	color: red;
+}
+
+/* Card ID */
+/* Card-01 - Azur Lane */
+#azur-lane {
+	box-shadow: 0 2px 20px rgb(255 0 0 / 100%);
+}
+#azur-lane .image {
+	background-color: black;
+	height: 85%;
 }

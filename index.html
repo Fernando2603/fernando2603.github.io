@@ -3,13 +3,15 @@
    <link rel="stylesheet" type = "text/css" href="styles.css">
 <head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript" src="script.js"></script>
+<script type="text/javascript" src="indexscript.js"></script>
 <script>
 </script>
   <title>Fernando2603</title>
 </head>
 <body class="site-theme-dark" style>
 	<div class="navbar">
-		<a href="#home">Home</a>
+		<a href="index.html">Home</a>
 		<a href="#list">List</a>
 		<a href="#settings">Settings</a>
 	</div>
@@ -18,54 +20,7 @@
 			<div class="card-warp">
 				<h3 class="card-section">Card Lists</h3>
 				<div class="card-container">
-				<!-- 01 -->
-					<div class="card">
-						<div class="cover">
-							<div class="edit">
-							</div>
-							<!--Image-->
-							<div class="image" onclick="location.href='al-card.html'" style="background-image: url('blank');">
-							</div>
-						</div>
-						<div class="title">
-							<a href="card-01.html">
-								<!--Title-->
-								01
-							</a>
-						</div>
-						<div id="number">
-							<!--ID Number-->
-							#01
-						</div>
-						<div class="progress">
-							<!--Progress-->
-							00
-						</div>
-					</div>
-				<!-- 02 -->
-					<div class="card">
-						<div class="cover">
-							<div class="edit">
-							</div>
-							<!--Image-->
-							<div class="image" onclick="location.href='card-01.html'" style="background-image: url('blank');">
-							</div>
-						</div>
-						<div class="title">
-							<a href="card-01.html">
-								<!--Title-->
-								02
-							</a>
-						</div>
-						<div id="number">
-							<!--ID Number-->
-							#01
-						</div>
-						<div class="progress">
-							<!--Progress-->
-							00
-						</div>
-					</div>	
+					<div id="card-01"></div>
 				</div>
 			</div>
 			<div class="card-warp">
@@ -99,5 +54,9 @@
 			</div>
 		</div>
 	</div>
+
+<script>
+	$("#card-01").html(cards(card01[0], card01[1], card01[2], card01[3], card01[4], card01[5], card01[6]))
+</script>
 </body>
 </html>
