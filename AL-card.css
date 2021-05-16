@@ -1,0 +1,250 @@
+/* Azur-Lane */
+/* Title color */
+#card-bb {
+	color: rgb(255, 192, 203);
+}
+
+#card-cv {
+	color: rgb(221, 160, 221);
+}
+
+#card-ca {
+	color: rgb(255, 165, 100);
+}
+
+#card-cl {
+	color: rgb(255, 222, 173);
+}
+
+#card-dd {
+	color: rgb(176, 224, 230);
+}
+
+#card-ss {
+	color: rgb(152, 251, 152);
+}
+
+/* card settings */
+.ship-warp {
+	box-sizing: border-box;
+}
+
+.ship-section {
+	font-size: 1.5rem;
+	color: #9FADBD;
+	display: block;
+	margin-bottom: 10px;
+	width: 100%
+}
+
+.ship-container {
+	display: grid;
+	grid-gap: 0;
+	grid-row-gap: 20px;
+	grid-template-columns: repeat(auto-fill, 135px);
+	justify-content: space-evenly;
+	font-weight: bolder;
+}
+
+.shipcard {
+	font-size: 1.2rem;
+	height: 180px;
+	border-radius: 3px;
+	color: rgb(var(--color-text-bright));
+	display: inline-block;
+	position: relative;
+	width: 100%
+}
+
+.shipcover {
+	background-position: 50%;
+	background-repeat: no-repeat;
+	background-size: cover;
+	border-radius: 3px;
+	height: 100%;
+	width: 100%;
+	left: 0;
+	position: absolute;
+	top: 0;
+	z-index: 0;
+}
+
+.shiptype {
+	background-size: cover;
+	background-repeat: no-repeat;
+	border-radius: 1px;
+	color: rgb(var(--color-text-bright));
+	height: 28px;
+	justify-content: center;
+	position: absolute;
+	left:1px;
+	top: 1px;
+	width: 45px;
+}
+
+.shipimage {
+	background-position: 50%;
+	background-repeat: no-repeat;
+	background-size: cover;
+	border-radius: 3px;
+	height: 100%;
+	width: 100%;
+}
+
+.shipname {
+	background: rgba(var(--color-black),.8);
+	border-radius: 0 0 3px 3px;
+	bottom: 0;
+	left: 0;
+	padding: 5px;
+	padding-bottom: 20px;
+	position: absolute;
+	width: 100%;
+	z-index: 2;
+	text-align: center;
+	font-size: 12px;
+}
+
+#shipid {
+	font-size: 10px;
+	text-align: right;
+	right: 0;
+	left: auto;
+	bottom: 0;
+	color: rgb(255 255 0);
+	padding: 5px;
+	position: absolute;
+	width: 60%;
+	z-index: 2;
+}
+
+.rarity {
+	font-size: 12px;
+	bottom: 0;
+	color: rgb(var(--color-text-bright));
+	left: 0;
+	padding: 5px;
+	position: absolute;
+	text-align: left;
+	width: 75%;
+	z-index: 2;
+}
+
+
+/* card shadow */
+#Normal {
+	box-shadow: 0 2px 8px rgb(222 222 222 / 100%);
+}
+
+#Rare {
+	box-shadow: 0 2px 8px rgb(0 255 255 / 100%);
+}
+
+#Elite {
+	box-shadow: 0 2px 8px rgb(255 0 255 / 100%);
+}
+
+#Super-Rare, #Priority {
+	box-shadow: 0 2px 8px rgb(255 255 0 / 100%);
+}
+
+#Ultra-Rare, #Decisive {
+	box-shadow: 0 2px 8px rgb(255 0 0 / 100%);
+}
+
+
+/* card text rarity text color */
+.Normal {
+	color: rgb(222 222 222);
+}
+
+.Rare {
+	color: rgb(0 255 255);
+}
+
+.Elite {
+	color: rgb(255 0 255);
+}
+
+.Super-Rare, .Priority {
+	color: rgb(255 255 0);
+}
+
+.Ultra-Rare, .Decisive {
+	color: rgb(255 0 0);
+}
+
+/* AL-Card background rarity */
+#Normal .shipcover {
+	background: var(--Normal-AL);
+}
+#Rare .shipcover {
+	background: var(--Rare-AL);
+}
+#Elite .shipcover {
+	background: var(--Elite-AL);
+}
+#Super-Rare .shipcover, #Priority .shipcover {
+	background: var(--SRare-AL);
+}
+#Ultra-Rare .shipcover, #Decisive .shipcover {
+	background: var(--URare-AL);
+}
+
+/* AzurLane Ship Name Link */
+.shipname a {
+	color: white;
+}
+.shipname a:link {
+  text-decoration: none;
+}
+
+.shipname a:visited {
+  text-decoration: none;
+}
+
+.shipname a:hover {
+  text-decoration: none;
+}
+
+.shipname a:active {
+  text-decoration: none;
+}
+/*Style Main AL*/
+.site-theme-dark {
+--color-background:11,22,34;
+--color-foreground:21,31,46;
+--color-foreground-grey:15,22,31;
+--color-foreground-grey-dark:6,12,19;
+--color-foreground-blue:15,22,31;
+--color-foreground-blue-dark:6,12,19;
+--color-text:159,173,189;
+--color-text-light:114,138,161;
+--color-text-lighter:133,150,165;
+--color-shadow-blue:0,5,15;
+--color-background-1200:251,251,251;
+--color-background-1100:240,243,246;
+--color-background-1000:221,230,238;
+--color-background-900:201,215,227;
+--color-background-800:173,192,210;
+--color-background-700:139,160,178;
+--color-background-600:116,136,153;
+--color-background-500:100,115,128;
+--color-background-400:81,97,112;
+--color-background-300:30,42,56;
+--color-background-100:21,31,46;
+--color-background-200:11,22,34;
+--color-gray-1200:251,251,251;
+--color-gray-1100:240,243,246;
+--color-gray-1000:221,230,238;
+--color-gray-900:201,215,227;
+--color-gray-800:173,192,210;
+--color-gray-700:139,160,178;
+--color-gray-600:116,136,153;
+--color-gray-500:100,115,128;
+--color-gray-400:81,97,112;
+--color-gray-300:30,42,56;
+--color-gray-100:21,31,46;
+--color-gray-200:11,22,34
+}
+

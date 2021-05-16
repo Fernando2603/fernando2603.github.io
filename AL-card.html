@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+   <link rel="stylesheet" type = "text/css" href="styles.css">
+   <link rel="stylesheet" type = "text/css" href="Al-card.css">
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript" src="script.js"></script>
+<script type="text/javascript" src="shipdata.js"></script>
+  <title>PyProject</title>
+</head>
+<body class="site-theme-dark" style>
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <a href="#list">List(null)</a>
+        <a href="#settings">Settings(null)</a>
+        <a>Sort By ID</a>
+    </div>
+    <div class="main">
+        <div class="card-list" id="card-list">
+            <div class="ship-warp">
+                <h3 class="ship-section" id="card-bb">BB/BC/BV/BM</h3>
+                <div class="ship-container">
+                    <div id="52"></div>
+					<div id="53"></div>
+					<div id="54"></div>
+					<div id="55"></div>
+					<div id="58"></div>
+					<div id="59"></div>
+					<div id="60"></div>
+					<div id="61"></div>
+					<div id="62"></div>
+					<div id="63"></div>
+					<div id="64"></div>
+					<div id="65"></div>
+					<div id="127"></div>
+					<div id="128"></div>
+					<div id="129"></div>
+					<div id="130"></div>
+					<div id="131"></div>
+					<div id="132"></div>
+					<div id="133"></div>
+					<div id="134"></div>
+					<div id="135"></div>
+					<div id="136"></div>
+					<div id="149"></div>
+					<div id="150"></div>
+					<div id="204"></div>
+					<div id="205"></div>
+					<div id="206"></div>
+					<div id="207"></div>
+					<div id="208"></div>
+					<div id="209"></div>
+					<div id="210"></div>
+					<div id="211"></div>
+					<div id="212"></div>
+					<div id="213"></div>
+					<div id="214"></div>
+					<div id="215"></div>
+					<div id="248"></div>
+					<div id="249"></div>
+					<div id="250"></div>
+					<div id="251"></div>
+					<div id="320"></div>
+					<div id="336"></div>
+					<div id="352"></div>
+					<div id="353"></div>
+					<div id="354"></div>
+					<div id="367"></div>
+					<div id="368"></div>
+					<div id="383"></div>
+					<div id="401"></div>
+					<div id="410"></div>
+					<div id="411"></div>
+					<div id="412"></div>
+					<div id="418"></div>
+					<div id="425"></div>
+					<div id="437"></div>
+					<div id="440"></div>
+					<div id="441"></div>
+					<div id="451"></div>
+					<div id="453"></div>
+					<div id="461"></div>
+					<div id="464"></div>
+					<div id="500"></div>
+					<div id="510"></div>
+					<div id="3052"></div>
+					<div id="3053"></div>
+					<div id="3131"></div>
+					<div id="3208"></div>
+					<div id="3209"></div>
+					<div id="3210"></div>
+					<div id="3211"></div>
+					<div id="10062"></div>
+					<div id="10065"></div>
+					<div id="Collab044"></div>
+					<div id="Plan002"></div>
+					<div id="Plan004"></div>
+					<div id="Plan008"></div>
+					<div id="Plan011"></div>
+					<div id="Plan012"></div>
+					<div id="Plan016"></div>
+					<div id="Plan017"></div>
+                </div>
+            </div>
+            <div class="card-warp">
+                <h3 class="ship-section" id="card-cv">CV/CVL</h3>
+                <div class="ship-container">
+
+                </div>
+            </div>
+            <div class="card-warp">
+                <h3 class="ship-section" id="card-ca">CA</h3>
+                <div class="ship-container">
+ 
+                </div>
+            </div>
+            <div class="card-warp">
+                <h3 class="ship-section" id="card-cl">CL</h3>
+                <div class="ship-container">
+
+                </div>
+            </div>
+            <div class="card-warp">
+                <h3 class="ship-section" id="card-dd">DD</h3>
+                <div class="ship-container">
+
+                </div>
+            </div>
+            <div class="card-warp">
+                <h3 class="ship-section" id="card-ss">SS/SSV</h3>
+                <div class="ship-container">
+
+                </div>
+            </div>
+        </div>
+    </div>
+<script>
+    $("#52").html(scard(n52[0], n52[1], n52[2], n52[3], n52[4], n52[5]))
+	$("#53").html(scard(n53[0], n53[1], n53[2], n53[3], n53[4], n53[5]))
+	$("#54").html(scard(n54[0], n54[1], n54[2], n54[3], n54[4], n54[5]))
+	$("#55").html(scard(n55[0], n55[1], n55[2], n55[3], n55[4], n55[5]))
+	$("#58").html(scard(n58[0], n58[1], n58[2], n58[3], n58[4], n58[5]))
+	$("#59").html(scard(n59[0], n59[1], n59[2], n59[3], n59[4], n59[5]))
+	$("#60").html(scard(n60[0], n60[1], n60[2], n60[3], n60[4], n60[5]))
+	$("#61").html(scard(n61[0], n61[1], n61[2], n61[3], n61[4], n61[5]))
+	$("#62").html(scard(n62[0], n62[1], n62[2], n62[3], n62[4], n62[5]))
+	$("#63").html(scard(n63[0], n63[1], n63[2], n63[3], n63[4], n63[5]))
+	$("#64").html(scard(n64[0], n64[1], n64[2], n64[3], n64[4], n64[5]))
+	$("#65").html(scard(n65[0], n65[1], n65[2], n65[3], n65[4], n65[5]))
+	$("#127").html(scard(n127[0], n127[1], n127[2], n127[3], n127[4], n127[5]))
+	$("#128").html(scard(n128[0], n128[1], n128[2], n128[3], n128[4], n128[5]))
+	$("#129").html(scard(n129[0], n129[1], n129[2], n129[3], n129[4], n129[5]))
+	$("#130").html(scard(n130[0], n130[1], n130[2], n130[3], n130[4], n130[5]))
+	$("#131").html(scard(n131[0], n131[1], n131[2], n131[3], n131[4], n131[5]))
+	$("#132").html(scard(n132[0], n132[1], n132[2], n132[3], n132[4], n132[5]))
+	$("#133").html(scard(n133[0], n133[1], n133[2], n133[3], n133[4], n133[5]))
+	$("#134").html(scard(n134[0], n134[1], n134[2], n134[3], n134[4], n134[5]))
+	$("#135").html(scard(n135[0], n135[1], n135[2], n135[3], n135[4], n135[5]))
+	$("#136").html(scard(n136[0], n136[1], n136[2], n136[3], n136[4], n136[5]))
+	$("#149").html(scard(n149[0], n149[1], n149[2], n149[3], n149[4], n149[5]))
+	$("#150").html(scard(n150[0], n150[1], n150[2], n150[3], n150[4], n150[5]))
+	$("#204").html(scard(n204[0], n204[1], n204[2], n204[3], n204[4], n204[5]))
+	$("#205").html(scard(n205[0], n205[1], n205[2], n205[3], n205[4], n205[5]))
+	$("#206").html(scard(n206[0], n206[1], n206[2], n206[3], n206[4], n206[5]))
+	$("#207").html(scard(n207[0], n207[1], n207[2], n207[3], n207[4], n207[5]))
+	$("#208").html(scard(n208[0], n208[1], n208[2], n208[3], n208[4], n208[5]))
+	$("#209").html(scard(n209[0], n209[1], n209[2], n209[3], n209[4], n209[5]))
+	$("#210").html(scard(n210[0], n210[1], n210[2], n210[3], n210[4], n210[5]))
+	$("#211").html(scard(n211[0], n211[1], n211[2], n211[3], n211[4], n211[5]))
+	$("#212").html(scard(n212[0], n212[1], n212[2], n212[3], n212[4], n212[5]))
+	$("#213").html(scard(n213[0], n213[1], n213[2], n213[3], n213[4], n213[5]))
+	$("#214").html(scard(n214[0], n214[1], n214[2], n214[3], n214[4], n214[5]))
+	$("#215").html(scard(n215[0], n215[1], n215[2], n215[3], n215[4], n215[5]))
+	$("#248").html(scard(n248[0], n248[1], n248[2], n248[3], n248[4], n248[5]))
+	$("#249").html(scard(n249[0], n249[1], n249[2], n249[3], n249[4], n249[5]))
+	$("#250").html(scard(n250[0], n250[1], n250[2], n250[3], n250[4], n250[5]))
+	$("#251").html(scard(n251[0], n251[1], n251[2], n251[3], n251[4], n251[5]))
+	$("#320").html(scard(n320[0], n320[1], n320[2], n320[3], n320[4], n320[5]))
+	$("#336").html(scard(n336[0], n336[1], n336[2], n336[3], n336[4], n336[5]))
+	$("#352").html(scard(n352[0], n352[1], n352[2], n352[3], n352[4], n352[5]))
+	$("#353").html(scard(n353[0], n353[1], n353[2], n353[3], n353[4], n353[5]))
+	$("#354").html(scard(n354[0], n354[1], n354[2], n354[3], n354[4], n354[5]))
+	$("#367").html(scard(n367[0], n367[1], n367[2], n367[3], n367[4], n367[5]))
+	$("#368").html(scard(n368[0], n368[1], n368[2], n368[3], n368[4], n368[5]))
+	$("#383").html(scard(n383[0], n383[1], n383[2], n383[3], n383[4], n383[5]))
+	$("#401").html(scard(n401[0], n401[1], n401[2], n401[3], n401[4], n401[5]))
+	$("#410").html(scard(n410[0], n410[1], n410[2], n410[3], n410[4], n410[5]))
+	$("#411").html(scard(n411[0], n411[1], n411[2], n411[3], n411[4], n411[5]))
+	$("#412").html(scard(n412[0], n412[1], n412[2], n412[3], n412[4], n412[5]))
+	$("#418").html(scard(n418[0], n418[1], n418[2], n418[3], n418[4], n418[5]))
+	$("#425").html(scard(n425[0], n425[1], n425[2], n425[3], n425[4], n425[5]))
+	$("#437").html(scard(n437[0], n437[1], n437[2], n437[3], n437[4], n437[5]))
+	$("#440").html(scard(n440[0], n440[1], n440[2], n440[3], n440[4], n440[5]))
+	$("#441").html(scard(n441[0], n441[1], n441[2], n441[3], n441[4], n441[5]))
+	$("#451").html(scard(n451[0], n451[1], n451[2], n451[3], n451[4], n451[5]))
+	$("#453").html(scard(n453[0], n453[1], n453[2], n453[3], n453[4], n453[5]))
+	$("#461").html(scard(n461[0], n461[1], n461[2], n461[3], n461[4], n461[5]))
+	$("#464").html(scard(n464[0], n464[1], n464[2], n464[3], n464[4], n464[5]))
+	$("#500").html(scard(n500[0], n500[1], n500[2], n500[3], n500[4], n500[5]))
+	$("#510").html(scard(n510[0], n510[1], n510[2], n510[3], n510[4], n510[5]))
+	$("#3052").html(scard(n3052[0], n3052[1], n3052[2], n3052[3], n3052[4], n3052[5]))
+	$("#3053").html(scard(n3053[0], n3053[1], n3053[2], n3053[3], n3053[4], n3053[5]))
+	$("#3131").html(scard(n3131[0], n3131[1], n3131[2], n3131[3], n3131[4], n3131[5]))
+	$("#3208").html(scard(n3208[0], n3208[1], n3208[2], n3208[3], n3208[4], n3208[5]))
+	$("#3209").html(scard(n3209[0], n3209[1], n3209[2], n3209[3], n3209[4], n3209[5]))
+	$("#3210").html(scard(n3210[0], n3210[1], n3210[2], n3210[3], n3210[4], n3210[5]))
+	$("#3211").html(scard(n3211[0], n3211[1], n3211[2], n3211[3], n3211[4], n3211[5]))
+	$("#10062").html(scard(n10062[0], n10062[1], n10062[2], n10062[3], n10062[4], n10062[5]))
+	$("#10065").html(scard(n10065[0], n10065[1], n10065[2], n10065[3], n10065[4], n10065[5]))
+	$("#Collab044").html(scard(nCollab044[0], nCollab044[1], nCollab044[2], nCollab044[3], nCollab044[4], nCollab044[5]))
+	$("#Plan002").html(scard(nPlan002[0], nPlan002[1], nPlan002[2], nPlan002[3], nPlan002[4], nPlan002[5]))
+	$("#Plan004").html(scard(nPlan004[0], nPlan004[1], nPlan004[2], nPlan004[3], nPlan004[4], nPlan004[5]))
+	$("#Plan008").html(scard(nPlan008[0], nPlan008[1], nPlan008[2], nPlan008[3], nPlan008[4], nPlan008[5]))
+	$("#Plan011").html(scard(nPlan011[0], nPlan011[1], nPlan011[2], nPlan011[3], nPlan011[4], nPlan011[5]))
+	$("#Plan012").html(scard(nPlan012[0], nPlan012[1], nPlan012[2], nPlan012[3], nPlan012[4], nPlan012[5]))
+	$("#Plan016").html(scard(nPlan016[0], nPlan016[1], nPlan016[2], nPlan016[3], nPlan016[4], nPlan016[5]))
+	$("#Plan017").html(scard(nPlan017[0], nPlan017[1], nPlan017[2], nPlan017[3], nPlan017[4], nPlan017[5]))
+</script>
+</body>
+</html>
