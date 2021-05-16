@@ -1,37 +1,41 @@
 // Index Cards
-var A1 = '<div class="card" id="';
-var Ax1 = 'Azur-Lane'; //Card ID
+var A1 = '<div id="'
+var Axs =  'card-01' //Card Parent
+var A2 = '">' +
+		 '<div class="card" id="';
+var Axs = 'Azur-Lane'; //Card ID
 var A3 = '">' +
          '<div class="cover">' +
          '<div class="edit ';
-var Ax2 = 'BB/CV/CVL'; //Card Type
+var Axs = 'BB/CV/CVL'; //Card Type
 var A4 = '">' +
          '</div>' +
          '<div class="image" onclick="location.href=\'';
-var Ax3 = 'al-card.html'; //Card Link
+var Axs = 'al-card.html'; //Card Link
 var A5 = '\'" style="background-image: url(\'Images/';
-var A6 = 'Azurlane.png'; //Card Image
-var A7 = '\');"></div>' +
+var Axs = 'Azurlane.png'; //Card Image
+var A6 = '\');"></div>' +
          '</div>' +
-         '<div class="title">';
-var A8 = '<a href="';
-var A9 = 'al-card.html'; //Card Link
+         '<div class="title">' +
+		 '<a href="';
+var Axs = 'al-card.html'; //Card Link
+var A7 = '">';
+var Axs = 'Azur Lane'; //Card Title
+var A8 = '</a>' + 
+         '</div>' +
+         '<div id="number">';
+var Axs = '#01'; //Card IDNumber
+var A9 = '</div>' + 
+         '<div class="progress ';
+var Axs = 'Azur-Lane' //Card Status
 var A10 = '">';
-var A11 = 'Azur Lane'; //Card Title
-var A12 = '</a>' + 
+var Axs = 'Developing'; //Card Status
+var A11 = '</div>' +
         '</div>' +
-        '<div id="number">';
-var A13 = '#01'; //Card IDNumber
-var A14 = '</div>' + 
-        '<div class="progress ';
-var Ax4 = 'Azur-Lane' //Card Status
-var A15 = '">';
-var A16 = 'Developing'; //Card Status
-var A17 = '</div>' +
         '</div>';
 
-function cards (cardid, cardtype, cardlink, cardimage, cardtitle, cardidnumber, cardstatus) {
-        return A1+cardid+A3+cardtype+A4+cardlink+A5+cardimage+A7+A8+cardlink+A10+cardtitle+A12+cardidnumber+A14+cardstatus+A15+cardstatus+A17
+function cards (cardparent, cid, ctype, clink, cimage, ctitle, cidnumber, cstatus) {
+        return A1+cardparent+A2+cid+A3+ctype+A4+clink+A5+cimage+A6+clink+A7+ctitle+A8+cidnumber+A9+cstatus+A10+cstatus+A11
     }
 // Azur Lane Cards
 // create common shipcards
@@ -67,7 +71,6 @@ function cards (cardid, cardtype, cardlink, cardimage, cardtitle, cardidnumber, 
             '</div>';
 
     var ss = 12
-    var shipcards = (l1+l2+l3+l4+l5+l6+l2+l7+l8+l9+l10+l11+l12+l13+l14+l15+l16+l17);
     // 2 + 4 + 6 + 9 + 11 + 13 + 15 + 16
 
     function scard (shiprarity, shiptype, shiplink, shipimage, shipname, shipid) {

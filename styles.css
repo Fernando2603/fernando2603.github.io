@@ -111,7 +111,7 @@
 body {
 	background-color: black;
 	color: white;
-	font-family: sans-serif;
+	font-family: Arial, Helvetica, sans-serif;
 }
 
 .main {
@@ -150,7 +150,7 @@ a:active {
 	color: #9FADBD;
 	display: block;
 	margin-bottom: 10px;
-	width: 100%;
+	width: 100%
 }
 
 .card-container {
@@ -170,7 +170,7 @@ a:active {
 	color: rgb(var(--color-text-bright));
 	display: inline-block;
 	position: relative;
-	width: 100%;
+	width: 100%
 }
 
 .cover {
@@ -268,11 +268,3 @@ a:active {
 	background-color: black;
 	height: 85%;
 }
-
-/* Card-02 - Unavailable */
-
-
-
-
-
-

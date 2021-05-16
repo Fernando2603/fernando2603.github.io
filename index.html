@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
    <link rel="stylesheet" type = "text/css" href="styles.css">
+   <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+   <meta content="utf-8" http-equiv="encoding">
 <head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript" src="script.js"></script>
@@ -19,14 +21,12 @@
 		<div class="card-list" id="card-list">
 			<div class="card-warp">
 				<h3 class="card-section">Card Lists</h3>
-				<div class="card-container">
-					<div id="card-01"></div>
-					<div id="card-02"></div>
+				<div class="card-container" id="container-01">
 				</div>
 			</div>
 			<div class="card-warp">
 				<h3 class="card-section">Card Lists</h3>
-				<div class="card-container">
+				<div class="card-container" id="container-02">
 				<!-- 01 -->
 					<div class="card">
 						<div class="cover">
@@ -57,7 +57,8 @@
 	</div>
 
 <script>
-	$("#card-01").html(cards(card01[0], card01[1], card01[2], card01[3], card01[4], card01[5], card01[6]))
+	$("#container-01").append(cards(card01[0], card01[1], card01[2], card01[3], card01[4], card01[5], card01[6], card01[7]))
+	$("#container-01").append(cards(card02[0], card02[1], card02[2], card02[3], card02[4], card02[5], card02[6], card01[7]))
 </script>
 </body>
 </html>

@@ -274,12 +274,11 @@
 	background: var(--URare-AL);
 }
 
-/* META */ /*
+/* META */
 [id='30001'], [id='30002'] {
 	-webkit-box-shadow: 0 0 5px 1px rgb(255 0 0 / 100%);
         	box-shadow: 0 0 5px 1px rgb(255 0 0 / 100%);
 }
-*/
 
 /* AL Ship hull type */
 .AE {
