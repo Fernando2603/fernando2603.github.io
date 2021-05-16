@@ -1,14 +1,14 @@
 // Index Cards
 var A1 = '<div class="card" id="';
-var Ash = 'Azur-Lane'; //Card ID
+var Ax1 = 'Azur-Lane'; //Card ID
 var A3 = '">' +
          '<div class="cover">' +
          '<div class="edit ';
-var Az = 'BB/CV/CVL'; //Card Type
+var Ax2 = 'BB/CV/CVL'; //Card Type
 var A4 = '">' +
          '</div>' +
          '<div class="image" onclick="location.href=\'';
-var Ax = 'al-card.html'; //Card Link
+var Ax3 = 'al-card.html'; //Card Link
 var A5 = '\'" style="background-image: url(\'Images/';
 var A6 = 'Azurlane.png'; //Card Image
 var A7 = '\');"></div>' +
@@ -24,7 +24,7 @@ var A12 = '</a>' +
 var A13 = '#01'; //Card IDNumber
 var A14 = '</div>' + 
         '<div class="progress ';
-var A151 = 'Azur-Lane' //Card Status
+var Ax4 = 'Azur-Lane' //Card Status
 var A15 = '">';
 var A16 = 'Developing'; //Card Status
 var A17 = '</div>' +
