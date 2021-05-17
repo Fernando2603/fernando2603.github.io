@@ -39,44 +39,6 @@ function cards (cardparent, cid, ctype, clink, cimage, ctitle, cidnumber, cstatu
     }
 // Azur Lane Cards
 // create common shipcards
-	var l1 = '<div class="shipcard" id="';
-    var lx = 'Common'; //shiprarity
-    var l3 = '">' +
-             '<div class="shipcover">' +
-             '<div class="shiptype ';
-    var Lz = 'BB/CV/CVL'; //shiptype 
-    var l4 = '">' +
-             '</div>' +
-             '<div class="shipimage" onclick="window.open(\'';
-    var lx = 'card-01.html'; //shiplink
-    var l5 = '\', \'_blank\')" style="background-image: url(\'AL/Shipcover/';
-    var l6 = 'shipimage'; //shipimages
-    var l7 = '\');"></div>' +
-             '</div>' +
-             '<div class="shipname">';
-    var l8 = '<a href="';
-    var l9 = 'shiplink'; //shiplink
-    var l10 = '">';
-    var l11 = 'shipname'; //shipname
-    var l12 = '</a>' + 
-            '</div>' +
-            '<div id="shipid">#';
-    var l13 = '#01'; //shipid
-    var l14 = '</div>' + 
-            '<div class="rarity ';
-    var l151 = 'Common'
-    var l15 = '">'; //shiprarity
-    var l16 = 'Common'; //shiprarity
-    var l17 = '</div>' +
-            '</div>';
-
-    var ss = 12
-    // 2 + 4 + 6 + 9 + 11 + 13 + 15 + 16
-
-    function scard2 (shiprarity, shiptype, shiplink, shipimage, shipname, shipid) {
-        return l1+shiprarity+l3+shiptype+l4+shiplink+l5+shipimage+l7+l8+shiplink+l10+shipname+l12+shipid+l14+shiprarity+l15+shiprarity+l17
-    }
-
 // document.getElementById("demo1").innerHTML = sc1("Rare","a.html","a.png","zara","#22");
 // $("#tester").html(scard(n52[0], n52[1], n52[2], n52[3], n52[4], n52[5]))
 
@@ -120,4 +82,18 @@ function cards (cardparent, cid, ctype, clink, cimage, ctitle, cidnumber, cstatu
 
     function scard (shiprarity, shiptype, shiplink, shipimage, shipname, shipid) {
         return S1+shipid+S2+shiprarity+S3+shiptype+S4+shiplink+S5+shipimage+S6+shiplink+S7+shipname+S8+shipid+S9+shiprarity+S10+shiprarity+S11
+    }
+
+    function openCards(evt, cardName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(cardName).style.display = "block";
+        evt.currentTarget.className += " active";
     }

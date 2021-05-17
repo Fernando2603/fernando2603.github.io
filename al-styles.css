@@ -1,5 +1,9 @@
 /* Azur-Lane */
 /* Title color */
+html {
+    overflow-y:scroll;
+}
+
 #card-bb {
 	color: rgb(255, 192, 203);
 }
@@ -387,4 +391,62 @@
         	box-shadow: 0 0 5px 1px rgb(255 0 0 / 100%);
 	background-image: url("AL/Type/SSV.png");
 	z-index: 2;
+}
+
+/* Tabs */
+.tab {
+	overflow: hidden;
+	background-color: #001824;
+	float: none;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+	background-color: inherit;
+	float: left;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	padding: 10px;
+	transition: 0.3s;
+	font-size: 17px;
+	color: white;
+	font-weight: bolder;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  	background: #DDD;
+	color: black;
+	font-weight: bolder;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+	background-color: black;
+	color: white;
+	font-weight: bolder;
+}
+
+/* Style the tab content */
+.tabcontent {
+	display: none;
+	padding: px 1px;
+	-webkit-animation: fadeEffect 1s;
+			animation: fadeEffect 1s;
+}
+
+/* Fade in tabs */
+@-webkit-keyframes fadeEffect {
+	from {opacity: 0;}
+	to {opacity: 1;}
+}
+
+@keyframes fadeEffect {
+	from {opacity: 0;}
+	to {opacity: 1;}
 }
