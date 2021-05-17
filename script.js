@@ -121,4 +121,3 @@ function cards (cardparent, cid, ctype, clink, cimage, ctitle, cidnumber, cstatu
     function scard (shiprarity, shiptype, shiplink, shipimage, shipname, shipid) {
         return S1+shipid+S2+shiprarity+S3+shiptype+S4+shiplink+S5+shipimage+S6+shiplink+S7+shipname+S8+shipid+S9+shiprarity+S10+shiprarity+S11
     }
-        var test2 = ["Normal", "BB", "link", "Nevada.png", "Nevada", "52"];
