@@ -60,7 +60,7 @@ function cards (cardparent, cid, ctype, clink, cimage, ctitle, cidnumber, cstatu
     var l11 = 'shipname'; //shipname
     var l12 = '</a>' + 
             '</div>' +
-            '<div id="shipid">';
+            '<div id="shipid">#';
     var l13 = '#01'; //shipid
     var l14 = '</div>' + 
             '<div class="rarity ';
@@ -73,9 +73,52 @@ function cards (cardparent, cid, ctype, clink, cimage, ctitle, cidnumber, cstatu
     var ss = 12
     // 2 + 4 + 6 + 9 + 11 + 13 + 15 + 16
 
-    function scard (shiprarity, shiptype, shiplink, shipimage, shipname, shipid) {
+    function scard2 (shiprarity, shiptype, shiplink, shipimage, shipname, shipid) {
         return l1+shiprarity+l3+shiptype+l4+shiplink+l5+shipimage+l7+l8+shiplink+l10+shipname+l12+shipid+l14+shiprarity+l15+shiprarity+l17
     }
 
 // document.getElementById("demo1").innerHTML = sc1("Rare","a.html","a.png","zara","#22");
 // $("#tester").html(scard(n52[0], n52[1], n52[2], n52[3], n52[4], n52[5]))
+
+    var S1 = '<div id="';
+    var Sx = 'card-01' //Card Parent > fill with ship id
+    var S2 = '">' +
+             '<div class="shipcard" id="';
+    var Sx = 'Common'; //shiprarity
+    var S3 = '">' +
+             '<div class="shipcover">' +
+             '<div class="shiptype ';
+    var Sx = 'BB/CV/CVL'; //shiptype 
+    var S4 = '">' +
+             '</div>' +
+             '<div class="shipimage" onclick="window.open(\'';
+    var Sx = 'card-01.html'; //shiplink
+    var S5 = '\', \'_blank\')" style="background-image: url(\'AL/Shipcover/';
+    var Sx = 'shipimage'; //shipimages
+    var S6 = '\');"></div>' +
+             '</div>' +
+             '<div class="shipname">' +
+             '<a href="';
+    var Sx = 'shiplink'; //shiplink
+    var S7 = '">';
+    var Sx = 'shipname'; //shipname
+    var S8 = '</a>' + 
+             '</div>' +
+             '<div id="shipid">#';
+    var Sx = '#01'; //shipid
+    var S9 = '</div>' + 
+              '<div class="rarity ';
+    var Sx = 'Common' //shiprarity
+    var S10 = '">'; 
+    var Sx = 'Common'; //shiprarity
+    var S11 = '</div>' +
+              '</div>' +
+              '</div>';
+
+    var ss = 12
+    // 2 + 4 + 6 + 9 + 11 + 13 + 15 + 16
+
+    function scard (shiprarity, shiptype, shiplink, shipimage, shipname, shipid) {
+        return S1+shipid+S2+shiprarity+S3+shiptype+S4+shiplink+S5+shipimage+S6+shiplink+S7+shipname+S8+shipid+S9+shiprarity+S10+shiprarity+S11
+    }
+        var test2 = ["Normal", "BB", "link", "Nevada.png", "Nevada", "52"];
