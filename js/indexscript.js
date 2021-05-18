@@ -4,4 +4,4 @@
 // create new class at cardstatus 
 //   card    |parent  |  |id       |  |type |  |link||image        |  |title    |  |numbe||status    | 
 var card01 = ["card-01", "azur-lane", "blank", "AL", "Azur-Lane.png", "Azur Lane", "#01", "Developing"];
-var card02 = ["card-02", "Unavailable", "blank", "card-01.html", "blank.png", "Unavailable", "#02", "Updating"];
+var card02 = ["card-02", "ajaxpractice", "blank", "AJAX", "blank.png", "AJAX Practice", "#02", "Practice"];
