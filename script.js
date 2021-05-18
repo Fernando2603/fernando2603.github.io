@@ -84,7 +84,8 @@ function cards (cardparent, cid, ctype, clink, cimage, ctitle, cidnumber, cstatu
         return S1+shipid+S2+shiprarity+S3+shiptype+S4+shiplink+S5+shipimage+S6+shiplink+S7+shipname+S8+shipid+S9+shiprarity+S10+shiprarity+S11
     }
 
-    function openCards(evt, cardName) {
+// AZUR LANE TAB FUNCTION
+function openCards(evt, cardName) {
         var i, tabcontent, tablinks;
         tabcontent = document.getElementsByClassName("tabcontent");
         for (i = 0; i < tabcontent.length; i++) {
@@ -97,3 +98,14 @@ function cards (cardparent, cid, ctype, clink, cimage, ctitle, cidnumber, cstatu
         document.getElementById(cardName).style.display = "block";
         evt.currentTarget.className += " active";
     }
+
+// AZUR LANE SHOW ALL FUNCTION 
+function allshow () {
+    $("#BB-tab").show();
+    $("#CV-tab").show();
+    $("#CA-tab").show();
+    $("#CL-tab").show();
+    $("#DD-tab").show();
+    $("#SS-tab").show();
+    $("#AUX-tab").show();   
+}
