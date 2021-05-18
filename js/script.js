@@ -125,6 +125,6 @@
     xhttp.send();
   }
   function myFunction(xhttp) {
-    $("html").html =
+    document.getElementById("demo").innerHTML =
     xhttp.responseText;
   }
