@@ -99,6 +99,7 @@ html {
 /* card settings */
 .ship-warp {
 	box-sizing: border-box;
+	display: block;;
 }
 
 .ship-section {
