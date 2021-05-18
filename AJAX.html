@@ -15,7 +15,7 @@
 </head>
 <body class="site-theme-dark">
 	<div class="navbar">
-		<a href="index.html">Home</a>
+		<a id="HOME-AJAX">Home</a>
 		<a href="#list">List</a>
 		<a href="#settings">Settings</a>
 	</div>
@@ -76,6 +76,7 @@
 <script>
 	$("#container-01").append(cards(card01[0], card01[1], card01[2], card01[3], card01[4], card01[5], card01[6], card01[7]))
 	$("#container-01").append(cards(card02[0], card02[1], card02[2], card02[3], card02[4], card02[5], card02[6], card02[7]))
+	$(document).ready(bodyajax("HOME-AJAX"));
 	$(document).ready(bodyajax("AL-AJAX"));
 	$(document).ready(bodyajax("TEST-AJAX"));
 </script>
