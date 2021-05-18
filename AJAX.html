@@ -8,6 +8,11 @@
 	<script type="text/javascript" src="js/script.js"></script>
 	<script type="text/javascript" src="js/indexscript.js"></script>
 	<script>
+		$(document).ready(function(){
+			$("button").click(function(){
+				$("body").load("al.txt");
+			});
+		});
 	</script>
   <title>Fernando2603</title>
 </head>
@@ -16,6 +21,7 @@
 		<a href="index.html">Home</a>
 		<a href="#list">List</a>
 		<a href="#settings">Settings</a>
+		<button>Get External Content</button></div>
 	</div>
 	<div class="main">
 		<div class="card-list" id="card-list">
