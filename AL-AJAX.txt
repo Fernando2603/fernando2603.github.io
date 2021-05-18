@@ -65,3 +65,4 @@
 	$("document").ready(allshow())
 
     $(document).ready(bodyajax("HOME-AJAX"));
+</script>
