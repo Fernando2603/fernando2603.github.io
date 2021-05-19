@@ -120,6 +120,14 @@
       })
     })
   }
+
+  function testajax (ids, link) {
+    $(document).ready(function () {
+      $('#'+ids).click(function () {
+        $("body").load('link' #ajaxreplace);
+      })
+    })
+  }
 // blank
   function loadDoc(url, cFunction) {
     var xhttp;
