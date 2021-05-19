@@ -11,15 +11,15 @@
   var Axs = 'BB/CV/CVL'; //Card Type
   var A4 = '">' +
            '</div>' +
-           '<div class="image" id="';
-  var Axs = 'al-card.html'; //Card Link -> Card ID FOR AJAX
-  var A5 = '" style="background-image: url(\'Images/';
+           '<div class="image" onclick="location.href=\'';
+  var Axs = 'al-card.html'; //Card Link -> Card ID FOR AJAX X
+  var A5 = '\'" style="background-image: url(\'Images/';
   var Axs = 'Azurlane.png'; //Card Image
   var A6 = '\');"></div>' +
            '</div>' +
            '<div class="title">' +
   		     '<a id="';
-  var Axs = 'al-card.html'; //Card Link -> Card ID FOR AJAX
+  var Axs = 'al-card.html'; //Card Link -> Card ID FOR AJAX X
   var A7 = '">';
   var Axs = 'Azur Lane'; //Card Title
   var A8 = '</a>' + 
@@ -112,7 +112,7 @@
       $("#AUX-tab").show();   
     }
 
-// AJAX
+// AJAX // EXPERIMENTAL
   function bodyajax (ids) {
     $(document).ready(function () {
       $('#'+ids).click(function () {
@@ -121,82 +121,6 @@
     })
   }
 
-  function testajax (ids, link) {
-    $(document).ready(function () {
-      $('#'+ids).click(function () {
-        $.get(link, function() {
-           $("body").replaceWith(    <div class="navbar alnavbar">
-        <a id="HOME-AJAX">Home</a>
-        <a>Sort By ID</a>
-      <a class="tablinks" id="ALL-tab" onclick="allshow()">ALL</a>
-    <a class="tablinks" onclick="openCards(event, 'BB-tab')">BB/BC/BBV/BM</a>
-    <a class="tablinks" onclick="openCards(event, 'CV-tab')">CV/CVL</a>
-    <a class="tablinks" onclick="openCards(event, 'CA-tab')">CA/CB</a>
-    <a class="tablinks" onclick="openCards(event, 'CL-tab')">CL</a>
-    <a class="tablinks" onclick="openCards(event, 'DD-tab')">DD</a>
-    <a class="tablinks" onclick="openCards(event, 'SS-tab')">SS/SSV</a>
-    <a class="tablinks" onclick="openCards(event, 'AUX-tab')">AUX</a>
-    </div>
-    <div class="main">
-        <div class="card-list" id="card-list">
-          <div class="ship-warp tabcontent" id="ALL-tab">
-            </div>
-            <div class="ship-warp tabcontent" id="BB-tab">
-                <h3 class="ship-section" id="card-bb">BB/BC/BBV/BM</h3>
-                <div class="ship-container" id="container-BB-BC-BBV-BM"></div>
-            </div>
-            <div class="ship-warp tabcontent" id="CV-tab">
-                <h3 class="ship-section" id="card-cv">CV/CVL</h3>
-                <div class="ship-container" id="container-CV-CVL"></div>
-            </div>
-            <div class="ship-warp tabcontent" id="CA-tab">
-                <h3 class="ship-section" id="card-ca">CA/CB</h3>
-                <div class="ship-container" id="container-CA-CB"></div>
-            </div>
-            <div class="ship-warp tabcontent" id="CL-tab">
-                <h3 class="ship-section" id="card-cl">CL</h3>
-                <div class="ship-container" id="container-CL"></div>
-            </div>
-            <div class="ship-warp tabcontent" id="DD-tab">
-                <h3 class="ship-section" id="card-dd">DD</h3>
-                <div class="ship-container" id="container-DD"></div>
-            </div>
-            <div class="ship-warp tabcontent" id="SS-tab">
-                <h3 class="ship-section" id="card-ss">SS/SSV</h3>
-                <div class="ship-container" id="container-SS-SSV"></div>
-            </div>
-            <div class="ship-warp tabcontent" id="AUX-tab">
-              <h3 class="ship-section" id="card-aux">Auxiliaries</h3>
-              <div class="ship-container" id="container-AR-AE"></div>
-            </div>
-        </div>
-    </div>
-
-<script>
-/* BB/BC/BBV/BM */
-  $("document").ready(loadBB())
-/* CL/CVL */
-  $("document").ready(loadCV())
-/* CA/CB */
-  $("document").ready(loadCA())
-/* CL */
-  $("document").ready(loadCL())
-/* DD */
-  $("document").ready(loadDD())
-/* SS/SSV */
-  $("document").ready(loadSS())
-/* Auxiliaries */ 
-  $("document").ready(loadAUX())
-
-// SHOW ALL TAB 
-  $("document").ready(allshow())
-
-    $(document).ready(bodyajax("HOME-AJAX"));
-</script>);
-        });
-      })
-    })
-  }
 // blank
   function loadDoc(url, cFunction) {
     var xhttp;

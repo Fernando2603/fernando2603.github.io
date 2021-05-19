@@ -3,6 +3,7 @@
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
 	<link rel="stylesheet" type="text/css" href="css/al-styles.css">
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
 	<meta content="utf-8" http-equiv="encoding">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -12,7 +13,7 @@
 </head>
 <body class="site-theme-dark">
     <div class="navbar alnavbar">
-        <a id="HOME-AJAX">Home</a>
+        <a href="index">Home</a>
         <a>Sort By ID</a>
 	    <a class="tablinks" id="ALL-tab" onclick="allshow()">ALL</a>
 		<a class="tablinks" onclick="openCards(event, 'BB-tab')">BB/BC/BBV/BM</a>
@@ -60,24 +61,22 @@
 
 <script>
 /* BB/BC/BBV/BM */
-	$("document").ready(loadBB())
+	$(document).ready(loadBB())
 /* CL/CVL */
-	$("document").ready(loadCV())
+	$(document).ready(loadCV())
 /* CA/CB */
-	$("document").ready(loadCA())
+	$(document).ready(loadCA())
 /* CL */
-	$("document").ready(loadCL())
+	$(document).ready(loadCL())
 /* DD */
-	$("document").ready(loadDD())
+	$(document).ready(loadDD())
 /* SS/SSV */
-	$("document").ready(loadSS())
+	$(document).ready(loadSS())
 /* Auxiliaries */ 
-	$("document").ready(loadAUX())
+	$(document).ready(loadAUX())
 
 // SHOW ALL TAB 
-	$("document").ready(allshow())
-
-    $(document).ready(bodyajax("HOME-AJAX"));
+	$(document).ready(allshow())
 </script>
 </body>
 </html>
