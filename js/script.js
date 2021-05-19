@@ -121,10 +121,12 @@
     })
   }
 
-  function testajax (ids, link) {
+  function testajax (ids, link, data) {
     $(document).ready(function () {
       $('#'+ids).click(function () {
-        $("body").load(link);
+        $.get(link, function() {
+           $("body").replaceWith(data);
+        });
       })
     })
   }
