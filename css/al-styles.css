@@ -38,37 +38,61 @@
 	}
 
 /* AL Navbar */
+	.alnavbar {
+		overflow: hidden;
+		background-color: #001824;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		border-bottom: 1px solid red;
+	}
+
+	.alnavbar a {
+		float: left;
+		display: block;
+		color: #f2f2f2;
+		text-align: center;
+		padding: 10px;
+		text-decoration: none;
+	}
+
+	.alnavbar a:hover {
+		background: #DDD;
+		color: black;
+	}
+
 	.alnavbar a:first-child {border-right: 1px solid red;}
 	.alnavbar a:nth-child(2) {border-right: 1px solid red;}
 
+	.almain {
+		margin-top: 45px;
+		position: relative;
+	}
+
+    .alnavbar a:nth-child(3) {color: red;}
+    .alnavbar a:nth-child(4) {color: rgb(255, 192, 203);}
+    .alnavbar a:nth-child(5) {color: rgb(221, 160, 221);}
+    .alnavbar a:nth-child(6) {color: rgb(255, 165, 100);}
+    .alnavbar a:nth-child(7) {color: rgb(255, 222, 173);}
+    .alnavbar a:nth-child(8) {color: rgb(176, 224, 230);}
+    .alnavbar a:nth-child(9) {color: rgb(152, 251, 152);}
+    .alnavbar a:nth-child(10) {color: rgb(0, 255, 0);}
+
+	@media screen and (max-width: 800px) {
+		.almain {
+			margin-top: 90px;
+			position: relative;
+		}
+	}
 /* Title color */
-	#card-bb {
-		color: rgb(255, 192, 203);
-	}
-
-	#card-cv {
-		color: rgb(221, 160, 221);
-	}
-
-	#card-ca {
-		color: rgb(255, 165, 100);
-	}
-
-	#card-cl {
-		color: rgb(255, 222, 173);
-	}
-
-	#card-dd {
-		color: rgb(176, 224, 230);
-	}
-
-	#card-ss {
-		color: rgb(152, 251, 152);
-	}
-
-	#card-aux {
-		color: rgb(0, 255, 0);
-	}
+	#card-bb {color: rgb(255, 192, 203);}
+	#card-cv {color: rgb(221, 160, 221);}
+	#card-ca {color: rgb(255, 165, 100);}
+	#card-cl {color: rgb(255, 222, 173);}
+	#card-dd {color: rgb(176, 224, 230);}
+	#card-ss {color: rgb(152, 251, 152);}
+	#card-aux {color: rgb(0, 255, 0);}
 
 /* AzurLane Ship Name Link */
 	.shipname a {
