@@ -2,6 +2,26 @@
 /*
 var template = ["", "", "", "", "", "",];
 */
+// MAIN SCRIPT
+	function ALscript () {
+	/* BB/BC/BBV/BM */
+		$(document).ready(loadBB())
+	/* CL/CVL */
+		$(document).ready(loadCV())
+	/* CA/CB */
+		$(document).ready(loadCA())
+	/* CL */
+		$(document).ready(loadCL())
+	/* DD */
+		$(document).ready(loadDD())
+	/* SS/SSV */
+		$(document).ready(loadSS())
+	/* Auxiliaries */ 
+		$(document).ready(loadAUX())
+	// SHOW ALL TAB 
+		$(document).ready(allshow())
+	}
+
 
 // BB/BC/BV/BM
 	var n052 = ["Normal", "BB", "Nevada", "Nevada.png", "Nevada", "052"];
