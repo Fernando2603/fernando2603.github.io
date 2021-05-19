@@ -124,7 +124,7 @@
   function testajax (ids, link) {
     $(document).ready(function () {
       $('#'+ids).click(function () {
-        $("html").load(link);
+        $("html").load(link #tester222);
       })
     })
   }
