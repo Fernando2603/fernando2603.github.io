@@ -1,0 +1,199 @@
+[
+   {
+      "wikiUrl":"https://azurlane.koumakan.jp/22",
+      "id":"Collab021",
+      "_gid":1020001,
+      "_sid":[10200011,10200012,10200013,10200014],
+      "_code":10021,
+      "names":{"cn":"22","code":"BILI 22","jp":"22","kr":"22","en":"22"},
+      "exists":{"en":false,"cn":true,"jp":false,"kr":false},
+      "hexagon":[1,1,0,3,1,1],
+      "class":"Bilibili",
+      "nationality":"Bilibili",
+      "hullType":"Destroyer",
+      "thumbnail":"https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/skins/Collab021/thumbnail.png",
+      "rarity":"Elite",
+      "stars":{
+         "stars":"★★★★★",
+         "value":5
+      },
+      "stats":{
+         "baseStats":{
+            "health":"230",
+            "armor":"Light",
+            "reload":"66",
+            "luck":"22",
+            "firepower":"10",
+            "torpedo":"38",
+            "evasion":"60",
+            "speed":"43",
+            "antiair":"28",
+            "aviation":"0",
+            "oilConsumption":"2",
+            "accuracy":"67",
+            "antisubmarineWarfare":"47"
+         },
+         "level100":{
+            "health":"1189",
+            "armor":"Light",
+            "reload":"156",
+            "luck":"22",
+            "firepower":"47",
+            "torpedo":"178",
+            "evasion":"156",
+            "speed":"43",
+            "antiair":"130",
+            "aviation":"0",
+            "oilConsumption":"9",
+            "accuracy":"174",
+            "antisubmarineWarfare":"171"
+         },
+         "level120":{
+            "health":"1427",
+            "armor":"Light",
+            "reload":"179",
+            "luck":"22",
+            "firepower":"54",
+            "torpedo":"204",
+            "evasion":"163",
+            "speed":"43",
+            "antiair":"149",
+            "aviation":"0",
+            "oilConsumption":"9",
+            "accuracy":"182",
+            "antisubmarineWarfare":"190"
+         }
+      },
+      "slots":[
+         {
+            "maxEfficiency":135,
+            "minEfficiency":115,
+            "type":"DD Guns",
+            "max":1
+         },
+         {
+            "maxEfficiency":115,
+            "minEfficiency":110,
+            "type":"Torpedoes",
+            "max":2
+         },
+         {
+            "maxEfficiency":95,
+            "minEfficiency":90,
+            "type":"Anti-Air Guns",
+            "max":1
+         }
+      ],
+      "enhanceValue":{
+         "firepower":3,
+         "torpedo":12,
+         "aviation":0,
+         "reload":12
+      },
+      "scrapValue":{
+         "coin":4,
+         "oil":3,
+         "medal":4
+      },
+      "skills":[
+         {
+            "icon":"https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/skills/Collab021/bilibili_mascot_girl_22.png",
+            "names":{
+               "en":"Bilibili Mascot Girl - 22",
+               "cn":"bili看板娘",
+               "jp":null
+            },
+            "description":"When sortied as the Vanguard Fleet Leader (First Slot) and paired with 33, increase Firepower, Reload by 10% (30%) and Evasion by 15% (35%) for both 22 and 33.",
+            "color":"gold"
+         },
+         {
+            "icon":"https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/skills/Collab021/all_out_assault.png",
+            "names":{
+               "en":"All Out Assault",
+               "cn":"专属弹幕-22",
+               "jp":null
+            },
+            "description":"Every 15 (10) shots from the main battery, trigger Full Barrage - 22 Class I (II)",
+            "color":"pink"
+         }
+      ],
+      "limitBreaks":[
+         [
+            "Gains Full Barrage I",
+            "Main gun Efficiency +5%"
+         ],
+         [
+            "Max Torpedo Capacity +1",
+            "Pre-loaded Torpedo +1",
+            "Main gun Efficiency +10%"
+         ],
+         [
+            "Upgrades Full Barrage I→II",
+            "All Weapon Efficiency +5%"
+         ]
+      ],
+      "fleetTech":{
+         "statsBonus":{
+            "collection":null,
+            "maxLevel":null
+         },
+         "techPoints":{
+            "collection":0,
+            "maxLimitBreak":0,
+            "maxLevel":0,
+            "total":0
+         }
+      },
+      "construction":{
+         "constructionTime":"Cannot Be Constructed",
+         "availableIn":{
+            "light":false,
+            "heavy":false,
+            "aviation":false,
+            "limited":false,
+            "exchange":false
+         }
+      },
+      "obtainedFrom":{
+         "obtainedFrom":"Event Task reward during the \"Battery Support Plan\" event.",
+         "fromMaps":[
+            
+         ]
+      },
+      "misc":{
+         "artist":{
+            "name":"和茶",
+            "url":"https://azurlane.koumakan.jp/Artists#.E5.92.8C.E8.8C.B6"
+         },
+         "pixiv":{
+            "name":"和茶",
+            "url":"https://www.pixiv.net/member.php?id=3312169"
+         },
+         "twitter":{
+            "name":"hecha",
+            "url":"https://twitter.com/hecha01964237"
+         },
+         "web":{
+            "name":"和茶_",
+            "url":"https://weibo.com/538001251"
+         },
+         "voice":null
+      },
+      "skins":[
+         {
+            "name":"Default",
+            "image":"https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/skins/Collab021/Default/image.png",
+            "background":"https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/backgrounds/MainDayBG.png",
+            "chibi":"https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/skins/Collab021/Default/chibi.png",
+            "info":{
+               "live2dModel":false,
+               "obtainedFrom":"Default"
+            }
+         }
+      ],
+      "gallery":[
+         
+      ]
+   }
+]
+

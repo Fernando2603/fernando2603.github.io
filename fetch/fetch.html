@@ -6,52 +6,60 @@
 	<title>fetch data format json local</title>
 </head>
 <body>
-	<!-- buat button dengan id ambil -->
-	<button id="ambil">Ambil data json</button>
-
-	<!-- buat p dengan id output -->
+	<button id="ambil">DATA</button>
 	<p id="output"></p>
 
 	<script>
-		// ambil id ambil dan tambahkan addEventClickListener yang artinya jika button tersebut di klik maka akan melakukan sesuatu atau event
-		document.getElementById('ambil').addEventListener('click', getUsers);
-
-		// kita buat function getUsers, jadi ketika diklik dia akan melakukan apa ? nah kita buat fungsi-nya (function)
-		function getUsers() {
-			// kita gunakan fetch dalam kita ambil data sample.txt yang sudah kita buat
-			fetch('ship.json')
-			// kita buat response menjadi json
-			.then((response) => response.json())
-			// lalu data nya kita ambil dan kita masuken ke p id output
-			.then((data) => {
-				// kita buat variabel output 
-				let output = '<h2>Users</h2>';
-				// kita console.log agar mengetahui apakah data nya sudah masuk atau belum
-				console.log(data);
-				// forEach ini adalah looping dan dinamakan user
-				data.forEach((user) => {
-					// kita tambahkan output-nya jangan lupa gunakan backslash `` yang di sebelah angka nomer 1
-					// kita panggil id name email didapat dari users.json
-					output += `
-						<ul>
-							<li>${user.wikiUrl}</li>
-							<li>${user.id}</li>
-							<li>${user.names["en"]}</li>
-							<li>${user.nationality}</li>
-							<li>${user.hullType}</li>
-							<li>${user.thumbnail}</li>
-							<li>${user.rarity["en"]}</li>
-							<li>${user.stars["stars"]}</li>
-							<li>${user.id}</li>
-						</ul>
-					`;
-				})
-				// kita panggil id output agar bisa di tampilkan ke browser saat di klik
-				document.getElementById('output').innerHTML = output;
-			})
-			// membuat catch jadi kalau ada yang error langsung ketawan
-			.catch((err) => console.log(err));
-		}
+document.getElementById('ambil').addEventListener('click', getUsers);
+function getUsers() {
+fetch('practice.json')
+.then((ships) => ships.json())
+.then((data) => {
+    let output = '<h2>Users</h2>';
+    console.log(data);
+    data.forEach((user) => {
+        output += `
+            <ul>
+                <li>wikiUrl : ${user.wikiUrl}</li>
+                <li>id : ${user.id}</li>
+                <li>names :  en = ${user.names["en"]}, jp = ${user.names["jp"]}, kr = ${user.names["kr"]}, cn = ${user.names["cn"]}, code = ${user.names["code"]}</li>
+                <li>exists : en = ${user.exists["en"]}, jp = ${user.exists["jp"]}, kr = ${user.exists["kr"]}, cn = ${user.exists["cn"]}</li>
+                <li>hexagon : ${user.hexagon}</li>
+                <li>class : ${user.class}</li>
+                <li>nationality : ${user.nationality}</li>
+                <li>hullType : ${user.hullType}</li>
+                <li>thumbnail : ${user.thumbnail}</li>
+                <li>rarity : ${user.rarity}</li>
+                <li>stars : star = ${user.stars["stars"]}, value = ${user.stars["value"]}</li>
+                <li>stats : hp = ${user.stats["baseStats"]["health"]}, armor = ${user.stats["baseStats"]["armor"]}, reload = ${user.stats["baseStats"]["reload"]}, luck = ${user.stats["baseStats"]["luck"]}, firepower = ${user.stats["baseStats"]["firepower"]}, torpedo = ${user.stats["baseStats"]["torpedo"]}, evasion = ${user.stats["baseStats"]["evasion"]}, speed = ${user.stats["baseStats"]["speed"]}, antiair = ${user.stats["baseStats"]["antiair"]}, aviation = ${user.stats["baseStats"]["aviation"]}, oilConsumption = ${user.stats["baseStats"]["oilConsumption"]}, accuracy = ${user.stats["baseStats"]["accuracy"]}, antisubmarineWarfare = ${user.stats["baseStats"]["antisubmarineWarfare"]}</li>
+                <li>stats : hp = ${user.stats["level100"]["health"]}, armor = ${user.stats["level100"]["armor"]}, reload = ${user.stats["level100"]["reload"]}, luck = ${user.stats["level100"]["luck"]}, firepower = ${user.stats["level100"]["firepower"]}, torpedo = ${user.stats["level100"]["torpedo"]}, evasion = ${user.stats["level100"]["evasion"]}, speed = ${user.stats["level100"]["speed"]}, antiair = ${user.stats["level100"]["antiair"]}, aviation = ${user.stats["level100"]["aviation"]}, oilConsumption = ${user.stats["level100"]["oilConsumption"]}, accuracy = ${user.stats["level100"]["accuracy"]}, antisubmarineWarfare = ${user.stats["level100"]["antisubmarineWarfare"]}</li>
+                <li>stats : hp = ${user.stats["level120"]["health"]}, armor = ${user.stats["level120"]["armor"]}, reload = ${user.stats["level120"]["reload"]}, luck = ${user.stats["level120"]["luck"]}, firepower = ${user.stats["level120"]["firepower"]}, torpedo = ${user.stats["level120"]["torpedo"]}, evasion = ${user.stats["level120"]["evasion"]}, speed = ${user.stats["level120"]["speed"]}, antiair = ${user.stats["level120"]["antiair"]}, aviation = ${user.stats["level120"]["aviation"]}, oilConsumption = ${user.stats["level120"]["oilConsumption"]}, accuracy = ${user.stats["level120"]["accuracy"]}, antisubmarineWarfare = ${user.stats["level120"]["antisubmarineWarfare"]}</li>
+                <li>slots1 : maxEfficiency = ${user.slots[0].maxEfficiency}, minEfficiency = ${user.slots[0].minEfficiency}, type = ${user.slots[0].type}, max = ${user.slots[0].max}</li>
+                <li>slots2 : maxEfficiency = ${user.slots[1].maxEfficiency}, minEfficiency = ${user.slots[1].minEfficiency}, type = ${user.slots[1].type}, max = ${user.slots[1].max}</li>
+                <li>slots3 : maxEfficiency = ${user.slots[2].maxEfficiency}, minEfficiency = ${user.slots[2].minEfficiency}, type = ${user.slots[2].type}, max = ${user.slots[2].max}</li>
+                <li>enhanceValue : firepower = ${user.enhanceValue["firepower"]}, torpedo = ${user.enhanceValue["torpedo"]}, aviation = ${user.enhanceValue["aviation"]}, reload = ${user.enhanceValue["reload"]}</li>
+                <li>scrapValue : coin = ${user.scrapValue["coin"]}, oil = ${user.scrapValue["oil"]}, medal = ${user.scrapValue["medal"]}</li>
+                <li>skills : icon = ${user.skills[0].icon}, name[en] = ${user.skills[0].names["en"]}, name[cn] = ${user.skills[0].names["cn"]}, name[jp] = ${user.skills[0].names["jp"]}, description = ${user.skills[0].description}, color = ${user.skills[0].color}</li>
+                <li>skills : icon = ${user.skills[1].icon}, name[en] = ${user.skills[1].names["en"]}, name[cn] = ${user.skills[1].names["cn"]}, name[jp] = ${user.skills[1].names["jp"]}, description = ${user.skills[1].description}, color = ${user.skills[1].color}</li>
+                <li>limitBreaks : 1 = ${user.limitBreaks[0]}, 2 = ${user.limitBreaks[1]}, 3 = ${user.limitBreaks[2]}</li>
+                <li>fleetTech statsBonus : collection = ${user.fleetTech["statsBonus"]["collection"]}, maxLevel = ${user.fleetTech["statsBonus"]["maxLevel"]}</li>
+                <li>fleetTech techPoints : collection = ${user.fleetTech["techPoints"]["collection"]}, maxLimitBreak = ${user.fleetTech["techPoints"]["maxLimitBreak"]}, maxLevel = ${user.fleetTech["techPoints"]["maxLevel"]}, total = ${user.fleetTech["techPoints"]["total"]}</li>
+                <li>construction : constructionTime = ${user.construction["constructionTime"]}, availableIn : light = ${user.construction["availableIn"]["light"]}, heavy = ${user.construction["availableIn"]["heavy"]}, aviation = ${user.construction["availableIn"]["aviation"]}, limited = ${user.construction["availableIn"]["limited"]}, exchange = ${user.construction["availableIn"]["exchange"]}</li>
+                <li>obtainedFrom : obtainedFrom = ${user.obtainedFrom["obtainedFrom"]}, fromMaps = ${user.obtainedFrom["fromMaps"]}</li>
+                <li>misc1 : artist = name = ${user.misc["artist"]["name"]}, url =${user.misc["artist"]["url"]}</li>
+                <li>misc2 : pixiv = name = ${user.misc["pixiv"]["name"]}, url =${user.misc["pixiv"]["url"]}</li>
+                <li>misc3 : twitter = name = ${user.misc["twitter"]["name"]}, url =${user.misc["twitter"]["url"]}</li>
+                <li>misc4 : web = name = ${user.misc["web"]["name"]}, url =${user.misc["web"]["url"]}</li>
+                <li>misc5 : voice = ${user.misc["voice"]}</li>
+                <li>skins : skin0 = name = ${user.skins[0].name}, image =${user.skins[0].image}, background = ${user.skins[0].background}, chibi = ${user.skins[0].chibi}, info = live2dModel = ${user.skins[0].info["live2dModel"]}, obtainedFrom = ${user.skins[0].info["obtainedFrom"]}</li>
+                <li>gallery : description = ${user.gallery[0].description}, url = ${user.gallery[0].url}</li>
+            </ul>
+        `;
+        })
+        document.getElementById('output').innerHTML = output;
+    })
+    .catch((err) => console.log(err));
+}
 	</script>
 </body>
 </html>

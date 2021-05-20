@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>fetch data format json local</title>
+</head>
+<body>
+	<button id="ambil">DATA</button>
+	<p id="output"></p>
+
+	<script>
+document.getElementById('ambil').addEventListener('click', getUsers);
+function getUsers() {
+fetch('https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/ships.json')
+.then((ships) => ships.json())
+.then((data) => {
+    let output = '<h2>Users</h2>';
+    console.log(data);
+    var ship = data[0]
+    data.forEach((user) => {
+        output += `
+            <ul>
+                <li>wikiUrl : ${ship._gid}</li>
+                <li>id : ${user.id}</li>
+                <li>names :  en = ${user.names["en"]}, jp = ${user.names["jp"]}, kr = ${user.names["kr"]}, cn = ${user.names["cn"]}, code = ${user.names["code"]}</li>
+                <li>exists : en = ${user.exists["en"]}, jp = ${user.exists["jp"]}, kr = ${user.exists["kr"]}, cn = ${user.exists["cn"]}</li>
+                <li>hexagon : ${user.hexagon}</li>
+                <li>class : ${user.class}</li>
+                <li>nationality : ${user.nationality}</li>
+                <li>hullType : ${user.hullType}</li>
+                <li>thumbnail : ${user.thumbnail}</li>
+                <li>rarity : ${user.rarity}</li>
+                <li>stars : star = ${user.stars["stars"]}, value = ${user.stars["value"]}</li>
+                <li>stats : hp = ${user.stats["baseStats"]["health"]}, armor = ${user.stats["baseStats"]["armor"]}, reload = ${user.stats["baseStats"]["reload"]}, luck = ${user.stats["baseStats"]["luck"]}, firepower = ${user.stats["baseStats"]["firepower"]}, torpedo = ${user.stats["baseStats"]["torpedo"]}, evasion = ${user.stats["baseStats"]["evasion"]}, speed = ${user.stats["baseStats"]["speed"]}, antiair = ${user.stats["baseStats"]["antiair"]}, aviation = ${user.stats["baseStats"]["aviation"]}, oilConsumption = ${user.stats["baseStats"]["oilConsumption"]}, accuracy = ${user.stats["baseStats"]["accuracy"]}, antisubmarineWarfare = ${user.stats["baseStats"]["antisubmarineWarfare"]}</li>
+                <li>stats : hp = ${user.stats["level100"]["health"]}, armor = ${user.stats["level100"]["armor"]}, reload = ${user.stats["level100"]["reload"]}, luck = ${user.stats["level100"]["luck"]}, firepower = ${user.stats["level100"]["firepower"]}, torpedo = ${user.stats["level100"]["torpedo"]}, evasion = ${user.stats["level100"]["evasion"]}, speed = ${user.stats["level100"]["speed"]}, antiair = ${user.stats["level100"]["antiair"]}, aviation = ${user.stats["level100"]["aviation"]}, oilConsumption = ${user.stats["level100"]["oilConsumption"]}, accuracy = ${user.stats["level100"]["accuracy"]}, antisubmarineWarfare = ${user.stats["level100"]["antisubmarineWarfare"]}</li>
+                <li>stats : hp = ${user.stats["level120"]["health"]}, armor = ${user.stats["level120"]["armor"]}, reload = ${user.stats["level120"]["reload"]}, luck = ${user.stats["level120"]["luck"]}, firepower = ${user.stats["level120"]["firepower"]}, torpedo = ${user.stats["level120"]["torpedo"]}, evasion = ${user.stats["level120"]["evasion"]}, speed = ${user.stats["level120"]["speed"]}, antiair = ${user.stats["level120"]["antiair"]}, aviation = ${user.stats["level120"]["aviation"]}, oilConsumption = ${user.stats["level120"]["oilConsumption"]}, accuracy = ${user.stats["level120"]["accuracy"]}, antisubmarineWarfare = ${user.stats["level120"]["antisubmarineWarfare"]}</li>
+            </ul>
+        `;
+        })
+        document.getElementById('output').innerHTML = output;
+    })
+    .catch((err) => console.log(err));
+}
+	</script>
+</body>
+</html>
