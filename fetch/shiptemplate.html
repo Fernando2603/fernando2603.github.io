@@ -11,33 +11,83 @@
 	<script type="text/javascript" src="../js/shipdata.js"></script>
 	<title>Azur Lane - Fernando2603</title>
 	<style>
-		.metadata table, .metadata tr, .metadata th, .metadata td {border: 1px solid white;}
-		tr, td {
-			width: 50%;
-		}
-		#shipname {font-size: 2em;font-weight: bolder;color:yellow;text-align: center;}
+		.main {font-weight: bolder;}
+
+		.metadata table {background-color: var(--SRare-AL);}
+		.metadata th, .metadata td {background-color: black;}
+		.metadata th {background-color: #505050;}
+		.metadata td {background-color: grey;}
+		.metadata {display: flex; border: 1px solid green;}
+		#metas td {padding-left: 10px;}
+		#metas {width: 100%;}
+		#metas th, #metas td {width: 25%;}
+
+		#shipname {font-size: 2em; font-weight: bolder; color:yellow; text-align: center;}
 		#images {
 			border: 1px solid yellow;
 			background-position: center;
+			background: var(--SRare-AL);
 			height: 120px;
 			width: 120px;}
-		.metadata {display: flex;
-			border: 1px solid green;}
-		.shipstats {display: flex;
 
-		}
-		.shipstats table, .shipstats th, .shipstats td {
-			border: 1px solid white;
-		}
-		.shipstats th {
-			width: 50px;
-			height: 50px;
-		}
-		.shipstats td {
+		.shipstats {display: flex; margin-top: 20px;}
+		.shipstats1 th, .shipstats1 td {background-color: #303030;}
+		.shipstats1 th {width: 50px; height: 50px;}
+		.shipstats1 td {
 			text-align: center;
-			width: 60px;
+			width: 65px;
 			height: 50px;
 		}
+		.shipstats1 {background-color: yellow;}
+
+		.shipstats2 {
+			background-color: var(--SRare-AL);
+			color: white;
+			margin-left: 10px; 
+			display: block; 
+			text-align: center;}
+		.shipstats2 th, .shipstats2 td {background-color: black;}
+		.shipstats2 tr {height: 30px;}
+		.shipstats2 th:nth-child(1) {width: 50px;}
+		.shipstats2 th:nth-child(2) {width: 200px;}
+		.shipstats2 th:nth-child(3) {width: 150px;}
+		.shipstats2 th:nth-child(4) {width: 50px;}
+
+		.shipstats3 {margin-top: 10px; margin-left: 10px; background-color: var(--SRare-AL);}
+		.shipstats3 th, .shipstats3 td {background-color: black;}
+		.shipstats3 tr:first-child {height: 30px;}
+		.shipstats3 tr {height: 50px;}
+		.shipstats3 th {width: 50px;}
+		.shipstats3 td {width: 404px;}
+
+		.shipstats4 {margin-top: 10px; margin-left: 10px; background-color: var(--SRare-AL);}
+		.shipstats4 th, .shipstats4 td {background-color: black;}
+		.shipstats4 th {width: 456px; height: 42px;}
+
+		.skills1, .skills2, .skills3 {
+			margin-bottom: 5px;
+			background-color: black; 
+			font-size: 15px;
+			display: block;
+			border: 1px solid yellow;
+			width: 710px;
+		}
+
+		.skills {
+			margin-top: 10px;
+		}
+		.skills th {text-align: center;}
+		.skills th, .skills td {background-color: black;}
+		.skills td {width: 572px;}
+		.skillnames {height: 25px; font-weight: bolder;}
+
+		#simg {
+			background-position: 50%;
+			background-size: cover;
+			width: 100%;
+			height: 100%;
+		}
+		#reg {display: block;}
 	</style>
 <body class="site-theme-dark">
     <div class="navbar">
@@ -52,110 +102,223 @@
     				<tr>
     					<img id="images" src="https://azurlane.koumakan.jp/w/images/7/72/TashkentIcon.png" alt="Tashkent">
     				</tr>
+    				<tr>
+    					<img id="images" src="https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/skins/433/Default/chibi.png" alt="chibi">
+    				</tr>
     			</tbody>
     		</table>
-	    	<table style="width: 50%">
+	    	<table id="metas">
 	    		<tbody>
 	    			<tr>
 	    				<th>Name</th>
 	    				<td>Tashkent</td>
+	    				<th>ID</th>
+	    				<td>433</td>
 	    			</tr>
 	    			<tr>
 	    				<th>Rarity</th>
 	    				<td>Super Rare</td>
+	    				<th>Faction</th>
+	    				<td>Northen Parliament</td>
 	    			</tr>
 	    			<tr>
 	    				<th>Construction Time</th>
 	    				<td>00:42:00</td>
-	    			</tr>
-	    		</tbody>
-	    	</table>
-	    	<table style="width: 50%">
-	    		<tbody>
-	    			<tr>
-	    				<th>ID</th>
-	    				<td>443</td>
-	    			</tr>
-	    			<tr>
-	    				<th>Faction</th>
-	    				<td>[image] Northen Parliament</td>
-	    			</tr>
-	    			<tr>
 	    				<th>Classification</th>
-	    				<td>[image] Destroyer</td>
+	    				<td>Destroyer</td>
 	    			</tr>
 	    		</tbody>
 	    	</table>
+	    	<table>
+    			<tbody>
+    				<tr>
+    					<img id="images" src="https://azurlane.koumakan.jp/w/images/b/b2/Northunion_orig.png" alt="Tashkent">
+    				</tr>
+    			</tbody>
+    		</table>
+
 	    </div>
 	    <div class="shipstats">
-	    	<table>
-	    		<tbody>
-	    			<tr>
-	    				<th><img src="https://azurlane.koumakan.jp/w/images/thumb/8/8b/Duration.png/25px-Duration.png" alt="health"></th>
-	    				<td>2648</td>
-	    			</tr>
-	    			<tr>
-	    				<th><img src="https://azurlane.koumakan.jp/w/images/thumb/d/d5/Firepower.png/25px-Firepower.png" alt="firepower"></th>
-	    				<td>179</td>
-	    			</tr>
-	    			<tr>
-	    				<th><img src="https://azurlane.koumakan.jp/w/images/thumb/6/6a/Aviation.png/25px-Aviation.png" alt="aviation"></th>
-	    				<td>0</td>
-	    			</tr>
-	    			<tr>
-	    				<th><img src="https://azurlane.koumakan.jp/w/images/thumb/4/40/Torpedo.png/25px-Torpedo.png" alt="torpedo"></th>
-	    				<td>279</td>
-	    			</tr>
-	    			<tr>
-	    				<th><img src="https://azurlane.koumakan.jp/w/images/thumb/0/0f/AntiAir.png/25px-AntiAir.png" alt="anti-air"></th>
-	    				<td>176</td>
-	    			</tr>
-	    			<tr>
-	    				<th><img src="https://azurlane.koumakan.jp/w/images/thumb/e/e3/Refill.png/25px-Refill.png" alt="reload"></th>
-	    				<td>204</td>
-	    			</tr>
-	    			<tr>
-	    				<th><strong>Spd</strong></th>
-	    				<td>51</td>
-	    			</tr>
-	    		</tbody>
-	    	</table>
-	    	<table>
-	    		<tbody>
-	    			<tr>
-	    				<th><img src="https://azurlane.koumakan.jp/w/images/thumb/0/06/Armor.png/25px-Armor.png" alt="armor"></th>
-	    				<td>Light</td>
-	    			</tr>
-	    			<tr>
-	    				<th><img src="https://azurlane.koumakan.jp/w/images/thumb/6/60/Hit.png/25px-Hit.png" alt="accuracy"></th>
-	    				<td>186</td>
-	    			</tr>
-	    			<tr>
-	    				<th><img src="https://azurlane.koumakan.jp/w/images/thumb/f/f0/Luck.png/24px-Luck.png" alt="luck"></th>
-	    				<td>86</td>
-	    			</tr>
-	    			<tr>
-	    				<th><img src="https://azurlane.koumakan.jp/w/images/thumb/d/d2/Evasion.png/25px-Evasion.png" alt="evasion"></th>
-	    				<td>179</td>
-	    			</tr>
-	    			<tr>
-	    				<th><img src="https://azurlane.koumakan.jp/w/images/thumb/9/90/Consumption.png/25px-Consumption.png" alt="cost"></th>
-	    				<td>10</td>
-	    			</tr>
-	    			<tr>
-	    				<th><img src="https://azurlane.koumakan.jp/w/images/thumb/1/16/ASW.png/25px-ASW.png" alt="antisubmarinewarfare"></th>
-	    				<td>208</td>
-	    			</tr>
-	    			<tr>
-	    				<th>eHP</th>
-	    				<td>9418</td>
-	    			</tr>
-	    		</tbody>
-	    	</table>
+	    	<div>
+	    		<table class="shipstats1">
+		    		<tbody>
+		    			<tr>
+		    				<th colspan="4">Ship Stats Level 120</th>
+		    			</tr>
+		    			<tr>
+		    				<th><img src="https://azurlane.koumakan.jp/w/images/thumb/8/8b/Duration.png/25px-Duration.png" alt="health"></th>
+		    				<td>2648</td>
+		    				<th><img src="https://azurlane.koumakan.jp/w/images/thumb/0/06/Armor.png/25px-Armor.png" alt="armor"></th>
+		    				<td>Light</td>
+		    			</tr>
+		    			<tr>
+		    				<th><img src="https://azurlane.koumakan.jp/w/images/thumb/d/d5/Firepower.png/25px-Firepower.png" alt="firepower"></th>
+		    				<td>179</td>
+		    				<th><img src="https://azurlane.koumakan.jp/w/images/thumb/6/60/Hit.png/25px-Hit.png" alt="accuracy"></th>
+		    				<td>186</td>
+		    			</tr>
+		    			<tr>
+		    				<th><img src="https://azurlane.koumakan.jp/w/images/thumb/6/6a/Aviation.png/25px-Aviation.png" alt="aviation"></th>
+		    				<td>0</td>
+		    				<th><img src="https://azurlane.koumakan.jp/w/images/thumb/f/f0/Luck.png/24px-Luck.png" alt="luck"></th>
+		    				<td>86</td>
+		    			</tr>
+		    			<tr>
+		    				<th><img src="https://azurlane.koumakan.jp/w/images/thumb/4/40/Torpedo.png/25px-Torpedo.png" alt="torpedo"></th>
+		    				<td>279</td>
+		    				<th><img src="https://azurlane.koumakan.jp/w/images/thumb/d/d2/Evasion.png/25px-Evasion.png" alt="evasion"></th>
+		    				<td>179</td>
+		    			</tr>
+		    			<tr>
+		    				<th><img src="https://azurlane.koumakan.jp/w/images/thumb/0/0f/AntiAir.png/25px-AntiAir.png" alt="anti-air"></th>
+		    				<td>176</td>
+		    				<th><img src="https://azurlane.koumakan.jp/w/images/thumb/9/90/Consumption.png/25px-Consumption.png" alt="cost"></th>
+		    				<td>10</td>
+		    			</tr>
+		    			<tr>
+		    				<th><img src="https://azurlane.koumakan.jp/w/images/thumb/e/e3/Refill.png/25px-Refill.png" alt="reload"></th>
+		    				<td>204</td>
+		    				<th><img src="https://azurlane.koumakan.jp/w/images/thumb/1/16/ASW.png/25px-ASW.png" alt="antisubmarinewarfare"></th>
+		    				<td>208</td>
+		    			</tr>
+		    			<tr>
+		    				<th><strong>Spd</strong></th>
+		    				<td>51</td>
+		    				<th>eHP</th>
+		    				<td>9418</td>
+		    			</tr>
+		    		</tbody>
+		    	</table>
+	    	</div>
+	    	<div id="reg">
+	    		<table class="shipstats2">
+		    		<tbody>
+		    			<tr>
+		    				<th colspan="4">Gear</th>
+		    			</tr>
+		    			<tr>
+		    				<th>Slot</th>
+		    				<th>Efficiency</th>
+		    				<th>Equippable</th>
+		    				<th>Max #</th>
+		    			</tr>
+		    			<tr>
+		    				<td>1</td>
+		    				<td>145% → 165%</td>
+		    				<td>DD Guns</td>
+		    				<td>1</td>
+		    			</tr>
+		    			<tr>
+		    				<td>2</td>
+		    				<td>120% → 125%</td>
+		    				<td>Torpedoes</td>
+		    				<td>2</td>
+		    			</tr>
+		    			<tr>
+		    				<td>3</td>
+		    				<td>100% → 105%</td>
+		    				<td>Anti-Air Guns</td>
+		    				<td>1</td>
+		    			</tr>
+		    		</tbody>
+		    	</table>
+		    	<table class="shipstats3">
+	    			<tbody>
+	    				<tr>
+	    					<th colspan="2">Limit Break Ranks</th>
+	    				</tr>
+	    				<tr>
+	    					<th>1</th>
+	    					<td>Unlock All Out Assault Ⅰ / Main Gun Efficiency +5%</td>
+	    				</tr>
+	    				<tr>
+	    					<th>2</th>
+	    					<td>Torpedo Base +1 / Torpedo Preload +1 / Main Gun Efficiency +10% </td>
+	    				</tr>
+	    				<tr>
+	    					<th>3</th>
+	    					<td>Upgrade All Out Assault Ⅰ→Ⅱ / All Weapons' Efficiency +5%</td>
+	    				</tr>
+	    			</tbody>
+	    		</table>
+	    		<table class="shipstats4">
+	    			<tbody>
+	    				<tr>
+	    					<th>Available in Limited Construction during "Northern Overture" event. </th>
+	    				</tr>
+	    			</tbody>
+	    		</table>
+	    	</div>
 	    </div>
+	    <div class="skills">
+	    		<div>
+		    		<table class="skills1">
+		    			<tbody>
+		    				<tr>
+		    					<th rowspan="2"><img id="simg" src="https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/skills/433/the_blue_cruiser.png"></th>
+		    					<th class="skillnames">The Blue Cruiser</th>
+		    				</tr>
+		    				<tr>
+		    					<td class="skilldesc">At the start of the battle: increases this ship's FP by 4.0% (10.0%) and spawns Snezhinka, a summon which fights for 20 (50)s and lowers the Speed of enemies hit by it by 1.5% stacking up to 15% for 4 seconds (its DMG dealt is based on skill level). Additionally, when this ship sinks an enemy: increases this ship's FP by 0.5% (2.0%) (can be stacked up to 5 times.)</td>
+		    				</tr>
+		    			</tbody>
+		    		</table>
+	    		</div>
+	    		<div>
+		    		<table class="skills2">
+		    			<tbody>
+		    				<tr>
+		    					<th rowspan="2"><img id="simg" src="https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/skills/433/trajectory_marking.png"></th>
+		    					<th class="skillnames">Trajectory Marking</th>
+		    				</tr>
+		    				<tr>
+		    					<td class="skilldesc">At the start of the battle, increases Main Gun Efficiency by 4.0% (10.0%) and Accuracy by 5.0% (15.0%) for all your Northern Parliament DDs that have a Northern Parliament Main Gun equipped.</td>
+		    				</tr>
+		    			</tbody>
+		    		</table>
+	    		</div>
+	    		<div>
+		    		<table class="skills3">
+		    			<tbody>
+		    				<tr>
+		    					<th rowspan="2"><img id="simg" src="https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/skills/433/all_out_assault.png"></th>
+		    					<th class="skillnames">All Out Assault</th>
+		    				</tr>
+		    				<tr>
+		    					<td class="skilldesc">Activates All Out Assault Ⅰ (Ⅱ): Tashkent once every 15 (10) times the Main Guns are fired.</td>
+		    				</tr>
+		    			</tbody>
+		    		</table>
+	    		</div>
+	    		<div>
+		    		<table class="skills3">
+		    			<tbody>
+		    				<tr>
+		    					<th rowspan="2"><img id="simg" src="https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/skills/433/all_out_assault.png"></th>
+		    					<th class="skillnames">All Out Assault</th>
+		    				</tr>
+		    				<tr>
+		    					<td class="skilldesc">Activates All Out Assault Ⅰ (Ⅱ): Tashkent once every 15 (10) times the Main Guns are fired.</td>
+		    				</tr>
+		    			</tbody>
+		    		</table>
+	    		</div>
+	    		<div>
+		    		<table class="skills3">
+		    			<tbody>
+		    				<tr>
+		    					<th rowspan="2"><img id="simg" src="https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/skills/433/all_out_assault.png"></th>
+		    					<th class="skillnames">All Out Assault</th>
+		    				</tr>
+		    				<tr>
+		    					<td class="skilldesc">Activates All Out Assault Ⅰ (Ⅱ): Tashkent once every 15 (10) times the Main Guns are fired.</td>
+		    				</tr>
+		    			</tbody>
+		    		</table>
+	    		</div>
+	    	</div>
     </div>
 <script>
-
 </script>
 </body>
 </html>
