@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<title>fetch data format json local</title>
+</head>
+<body>
+    <p id="test"></p>
+	<p id="output"></p>
+
+	<script>
+let jsondata = "";
+let apiUrl = "ship.json"
+
+async function getJson(url) {
+    let response = await fetch(url);
+    let data = await response.json()
+    return data;
+}
+
+async function main() {
+    //OPTION 1
+    getJson(apiUrl)
+        .then(data => console.log(data));
+        
+    //OPTION 2
+    jsondata = await getJson(apiUrl)
+    console.log(jsondata);
+}
+main();
+
+
+	</script>
+</body>
+</html>
