@@ -1,37 +1,205 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+    <link rel="stylesheet" type="text/css" href="../css/styles.css">
+    <link rel="stylesheet" type="text/css" href="../css/al-styles.css">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<title>fetch data format json local</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="../js/script.js"></script>
+    <script type="text/javascript" src="../js/shipdata.js"></script>
+    <script type="text/javascript" src="ships.js"></script>
+    <title>Fernando2603 Github</title>
+    <style>
+        .ship-warps {
+            box-sizing: border-box;
+            display: block;;
+        }
+
+        .ship-sections {
+            font-size: 2rem;
+            color: #9FADBD;
+            display: block;
+            margin-bottom: 10px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .ship-containers {
+            display: grid;
+            grid-gap: 0;
+            grid-row-gap: 30px;
+            grid-column-gap: 15px;
+            grid-template-columns: repeat(auto-fill, 350px);
+            justify-content: space-evenly;
+            font-weight: bolder;
+        }
+
+        .shipcards {
+            font-size: 1.2rem;
+            height: 210px;
+            border-radius: 3px;
+            color: rgb(var(--color-text-bright));
+            display: inline-block;
+            position: relative;
+            width: 100%
+        }
+        #Ultra-Rares .shipcovers, #Decisives .shipcovers {
+            background: var(--URare-AL);
+        }   
+        .shipcovers {
+            background-position: 50%;
+            background-repeat: no-repeat;
+            background-size: cover;
+            border-radius: 3px;
+            height: 100%;
+            width: 100%;
+            left: 0;
+            display: block;
+            position: absolute;
+            top: 0;
+            z-index: 0;
+
+        }
+        #Ultra-Rares, #Decisives {
+            -webkit-box-shadow: 0 0 8px 1px rgb(255 0 0 / 100%);
+                    box-shadow: 0 0 8px 1px rgb(255 0 0 / 100%);
+        }
+        #imgs {
+            bottom: 0;
+            left: 0;
+            position: absolute;
+            width: 100px;
+            border: 1px solid black;
+        }
+        #chibi {width: 100px;}
+
+        .shipnames {
+            background: rgba(var(--color-black),.8);
+            bottom: 0;
+            left: 0;
+            padding: 3px;
+            padding-bottom: 3px;
+            position: absolute;
+            width: 100px;
+            z-index: 2;
+            text-align: center;
+            font-size: 12px;
+            text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+        }
+        .shipstats {margin-left: 100px; font-size: 12px; bottom: 0; position: absolute;}
+        .ssim {}
+        .shipstats {color: black;}
+        .shipstats div {height: 16px; width: 16px; background-size: cover!important; background-repeat: no-repeat!important;}
+    </style>
 </head>
-<body>
-    <p id="test"></p>
-	<p id="output"></p>
+<body class="site-theme-dark">
+    <div class="alnavbar">
+        <a href="index">Home</a>
+        <a href="../AL">Back</a>
+    </div>
+    <div class="almain">
+        <div class="card-list" id="card-list">
+            <div class="ship-warps">
+                <h3 class="ship-sections">Cards</h3>
+                <div class="ship-containers">
+                    <div class="shipcards" id="Ultra-Rares">
+                        <div class="shipcovers">
+                            <img id="chibi" src="https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/skins/433/Default/chibi.png">
+                            <img id="imgs" src="https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/skins/Collab021/thumbnail.png">
+                            <div class="shipnames">
+                                TEST TEST TEST TEST TEST TEST TEST
+                            </div>
+                        </div>
+                        <div class="shipstats">
+                            <table class="shipstats1">
+                                <tbody>
+                                    <tr>
+                                        <th><img src="https://azurlane.koumakan.jp/w/images/thumb/8/8b/Duration.png/25px-Duration.png" alt="health"></th>
+                                        <td>2648</td>
+                                        <th><img src="https://azurlane.koumakan.jp/w/images/thumb/0/06/Armor.png/25px-Armor.png" alt="armor"></th>
+                                        <td>Light</td>
+                                    </tr>
+                                    <tr>
+                                        <th><img src="https://azurlane.koumakan.jp/w/images/thumb/d/d5/Firepower.png/25px-Firepower.png" alt="firepower"></th>
+                                        <td>179</td>
+                                        <th><img src="https://azurlane.koumakan.jp/w/images/thumb/6/60/Hit.png/25px-Hit.png" alt="accuracy"></th>
+                                        <td>186</td>
+                                    </tr>
+                                    <tr>
+                                        <th><img src="https://azurlane.koumakan.jp/w/images/thumb/6/6a/Aviation.png/25px-Aviation.png" alt="aviation"></th>
+                                        <td>0</td>
+                                        <th><img src="https://azurlane.koumakan.jp/w/images/thumb/f/f0/Luck.png/24px-Luck.png" alt="luck"></th>
+                                        <td>86</td>
+                                    </tr>
+                                    <tr>
+                                        <th><img src="https://azurlane.koumakan.jp/w/images/thumb/4/40/Torpedo.png/25px-Torpedo.png" alt="torpedo"></th>
+                                        <td>279</td>
+                                        <th><img src="https://azurlane.koumakan.jp/w/images/thumb/d/d2/Evasion.png/25px-Evasion.png" alt="evasion"></th>
+                                        <td>179</td>
+                                    </tr>
+                                    <tr>
+                                        <th><img src="https://azurlane.koumakan.jp/w/images/thumb/0/0f/AntiAir.png/25px-AntiAir.png" alt="anti-air"></th>
+                                        <td>176</td>
+                                        <th><img src="https://azurlane.koumakan.jp/w/images/thumb/9/90/Consumption.png/25px-Consumption.png" alt="cost"></th>
+                                        <td>10</td>
+                                    </tr>
+                                    <tr>
+                                        <th><img src="https://azurlane.koumakan.jp/w/images/thumb/e/e3/Refill.png/25px-Refill.png" alt="reload"></th>
+                                        <td>204</td>
+                                        <th><img src="https://azurlane.koumakan.jp/w/images/thumb/1/16/ASW.png/25px-ASW.png" alt="antisubmarinewarfare"></th>
+                                        <td>208</td>
+                                    </tr>
+                                    <tr>
+                                        <th><strong>Spd</strong></th>
+                                        <td>51</td>
+                                        <th>eHP</th>
+                                        <td>9418</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="shipcards" id="Ultra-Rares">
+                        <div class="shipcovers">
+                        </div>
+                    </div>
+                    <div class="shipcards" id="Ultra-Rares">
+                        <div class="shipcovers">
 
-	<script>
-let jsondata = "";
-let apiUrl = "ship.json"
+                        </div>
+                    </div>
+                    <div class="shipcards" id="Ultra-Rares">
+                        <div class="shipcovers">
 
-async function getJson(url) {
-    let response = await fetch(url);
-    let data = await response.json()
-    return data;
-}
+                        </div>
+                    </div>
+                    <div class="shipcards" id="Ultra-Rares">
+                        <div class="shipcovers">
 
-async function main() {
-    //OPTION 1
-    getJson(apiUrl)
-        .then(data => console.log(data));
-        
-    //OPTION 2
-    jsondata = await getJson(apiUrl)
-    console.log(jsondata);
-}
-main();
+                        </div>
+                    </div>
+                    <div class="shipcards" id="Ultra-Rares">
+                        <div class="shipcovers">
 
+                        </div>
+                    </div>
+                    <div class="shipcards" id="Ultra-Rares">
+                        <div class="shipcovers">
 
-	</script>
+                        </div>
+                    </div>
+                    <div class="shipcards" id="Ultra-Rares">
+                        <div class="shipcovers">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script>
+</script>
 </body>
 </html>
