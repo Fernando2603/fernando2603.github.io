@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+	<link rel="stylesheet" type="text/css" href="../css/styles.css">
+	<link rel="stylesheet" type="text/css" href="../css/al-styles.css">
+	<link rel="stylesheet" type="text/css" href="template.css">
+<head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+	<meta content="utf-8" http-equiv="encoding">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script type="text/javascript" src="../js/script.js"></script>
+	<script type="text/javascript" src="../js/shipdata.js"></script>
+	<script type="text/javascript" src="../js/Exp.js"></script>
+	<script type="text/javascript" src="template.js"></script>
+	<title>Template</title>
+</head>
+<body class="site-theme-dark">
+    <div class="alnavbar">
+        <a href="index">Home</a>
+        <a>Sort By ID</a>
+    </div>
+    <div class="almain">
+    	<div class="tablists">
+    		<ul>
+    			<li><a class="tablinks active" onclick="openCards(event, 'tab0')">Experience</a></li>
+    			<li><a class="tablinks" onclick="openCards(event, 'tab1')">Operation Siren</a></li>
+    			<li><a class="tablinks" onclick="openCards(event, 'tab2')">Anti-Air Calculator</a></li>
+    			<li><a class="tablinks" onclick="openCards(event, 'tab3')">Research</a></li>
+    			<li><a class="tablinks" onclick="openCards(event, 'tab4')">Chapter</a></li>
+    			<li><a class="tablinks" onclick="openCards(event, 'tab5')">Gear</a></li>
+    			<li><a class="tablinks" onclick="openCards(event, 'tab6')">Blueprints</a></li>
+    			<li><a class="tablinks" onclick="openCards(event, 'tab7')">Shipyard</a></li>
+    			<li><a class="tablinks" onclick="openCards(event, 'tab8')">Gear Lab</a></li>
+    			<li><a class="tablinks" onclick="openCards(event, 'tab9')">META Lab</a></li>
+    		</ul>
+    	</div>
+    	<div class="tabscontent">
+    		<div class="tabcontent" id="tab0" style="display: block;">
+    			<h2>Experience</h2>
+    			<div>
+    				<div class="tablistsChild">
+    					<ul>
+    						<li><a class="tablinksChild active" onclick="openCardsChild(event, 'tab0x1')">Commander Experience</a></li>
+    						<li><a class="tablinksChild" onclick="openCardsChild(event, 'tab0x2')">Ship Experience</a></li>
+    						<li><a class="tablinksChild" onclick="openCardsChild(event, 'tab0x3')">Stage Experience</a></li>
+    					</ul>
+    				</div>
+    					<div class="tabcontentChild" id="tab0x1" style="display: block;">
+			    			<h3>Commander Experience</h3>
+			    			<div>
+			    				<div>
+			    					<table class="cexpB">
+			    						<tbody>
+			    							<tr>
+			    								<th>Ships</th>
+			    								<td>2</td>
+			    								<td>3</td>
+			    								<td>4</td>
+			    								<td>5</td>
+			    								<td>6</td>
+			    								<td>7</td>
+			    								<td>8</td>
+			    								<td>9</td>
+			    							</tr>
+			    							<tr>
+			    								<th>Campaign, A-rank</th>
+			    								<td>20</td>
+			    								<td>27</td>
+			    								<td>35</td>
+			    								<td>42</td>
+			    								<td>49</td>
+			    								<td>57</td>
+			    								<td>65</td>
+			    								<td>72</td>
+			    							</tr>
+			    							<tr>
+			    								<th>Campaign, S-rank</th>
+			    								<td>24</td>
+			    								<td>32</td>
+			    								<td>42</td>
+			    								<td>51</td>
+			    								<td>59</td>
+			    								<td>69</td>
+			    								<td>78</td>
+			    								<td>87</td>
+			    							</tr>
+			    							<tr>
+			    								<th>Daily raid, S-rank</th>
+			    								<td colspan="8">60</td>
+			    							</tr>
+			    						</tbody>
+			    					</table>
+			    				</div>
+			    				<div>
+			    					<p>Difference level gap between <strong>Commander</strong> & <strong>Enemy</strong> reduce the experience gain. 21-40 level difference reduce the experience by half, 41+ level difference reduce 1/10 experience of original value.</p>
+			    				</div>
+			    				<div>
+			    					<table>
+				    					<tbody id="CxChart">
+				    						<tr>
+				    							<th class="clevel">Level</th>
+				    							<th class="cnext">Next</th>
+				    							<th class="ctotal">Total</th>
+				    							<th class="coils">Oils</th>
+				    							<th class="ccoins">Coins</th>
+				    							<th class="clevel">Level</th>
+				    							<th class="cnext">Next</th>
+				    							<th class="ctotal">Total</th>
+				    							<th class="coils">Oils</th>
+				    							<th class="ccoins">Coins</th>
+				    							<th class="clevel">Level</th>
+				    							<th class="cnext">Next</th>
+				    							<th class="ctotal">Total</th>
+				    							<th class="coils">Oils</th>
+				    							<th class="ccoins">Coins</th>
+				    							<th class="clevel">Level</th>
+				    							<th class="cnext">Next</th>
+				    							<th class="ctotal">Total</th>
+				    							<th class="coils">Oils</th>
+				    							<th class="ccoins">Coins</th>
+				    						</tr>
+				    					</tbody>
+				    				</table>
+			    				</div>
+			    			</div>
+			            </div>
+			            <div class="tabcontentChild" id="tab0x2" style="display: none;">
+			    			<h3>Ship Experience</h3>
+			            </div>
+			            <div class="tabcontentChild" id="tab0x3" style="display: none;">
+			    			<h3>Stage Experience</h3>
+			            </div>
+    				<div>
+    					
+    				</div>
+    			</div>
+            </div>
+    		<div class="ship-warp tabcontent" id="tab1">
+    			<h2>test2</h2>
+            </div>
+            <div class="ship-warp tabcontent" id="tab2">
+            	<h2>test3</h2>
+            </div>
+            <div class="ship-warp tabcontent" id="tab3">
+            	<h2>test4</h2>
+            </div>
+            <div class="ship-warp tabcontent" id="tab4">
+            	<h2>test5</h2>
+            </div>
+            <div class="ship-warp tabcontent" id="tab5">
+            	<h2>test6</h2>
+            </div>
+            <div class="ship-warp tabcontent" id="tab6">
+            	<h2>test7</h2>
+            </div>
+            <div class="ship-warp tabcontent" id="tab7">
+            	<h2>test8</h2>
+            </div>
+            <div class="ship-warp tabcontent" id="tab8">
+            	<h2>test9</h2>
+            </div>
+            <div class="ship-warp tabcontent" id="tab9">
+            	<h2>test10</h2>
+            </div>
+    	</div>
+    </div>
+<script>
+	$(document).ready(ExpLoad());
+</script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+.tablists li {
+	list-style: none;
+}
+
+.tablists, .tablists ul, .tablists li {
+	top: 0;
+	justify-content: center!important;
+	padding: 0 1px 0 1px;
+	text-align: center;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.active {
+	background-color: grey;
+}
+
+.tablinks, .tablinksChild {
+	padding: 20px;
+	font-weight: bolder;
+}
+
+.tablists {
+	border-bottom: 3px solid red;
+}
+
+.tabcontent h2 {
+	text-align: center;
+}
+
+.tabcontentChild h3 {
+	justify-content: center;
+	text-align: center;
+}
+.tablistsChild li {list-style: none;}
+.tablistsChild, .tablistsChild li, .tablistsChild ul {
+	justify-content: center!important;
+	text-align: center;
+	display: flex;
+	flex-wrap: wrap;
+	font-size: 1rem;
+}
+
+.tablistsChild {
+	border-bottom: 1px solid red;
+}
+
+table {
+	background-color: grey;
+	width: 100%;
+}
+
+tr, th, td {
+	background-color: black;
+	width: 100%;
+}
+
+.clevel {
+	width: 3%;
+	background-color: rgb(50 50 50);
+}
+.cnext {
+	width: 6%;
+	background-color: rgb(0 0 50);
+}
+.ctotal {
+	width: 6%;
+	background-color: rgb(0 0 60);
+}
+.coils {
+	width: 5%;
+	background-color: black;
+}
+.ccoins {
+	width: 5%;
+	background-color: #ee9;
+	color: black;
+}
+
+.cexpB {
+	background-color: grey;
+	width: 40%;
+}
+
+.cexpB th {
+	width: 20%;
+}
+.cexpB td {
+	width: 5%;
+	text-align: center;
+	font-weight: bolder;
+}
