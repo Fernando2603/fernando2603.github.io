@@ -64,108 +64,260 @@ var q20 = '</th>' +
 function commanderLevel (lv1, nx1, tt1, ol1, co1, lv2, nx2, tt2, ol2, co2, lv3, nx3, tt3, ol3, co3, lv4, nx4, tt4, ol4, co4) {
 	return q0+lv1+q1+nx1+q2+tt1+q3+ol1+q4+co1+q5+lv2+q6+nx2+q7+tt2+q8+ol2+q9+co2+q10+lv3+q11+nx3+q12+tt3+q13+ol3+q14+co3+q15+lv4+q16+nx4+q17+tt4+q18+ol4+q19+co4+q20
 }
+var w0 = '<tr>' +
+		 '<th class="slevel">';
+var w1 = '</th>' +
+		 '<th class="snext">';
+var w2 = '</th>' +
+		 '<th class="stotal">';
+var w3 = '</th>' +
+		 '<th class="slevel">';
+var w4 = '</th>' +
+		 '<th class="snext">';
+var w5 = '</th>' +
+		 '<th class="stotal">';
+var w6 = '</th>' +
+		 '<th class="slevel">';
+var w7 = '</th>' +
+		 '<th class="snext">';
+var w8 = '</th>' +
+		 '<th class="stotal">';
+var w9 = '</th>' +
+		 '<th class="slevel">';
+var w10 = '</th>' +
+		 '<th class="snext">';
+var w11 = '</th>' +
+		 '<th class="stotal">';
+var w12 = '</th>' +
+		  '</tr>';
 
-function get_experience_to_next_level (level) {
-	if (!(+level>0)) {
-		return-1;
-	}
-	if (level<=40) {
-		return 100*level;
-	}
-	else if (level<=60) {
-		return 4000+200*(level-40)
-	}
-	else if (level<=69) {
-		return 8000+300*(level-60);
-	}
-	else if (level<=70) {
-		return 10700+1400*(level-69);
-	}
-	else if (level<=79) {
-		return 12100+440*(level-70);
-	}
-	else if (level<=89) {
-		return 17250+575*(level-80);
-	}
-	else if (level<=90) {
-		return 22425+1575*(level-89);
-	}
-	else if (level<=92) {
-		return 24000+1200*(level-90);
-	}
-	else if (level<=94) {
-		return 26400+2400*(level-92);
-	}
-	else if (level<=95) {
-		return 31200+4800*(level-94);
-	}
-	else if (level<=97) {
-		return 36000+6000*(level-95);
-	}
-	else if (level<=98) {
-		return 48000+24000*(level-97);
-	}
-	else if (level<=99) {
-		return 72000+86400*(level-98);
-	}
-	else if (level<=104) {
-		return 70000+2000*(level-100);
-	}
-	else if (level<=105) {
-		return 85000+7000*(level-105);
-	}
-	else if (level<=110) {
-		return 145000+12000*(level-110);
-	}
-	else if (level<=115) {
-		return 235000+18000*(level-115);
-	}
-	else if (level<120) {
-		return 235000+21000*(level-115);
-	}
-	else {
-		return-1;
-	}
+function shipLevel (sl1, sn1, st1, sl2, sn2, st2, sl3, sn3, st3, sl4, sn4, st4) {
+	return w0+sl1+w1+sn1+w2+st1+w3+sl2+w4+sn2+w5+st2+w6+sl3+w7+sn3+w8+st3+w9+sl4+w10+sn4+w11+st4+w12
 }
-
-var experience_table = null;
-function populate_experience_table () {
-	if (experience_table) {
-		return;
-	}
-	experience_table = new Array(120);
-	experience_table[0] = 0;
-	for (let i=1;i<120;i++) {
-		experience_table[i] = experience_table[i-1] + get_experience_to_next_level(i);
-	}
-}
-
-populate_experience_table();
-function get_total_exp (level) {
-	if (level>0&&level<=120) {
-		return experience_table[level-1];
-	}
-	else {
-		return-1;
-	}
-}
-function get_exp_diff (current_level,target_level) {
-	let current_exp=get_total_exp(current_level);
-	let target_exp=get_total_exp(target_level);
-	if (current_exp<0||target_exp<0||target_exp<current_exp) {
-		return-1;
-	}
-	return target_exp-current_exp;
-}
-
-function calculate_experience () {
-	let current_level=$('#currentleveltextfield').prop("value");
-	let target_level=$('#targetleveltextfield').prop("value");
-	let exp_diff=get_exp_diff(current_level,target_level);
-	if (exp_diff<0) {
-		$('#expneeded').prop("innerHTML","Some Error Occurred :(");
-	}
-	else {
-		$('#expneeded').prop("innerHTML",exp_diff.toLocaleString());
-	}
-}
+var tabExp =		'<div>' +
+    					'<div class="tabcontentChild" id="tab0x1" style="display: block;">' +
+			    			'<h3>Commander Experience</h3>' +
+			    			'<div>' +
+			    				'<div>' +
+			    					'<table class="cexpB">' +
+			    						'<tbody>' +
+			    							'<tr>' +
+			    								'<th>Ships</th>' +
+			    								'<td>2</td>' +
+			    								'<td>3</td>' +
+			    								'<td>4</td>' +
+			    								'<td>5</td>' +
+			    								'<td>6</td>' +
+			    								'<td>7</td>' +
+			    								'<td>8</td>' +
+			    								'<td>9</td>' +
+			    							'</tr>' +
+			    							'<tr>' +
+			    								'<th>Campaign, A-rank</th>' +
+			    								'<td>20</td>' +
+			    								'<td>27</td>' +
+			    								'<td>35</td>' +
+			    								'<td>42</td>' +
+			    								'<td>49</td>' +
+			    								'<td>57</td>' +
+			    								'<td>65</td>' +
+			    								'<td>72</td>' +
+			    							'</tr>' +
+			    							'<tr>' +
+			    								'<th>Campaign, S-rank</th>' +
+			    								'<td>24</td>' +
+			    								'<td>32</td>' +
+			    								'<td>42</td>' +
+			    								'<td>51</td>' +
+			    								'<td>59</td>' +
+			    								'<td>69</td>' +
+			    								'<td>78</td>' +
+			    								'<td>87</td>' +
+			    							'</tr>' +
+			    							'<tr>' +
+			    								'<th>Daily raid, S-rank</th>' +
+			    								'<td colspan="8">60</td>' +
+			    							'</tr>' +
+			    						'</tbody>' +
+			    					'</table>' +
+			    				'</div>' +
+			    				'<div>' +
+			    					'<p>Difference level gap between <strong>Commander</strong> & <strong>Enemy</strong> reduce the experience gain. 21-40 level difference reduce the experience by half, 41+ level difference reduce 1/10 experience of original value.</p>' +
+			    				'</div>' +
+			    				'<div class="cexpt">' +
+			    					'<table>' +
+				    					'<tbody id="CxChart">' +
+				    						'<tr>' +
+				    							'<th class="clevel">Level</th>' +
+				    							'<th class="cnext">Next</th>' +
+				    							'<th class="ctotal">Total</th>' +
+				    							'<th class="coils">Oils</th>' +
+				    							'<th class="ccoins">Coins</th>' +
+				    							'<th class="clevel">Level</th>' +
+				    							'<th class="cnext">Next</th>' +
+				    							'<th class="ctotal">Total</th>' +
+				    							'<th class="coils">Oils</th>' +
+				    							'<th class="ccoins">Coins</th>' +
+				    							'<th class="clevel">Level</th>' +
+				    							'<th class="cnext">Next</th>' +
+				    							'<th class="ctotal">Total</th>' +
+				    							'<th class="coils">Oils</th>' +
+				    							'<th class="ccoins">Coins</th>' +
+				    							'<th class="clevel">Level</th>' +
+				    							'<th class="cnext">Next</th>' +
+				    							'<th class="ctotal">Total</th>' +
+				    							'<th class="coils">Oils</th>' +
+				    							'<th class="ccoins">Coins</th>' +
+				    						'</tr>' +
+				    					'</tbody>' +
+				    				'</table>' +
+			    				'</div>' +
+			    			'</div>' +
+			            '</div>' +
+			            '<div class="tabcontentChild" id="tab0x2" style="display: none;">' +
+			    			'<h3>Ship Experience</h3>' +
+			    			'<div>' +
+			    				'<p>Total Experience Chart</p>' +
+			    				'<div class="expcs">' +
+			    					'<table>' +
+			    						'<tbody>' +
+			    							'<tr>' +
+			    								'<th>Ship Rarity</th>' +
+				    							'<td>Limit Break 1</td>' +
+				    							'<td>Limit Break 2</td>' +
+				    							'<td>Limit Break 3</td>' +
+				    							'<td>Level 100</td>' +
+				    							'<td>Level 105</td>' +
+				    							'<td>Level 110</td>' +
+				    							'<td>Level 115</td>' +
+				    							'<td>Level 120</td>' +
+				    						'</tr>' +
+				    						'<tr>' +
+				    							'<th class="srar1">N/R/E/SR/PR</th>' +
+				    							'<td>4500</td>' +
+				    							'<td>43500</td>' +
+				    							'<td>289500</td>' +
+				    							'<td>1120675</td>' +
+				    							'<td>1490675</td>' +
+				    							'<td>2035675</td>' +
+				    							'<td>2940675</td>' +
+				    							'<td>4325675</td>' +
+				    						'</tr>' +
+				    						'<tr>' +
+				    							'<th class="srar2">UR/DR</th>' +
+				    							'<td>5400</td>' +
+				    							'<td>5220</td>' +
+				    							'<td>347400</td>' +
+				    							'<td>1241000</td>' +
+				    							'<td>1685000</td>' +
+				    							'<td>2339000</td>' +
+				    							'<td>3425000</td>' +
+				    							'<td>5087000</td>' +
+				    						'</tr>' +
+			    						'</tbody>' +
+			    					'</table>' +
+			    				'</div>' +
+			    				'<p>Experience Chart Level 120</p>' +
+			    				'<div class="expcs2">' +
+			    					'<table>' +
+			    						'<tbody>' +
+			    							'<tr>' +
+			    								'<th rowspan="4">Normal/Rare/Elite/Super Rare/Priority</th>' +
+			    								'<td>100 > 105</td>' +
+			    								'<td>370000</td>' +
+			    							'</tr>' +
+			    							'<tr>' +
+			    								'<td>100 > 110</td>' +
+			    								'<td>915000</td>' +
+			    								'<td>105 > 110</td>' +
+			    								'<td>545000</td>' +
+			    							'</tr>' +
+			    							'<tr>' +
+			    								'<td>100 > 115</td>' +
+			    								'<td>1820000</td>' +
+			    								'<td>105 > 115</td>' +
+			    								'<td>1450000</td>' +
+			    								'<td>110 > 115</td>' +
+			    								'<td>905000</td>' +
+			    							'</tr>' +
+			    							'<tr>' +
+			    								'<td>100 > 120</td>' +
+			    								'<td>3846000</td>' +
+			    								'<td>105 > 120</td>' +
+			    								'<td>3402000</td>' +
+			    								'<td>110 > 120</td>' +
+			    								'<td>2748000</td>' +
+			    								'<td>115 > 120</td>' +
+			    								'<td>1662000</td>' +
+			    							'</tr>' +
+			    						'</tbody>' +
+			    					'</table>' +
+			    				'</div>' +
+			    				'<div class="expcs3">' +
+			    					'<table>' +
+			    						'<tbody>' +
+			    							'<tr>' +
+			    								'<th rowspan="4">Ultra Rare/Decisive</th>' +
+			    								'<td>100 > 105</td>' +
+			    								'<td>444000</td>' +
+			    							'</tr>' +
+			    							'<tr>' +
+			    								'<td>100 > 110</td>' +
+			    								'<td>1098000</td>' +
+			    								'<td>105 > 110</td>' +
+			    								'<td>654000</td>' +
+			    							'</tr>' +
+			    							'<tr>' +
+			    								'<td>100 > 115</td>' +
+			    								'<td>2184000</td>' +
+			    								'<td>105 > 115</td>' +
+			    								'<td>1740000</td>' +
+			    								'<td>110 > 115</td>' +
+			    								'<td>1086000</td>' +
+			    							'</tr>' +
+			    							'<tr>' +
+			    								'<td>100 > 120</td>' +
+			    								'<td>3846000</td>' +
+			    								'<td>105 > 120</td>' +
+			    								'<td>3402000</td>' +
+			    								'<td>110 > 120</td>' +
+			    								'<td>2748000</td>' +
+			    								'<td>115 > 120</td>' +
+			    								'<td>1662000</td>' +
+			    							'</tr>' +
+			    						'</tbody>' +
+			    					'</table>' +
+			    				'</div>' +
+			    			'</div>' +
+			    			'<div>' +
+			    				'<div class="sexpt">' +
+			    					'<p>Experience Table</p>' +
+			    					'<table>' +
+			    						'<tbody id="SxChart">' +
+			    							'<tr>' +
+			    								'<th colspan="6" class="srar1">Super Rare / Priority</th>' +
+			    								'<th colspan="6" class="srar2">Ultra Rare / Decisive</th>' +
+			    							'</tr>' +
+			    							'<tr>' +
+			    								'<th class="slevel">Level</th>' +
+			    								'<th class="snext">Next</th>' +
+			    								'<th class="stotal">Total</th>' +
+			    								'<th class="slevel">Level</th>' +
+			    								'<th class="snext">Next</th>' +
+			    								'<th class="stotal">Total</th>' +
+			    								'<th class="slevel">Level</th>' +
+			    								'<th class="snext">Next</th>' +
+			    								'<th class="stotal">Total</th>' +
+			    								'<th class="slevel">Level</th>' +
+			    								'<th class="snext">Next</th>' +
+			    								'<th class="stotal">Total</th>' +
+			    							'</tr>' +
+			    						'</tbody>' +
+			    					'</table>' +
+			    				'</div>' +
+			    			'</div>' +
+			            '</div>' +
+			            '<div class="tabcontentChild" id="tab0x3" style="display: none;">' +
+			    			'<h3>Stage Experience</h3>' +
+			            '</div>' +
+    				'<div>';

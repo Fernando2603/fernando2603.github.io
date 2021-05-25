@@ -16,7 +16,7 @@
 <body class="site-theme-dark">
     <div class="alnavbar">
         <a href="index">Home</a>
-        <a>Sort By ID</a>
+        <a href="AL">Back</a>
     </div>
     <div class="almain">
     	<div class="tablists">
@@ -36,7 +36,7 @@
     	<div class="tabscontent">
     		<div class="tabcontent" id="tab0" style="display: block;">
     			<h2>Experience</h2>
-    			<div>
+    			<div id="tabExp">
     				<div class="tablistsChild">
     					<ul>
     						<li><a class="tablinksChild active" onclick="openCardsChild(event, 'tab0x1')">Commander Experience</a></li>
@@ -93,7 +93,7 @@
 			    				<div>
 			    					<p>Difference level gap between <strong>Commander</strong> & <strong>Enemy</strong> reduce the experience gain. 21-40 level difference reduce the experience by half, 41+ level difference reduce 1/10 experience of original value.</p>
 			    				</div>
-			    				<div>
+			    				<div class="cexpt">
 			    					<table>
 				    					<tbody id="CxChart">
 				    						<tr>
@@ -125,12 +125,151 @@
 			            </div>
 			            <div class="tabcontentChild" id="tab0x2" style="display: none;">
 			    			<h3>Ship Experience</h3>
+			    			<div>
+			    				<p>Total Experience Chart</p>
+			    				<div class="expcs">
+			    					<table>
+			    						<tbody>
+			    							<tr>
+			    								<th>Ship Rarity</th>
+				    							<td>Limit Break 1</td>
+				    							<td>Limit Break 2</td>
+				    							<td>Limit Break 3</td>
+				    							<td>Level 100</td>
+				    							<td>Level 105</td>
+				    							<td>Level 110</td>
+				    							<td>Level 115</td>
+				    							<td>Level 120</td>
+				    						</tr>
+				    						<tr>
+				    							<th class="srar1">N/R/E/SR/PR</th>
+				    							<td>4500</td>
+				    							<td>43500</td>
+				    							<td>289500</td>
+				    							<td>1120675</td>
+				    							<td>1490675</td>
+				    							<td>2035675</td>
+				    							<td>2940675</td>
+				    							<td>4325675</td>
+				    						</tr>
+				    						<tr>
+				    							<th class="srar2">UR/DR</th>
+				    							<td>5400</td>
+				    							<td>5220</td>
+				    							<td>347400</td>
+				    							<td>1241000</td>
+				    							<td>1685000</td>
+				    							<td>2339000</td>
+				    							<td>3425000</td>
+				    							<td>5087000</td>
+				    						</tr>
+			    						</tbody>
+			    					</table>
+			    				</div>
+			    				<p>Experience Chart Level 120</p>
+			    				<div class="expcs2">
+			    					<table>
+			    						<tbody>
+			    							<tr>
+			    								<th rowspan="4">Normal/Rare/Elite/Super Rare/Priority</th>
+			    								<td>100 > 105</td>
+			    								<td>370000</td>
+			    							</tr>
+			    							<tr>
+			    								<td>100 > 110</td>
+			    								<td>915000</td>
+			    								<td>105 > 110</td>
+			    								<td>545000</td>
+			    							</tr>
+			    							<tr>
+			    								<td>100 > 115</td>
+			    								<td>1820000</td>
+			    								<td>105 > 115</td>
+			    								<td>1450000</td>
+			    								<td>110 > 115</td>
+			    								<td>905000</td>
+			    							</tr>
+			    							<tr>
+			    								<td>100 > 120</td>
+			    								<td>3846000</td>
+			    								<td>105 > 120</td>
+			    								<td>3402000</td>
+			    								<td>110 > 120</td>
+			    								<td>2748000</td>
+			    								<td>115 > 120</td>
+			    								<td>1662000</td>
+			    							</tr>
+			    						</tbody>
+			    					</table>
+			    				</div>
+			    				<div class="expcs3">
+			    					<table>
+			    						<tbody>
+			    							<tr>
+			    								<th rowspan="4">Ultra Rare/Decisive</th>
+			    								<td>100 > 105</td>
+			    								<td>444000</td>
+			    							</tr>
+			    							<tr>
+			    								<td>100 > 110</td>
+			    								<td>1098000</td>
+			    								<td>105 > 110</td>
+			    								<td>654000</td>
+			    							</tr>
+			    							<tr>
+			    								<td>100 > 115</td>
+			    								<td>2184000</td>
+			    								<td>105 > 115</td>
+			    								<td>1740000</td>
+			    								<td>110 > 115</td>
+			    								<td>1086000</td>
+			    							</tr>
+			    							<tr>
+			    								<td>100 > 120</td>
+			    								<td>3846000</td>
+			    								<td>105 > 120</td>
+			    								<td>3402000</td>
+			    								<td>110 > 120</td>
+			    								<td>2748000</td>
+			    								<td>115 > 120</td>
+			    								<td>1662000</td>
+			    							</tr>
+			    						</tbody>
+			    					</table>
+			    				</div>
+			    			</div>
+			    			<div>
+			    				<div class="sexpt">
+			    					<p>Experience Table</p>
+			    					<table>
+			    						<tbody id="SxChart">
+			    							<tr>
+			    								<th colspan="6" class="srar1">Super Rare / Priority</th>
+			    								<th colspan="6" class="srar2">Ultra Rare / Decisive</th>
+			    							</tr>
+			    							<tr>
+			    								<th class="slevel">Level</th>
+			    								<th class="snext">Next</th>
+			    								<th class="stotal">Total</th>
+			    								<th class="slevel">Level</th>
+			    								<th class="snext">Next</th>
+			    								<th class="stotal">Total</th>
+			    								<th class="slevel">Level</th>
+			    								<th class="snext">Next</th>
+			    								<th class="stotal">Total</th>
+			    								<th class="slevel">Level</th>
+			    								<th class="snext">Next</th>
+			    								<th class="stotal">Total</th>
+			    							</tr>
+			    						</tbody>
+			    					</table>
+			    				</div>
+			    			</div>
 			            </div>
 			            <div class="tabcontentChild" id="tab0x3" style="display: none;">
 			    			<h3>Stage Experience</h3>
 			            </div>
-    				<div>
-    					
+    				<div>		
     				</div>
     			</div>
             </div>
