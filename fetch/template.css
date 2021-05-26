@@ -1,173 +1,128 @@
-.tablists li {
-	list-style: none;
+.main-template {
+	margin-top: 30px;
+	position: relative;
 }
 
-.tablists, .tablists ul, .tablists li {
-	top: 0;
-	justify-content: center!important;
-	padding: 0 1px 0 1px;
-	text-align: center;
-	display: flex;
-	flex-wrap: wrap;
-}
+/* MAIN TAB */
+	.tablists li {
+		list-style: none;
+	}
 
-.active {
-	background-color: grey;
-}
+	.tablists, .tablists ul, .tablists li {
+		font-size: 16px;
+		top: 0;
+		justify-content: center!important;
+		padding: 0 1px 0 1px;
+		text-align: center;
+		display: flex;
+		flex-wrap: wrap;
+	}
 
-.tablinks, .tablinksChild {
-	padding: 20px;
-	font-weight: bolder;
-}
+	.tablists {
+		border-bottom: 3px solid red;
+	}
 
-.tablists {
-	border-bottom: 3px solid red;
-}
+/* ACTIVE TAB (INCLUDE CHILD) */
+	.active {
+		background-color: grey;
+	}
 
-.tabcontent h2 {
-	text-align: center;
-}
+/* TABLINKS = TAB BUTTON */
+	.tablinks, .tablinksChild, .tablinksChild2 {
+		padding: 10px;
+		font-weight: bolder;
+	}
 
-.tabcontentChild h3 {
-	justify-content: center;
-	text-align: center;
-}
-.tablistsChild li {list-style: none;}
-.tablistsChild, .tablistsChild li, .tablistsChild ul {
-	justify-content: center!important;
-	text-align: center;
-	display: flex;
-	flex-wrap: wrap;
-	font-size: 1rem;
-}
+/* TABCONTENT = CONTENT CONTAINER */
+	.tabcontent h2 {
+		text-align: center;
+	}
 
-.tablistsChild {
-	border-bottom: 1px solid red;
-}
+	.tabcontentChild h3 {
+		text-align: center;
+	}
 
-.cexpt table, .sexpt table {
-	background-color: grey;
-	width: 100%;
-}
+	.tabcontentChild2 h3 {
+		text-align: center;
+	}
 
-tr, th, td {
-	background-color: black;
-	width: 100%;
-}
+/* CHILD TAB */
+	.tablistsChild li {list-style: none;}
+	.tablistsChild, .tablistsChild li, .tablistsChild ul {
+		justify-content: center!important;
+		text-align: center;
+		display: flex;
+		flex-wrap: wrap;
+		font-size: 1rem;
+	}
 
-.clevel {
-	width: 3%;
-	background-color: rgb(50 50 50);
-}
-.cnext {
-	width: 6%;
-	background-color: #9fe8ff;
-	color: black;
-}
-.ctotal {
-	width: 6%;
-	background-color: #9fe8ff;
-	color: black;
-}
-.coils {
-	width: 5%;
-	background-color: black;
-}
-.ccoins {
-	width: 5%;
-	background-color: #ee9;
-	color: black;
-}
+	.tablistsChild {
+		border-bottom: 1px solid red;
+		left: 0;
+		right: 0;
+	}
 
-.cexpB {
-	background-color: grey;
-	width: 40%;
-}
+/* CHILD2 TAB */
+	.tablistsChild2 li {list-style: none;}
+	.tablistsChild2, .tablistsChild2 li, .tablistsChild2 ul {
+		justify-content: center!important;
+		text-align: center;
+		display: flex;
+		flex-wrap: wrap;
+		font-size: 1rem;
+	}
 
-.cexpB th {
-	width: 20%;
-}
-.cexpB td {
-	width: 5%;
-	text-align: center;
-	font-weight: bolder;
-}
+	.tablistsChild2 {
+		border-bottom: 1px solid red;
+		left: 0;
+		right: 0;
+	}
 
-.slevel {
-	width: 5%;
-}
-.snext {
-	width: 10%;
-	background-color: #9fe8ff;
-	color: black;
-}
-.stotal {
-	width: auto;
-	background-color: #9fe8ff;
-	color: black;
-}
+/* GLOBAL VARIABLE */
+tr, th, td {background: black;width: 100%;}
 
-.srar1 {
-	width: 50%;
-	background-color: #ee9;
-	color: black;
-}
 
-.srar2 {
-	width: 50%;
-	background: linear-gradient(120deg,#fbffca,#baffbf,#a7efff,#ffabff);
-	color: black;
-}
+/* EXPERIENCE TAB */
+	/* cexpt/sexpt = commanderexptable / shipexptable */
+	.cexpt table, .sexpt table {background: grey;width: 100%;}
 
-.expcs {
-	width: 100%;
-}
+	/* Tab - Commander Experience */
+		/* commanderexptable - First */
+		.cexpB {background: grey;width: 40%;}
+		.cexpB th {width: 20%;}
+		.cexpB td {width: 5%;text-align: center;font-weight: bolder;}
 
-.expcs table {
-	background-color: grey;
-}
-.expcs th {
-	width: 10%;
-}
+		/* cextp - Second */
+		.clevel {width: 3%;background: rgb(50 50 50);}
+		.cnext {width: 6%;background: #9fe8ff;color: black;}
+		.ctotal {width: 6%;background: #9fe8ff;color: black;}
+		.coils {width: 5%;background: black;}
+		.ccoins {width: 5%;background: #ee9;color: black;}
+	/* Tab - Ship Experience */
+		/* EXPCS Table - First */
+		.expcs {width: 100%;}
+		.expcs table {background-color: grey;}
+		.expcs th {width: 10%;}
+		.expcs td {width: 5%;text-align: center;font-weight: bolder;}
+		.srar1 {width: 50%;background: #ee9;color: black;}
+		.srar2 {width: 50%;background: linear-gradient(120deg,#fbffca,#baffbf,#a7efff,#ffabff);color: black;}
 
-.expcs td {
-	width: 5%;
-	text-align: center;
-	font-weight: bolder;
-}
+		/* EXPCS Table - Second */
+		.expcs2 {width: 100%;}
+		.expcs2 th {width: 8%;}
+		.expcs2 td {width: 5%;text-align: center;font-weight: bolder;}
+		.expcs2-sr {background: #ee9;color: black;}
+		.expcs2-ur {background: linear-gradient(120deg,#fbffca,#baffbf,#a7efff,#ffabff);color: black;}
 
-.expcs2 {
-	width: 100%;
-}
+		/* sexpt - Third */
+		.slevel {width: 5%;}
+		.snext {width: 10%;background: #9fe8ff;color: black;}
+		.stotal {width: auto;background: #9fe8ff;color: black;}
+	/* Tab - Stage Experience*/
+		.stagExp table {background: grey;width: 100%;}
+		.sstage {width: 5%;}
+		.smob1 {width: 5%;background: rgb(20 20 20);}
+		.smob2 {width: 5%;background: rgb(20 20 20);}
+		.smob3 {width: 5%;background: rgb(20 20 20);}
+		.sboss {width: 5%;background: rgb(20 20 20);}
 
-.expcs2 th {
-	width: 8%;
-	background-color: #ee9;
-	color: black;
-}
-
-.expcs2 td {
-	width: 5%;
-	text-align: center;
-	font-weight: bolder;
-	background-color: #ee9;
-	color: black;
-}
-
-.expcs3 {
-	width: 100%;
-}
-
-.expcs3 th {
-	width: 8%;
-	background: linear-gradient(120deg,#fbffca,#baffbf,#a7efff,#ffabff);
-	color: black;
-}
-
-.expcs3 td {
-	width: 5%;
-	text-align: center;
-	font-weight: bolder;
-	background: linear-gradient(120deg,#fbffca,#baffbf,#a7efff,#ffabff);
-	color: black;
-}

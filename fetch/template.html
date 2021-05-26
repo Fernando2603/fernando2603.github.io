@@ -18,291 +18,146 @@
         <a href="index">Home</a>
         <a href="AL">Back</a>
     </div>
-    <div class="almain">
+    <div class="main-template">
     	<div class="tablists">
     		<ul>
-    			<li><a class="tablinks active" onclick="openCards(event, 'tab0')">Experience</a></li>
-    			<li><a class="tablinks" onclick="openCards(event, 'tab1')">Operation Siren</a></li>
-    			<li><a class="tablinks" onclick="openCards(event, 'tab2')">Anti-Air Calculator</a></li>
-    			<li><a class="tablinks" onclick="openCards(event, 'tab3')">Research</a></li>
-    			<li><a class="tablinks" onclick="openCards(event, 'tab4')">Chapter</a></li>
-    			<li><a class="tablinks" onclick="openCards(event, 'tab5')">Gear</a></li>
-    			<li><a class="tablinks" onclick="openCards(event, 'tab6')">Blueprints</a></li>
-    			<li><a class="tablinks" onclick="openCards(event, 'tab7')">Shipyard</a></li>
-    			<li><a class="tablinks" onclick="openCards(event, 'tab8')">Gear Lab</a></li>
-    			<li><a class="tablinks" onclick="openCards(event, 'tab9')">META Lab</a></li>
+    			<li><a class="tablinks active" href="#" onclick="openCards(event, 'tab0')">Experience</a></li>
+    			<li><a class="tablinks" href="#" onclick="openCards(event, 'tab1')">Equipment</a></li>
+    			<li><a class="tablinks" href="#" onclick="openCards(event, 'tab2')">Anti-Air Calculator</a></li>
+    			<li><a class="tablinks" href="#" onclick="openCards(event, 'tab3')">Operation Siren</a></li>
+    			<li><a class="tablinks" href="#" onclick="openCards(event, 'tab4')">Chapter</a></li>
+    			<li><a class="tablinks" href="#" onclick="openCards(event, 'tab5')">Research</a></li>
+    			<li><a class="tablinks" href="#" onclick="openCards(event, 'tab6')">Blueprints</a></li>
+    			<li><a class="tablinks" href="#" onclick="openCards(event, 'tab7')">Shipyard</a></li>
+    			<li><a class="tablinks" href="#" onclick="openCards(event, 'tab8')">Gear Lab</a></li>
+    			<li><a class="tablinks" href="#" onclick="openCards(event, 'tab9')">META Lab</a></li>
     		</ul>
     	</div>
     	<div class="tabscontent">
     		<div class="tabcontent" id="tab0" style="display: block;">
-    			<h2>Experience</h2>
     			<div id="tabExp">
     				<div class="tablistsChild">
     					<ul>
-    						<li><a class="tablinksChild active" onclick="openCardsChild(event, 'tab0x1')">Commander Experience</a></li>
-    						<li><a class="tablinksChild" onclick="openCardsChild(event, 'tab0x2')">Ship Experience</a></li>
-    						<li><a class="tablinksChild" onclick="openCardsChild(event, 'tab0x3')">Stage Experience</a></li>
+    						<li><a class="tablinksChild active" href="#" onclick="openCardsChild(event, 'tab0x1')">Commander Experience</a></li>
+    						<li><a class="tablinksChild" href="#" onclick="openCardsChild(event, 'tab0x2')">Ship Experience</a></li>
+    						<li><a class="tablinksChild" href="#" onclick="openCardsChild(event, 'tab0x3')">Stage Experience</a></li>
     					</ul>
     				</div>
-    					<div class="tabcontentChild" id="tab0x1" style="display: block;">
-			    			<h3>Commander Experience</h3>
-			    			<div>
-			    				<div>
-			    					<table class="cexpB">
-			    						<tbody>
-			    							<tr>
-			    								<th>Ships</th>
-			    								<td>2</td>
-			    								<td>3</td>
-			    								<td>4</td>
-			    								<td>5</td>
-			    								<td>6</td>
-			    								<td>7</td>
-			    								<td>8</td>
-			    								<td>9</td>
-			    							</tr>
-			    							<tr>
-			    								<th>Campaign, A-rank</th>
-			    								<td>20</td>
-			    								<td>27</td>
-			    								<td>35</td>
-			    								<td>42</td>
-			    								<td>49</td>
-			    								<td>57</td>
-			    								<td>65</td>
-			    								<td>72</td>
-			    							</tr>
-			    							<tr>
-			    								<th>Campaign, S-rank</th>
-			    								<td>24</td>
-			    								<td>32</td>
-			    								<td>42</td>
-			    								<td>51</td>
-			    								<td>59</td>
-			    								<td>69</td>
-			    								<td>78</td>
-			    								<td>87</td>
-			    							</tr>
-			    							<tr>
-			    								<th>Daily raid, S-rank</th>
-			    								<td colspan="8">60</td>
-			    							</tr>
-			    						</tbody>
-			    					</table>
-			    				</div>
-			    				<div>
-			    					<p>Difference level gap between <strong>Commander</strong> & <strong>Enemy</strong> reduce the experience gain. 21-40 level difference reduce the experience by half, 41+ level difference reduce 1/10 experience of original value.</p>
-			    				</div>
-			    				<div class="cexpt">
-			    					<table>
-				    					<tbody id="CxChart">
-				    						<tr>
-				    							<th class="clevel">Level</th>
-				    							<th class="cnext">Next</th>
-				    							<th class="ctotal">Total</th>
-				    							<th class="coils">Oils</th>
-				    							<th class="ccoins">Coins</th>
-				    							<th class="clevel">Level</th>
-				    							<th class="cnext">Next</th>
-				    							<th class="ctotal">Total</th>
-				    							<th class="coils">Oils</th>
-				    							<th class="ccoins">Coins</th>
-				    							<th class="clevel">Level</th>
-				    							<th class="cnext">Next</th>
-				    							<th class="ctotal">Total</th>
-				    							<th class="coils">Oils</th>
-				    							<th class="ccoins">Coins</th>
-				    							<th class="clevel">Level</th>
-				    							<th class="cnext">Next</th>
-				    							<th class="ctotal">Total</th>
-				    							<th class="coils">Oils</th>
-				    							<th class="ccoins">Coins</th>
-				    						</tr>
-				    					</tbody>
-				    				</table>
-			    				</div>
-			    			</div>
-			            </div>
-			            <div class="tabcontentChild" id="tab0x2" style="display: none;">
-			    			<h3>Ship Experience</h3>
-			    			<div>
-			    				<p>Total Experience Chart</p>
-			    				<div class="expcs">
-			    					<table>
-			    						<tbody>
-			    							<tr>
-			    								<th>Ship Rarity</th>
-				    							<td>Limit Break 1</td>
-				    							<td>Limit Break 2</td>
-				    							<td>Limit Break 3</td>
-				    							<td>Level 100</td>
-				    							<td>Level 105</td>
-				    							<td>Level 110</td>
-				    							<td>Level 115</td>
-				    							<td>Level 120</td>
-				    						</tr>
-				    						<tr>
-				    							<th class="srar1">N/R/E/SR/PR</th>
-				    							<td>4500</td>
-				    							<td>43500</td>
-				    							<td>289500</td>
-				    							<td>1120675</td>
-				    							<td>1490675</td>
-				    							<td>2035675</td>
-				    							<td>2940675</td>
-				    							<td>4325675</td>
-				    						</tr>
-				    						<tr>
-				    							<th class="srar2">UR/DR</th>
-				    							<td>5400</td>
-				    							<td>5220</td>
-				    							<td>347400</td>
-				    							<td>1241000</td>
-				    							<td>1685000</td>
-				    							<td>2339000</td>
-				    							<td>3425000</td>
-				    							<td>5087000</td>
-				    						</tr>
-			    						</tbody>
-			    					</table>
-			    				</div>
-			    				<p>Experience Chart Level 120</p>
-			    				<div class="expcs2">
-			    					<table>
-			    						<tbody>
-			    							<tr>
-			    								<th rowspan="4">Normal/Rare/Elite/Super Rare/Priority</th>
-			    								<td>100 > 105</td>
-			    								<td>370000</td>
-			    							</tr>
-			    							<tr>
-			    								<td>100 > 110</td>
-			    								<td>915000</td>
-			    								<td>105 > 110</td>
-			    								<td>545000</td>
-			    							</tr>
-			    							<tr>
-			    								<td>100 > 115</td>
-			    								<td>1820000</td>
-			    								<td>105 > 115</td>
-			    								<td>1450000</td>
-			    								<td>110 > 115</td>
-			    								<td>905000</td>
-			    							</tr>
-			    							<tr>
-			    								<td>100 > 120</td>
-			    								<td>3846000</td>
-			    								<td>105 > 120</td>
-			    								<td>3402000</td>
-			    								<td>110 > 120</td>
-			    								<td>2748000</td>
-			    								<td>115 > 120</td>
-			    								<td>1662000</td>
-			    							</tr>
-			    						</tbody>
-			    					</table>
-			    				</div>
-			    				<div class="expcs3">
-			    					<table>
-			    						<tbody>
-			    							<tr>
-			    								<th rowspan="4">Ultra Rare/Decisive</th>
-			    								<td>100 > 105</td>
-			    								<td>444000</td>
-			    							</tr>
-			    							<tr>
-			    								<td>100 > 110</td>
-			    								<td>1098000</td>
-			    								<td>105 > 110</td>
-			    								<td>654000</td>
-			    							</tr>
-			    							<tr>
-			    								<td>100 > 115</td>
-			    								<td>2184000</td>
-			    								<td>105 > 115</td>
-			    								<td>1740000</td>
-			    								<td>110 > 115</td>
-			    								<td>1086000</td>
-			    							</tr>
-			    							<tr>
-			    								<td>100 > 120</td>
-			    								<td>3846000</td>
-			    								<td>105 > 120</td>
-			    								<td>3402000</td>
-			    								<td>110 > 120</td>
-			    								<td>2748000</td>
-			    								<td>115 > 120</td>
-			    								<td>1662000</td>
-			    							</tr>
-			    						</tbody>
-			    					</table>
-			    				</div>
-			    			</div>
-			    			<div>
-			    				<div class="sexpt">
-			    					<p>Experience Table</p>
-			    					<table>
-			    						<tbody id="SxChart">
-			    							<tr>
-			    								<th colspan="6" class="srar1">Super Rare / Priority</th>
-			    								<th colspan="6" class="srar2">Ultra Rare / Decisive</th>
-			    							</tr>
-			    							<tr>
-			    								<th class="slevel">Level</th>
-			    								<th class="snext">Next</th>
-			    								<th class="stotal">Total</th>
-			    								<th class="slevel">Level</th>
-			    								<th class="snext">Next</th>
-			    								<th class="stotal">Total</th>
-			    								<th class="slevel">Level</th>
-			    								<th class="snext">Next</th>
-			    								<th class="stotal">Total</th>
-			    								<th class="slevel">Level</th>
-			    								<th class="snext">Next</th>
-			    								<th class="stotal">Total</th>
-			    							</tr>
-			    						</tbody>
-			    					</table>
-			    				</div>
-			    			</div>
-			            </div>
-			            <div class="tabcontentChild" id="tab0x3" style="display: none;">
-			    			<h3>Stage Experience</h3>
-			            </div>
-    				<div>		
+    			</div>
+    		</div>
+    		<div class="tabcontent" id="tab1">
+    			<div id="tabEquipment">
+    				<div class="tablistsChild">
+    					<ul>
+    						<li><a class="tablinksChild active" href="#" onclick="openCardsChild(event, 'tab1x1')">General</a></li>
+    						<li><a class="tablinksChild" href="#" onclick="openCardsChild(event, 'tab1x2')">Main Guns</a></li>
+    						<li><a class="tablinksChild" href="#" onclick="openCardsChild(event, 'tab1x3')">Planes</a></li>
+    						<li><a class="tablinksChild" href="#" onclick="openCardsChild(event, 'tab1x4')">Torpedoes</a></li>
+    						<li><a class="tablinksChild" href="#" onclick="openCardsChild(event, 'tab1x5')">Anti-Air Guns</a></li>
+    						<li><a class="tablinksChild" href="#" onclick="openCardsChild(event, 'tab1x6')">Auxiliary</a></li>
+    						<li><a class="tablinksChild" href="#" onclick="openCardsChild(event, 'tab1x7')">Anti-Submarine</a></li>
+    					</ul>
+    				</div>
+    				<div class="tabcontentChild" id="tab1x1" style="display: block;">
+    					<h2>hi</h2>
+    				</div>
+    				<div class="tabcontentChild" id="tab1x2" style="display: none;">
+    					<div class="tablistsChild2">
+    						<ul>
+    							<li><a class="tablinksChild2 active" href="#" onclick="openCardsChild2(event, 'tab1x2x1')">Destoyer Guns</a></li>
+	    						<li><a class="tablinksChild2" href="#" onclick="openCardsChild2(event, 'tab1x2x2')">Light Cruiser Guns</a></li>
+	    						<li><a class="tablinksChild2" href="#" onclick="openCardsChild2(event, 'tab1x2x3')">Heavy Cruiser Guns</a></li>
+	    						<li><a class="tablinksChild2" href="#" onclick="openCardsChild2(event, 'tab1x2x4')">Battleship Guns</a></li>
+    						</ul>
+    					</div>
+    					<div class="tabcontentChild2" id="tab1x2x1" style="display: block;">
+    						<h3>DD</h3>
+    					</div>
+    					<div class="tabcontentChild2" id="tab1x2x2" style="display: none;">
+    						<h3>CL</h3>
+    					</div>
+    					<div class="tabcontentChild2" id="tab1x2x3" style="display: none;">
+    						<h3>CA</h3>
+    					</div>
+    					<div class="tabcontentChild2" id="tab1x2x4" style="display: none;">
+    						<h3>BB</h3>
+    					</div>
+    				</div>
+    				<div class="tabcontentChild" id="tab1x3" style="display: none;">
+    					<div class="tablistsChild2">
+    						<ul>
+    							<li><a class="tablinksChild2 active" href="#" onclick="openCardsChild2(event, 'tab1x3x1')">Fighter</a></li>
+	    						<li><a class="tablinksChild2" href="#" onclick="openCardsChild2(event, 'tab1x3x2')">Dive Bomber</a></li>
+	    						<li><a class="tablinksChild2" href="#" onclick="openCardsChild2(event, 'tab1x3x3')">Torpedo Bomber</a></li>
+	    						<li><a class="tablinksChild2" href="#" onclick="openCardsChild2(event, 'tab1x3x4')">Seaplanes</a></li>
+    						</ul>
+    					</div>
+    					<div class="tabcontentChild2" id="tab1x3x1" style="display: block;">
+    						<h3>F</h3>
+    					</div>
+    					<div class="tabcontentChild2" id="tab1x3x2" style="display: none;">
+    						<h3>DB</h3>
+    					</div>
+    					<div class="tabcontentChild2" id="tab1x3x3" style="display: none;">
+    						<h3>TB</h3>
+    					</div>
+    					<div class="tabcontentChild2" id="tab1x3x4" style="display: none;">
+    						<h3>SP</h3>
+    					</div>
+    				</div>
+    				<div class="tabcontentChild" id="tab1x4" style="display: none;">
+    					<div class="tablistsChild2">
+    						<ul>
+    							<li><a class="tablinksChild2 active" href="#" onclick="openCardsChild2(event, 'tab1x4x1')">Surface Torpedoes</a></li>
+	    						<li><a class="tablinksChild2" href="#" onclick="openCardsChild2(event, 'tab1x4x2')">Submarine Torpedoes</a></li>
+    						</ul>
+    					</div>
+    					<div class="tabcontentChild2" id="tab1x4x1" style="display: block;">
+    						<h3>ST</h3>
+    					</div>
+    					<div class="tabcontentChild2" id="tab1x4x2" style="display: none;">
+    						<h3>SST</h3>
+    					</div>
+    				</div>
+    				<div class="tabcontentChild" id="tab1x5" style="display: none;">
+    					<h3>aa</h3>
+    				</div>
+    				<div class="tabcontentChild" id="tab1x6" style="display: none;">
+    					<h3>aux</h3>
+    				</div>
+    				<div class="tabcontentChild" id="tab1x7" style="display: none;">
+    					<h3>asw</h3>
     				</div>
     			</div>
             </div>
-    		<div class="ship-warp tabcontent" id="tab1">
-    			<h2>test2</h2>
+            <div class="tabcontent" id="tab2">
+            	<h2>Anti-Air Calculator</h2>
             </div>
-            <div class="ship-warp tabcontent" id="tab2">
-            	<h2>test3</h2>
+            <div class="tabcontent" id="tab3">
+            	<h2>Research</h2>
             </div>
-            <div class="ship-warp tabcontent" id="tab3">
-            	<h2>test4</h2>
+            <div class="tabcontent" id="tab4">
+            	<h2>Chapter</h2>
             </div>
-            <div class="ship-warp tabcontent" id="tab4">
-            	<h2>test5</h2>
+            <div class="tabcontent" id="tab5">
+            	<h2>Gear</h2>
             </div>
-            <div class="ship-warp tabcontent" id="tab5">
-            	<h2>test6</h2>
+            <div class="tabcontent" id="tab6">
+            	<h2>Blueprints</h2>
             </div>
-            <div class="ship-warp tabcontent" id="tab6">
-            	<h2>test7</h2>
+            <div class="tabcontent" id="tab7">
+            	<h2>Shipyard</h2>
             </div>
-            <div class="ship-warp tabcontent" id="tab7">
-            	<h2>test8</h2>
+            <div class="tabcontent" id="tab8">
+            	<h2>Gear Lab</h2>
             </div>
-            <div class="ship-warp tabcontent" id="tab8">
-            	<h2>test9</h2>
-            </div>
-            <div class="ship-warp tabcontent" id="tab9">
-            	<h2>test10</h2>
+            <div class="tabcontent" id="tab9">
+            	<h2>META Lab</h2>
             </div>
     	</div>
     </div>
 <script>
+	$("#tabExp").append(tabExp);
 	$(document).ready(ExpLoad());
 </script>
 </body>

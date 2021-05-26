@@ -115,6 +115,20 @@
           evt.currentTarget.className += " active";
       }
 
+  function openCardsChild2(evt, cardName) {
+          var i, tabcontentChild2, tablinksChild2;
+          tabcontentChild2 = document.getElementsByClassName("tabcontentChild2");
+          for (i = 0; i < tabcontentChild2.length; i++) {
+              tabcontentChild2[i].style.display = "none";
+          }
+          tablinksChild2 = document.getElementsByClassName("tablinksChild2");
+          for (i = 0; i < tablinksChild2.length; i++) {
+              tablinksChild2[i].className = tablinksChild2[i].className.replace(" active", "");
+          }
+          document.getElementById(cardName).style.display = "block";
+          evt.currentTarget.className += " active";
+      }
+
 // AZUR LANE SHOW ALL FUNCTION 
   function allshow () {
       $("#BB-tab").show();
