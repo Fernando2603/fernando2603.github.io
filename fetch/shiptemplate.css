@@ -1,0 +1,116 @@
+#Normal {background: var(--Normal-AL);color: black;}
+#Rare {background: var(--Rare-AL);color: black;}
+#Elite {background: var(--Elite-AL);color: black;}
+#Super-Rare, #Priority {background: var(--SRare-AL);color: black;}
+#Ultra-Rare, #Decisive {background: var(--URare-AL2);color: black;}
+
+/* shipMetadata */
+	.shipMetadata {
+		display: block;
+	}
+
+	/* shipName  */
+		.shipName {
+			text-align: center;
+			font-weight: bolder;
+			font-size: 32px;
+			top: 5px;
+		}
+
+	/* shipInfo */
+		.shipInfo {
+			display: flex;
+			margin-top: 15px;
+			width: 100%;
+			color: black;
+			font-weight: bolder;
+		}
+
+		#thumbnail, #chibi {
+			max-width: 125px;
+			height: 125px;
+			width: 5%;
+		}
+
+		.shipInfo table {
+			width: 100%;
+		    border-collapse: collapse;
+		}
+
+		.shipInfoTitle {
+			width: 5%;
+			text-align: left;
+		}
+
+		.shipInfoContent {
+			width: 15%;
+		}
+
+/* shipMain */
+	.shipMain {
+		border: 1px solid red;
+		margin-top: 10px;
+		display: flex;
+		flex-flow: row-reverse wrap;
+	}
+
+	.shipData, .shipImage {flex: 1;}
+
+	/* shipImage */
+		.shipImage, .shipImage div {
+			margin-left: auto;
+			margin-right: auto;
+			position: relative;
+			overflow: hidden;
+			width: -webkit-fit-content;
+		}
+
+		.shipImage img {
+			vertical-align: middle;
+			border: 0;
+			width: 600px;
+		    aspect-ratio: auto 600 / 512;
+		    height: 512px;
+		}
+
+	/* shipData */
+		.shipData {
+			color: black;
+			display: inline-table;
+			margin-right: 10px;
+			width: 950px;	
+		}
+
+		/* shipStats */
+			.shipStats img {
+				vertical-align: middle;
+				border: 0;
+			}
+
+			.shipStats {font-weight: bolder;}
+			.shipStats table {width: 100%;}
+			.shipStats td {width: 10%;}
+
+		/* shipAux */
+			.shipAux {display: flex;}
+			.shipGear, .shipValue {flex: 1;}
+
+			/* shipGear */
+				.shipGear {
+					margin-top: 10px;
+					text-align: center;
+					margin-right: 10px;
+				}
+
+				.shipGear table {width: -webkit-fill-available;}
+				.shipGear th {width: auto;}
+
+			/* shipValue */
+				.shipValue {margin-top: 10px;}
+				.shipValue th {width: auto; height: auto;}
+				.shipValue table {width: -webkit-fill-available;}
+
+		/* shipLB */
+			.shipLB {margin-top: 10px;}
+			.shipLB th {width: auto; height: auto;}
+			.shipLB table {width: -webkit-fill-available;}

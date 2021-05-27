@@ -235,7 +235,7 @@ var tabExp =		'<div class="tabcontentChild" id="tab0x1" style="display: block;">
 			    							'<td>4325675</td>'+
 			    						'</tr>'+
 			    						'<tr>'+
-			    							'<th class="srar2">UR/DR</th>'+
+			    							'<th class="srar2 blinker">UR/DR</th>'+
 			    							'<td>5400</td>'+
 			    							'<td>5220</td>'+
 			    							'<td>347400</td>'+
@@ -282,33 +282,33 @@ var tabExp =		'<div class="tabcontentChild" id="tab0x1" style="display: block;">
 		    								'<td class="expcs2-sr">1662000</td>'+
 		    							'</tr>'+
 		    							'<tr>'+
-		    								'<th class="expcs2-ur" rowspan="4">Ultra Rare/Decisive</th>'+
-		    								'<td class="expcs2-ur">100 > 105</td>'+
-		    								'<td class="expcs2-ur">444000</td>'+
+		    								'<th class="expcs2-ur blinker" rowspan="4">Ultra Rare/Decisive</th>'+
+		    								'<td class="expcs2-ur blinker">100 > 105</td>'+
+		    								'<td class="expcs2-ur blinker">444000</td>'+
 		    							'</tr>'+
 		    							'<tr>'+
-		    								'<td class="expcs2-ur">100 > 110</td>'+
-		    								'<td class="expcs2-ur">1098000</td>'+
-		    								'<td class="expcs2-ur">105 > 110</td>'+
-		    								'<td class="expcs2-ur">654000</td>'+
+		    								'<td class="expcs2-ur blinker">100 > 110</td>'+
+		    								'<td class="expcs2-ur blinker">1098000</td>'+
+		    								'<td class="expcs2-ur blinker">105 > 110</td>'+
+		    								'<td class="expcs2-ur blinker">654000</td>'+
 		    							'</tr>'+
 		    							'<tr>'+
-		    								'<td class="expcs2-ur">100 > 115</td>'+
-		    								'<td class="expcs2-ur">2184000</td>'+
-		    								'<td class="expcs2-ur">105 > 115</td>'+
-		    								'<td class="expcs2-ur">1740000</td>'+
-		    								'<td class="expcs2-ur">110 > 115</td>'+
-		    								'<td class="expcs2-ur">1086000</td>'+
+		    								'<td class="expcs2-ur blinker">100 > 115</td>'+
+		    								'<td class="expcs2-ur blinker">2184000</td>'+
+		    								'<td class="expcs2-ur blinker">105 > 115</td>'+
+		    								'<td class="expcs2-ur blinker">1740000</td>'+
+		    								'<td class="expcs2-ur blinker">110 > 115</td>'+
+		    								'<td class="expcs2-ur blinker">1086000</td>'+
 		    							'</tr>'+
 		    							'<tr>'+
-		    								'<td class="expcs2-ur">100 > 120</td>'+
-		    								'<td class="expcs2-ur">3846000</td>'+
-		    								'<td class="expcs2-ur">105 > 120</td>'+
-		    								'<td class="expcs2-ur">3402000</td>'+
-		    								'<td class="expcs2-ur">110 > 120</td>'+
-		    								'<td class="expcs2-ur">2748000</td>'+
-		    								'<td class="expcs2-ur">115 > 120</td>'+
-		    								'<td class="expcs2-ur">1662000</td>'+
+		    								'<td class="expcs2-ur blinker">100 > 120</td>'+
+		    								'<td class="expcs2-ur blinker">3846000</td>'+
+		    								'<td class="expcs2-ur blinker">105 > 120</td>'+
+		    								'<td class="expcs2-ur blinker">3402000</td>'+
+		    								'<td class="expcs2-ur blinker">110 > 120</td>'+
+		    								'<td class="expcs2-ur blinker">2748000</td>'+
+		    								'<td class="expcs2-ur blinker">115 > 120</td>'+
+		    								'<td class="expcs2-ur blinker">1662000</td>'+
 		    							'</tr>'+
 		    						'</tbody>'+
 		    					'</table>'+
@@ -321,7 +321,7 @@ var tabExp =		'<div class="tabcontentChild" id="tab0x1" style="display: block;">
 		    						'<tbody id="SxChart">'+
 		    							'<tr>'+
 		    								'<th colspan="6" class="srar1">Super Rare / Priority</th>'+
-		    								'<th colspan="6" class="srar2">Ultra Rare / Decisive</th>'+
+		    								'<th colspan="6" class="srar2 blinker">Ultra Rare / Decisive</th>'+
 		    							'</tr>'+
 		    							'<tr>'+
 		    								'<th class="slevel">Level</th>'+

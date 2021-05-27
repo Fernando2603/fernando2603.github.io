@@ -1,26 +1,46 @@
-.main-template {
-	margin-top: 30px;
+:root {
+	--UR-Azur : linear-gradient(135deg,#59AE6A,#48AE96,#60D9EC,#65A5D5,#9491E0,#C382A4);
+}
+
+.main-content {
+	margin-top: 25px;
 	position: relative;
 }
 
 /* MAIN TAB */
-	.tablists li {
-		list-style: none;
-	}
-
-	.tablists, .tablists ul, .tablists li {
+	.tablists {
 		font-size: 16px;
 		top: 0;
-		justify-content: center!important;
 		padding: 0 1px 0 1px;
 		text-align: center;
 		display: flex;
 		flex-wrap: wrap;
-	}
-
-	.tablists {
+		color: white;
+		overflow: hidden;
+		background-color: #001824;
+		position: absolute;
+		left: 0;
+		width: 100%;
 		border-bottom: 3px solid red;
 	}
+
+	.tablists a {
+		float: left;
+		display: block;
+		color: #f2f2f2;
+		text-align: center;
+		padding: 10px;
+		text-decoration: none;
+	}
+
+	.tablists a:hover {
+		background: #DDD;
+		color: black;
+	}
+
+	.tablists a:first-child {border-right: 1px solid red;}
+	.tablists a:nth-child(2) {border-right: 1px solid red;}
+
 
 /* ACTIVE TAB (INCLUDE CHILD) */
 	.active {
@@ -60,6 +80,7 @@
 		border-bottom: 1px solid red;
 		left: 0;
 		right: 0;
+		height: 60px;
 	}
 
 /* CHILD2 TAB */
@@ -76,6 +97,7 @@
 		border-bottom: 1px solid red;
 		left: 0;
 		right: 0;
+		height: 60px;
 	}
 
 /* GLOBAL VARIABLE */
@@ -98,6 +120,7 @@ tr, th, td {background: black;width: 100%;}
 		.ctotal {width: 6%;background: #9fe8ff;color: black;}
 		.coils {width: 5%;background: black;}
 		.ccoins {width: 5%;background: #ee9;color: black;}
+
 	/* Tab - Ship Experience */
 		/* EXPCS Table - First */
 		.expcs {width: 100%;}
@@ -105,19 +128,20 @@ tr, th, td {background: black;width: 100%;}
 		.expcs th {width: 10%;}
 		.expcs td {width: 5%;text-align: center;font-weight: bolder;}
 		.srar1 {width: 50%;background: #ee9;color: black;}
-		.srar2 {width: 50%;background: linear-gradient(120deg,#fbffca,#baffbf,#a7efff,#ffabff);color: black;}
+		.srar2 {width: 50%;background: var(--UR-Azur);color: black;}
 
 		/* EXPCS Table - Second */
 		.expcs2 {width: 100%;}
 		.expcs2 th {width: 8%;}
 		.expcs2 td {width: 5%;text-align: center;font-weight: bolder;}
 		.expcs2-sr {background: #ee9;color: black;}
-		.expcs2-ur {background: linear-gradient(120deg,#fbffca,#baffbf,#a7efff,#ffabff);color: black;}
+		.expcs2-ur {background: var(--UR-Azur);color: black;}
 
 		/* sexpt - Third */
 		.slevel {width: 5%;}
 		.snext {width: 10%;background: #9fe8ff;color: black;}
 		.stotal {width: auto;background: #9fe8ff;color: black;}
+
 	/* Tab - Stage Experience*/
 		.stagExp table {background: grey;width: 100%;}
 		.sstage {width: 5%;}
