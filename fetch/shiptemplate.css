@@ -67,6 +67,7 @@
 				position: relative;
 				overflow: hidden;
 				width: -webkit-fit-content;
+				width: -moz-fit-content;
 				height: min-content;
 			}
 
@@ -107,20 +108,20 @@
 						text-align: center;
 					}
 
-					.shipGear table {width: -webkit-fill-available;}
+					.shipGear table {width: -webkit-fill-available;width: -moz-available;}
 					.shipGear th {width: auto;}
 
 				/* shipValue */
 					.shipValue {margin-top: 10px;}
 					.shipValue th {width: auto; height: auto;}
-					.shipValue table {width: -webkit-fill-available;}
+					.shipValue table {width: -webkit-fill-available;width: -moz-available;}
 
 			/* shipLB */
 				.shipLB {margin-top: 10px;}
 				.shipLBT {font-size: 16px!important;}
 				.shipLB th {width: auto; height: auto; font-size: 12px;}
 				.shipLB td {font-size: 12px;}
-				.shipLB table {width: -webkit-fill-available;}
+				.shipLB table {width: -webkit-fill-available;width: -moz-available;}
 
 			/* shipSkill */
 				.shipSkill {display: none;}
@@ -208,6 +209,7 @@
 				position: relative;
 				overflow: hidden;
 				width: -webkit-fit-content;
+				width: -moz-fit-content;
 			}
 
 			.shipImage img {
@@ -248,19 +250,19 @@
 						margin-right: 10px;
 					}
 
-					.shipGear table {width: -webkit-fill-available;}
+					.shipGear table {width: -webkit-fill-available;width: -moz-available;}
 					.shipGear th {width: auto;}
 
 				/* shipValue */
 					.shipValue {margin-top: 10px;}
 					.shipValue th {width: auto; height: auto;}
-					.shipValue table {width: -webkit-fill-available;}
+					.shipValue table {width: -webkit-fill-available;width: -moz-available;}
 
 			/* shipLB */
 				.shipLB {margin-top: 10px;}
 				.shipLBT {font-size: 16px!important;}
 				.shipLB th {width: auto; height: auto;}
-				.shipLB table {width: -webkit-fill-available;}
+				.shipLB table {width: -webkit-fill-available;width: -moz-available;}
 
 			/* shipSkill */
 				.shipSkill {
@@ -349,6 +351,7 @@
 				position: relative;
 				overflow: hidden;
 				width: -webkit-fit-content;
+				width: -moz-fit-content;
 				height: min-content;
 			}
 
@@ -390,19 +393,19 @@
 						margin-right: 10px;
 					}
 
-					.shipGear table {width: -webkit-fill-available;}
+					.shipGear table {width: -webkit-fill-available;width: -moz-available}
 					.shipGear th {width: auto;}
 
 				/* shipValue */
 					.shipValue {margin-top: 10px;}
 					.shipValue th {width: auto; height: auto;}
-					.shipValue table {width: -webkit-fill-available;}
+					.shipValue table {width: -webkit-fill-available;width: -moz-available}
 
 			/* shipLB */
 				.shipLB {margin-top: 10px;}
 				.shipLBT {font-size: 16px!important;}
 				.shipLB th {width: auto; height: auto;}
-				.shipLB table {width: -webkit-fill-available;}
+				.shipLB table {width: -webkit-fill-available;width: -moz-available}
 
 			/* shipSkill */
 				.shipSkill {
@@ -490,6 +493,7 @@
 				position: relative;
 				overflow: hidden;
 				width: -webkit-fit-content;
+				width: -moz-fit-content;
 				height: min-content;
 			}
 
@@ -531,19 +535,19 @@
 						margin-right: 10px;
 					}
 
-					.shipGear table {width: -webkit-fill-available;}
+					.shipGear table {width: -webkit-fill-available;width: -moz-available;}
 					.shipGear th {width: auto;}
 
 				/* shipValue */
 					.shipValue {margin-top: 10px;}
 					.shipValue th {width: auto; height: auto;}
-					.shipValue table {width: -webkit-fill-available;}
+					.shipValue table {width: -webkit-fill-available;width: -moz-available;}
 
 			/* shipLB */
 				.shipLB {margin-top: 10px;}
 				.shipLBT {font-size: 16px!important;}
 				.shipLB th {width: auto; height: auto;}
-				.shipLB table {width: -webkit-fill-available;}
+				.shipLB table {width: -webkit-fill-available;width: -moz-available;}
 
 			/* shipSkill */
 				.shipSkill {
