@@ -36,6 +36,7 @@ var template = ["", "", "", "", "", "",];
 	var n063 = ["Super-Rare", "BB", "link", "North-Carolina.png", "North Carolina", "063"];
 	var n064 = ["Super-Rare", "BB", "link", "Washington.png", "Washington", "064"];
 	var n065 = ["Super-Rare", "BB", "link", "South-Dakota.png", "South Dakota", "065"];
+	var n068 = ["Ultra-Rare", "BB", "link", "New-Jersey.png", "New Jersey", "068"];
 	var n127 = ["Elite", "BC", "link", "Renown.png", "Renown", "127"];
 	var n128 = ["Rare", "BC", "link", "Repulse.png", "Repulse", "128"];
 	var n129 = ["Super-Rare", "BC", "link", "Hood.png", "Hood", "129"];
@@ -162,6 +163,7 @@ var template = ["", "", "", "", "", "",];
 	var n482 = ["Super-Rare", "CV", "link", "Peter-Strasser.png", "Peter Strasser", "482"];
 	var n485 = ["Elite", "CVL", "link", "Weser.png", "Weser", "485"];
 	var n502 = ["Super-Rare", "CV", "link", "Aquila.png", "Aquila", "502"];
+	var n511 = ["Super-Rare", "CV", "link", "Ticonderoga.png", "Ticonderoga", "511"];
 	var n3070 = ["Elite", "CVL", "link", "Long-Island-kai.png", "Long Island (Retrofit)", "3070"];
 	var n3071 = ["Rare", "CVL", "link", "Bogue-kai.png", "Bogue (Retrofit)", "3071"];
 	var n3072 = ["Rare", "CVL", "link", "Langley-kai.png", "Langley (Retrofit)", "3072"];
@@ -235,6 +237,7 @@ var template = ["", "", "", "", "", "",];
 	var n483 = ["Super-Rare", "CA", "link", "Prinz-Heinrich.png", "Prinz Heinrich", "483"];
 	var n489 = ["Super-Rare", "CA", "link", "Pola.png", "Pola", "489"];
 	var n496 = ["Super-Rare", "CA", "link", "Tallinn.png", "Tallinn", "496"];
+	var n512 = ["Super-Rare", "CA", "link", "San-Francisco.png", "San Francisco", "512"];
 	var n3044 = ["Elite", "CA", "link", "Portland-kai.png", "Portland (Retrofit)", "3044"];
 	var n3119 = ["Super-Rare", "CA", "link", "London-kai.png", "London (Retrofit)", "3119"];
 	var n3122 = ["Elite", "CA", "link", "Suffolk-kai.png", "Suffolk (Retrofit)", "3122"];
@@ -340,6 +343,7 @@ var template = ["", "", "", "", "", "",];
 	var n495 = ["Elite", "CL", "link", "Penelope.png", "Penelope", "495"];
 	var n498 = ["Elite", "CL", "link", "Murmansk.png", "Murmansk", "498"];
 	var n501 = ["Super-Rare", "CL", "link", "Duca-degli-Abruzzi.png", "Duca degli Abruzzi", "501"];
+	var n514 = ["Elite", "CL", "link", "Boise.png", "Boise", "514"];
 	var n3033 = ["Super-Rare", "CL", "link", "Helena-kai.png", "Helena (Retrofit)", "3033"];
 	var n3036 = ["Ultra-Rare", "CL", "link", "San-Diego-kai.png", "San Diego (Retrofit)", "3036"];
 	var n3104 = ["Rare", "CL", "link", "Leander-kai.png", "Leander (Retrofit)", "3104"];
@@ -522,6 +526,7 @@ var template = ["", "", "", "", "", "",];
 	var n506 = ["Elite", "DD", "link", "Nicoloso-da-Recco.png", "Nicoloso da Recco", "506"];
 	var n507 = ["Rare", "DD", "link", "Oite.png", "Oite", "507"];
 	var n508 = ["Super-Rare", "DD", "link", "Allen-M.-Sumner.png", "Allen M. Sumner", "508"];
+	var n515 = ["Elite", "DD", "link", "Morrison.png", "Morrison", "515"]
 	var n509 = ["Elite", "DD", "link", "Stephen-Potter.png", "Stephen Potter", "509"];
 	var n3005 = ["Rare", "DD", "link", "Cassin-kai.png", "Cassin (Retrofit)", "3005"];
 	var n3006 = ["Rare", "DD", "link", "Downes-kai.png", "Downes (Retrofit)", "3006"];
@@ -594,6 +599,7 @@ var template = ["", "", "", "", "", "",];
 	var n484 = ["Super-Rare", "SS", "link", "U-37.png", "U-37", "484"];
 	var n492 = ["Elite", "SS", "link", "U-410.png", "U-410", "492"];
 	var n503 = ["Elite", "SS", "link", "Torricelli.png", "Torricelli", "503"];
+	var n513 = ["Super-Rare", "SS", "link", "Archerfish.png", "Archerfish", "513"];
 	var nCollab053 = ["Super-Rare", "SS", "link", "Minato-Aqua.png", "Minato Aqua", "Collab053"];
 
 // Auxiliaries
@@ -616,6 +622,7 @@ var template = ["", "", "", "", "", "",];
 			$("#container-BB-BC-BBV-BM").append(scard(n063[0], n063[1], n063[2], n063[3], n063[4], n063[5]))
 			$("#container-BB-BC-BBV-BM").append(scard(n064[0], n064[1], n064[2], n064[3], n064[4], n064[5]))
 			$("#container-BB-BC-BBV-BM").append(scard(n065[0], n065[1], n065[2], n065[3], n065[4], n065[5]))
+			$("#container-BB-BC-BBV-BM").append(scard(n068[0], n068[1], n068[2], n068[3], n068[4], n068[5]))
 			$("#container-BB-BC-BBV-BM").append(scard(n127[0], n127[1], n127[2], n127[3], n127[4], n127[5]))
 			$("#container-BB-BC-BBV-BM").append(scard(n128[0], n128[1], n128[2], n128[3], n128[4], n128[5]))
 			$("#container-BB-BC-BBV-BM").append(scard(n129[0], n129[1], n129[2], n129[3], n129[4], n129[5]))
@@ -744,6 +751,7 @@ var template = ["", "", "", "", "", "",];
 			$("#container-CV-CVL").append(scard(n482[0], n482[1], n482[2], n482[3], n482[4], n482[5]))
 			$("#container-CV-CVL").append(scard(n485[0], n485[1], n485[2], n485[3], n485[4], n485[5]))
 			$("#container-CV-CVL").append(scard(n502[0], n502[1], n502[2], n502[3], n502[4], n502[5]))
+			$("#container-CV-CVL").append(scard(n511[0], n511[1], n511[2], n511[3], n511[4], n511[5]))
 			$("#container-CV-CVL").append(scard(n3070[0], n3070[1], n3070[2], n3070[3], n3070[4], n3070[5]))
 			$("#container-CV-CVL").append(scard(n3071[0], n3071[1], n3071[2], n3071[3], n3071[4], n3071[5]))
 			$("#container-CV-CVL").append(scard(n3072[0], n3072[1], n3072[2], n3072[3], n3072[4], n3072[5]))
@@ -818,6 +826,7 @@ var template = ["", "", "", "", "", "",];
 			$("#container-CA-CB").append(scard(n483[0], n483[1], n483[2], n483[3], n483[4], n483[5]))
 			$("#container-CA-CB").append(scard(n489[0], n489[1], n489[2], n489[3], n489[4], n489[5]))
 			$("#container-CA-CB").append(scard(n496[0], n496[1], n496[2], n496[3], n496[4], n496[5]))
+			$("#container-CA-CB").append(scard(n512[0], n512[1], n512[2], n512[3], n512[4], n512[5]))
 			$("#container-CA-CB").append(scard(n3044[0], n3044[1], n3044[2], n3044[3], n3044[4], n3044[5]))
 			$("#container-CA-CB").append(scard(n3119[0], n3119[1], n3119[2], n3119[3], n3119[4], n3119[5]))
 			$("#container-CA-CB").append(scard(n3122[0], n3122[1], n3122[2], n3122[3], n3122[4], n3122[5]))
@@ -925,6 +934,7 @@ var template = ["", "", "", "", "", "",];
 			$("#container-CL").append(scard(n495[0], n495[1], n495[2], n495[3], n495[4], n495[5]))
 			$("#container-CL").append(scard(n498[0], n498[1], n498[2], n498[3], n498[4], n498[5]))
 			$("#container-CL").append(scard(n501[0], n501[1], n501[2], n501[3], n501[4], n501[5]))
+			$("#container-CL").append(scard(n514[0], n514[1], n514[2], n514[3], n514[4], n514[5]))
 			$("#container-CL").append(scard(n3033[0], n3033[1], n3033[2], n3033[3], n3033[4], n3033[5]))
 			$("#container-CL").append(scard(n3036[0], n3036[1], n3036[2], n3036[3], n3036[4], n3036[5]))
 			$("#container-CL").append(scard(n3104[0], n3104[1], n3104[2], n3104[3], n3104[4], n3104[5]))
@@ -1110,6 +1120,7 @@ var template = ["", "", "", "", "", "",];
 			$("#container-DD").append(scard(n507[0], n507[1], n507[2], n507[3], n507[4], n507[5]))
 			$("#container-DD").append(scard(n508[0], n508[1], n508[2], n508[3], n508[4], n508[5]))
 			$("#container-DD").append(scard(n509[0], n509[1], n509[2], n509[3], n509[4], n509[5]))
+			$("#container-DD").append(scard(n515[0], n515[1], n515[2], n515[3], n515[4], n515[5]))
 			$("#container-DD").append(scard(n3005[0], n3005[1], n3005[2], n3005[3], n3005[4], n3005[5]))
 			$("#container-DD").append(scard(n3006[0], n3006[1], n3006[2], n3006[3], n3006[4], n3006[5]))
 			$("#container-DD").append(scard(n3019[0], n3019[1], n3019[2], n3019[3], n3019[4], n3019[5]))
@@ -1183,6 +1194,7 @@ var template = ["", "", "", "", "", "",];
 			$("#container-SS-SSV").append(scard(n484[0], n484[1], n484[2], n484[3], n484[4], n484[5]))
 			$("#container-SS-SSV").append(scard(n492[0], n492[1], n492[2], n492[3], n492[4], n492[5]))
 			$("#container-SS-SSV").append(scard(n503[0], n503[1], n503[2], n503[3], n503[4], n503[5]))
+			$("#container-SS-SSV").append(scard(n513[0], n513[1], n513[2], n513[3], n513[4], n513[5]))
 			$("#container-SS-SSV").append(scard(nCollab053[0], nCollab053[1], nCollab053[2], nCollab053[3], nCollab053[4], nCollab053[5]))
 		}
 
