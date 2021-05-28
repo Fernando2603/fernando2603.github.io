@@ -11,7 +11,7 @@
 	<script type="text/javascript" src="../js/script.js"></script>
 	<script type="text/javascript" src="../js/shipdata.js"></script>
 	<script type="text/javascript" src="shiptemplate.js"></script>
-	<title>ShipTemplate Fernando2</title>
+	<title>ShipTemplate Fernando26</title>
 <body>
     <div class="navbar">
         <a href="index">Home</a>
@@ -36,20 +36,50 @@
     					<tr>
     						<th rowspan="3" id="thumbnail"><img src="https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/skins/433/thumbnail.png"></th>
     						<th class="shipInfoTitle">ID</th>
-    						<td class="shipInfoContent">: 433</td>
+    						<td class="shipInfoContent shipInfoMobile">: 433</td>
     						<th class="shipInfoTitle">Faction</th>
     						<td class="shipInfoContent">: Northen Parliament</td>
     						<th rowspan="3" id="chibi"><img src="https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/skins/433/Default/chibi.png"></th>
     					</tr>
     					<tr>
     						<th class="shipInfoTitle">Rarity</th>
-    						<td class="shipInfoContent">: Super Rare</td>
+    						<td class="shipInfoContent shipInfoMobile">: Super Rare</td>
     						<th class="shipInfoTitle">Construction Time</th>
     						<td class="shipInfoContent">: 00:42:00</td>
     					</tr>
     					<tr>
     						<th class="shipInfoTitle">Type</th>
-    						<td class="shipInfoContent">: Destroyer</td>
+    						<td class="shipInfoContent shipInfoMobile">: Destroyer</td>
+    						<th class="shipInfoTitle">Class</th>
+    						<td class="shipInfoContent">: Tashkent</td>
+    					</tr>
+    				</tbody>
+    			</table>
+    		</div>
+    		<div class="shipInfo-mobile" id="Super-Rare">
+				<table>
+    				<tbody>
+    					<tr>
+    						<th class="shipInfoTitle">ID</th>
+    						<td class="shipInfoContent shipInfoMobile">: 433</td>
+    					</tr>
+    					<tr>
+    						<th class="shipInfoTitle">Construction</th>
+    						<td class="shipInfoContent">: 00:42:00</td>
+    					</tr>
+    					<tr>
+    						<th class="shipInfoTitle">Rarity</th>
+    						<td class="shipInfoContent shipInfoMobile">: Super Rare</td>
+    					</tr>
+    					<tr>
+    						<th class="shipInfoTitle">Type</th>
+    						<td class="shipInfoContent shipInfoMobile">: Destroyer</td>
+    					</tr>
+    					<tr>
+    						<th class="shipInfoTitle">Faction</th>
+    						<td class="shipInfoContent">: Northen Parliament</td>
+    					</tr>
+    					<tr>
     						<th class="shipInfoTitle">Class</th>
     						<td class="shipInfoContent">: Tashkent</td>
     					</tr>
@@ -185,8 +215,8 @@
 				    		</tbody>
 				    	</table>
 				    </div>
-				    <div class="shipValue" id="Super-Rare">
-			    		<table>
+				    <div class="shipValue">
+			    		<table id="Super-Rare">
 				    		<tbody>
 				    			<tr>
 				    				<th colspan="8">Enhance Value</th>
@@ -203,7 +233,7 @@
 				    			</tr>
 				    		</tbody>
 				    	</table>
-				    	<table style="margin-top: 10px;">
+				    	<table style="margin-top: 10px;" id="Super-Rare">
 				    		<tbody>
 				    			<tr>
 				    				<th colspan="8">Scrap Value</th>
@@ -224,18 +254,18 @@
 		    		<table>
 			    		<tbody>
 			    			<tr>
-			    				<th colspan="2">Limit Break Ranks</th>
+			    				<th colspan="2" class="shipLBT">Limit Break Ranks</th>
 			    			</tr>
 			    			<tr>
-			    				<th>First</th>
+			    				<th>1st</th>
 			    				<td>Unlock All Out Assault Ⅰ / Main Gun Efficiency +5%</td>
 			    			</tr>
 			    			<tr>
-			    				<th>Second</th>
+			    				<th>2nd</th>
 			    				<td>Torpedo Base +1 / Torpedo Preload +1 / Main Gun Efficiency +10%</td>
 			    			</tr>
 			    			<tr>
-			    				<th>Third</th>
+			    				<th>3rd</th>
 			    				<td>Upgrade All Out Assault Ⅰ→Ⅱ / All Weapons' Efficiency +5%</td>
 			    			</tr>
 			    		</tbody>
@@ -284,7 +314,7 @@
 			    	<table>
 			    		<tbody>
 			    			<tr>
-			    				<th colspan="2">Skills</th>
+			    				<th colspan="2" class="shipSkillMT">Skills</th>
 			    			</tr>
 			    			<tr>
 			    				<th><img src="https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/skills/433/the_blue_cruiser.png"><br>The Blue Cruiser</th>
