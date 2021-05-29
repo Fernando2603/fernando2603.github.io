@@ -1,5 +1,5 @@
 function shipTemplate() {
-	$(".shipName").html(ship.names.code)
+	$(".shipName").html(ship.names.code + " - " + ship.names.en)
 	$("#ship-thumbnail, #ship-thumbnail2").attr("src",ship.thumbnail);
 	$("#ship-chibi, #ship-chibi2").attr("src",ship.skins[0].chibi);
 	$("#ship-ID, #ship-ID2").append(ship.id);
@@ -39,15 +39,16 @@ function shipTemplate() {
 	$("#ship-scrapValue-coin").append(ship.scrapValue.coin);
 	$("#ship-scrapValue-oil").append(ship.scrapValue.oil);
 	$("#ship-scrapValue-medal").append(ship.scrapValue.medal);
-	if (ship.limitBreaks[0][0] < String) {$("#ship-LB1").append(ship.limitBreaks[0][0]);}
-	if (ship.limitBreaks[0][1] < String) {$("#ship-LB1").append(" / " + ship.limitBreaks[0][1]);}
-	if (ship.limitBreaks[0][2] < String) {$("#ship-LB1").append(" / " + ship.limitBreaks[0][2]);}
-	if (ship.limitBreaks[1][0] < String) {$("#ship-LB2").append(ship.limitBreaks[1][0]);}
-	if (ship.limitBreaks[1][1] < String) {$("#ship-LB2").append(" / " + ship.limitBreaks[1][1]);}
-	if (ship.limitBreaks[1][2] < String) {$("#ship-LB2").append(" / " + ship.limitBreaks[1][2]);}
-	if (ship.limitBreaks[2][0] < String) {$("#ship-LB3").append(ship.limitBreaks[2][0]);}
-	if (ship.limitBreaks[2][1] < String) {$("#ship-LB3").append(" / " + ship.limitBreaks[2][1]);}
-	if (ship.limitBreaks[2][2] < String) {$("#ship-LB3").append(" / " + ship.limitBreaks[2][2]);}
+	if (ship.limitBreaks < String) {
+		if (ship.limitBreaks[0][0] < String) {$("#ship-LB1").append(ship.limitBreaks[0][0]);}
+		if (ship.limitBreaks[0][1] < String) {$("#ship-LB1").append(" / " + ship.limitBreaks[0][1]);}
+		if (ship.limitBreaks[0][2] < String) {$("#ship-LB1").append(" / " + ship.limitBreaks[0][2]);}
+		if (ship.limitBreaks[1][0] < String) {$("#ship-LB2").append(ship.limitBreaks[1][0]);}
+		if (ship.limitBreaks[1][1] < String) {$("#ship-LB2").append(" / " + ship.limitBreaks[1][1]);}
+		if (ship.limitBreaks[1][2] < String) {$("#ship-LB2").append(" / " + ship.limitBreaks[1][2]);}
+		if (ship.limitBreaks[2][0] < String) {$("#ship-LB3").append(ship.limitBreaks[2][0]);}
+		if (ship.limitBreaks[2][1] < String) {$("#ship-LB3").append(" / " + ship.limitBreaks[2][1]);}
+		if (ship.limitBreaks[2][2] < String) {$("#ship-LB3").append(" / " + ship.limitBreaks[2][2]);}}
 	if (ship.skills[0] < String) {
 	$("#ship-Skills").append('<tr><th class="shipSkillImage"><img src="' + ship.skills[0].icon + '"></th><th class="shipSkillTitle">' + ship.skills[0].names.en + '</th><td>' + ship.skills[0].description + '</td></tr>)')
 	$(".ship-Skills-mobile").append('<table><tbody><tr><th><img src="' + ship.skills[0].icon + '"><br>' + ship.skills[0].names.en + '</th><td>' + ship.skills[0].description + '</td></tr></tbody></table>')}
@@ -70,4 +71,17 @@ function shipTemplate() {
 	if (ship.rarity == "Ultra Rare") {$(".SRarity").attr("id", "Ultra-Rare")}
 	if (ship.rarity == "Priority") {$(".SRarity").attr("id", "Priority")}
 	if (ship.rarity == "Decisive") {$(".SRarity").attr("id", "Decisive")}
+	function eHP() {
+		var sHealth = parseInt(ship.stats.level120.health);
+		var sEvasion = parseInt(ship.stats.level120.evasion);
+		var sLuck = parseInt(ship.stats.level120.luck);
+		var eHit = 75;
+		var eLuck = 25;
+		var attackerHit = eHit/(eHit+sEvasion+2)
+		var attackerLuck = (eLuck-sLuck+0)/1000
+		var Accuracy = 0.1+attackerHit+attackerLuck
+		var ehp = sHealth/Accuracy
+		return Math.floor(ehp)
+	}
+	$("#ship-stats-eHP").append(eHP())
 }
