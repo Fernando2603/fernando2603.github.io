@@ -52,6 +52,11 @@
 
 			.shipInfoContent {width: 50%;}
 
+		/* shipNotes */
+			.shipNotes {margin-top: 10px;}
+			.shipNotes table {width: 100%;}
+			.shipNotes td {text-align: center; font-weight: bolder;}
+
 	/* shipMain */
 		.shipMain {
 			margin-top: 10px;
@@ -66,16 +71,17 @@
 				margin-right: auto;
 				position: relative;
 				overflow: hidden;
-				width: -webkit-fit-content;
+				width: -webkit-fit-content;width: -moz-fit-content;
 				height: min-content;
 			}
 
 			.shipImage img {
 				vertical-align: middle;
 				border: 0;
-				width: 300px;
+				width: 100%;
 			    aspect-ratio: auto 300 / 256;
-			    height: 256px;
+			    height: 100%;
+			    padding: 10px;
 			}
 
 		/* shipData */
@@ -107,20 +113,20 @@
 						text-align: center;
 					}
 
-					.shipGear table {width: -webkit-fill-available;}
+					.shipGear table {width: -webkit-fill-available;width: -moz-available;}
 					.shipGear th {width: auto;}
 
 				/* shipValue */
 					.shipValue {margin-top: 10px;}
 					.shipValue th {width: auto; height: auto;}
-					.shipValue table {width: -webkit-fill-available;}
+					.shipValue table {width: -webkit-fill-available;width: -moz-available;}
 
 			/* shipLB */
 				.shipLB {margin-top: 10px;}
 				.shipLBT {font-size: 16px!important;}
 				.shipLB th {width: auto; height: auto; font-size: 12px;}
 				.shipLB td {font-size: 12px;}
-				.shipLB table {width: -webkit-fill-available;}
+				.shipLB table {width: -webkit-fill-available;width: -moz-available;}
 
 			/* shipSkill */
 				.shipSkill {display: none;}
@@ -193,6 +199,11 @@
 				width: 15%;
 			}
 
+		/* shipNotes */
+			.shipNotes {margin-top: 10px;}
+			.shipNotes table {width: 100%;}
+			.shipNotes td {text-align: center; font-weight: bolder;}
+
 	/* shipMain */
 		.shipMain {
 			margin-top: 10px;
@@ -207,22 +218,23 @@
 				margin-right: auto;
 				position: relative;
 				overflow: hidden;
-				width: -webkit-fit-content;
+				width: -webkit-fit-content;width: -moz-fit-content;
 			}
 
 			.shipImage img {
 				vertical-align: middle;
 				border: 0;
-				width: 600px;
+				width: 100%;
 			    aspect-ratio: auto 600 / 512;
-			    height: 512px;
+			    height: 100%;
+			    padding: 10px;
 			}
 
 		/* shipData */
 			.shipData {
 				color: black;
 				display: inline-table;
-				width: auto;
+				width: -webkit-fill-available;width: -moz-available;
 				margin-top: 10px;
 			}
 
@@ -248,19 +260,19 @@
 						margin-right: 10px;
 					}
 
-					.shipGear table {width: -webkit-fill-available;}
+					.shipGear table {width: -webkit-fill-available;width: -moz-available;}
 					.shipGear th {width: auto;}
 
 				/* shipValue */
 					.shipValue {margin-top: 10px;}
 					.shipValue th {width: auto; height: auto;}
-					.shipValue table {width: -webkit-fill-available;}
+					.shipValue table {width: -webkit-fill-available;width: -moz-available;}
 
 			/* shipLB */
 				.shipLB {margin-top: 10px;}
 				.shipLBT {font-size: 16px!important;}
 				.shipLB th {width: auto; height: auto;}
-				.shipLB table {width: -webkit-fill-available;}
+				.shipLB table {width: -webkit-fill-available;width: -moz-available;}
 
 			/* shipSkill */
 				.shipSkill {
@@ -333,6 +345,11 @@
 				width: 15%;
 			}
 
+		/* shipNotes */
+			.shipNotes {margin-top: 10px;}
+			.shipNotes table {width: 100%;}
+			.shipNotes td {text-align: center; font-weight: bolder;}
+
 	/* shipMain */
 		.shipMain {
 			margin-top: 10px;
@@ -348,7 +365,7 @@
 				margin-right: auto;
 				position: relative;
 				overflow: hidden;
-				width: -webkit-fit-content;
+				width: -webkit-fit-content;width: -moz-fit-content;
 				height: min-content;
 			}
 
@@ -358,6 +375,7 @@
 				width: 100%;
 			    aspect-ratio: auto 600 / 512;
 			    height: 100%;
+			    padding: 10px;
 			}
 
 		/* shipData */
@@ -390,19 +408,19 @@
 						margin-right: 10px;
 					}
 
-					.shipGear table {width: -webkit-fill-available;}
+					.shipGear table {width: -webkit-fill-available;width: -moz-available;}
 					.shipGear th {width: auto;}
 
 				/* shipValue */
 					.shipValue {margin-top: 10px;}
 					.shipValue th {width: auto; height: auto;}
-					.shipValue table {width: -webkit-fill-available;}
+					.shipValue table {width: -webkit-fill-available;width: -moz-available;}
 
 			/* shipLB */
 				.shipLB {margin-top: 10px;}
 				.shipLBT {font-size: 16px!important;}
 				.shipLB th {width: auto; height: auto;}
-				.shipLB table {width: -webkit-fill-available;}
+				.shipLB table {width: -webkit-fill-available;width: -moz-available;}
 
 			/* shipSkill */
 				.shipSkill {
@@ -474,6 +492,11 @@
 				width: 15%;
 			}
 
+		/* shipNotes */
+			.shipNotes {margin-top: 10px;}
+			.shipNotes table {width: 100%;}
+			.shipNotes td {text-align: center; font-weight: bolder;}
+
 	/* shipMain */
 		.shipMain {
 			margin-top: 10px;
@@ -489,16 +512,17 @@
 				margin-right: auto;
 				position: relative;
 				overflow: hidden;
-				width: -webkit-fit-content;
+				width: -webkit-fit-content;width: -moz-fit-content;
 				height: min-content;
 			}
 
 			.shipImage img {
 				vertical-align: middle;
 				border: 0;
-				width: 600px;
+				width: 100%;
 			    aspect-ratio: auto 600 / 512;
-			    height: 512px;
+			    height: 100%;
+			    padding: 10px;
 			}
 
 		/* shipData */
@@ -531,19 +555,19 @@
 						margin-right: 10px;
 					}
 
-					.shipGear table {width: -webkit-fill-available;}
+					.shipGear table {width: -webkit-fill-available;width: -moz-available;}
 					.shipGear th {width: auto;}
 
 				/* shipValue */
 					.shipValue {margin-top: 10px;}
 					.shipValue th {width: auto; height: auto;}
-					.shipValue table {width: -webkit-fill-available;}
+					.shipValue table {width: -webkit-fill-available;width: -moz-available;}
 
 			/* shipLB */
 				.shipLB {margin-top: 10px;}
 				.shipLBT {font-size: 16px!important;}
 				.shipLB th {width: auto; height: auto;}
-				.shipLB table {width: -webkit-fill-available;}
+				.shipLB table {width: -webkit-fill-available;width: -moz-available;}
 
 			/* shipSkill */
 				.shipSkill {
