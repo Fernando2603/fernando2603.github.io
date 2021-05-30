@@ -109,8 +109,8 @@ function shipBody () {
 				    				'<td id="ship-stats-torpedo"></td>' +
 				    				'<th><img src="Stats/AntiAir.png" alt="anti-air"></th>' +
 				    				'<td id="ship-stats-antiair"></td>' +
-				    				'<th style="color: red;">eHP</th>' +
-				    				'<td id="ship-stats-eHP"></td>' +
+				    				'<th style="color: red;" title="This is raw eHP skill not included. with 75 hit, 25 luck and level 120 enemies.">eHP</th>' +
+				    				'<td id="ship-stats-eHP" title="This is raw eHP skill not included. with 75 hit, 25 luck and level 120 enemies."></td>' +
 				    			'</tr>' +
 				    			'<tr>' +
 				    				'<th><img src="Stats/Reload.png" alt="reload"></th>' +
