@@ -408,7 +408,7 @@
 						margin-right: 10px;
 					}
 
-					.shipGear table {width: -webkit-fill-available;width: -moz-available;}
+					.shipGear table {width: max-content}
 					.shipGear th {width: auto;}
 
 				/* shipValue */
