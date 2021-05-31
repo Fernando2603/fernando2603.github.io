@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+<head>
+	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta content="utf-8" http-equiv="encoding">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script type="text/javascript" src="js/script.js"></script>
+	<script type="text/javascript" src="js/personalscript.js"></script>
+	<script>
+	</script>
+  <title>Fernando</title>
+</head>
+<body class="site-theme-dark">
+	<div class="navbar">
+		<a href="index">Home</a>
+		<a href="#list">List</a>
+		<a href="#settings">Settings</a>
+	</div>
+	<div class="main">
+		<div class="card-list" id="card-list">
+			<div class="card-warp">
+				<h3 class="card-section">Card Lists</h3>
+				<div class="card-container" id="container-01">
+				</div>
+			</div>
+		</div>
+	</div>
+
+<script>
+	$("#container-01").append(cards(pcard01[0], pcard01[1], pcard01[2], pcard01[3], pcard01[4], pcard01[5], pcard01[6], pcard01[7]))
+	$("#container-01").append(cards(pcard02[0], pcard02[1], pcard02[2], pcard02[3], pcard02[4], pcard02[5], pcard02[6], pcard02[7]))
+</script>
+</body>
+</html>

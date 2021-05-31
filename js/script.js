@@ -86,6 +86,40 @@
       return S1+shipid+S2+shiprarity+S3+shiptype+S4+shiplink+S5+shipimage+S6+shiplink+S7+shipname+S8+shipid+S9+shiprarity+S10+shiprarity+S11
   }
 
+// function pscard
+  // Azur Lane Cards
+  // create common shipcards
+  // document.getElementById("demo1").innerHTML = sc1("Rare","a.html","a.png","zara","#22");
+  // $("#tester").html(scard(n52[0], n52[1], n52[2], n52[3], n52[4], n52[5]))
+  var PS1 =  '<div id="';
+  var PS2 =  '">' +
+             '<div class="shipcard" id="';
+  var PS3 =  '">' +
+             '<div class="shipcover">' +
+             '<div class="shiptype ';
+  var PS4 =  '">' +
+             '</div>' +
+             '<div class="shipimage" onclick="window.open(\'../AL/';
+  var PS5 =  '\', \'_blank\')" style="background-image: url(\'../AL/Shipcover/';
+  var PS6 =  '\');"></div>' +
+             '</div>' +
+             '<div class="shipname">' +
+             '<a href="../AL/';
+  var PS7 =  '">';
+  var PS8 =  '</a>' + 
+             '</div>' +
+             '<div id="shipid">#';
+  var PS9 =  '</div>' + 
+             '<div class="rarity ';
+  var PS10 = '">'; 
+  var PS11 = '</div>' +
+             '</div>' +
+             '</div>';
+
+  function pscard (shiprarity, shiptype, shiplink, shipimage, shipname, shipid) {
+      return PS1+shipid+PS2+shiprarity+PS3+shiptype+PS4+shiplink+PS5+shipimage+PS6+shiplink+PS7+shipname+PS8+shipid+PS9+shiprarity+PS10+shiprarity+PS11
+  }
+
 // AZUR LANE TAB FUNCTION
   function openCards(evt, cardName) {
           var i, tabcontent, tablinks;
