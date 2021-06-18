@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<head>
+	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta content="utf-8" http-equiv="encoding">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/script.js"></script>
+	<script type="text/javascript" src="js/shipdata.js"></script>
+	<style>
+		body {background-color: black;}
+
+		.form-control {
+			text-align: center;
+			padding: 16px;
+			margin-bottom: 3px;
+			width: auto;
+			margin: 10px;
+		}
+	</style>
+  <title>Fernando2603</title>
+</head>
+<body class="site-theme-dark">
+	<div class="navbar">
+		<a href="index">Home</a>
+	</div>
+	<div class="main">
+		<input class="form-control" id="myInput" type="text" placeholder="Search..">
+		<table id="myTable" class="table table-dark table-hover">
+			<thead>
+			  <tr>
+			  	<!-- ID, Shipname, Rarity, Nation, Type, Luck, Armor, Speed, HP, FP, AA, TRP, EVA, AVI, COST, RLD, ASW, OXY, AMMO, ACC -->
+			    <th onclick="sortTable(0)">ID</th>
+			    <th onclick="sortTable(1)">Name</th>
+			    <th onclick="sortTable(2)">Rarity</th>
+			    <th onclick="sortTable(3)">Faction</th>
+			    <th onclick="sortTable(4)">Type</th>
+			    <th onclick="sortTable(5)">Luck</th>
+			    <th onclick="sortTable(6)">Armor</th>
+			    <th onclick="sortTable(7)">Spd</th>
+			    <th onclick="sortTable(8)">HP</th>
+			    <th onclick="sortTable(9)">FP</th>
+			    <th onclick="sortTable(10)">AA</th>
+			    <th onclick="sortTable(11)">TRP</th>
+			    <th onclick="sortTable(12)">EVA</th>
+			    <th onclick="sortTable(13)">AVI</th>
+			    <th onclick="sortTable(14)">OIL</th>
+			    <th onclick="sortTable(15)">RLD</th>
+			    <th onclick="sortTable(16)">ASW</th>
+			    <th onclick="sortTable(17)">OXY</th>
+			    <th onclick="sortTable(18)">AMMO</th>
+			    <th onclick="sortTable(19)">ACC</th>
+			  </tr>
+			</thead>
+			<tbody id="myTableBody" class="">
+			</tbody>
+		</table>
+	</div>
+<script>
+	function sortTable(n) {
+	  var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+	  table = document.getElementById("myTable");
+	  switching = true;
+	  //Set the sorting direction to ascending:
+	  dir = "asc"; 
+	  /*Make a loop that will continue until
+	  no switching has been done:*/
+	  while (switching) {
+	    //start by saying: no switching is done:
+	    switching = false;
+	    rows = table.rows;
+	    /*Loop through all table rows (except the
+	    first, which contains table headers):*/
+	    for (i = 1; i < (rows.length - 1); i++) {
+	      //start by saying there should be no switching:
+	      shouldSwitch = false;
+	      /*Get the two elements you want to compare,
+	      one from current row and one from the next:*/
+	      x = rows[i].getElementsByTagName("TD")[n];
+	      y = rows[i + 1].getElementsByTagName("TD")[n];
+	      /*check if the two rows should switch place,
+	      based on the direction, asc or desc:*/
+	      if (dir == "asc") {
+	        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+	          //if so, mark as a switch and break the loop:
+	          shouldSwitch= true;
+	          break;
+	        }
+	      } else if (dir == "desc") {
+	        if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+	          //if so, mark as a switch and break the loop:
+	          shouldSwitch = true;
+	          break;
+	        }
+	      }
+	    }
+	    if (shouldSwitch) {
+	      /*If a switch has been marked, make the switch
+	      and mark that a switch has been done:*/
+	      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+	      switching = true;
+	      //Each time a switch is done, increase this count by 1:
+	      switchcount ++;      
+	    } else {
+	      /*If no switching has been done AND the direction is "asc",
+	      set the direction to "desc" and run the while loop again.*/
+	      if (switchcount == 0 && dir == "asc") {
+	        dir = "desc";
+	        switching = true;
+	      }
+	    }
+	  }
+	}
+
+	$(document).ready(function(){
+	  $("#myInput").on("keyup", function() {
+	    var value = $(this).val().toLowerCase();
+	    $("#myTableBody tr").filter(function() {
+	      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+	    });
+	  });
+	});
+
+	function getUsers() {
+		fetch('https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/ships.json')
+		.then((ships) => ships.json())
+		.then((data) => {
+		    let output = '<blank></blank>';
+		    console.log(data);
+		    data.forEach((ship) => {
+		        output += `
+		            <tr id="${ship.hullType}">
+		                <td>${ship.id}</td>
+		                <td>${ship.names.en}</td>
+		                <td>${ship.rarity}</td>
+		                <td>${ship.nationality}</td>
+		                <td>${ship.hullType}</td>
+		                <td>${ship.stats.level120.luck}</td>
+		                <td>${ship.stats.level120.armor}</td>
+		                <td>${ship.stats.level120.speed}</td>
+		                <td>${ship.stats.level120.health}</td>
+		                <td>${ship.stats.level120.firepower}</td>
+		                <td>${ship.stats.level120.antiair}</td>
+		                <td>${ship.stats.level120.torpedo}</td>
+		                <td>${ship.stats.level120.evasion}</td>
+		                <td>${ship.stats.level120.aviation}</td>
+		                <td>${ship.stats.level120.oilConsumption}</td>
+		                <td>${ship.stats.level120.reload}</td>
+		                <td>${ship.stats.level120.antisubmarineWarfare}</td>
+		                <td class="replace">${ship.stats.level120.oxygen}</td>
+		                <td class="replace">${ship.stats.level120.ammunition}</td>
+		                <td>${ship.stats.level120.accuracy}</td>
+		            </tr>
+		        `;
+		        })
+		        document.getElementById('myTableBody').innerHTML = output;
+		        function Laplace() {
+					var str = $(".replace").html(); 
+					var res = str.replace("undefined", "0");
+					$(".replace").html(res);
+				}
+				$(document).ready(Laplace())
+		    })
+		    .catch((err) => console.log(err));
+	}
+
+		$(document).ready(getUsers())
+</script>
+</body>
+</html>
