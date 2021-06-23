@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<head>
+	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta content="utf-8" http-equiv="encoding">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/script.js"></script>
+	<script type="text/javascript" src="js/meowfficer.js"></script>
+	<style>
+		body {}
+
+		.form-control {
+			text-align: center;
+			padding: 16px;
+			margin-bottom: 3px;
+			width: auto;
+			margin: 10px;
+		}
+
+		.table td, .table th {vertical-align: middle;}
+
+		.blue {background-color: powderblue;}
+		.purple {background-color: plum;}
+		.gold {background-color: palegoldenrod;}
+	</style>
+  <title>Fernando2603</title>
+</head>
+<body>
+	<table class="table table-hover text-center">
+		<thead>
+			<tr>
+				<th>Meowfficer</th>
+				<th>Name</th>
+				<th>Rarity</th>
+				<th>Type</th>
+				<th>Slot</th>
+				<th>Timer</th>
+				<th>Faction</th>
+				<th>Tactics</th>
+				<th>Support</th>
+				<th>Command</th>
+		</thead>
+		<tbody id="content">
+		</tbody>
+	</table>
+
+	</div>
+	<!-- Large modal -->
+	<div class="modal fade Justice" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="text-center">
+					<img src="https://azurlane.koumakan.jp/w/images/thumb/b/b9/JusticeIcon.png/90px-JusticeIcon.png">
+					<br><strong>Justice</strong>
+				</div>
+				<table class="table table-hover text-center">
+					<tbody>
+			      		<tr>
+			      			<th><img src="https://azurlane.koumakan.jp/w/images/thumb/1/12/MeowficerSupport.png/30px-MeowficerSupport.png"><br>Logistics</th>
+			      			<th><img src="https://azurlane.koumakan.jp/w/images/thumb/d/da/MeowficerCommand.png/30px-MeowficerCommand.png"><br>Directives</th>
+			      			<th><img src="https://azurlane.koumakan.jp/w/images/thumb/4/49/MeowficerTactics.png/30px-MeowficerTactics.png"><br>Tactics</th>
+			      		</tr>
+			      		<tr>
+			      			<td>44 → 144</td>
+			      			<td>52 → 171</td>
+			      			<td>52 → 171</td>
+			      		</tr>
+			      		<tr data-toggle="modal" data-target=".JusticeSkill">
+			      			<th>Skill</th>
+			      			<th colspan="2"><a href="#"><img src="https://azurlane.koumakan.jp/w/images/thumb/9/99/1001.png/50px-1001.png"> 31 Knots of Justice</a></th>
+			      		</tr>
+			      	</tbody>
+			    </table>
+			    <table class="table table-hover text-center">
+			    	<thead>
+			    		<tr>
+			    			<th colspan="2">Talent</th>
+			    		</tr>
+			    		<tr>
+			    			<th data-toggle="modal" data-target=".JusticeTalentGun"><a href="#">Destroyer Gun</a></th>
+			    			<th data-toggle="modal" data-target=".JusticeTalentTorpedo"><a href="#">Destroyer Torpedo</a></th>
+			    		</tr>
+			    	</thead>
+			    </table>
+			    <div class="modal fade JusticeTalentGun" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+			    	<div class="modal-dialog modal-xl">
+			    		<div class="modal-content">
+			    			<table class="table table-hover text-center">
+						    	<tbody>
+						    		<tr>
+						    			<th colspan="3">Primary</th>
+						    		</tr>
+						    		<tr>
+						    			<td><img src="https://azurlane.koumakan.jp/w/images/thumb/2/2f/Special_Skill.png/50px-Special_Skill.png"></td>
+						    			<td>Flame's Aggression</td>
+						    			<td>Fleet Damage +3%</td>
+						    		</tr>
+						    		<tr>
+						    			<td><img src="https://azurlane.koumakan.jp/w/images/thumb/2/2f/Special_Skill.png/50px-Special_Skill.png"></td>
+						    			<td>Destiny</td>
+						    			<td>Fleet FP/TRP/AVI +10 & -3 Luck</td>
+						    		</tr>
+						    		<tr>
+						    			<td>
+						    				<img src="https://azurlane.koumakan.jp/w/images/thumb/4/4c/Destroyer_Firepower_1.png/50px-Destroyer_Firepower_1.png">
+						    				<img src="https://azurlane.koumakan.jp/w/images/thumb/4/4e/Destroyer_Firepower_2.png/50px-Destroyer_Firepower_2.png">
+						    				<img src="https://azurlane.koumakan.jp/w/images/thumb/8/88/Destroyer_Firepower_3.png/50px-Destroyer_Firepower_3.png">
+						    			</td>
+						    			<td>Artillery Rookie/Adept/Ace Destroyer</td>
+						    			<td>DD FP +3/4/6</td>
+						    		</tr>
+						    		<tr>
+						    			<th colspan="3">Secondary</th>
+						    		</tr>
+						    		<tr>
+						    			<td><img src="https://azurlane.koumakan.jp/w/images/thumb/2/2f/Special_Skill.png/50px-Special_Skill.png"></td>
+						    			<td>Mountain's Tenacity</td>
+						    			<td>Fleet Damage Receive -3%</td>
+						    		</tr>
+						    		<tr>
+						    			<td>
+						    				<img src="https://azurlane.koumakan.jp/w/images/thumb/a/a7/Destroyer_Buff_1.png/50px-Destroyer_Buff_1.png">
+						    				<img src="https://azurlane.koumakan.jp/w/images/thumb/3/35/Destroyer_Buff_2.png/50px-Destroyer_Buff_2.png">
+						    				<img src="https://azurlane.koumakan.jp/w/images/thumb/8/81/Destroyer_Buff_3.png/50px-Destroyer_Buff_3.png">
+						    			</td>
+						    			<td>Loading Adept/Rookie/Ace Destroyer</td>
+						    			<td>DD RLD +6/7/10</td>
+						    		</tr>
+						    		<tr>
+						    			<th colspan="3">Other</th>
+						    		</tr>
+						    		<tr>
+						    			<td><img src="https://azurlane.koumakan.jp/w/images/thumb/2/2f/Special_Skill.png/50px-Special_Skill.png"></td>
+						    			<td>Miracle</td>
+						    			<td>Luck +5</td>
+						    		</tr>
+						    		<tr>
+						    			<td><img src="https://azurlane.koumakan.jp/w/images/thumb/2/2f/Special_Skill.png/50px-Special_Skill.png"></td>
+						    			<td>Forest's Serenity</td>
+						    			<td>Fleet AA/ASW +15 & ACC/EVA +3</td>
+						    		</tr>
+						    		<tr>
+						    			<td>
+						    				<img src="https://azurlane.koumakan.jp/w/images/thumb/a/a7/Destroyer_Buff_1.png/50px-Destroyer_Buff_1.png">
+						    				<img src="https://azurlane.koumakan.jp/w/images/thumb/3/35/Destroyer_Buff_2.png/50px-Destroyer_Buff_2.png">
+						    				<img src="https://azurlane.koumakan.jp/w/images/thumb/8/81/Destroyer_Buff_3.png/50px-Destroyer_Buff_3.png">
+						    			</td>
+						    			<td>Rookie/Adept/Ace Lookout Vanguard</td>
+						    			<td>Vanguard ACC +3/4/6</td>
+						    		</tr>
+						    	</tbody>
+						    </table>
+			    		</div>
+			    	</div>
+			    </div>
+			    <div class="modal fade JusticeTalentTorpedo" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+			    	<div class="modal-dialog modal-xl">
+			    		<div class="modal-content">
+			    			<table class="table table-hover text-center">
+						    	<tbody>
+						    		<tr>
+						    			<th colspan="3">Primary</th>
+						    		</tr>
+						    		<tr>
+						    			<td><img src="https://azurlane.koumakan.jp/w/images/thumb/2/2f/Special_Skill.png/50px-Special_Skill.png"></td>
+						    			<td>Flame's Aggression</td>
+						    			<td>Fleet Damage +3%</td>
+						    		</tr>
+						    		<tr>
+						    			<td><img src="https://azurlane.koumakan.jp/w/images/thumb/2/2f/Special_Skill.png/50px-Special_Skill.png"></td>
+						    			<td>Destiny</td>
+						    			<td>Fleet FP/TRP/AVI +10 & -3 Luck</td>
+						    		</tr>
+						    		<tr>
+						    			<td><img src="https://azurlane.koumakan.jp/w/images/thumb/1/12/Torpedo_Soul.png/50px-Torpedo_Soul.png"></td>
+						    			<td>Heart of the Torpedo</td>
+						    			<td>DD & CL TRP +15 & Torpedo Critical Rate 3%</td>
+						    		</tr>
+						    		<tr>
+						    			<td>
+						    				<img src="https://azurlane.koumakan.jp/w/images/thumb/7/7d/Destroyer_Torpedo_1.png/50px-Destroyer_Torpedo_1.png">
+						    				<img src="https://azurlane.koumakan.jp/w/images/thumb/a/a0/Destroyer_Torpedo_2.png/50px-Destroyer_Torpedo_2.png">
+						    				<img src="https://azurlane.koumakan.jp/w/images/thumb/c/c7/Destroyer_Torpedo_3.png/50px-Destroyer_Torpedo_3.png">
+						    				<td>Torpedo Rookie/Adept/Ace Desroyer</td>
+						    				<td>DD TRP +10/14/20</td>
+						    			</td>
+						    		</tr>
+						    		<tr>
+						    			<td>
+						    				<img src="https://azurlane.koumakan.jp/w/images/thumb/a/a7/Destroyer_Buff_1.png/50px-Destroyer_Buff_1.png">
+						    				<img src="https://azurlane.koumakan.jp/w/images/thumb/3/35/Destroyer_Buff_2.png/50px-Destroyer_Buff_2.png">
+						    				<img src="https://azurlane.koumakan.jp/w/images/thumb/8/81/Destroyer_Buff_3.png/50px-Destroyer_Buff_3.png">
+						    			</td>
+						    			<td>Rookie Officier/Elite Officier/Chief of Staff Destroyer</td>
+						    			<td>DD TRP +8/11/16 & RLD +4/5/8</td>
+						    		</tr>
+						    		<tr>
+						    			<th colspan="3">Secondary</th>
+						    		</tr>
+						    		<tr>
+						    			<td><img src="https://azurlane.koumakan.jp/w/images/thumb/2/2f/Special_Skill.png/50px-Special_Skill.png"></td>
+						    			<td>Mountain's Tenacity</td>
+						    			<td>Fleet Damage Receive -3%</td>
+						    		</tr>
+						    		<tr>
+						    			<td>
+						    				<img src="https://azurlane.koumakan.jp/w/images/thumb/2/20/Sakura_Empire_1.png/50px-Sakura_Empire_1.png">
+						    				<img src="https://azurlane.koumakan.jp/w/images/thumb/b/b8/Sakura_Empire_2.png/50px-Sakura_Empire_2.png">
+						    				<img src="https://azurlane.koumakan.jp/w/images/thumb/d/de/Sakura_Empire_3.png/50px-Sakura_Empire_3.png">
+						    			</td>
+						    			<td>Rookie Officier/Elite Officier/Chief of Staff Sakura</td>
+						    			<td>IJN TRP +8/11/16, IJN AVI +6/8/12 & IJN EVA +1/2/3</td>
+						    		</tr>
+						    		<tr>
+						    			<th colspan="3">Other</th>
+						    		</tr>
+						    		<tr>
+						    			<td><img src="https://azurlane.koumakan.jp/w/images/thumb/2/2f/Special_Skill.png/50px-Special_Skill.png"></td>
+						    			<td>Miracle</td>
+						    			<td>Luck +5</td>
+						    		</tr>
+						    		<tr>
+						    			<td><img src="https://azurlane.koumakan.jp/w/images/thumb/2/2f/Special_Skill.png/50px-Special_Skill.png"></td>
+						    			<td>Forest's Serenity</td>
+						    			<td>Fleet AA/ASW +15 & ACC/EVA +3</td>
+						    		</tr>
+						    		<tr>
+						    			<td>
+						    				<img src="https://azurlane.koumakan.jp/w/images/thumb/a/a7/Destroyer_Buff_1.png/50px-Destroyer_Buff_1.png">
+						    				<img src="https://azurlane.koumakan.jp/w/images/thumb/3/35/Destroyer_Buff_2.png/50px-Destroyer_Buff_2.png">
+						    				<img src="https://azurlane.koumakan.jp/w/images/thumb/8/81/Destroyer_Buff_3.png/50px-Destroyer_Buff_3.png">
+						    			</td>
+						    			<td>Loading Adept/Rookie/Ace Destroyer</td>
+						    			<td>DD RLD +6/7/10</td>
+						    		</tr>
+						    	</tbody>
+						    </table>
+			    		</div>
+			    	</div>
+			    </div>
+			    <div class="modal fade JusticeSkill" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+			    	<div class="modal-dialog modal-xl">
+			    		<div class="modal-content">
+			    			<table class="align-middle table table-hover text-center">
+						      	<thead>
+						      		<tr>
+						      			<th colspan="3">Skill Effects</th>
+						      		</tr>
+						      	</thead>
+						      	<tbody>
+						      		<tr>
+						      			<th colspan="3">Normal</th>
+						      		</tr>
+						      		<tr>
+						      			<th class="align-middle">Level</th>
+						      			<th class="align-middle">Conditions</th>
+						      			<th class="align-middle">Effect</th>
+						      		</tr>
+						      		<tr>
+						      			<th class="align-middle">1</th>
+						      			<td class="align-middle">When assigned to a fleet with 3 DDs</td>
+						      			<td class="align-middle">Gives your fleet +1 tile movement on the map.</td>
+						      		</tr>
+						      		<tr>
+						      			<th class="align-middle">2</th>
+						      			<td class="align-middle">When assigned as the Command Cat to a fleet that has at least 1 DD</td>
+						      			<td class="align-middle">15% chance to launch a preemptive torpedo strike when engaging any non-Boss fleet on the map.</td>
+						      		</tr>
+						      		<tr>
+						      			<th class="align-middle">3</th>
+						      			<td class="align-middle">When assigned as the Command Cat to a fleet that isn't in combat and has at least 1 DD</td>
+						      			<td class="align-middle">Adds an option in the Strategy Menu to switch positions with a friendly fleet in combat if it's directly adjacent to yours.</td>
+						      		</tr>
+						      		<tr>
+						      			<th colspan="3">Operation Siren</th>
+						      		</tr>
+						      		<tr>
+						      			<th class="align-middle">Level</th>
+						      			<th class="align-middle">Conditions</th>
+						      			<th class="align-middle">Effect</th>
+						      		</tr>
+						      		<tr>
+						      			<th class="align-middle">1</th>
+						      			<td class="align-middle">When assigned to a fleet with 3 DDs</td>
+						      			<td class="align-middle">Increases your Vanguard's TRP by a moderate amount based on the Tactics stat.</td>
+						      		</tr>
+						      		<tr>
+						      			<th class="align-middle">2</th>
+						      			<td class="align-middle">When assigned as the Command Cat and the 2nd ship in your Vanguard is a DD</td>
+						      			<td class="align-middle">Fires a Lv.1 special barrage.</td>
+						      		</tr>
+						      		<tr>
+						      			<th class="align-middle">3</th>
+						      			<td class="align-middle">None</td>
+						      			<td class="align-middle">Upgrades the special barrage to Lv.2.</td>
+						      		</tr>
+						      	</tbody>
+						    </table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<script>
+	let output = ""
+	cat.forEach((cat) => {
+		output += `
+			<tr data-toggle="modal" data-target=".${cat.name}">
+				<td class="${cat.color}"><img src="${cat.image}"></td>
+				<td>${cat.name}</td>
+				<td>${cat.rarity}</td>
+				<td>${cat.type}</td>
+				<td>${cat.slot}</td>
+				<td>${cat.timer}</td>
+				<td>${cat.faction}</td>
+				<td>${cat.tactics}</td>
+				<td>${cat.support}</td>
+				<td>${cat.command}</td>
+			</tr>
+		`
+	})
+	$("#content").append(output)
+</script>
+</body>
+</html>
+

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<head>
+	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta content="utf-8" http-equiv="encoding">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/script.js"></script>
+	<script type="text/javascript" src="js/Lexington.js"></script>
+	<style>
+		body {background-color: black;}
+
+		.form-control {
+			text-align: center;
+			padding: 16px;
+			margin-bottom: 3px;
+			width: auto;
+			margin: 10px;
+		}
+	</style>
+  <title>Fernando2603</title>
+</head>
+<body class="site-theme-dark">
+	<div>
+		<div class="counter">
+			<table class="table table-dark table-hover text-center">
+				<thead>
+					<tr>
+						<th>Ship</th>
+						<th>MLB</th>
+						<th>MLB Cost</th>
+						<th>Purin</th>
+						<th>Bulin</th>
+						<th>Max</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td id="shipCount"></td>
+						<td id="mlb"></td>
+						<td id="totalCost"></td>
+						<td id="purins"></td>
+						<td id="bulins"></td>
+						<td id="max"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div class="main">
+		<input class="form-control" id="myInput" type="text" placeholder="Search..">
+		<table id="myTable" class="table table-dark table-hover">
+			<thead>
+			  <tr class="text-center">
+			    <th>ID</th>
+			    <th>Name</th>
+			    <th>Rarity</th>
+			    <th>Type</th>
+			    <th>Faction</th>
+			    <th>Stars</th>
+			    <th>MLB</th>
+			    <th>LBCost</th>
+			    <th>Bulin</th>
+			    <th>Max</th>
+			  </tr>
+			</thead>
+			<tbody id="content">
+			</tbody>
+		</table>
+	</div>
+</body>
+<script>
+	$(document).ready(function(){
+	  $("#myInput").on("keyup", function() {
+	    var value = $(this).val().toLowerCase();
+	    $("#content tr").filter(function() {
+	      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+	    });
+	  });
+	});
+
+	let output = ""
+	ship.forEach((ship) => {
+		output += `
+			<tr>
+				<td class="text-center">${ship.id}</td>
+				<td>${ship.name}</td>
+				<td class="text-center">${ship.rarity}</td>
+				<td class="text-center">${ship.type}</td>
+				<td class="text-center">${ship.faction}</td>
+				<td class="text-center ${ship.obtain}">${ship.stars}</td>
+				<td class="text-center ${ship.mlb}">${ship.mlb}</td>
+				<td class="text-center cost">${ship.lbcost}</td>
+				<td class="text-center ${ship.btype}">${ship.bulin}</td>
+				<td class="text-center ${ship.max}">${ship.max}</td>
+			</tr>
+		`
+	})
+	$("#content").append(output)
+
+	var cost = 0;
+	$("#content tr").not(':first').each(function() {cost +=  getnum($(this).find("td:eq(7)").text());function getnum(t){if(isNumeric(t)){return parseInt(t,10);}return 0;function isNumeric(n) {return !isNaN(parseFloat(n)) && isFinite(n);}}});
+	$("#totalCost").append(cost);
+	console.log(cost)
+
+	var shipTotal = $(".OBT, .XOBT").length;
+	var shipObtain = $(".OBT").length;
+	$("#shipCount").append(shipObtain+" / "+shipTotal)
+
+	var purin = 0;
+	$('#myTable .PurpleB').each(function () {purin += parseInt(this.innerText);});
+	$("#purins").append(purin)
+
+	var bulin = 0;$('#myTable .GoldB').each(function () {bulin += parseInt(this.innerText);});
+	$("#bulins").append(bulin)
+
+	$("#mlb").append($(".YES").length +" / "+ $(".NO, .YES").length)
+
+	$("#max").append($(".O").length)
+</script>
+</html>
