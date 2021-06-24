@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+	<link rel="stylesheet" type="text/css" href="css/al-styles.css">
+<head>
+	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta content="utf-8" http-equiv="encoding">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script type="text/javascript" src="js/script.js"></script>
+	<script type="text/javascript" src="js/indexscript.js"></script>
+	<script type="text/javascript" src="js/shipdata.js"></script>
+	<script>
+	</script>
+  <title>Fernando2603</title>
+</head>
+<body class="site-theme-dark">
+	<div class="navbar">
+		<a href="index">Home</a>
+		<a href="#list">List</a>
+		<a href="#settings">Settings</a>
+	</div>
+	<div class="main">
+		<div class="card-list" id="card-list">
+			<div class="card-warp">
+				<h3 class="card-section">Card Lists</h3>
+				<div class="card-container" id="container-01">
+				</div>
+			</div>
+		</div>
+	</div>
+
+<script>
+	$("#container-01").append(cards(card01[0], card01[1], card01[2], card01[3], card01[4], card01[5], card01[6], card01[7]))
+	$("#container-01").append(cards(card02[0], card02[1], card02[2], card02[3], card02[4], card02[5], card02[6], card02[7]))
+</script>
+</body>
+</html>
