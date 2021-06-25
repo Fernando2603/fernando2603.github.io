@@ -447,7 +447,7 @@
 		    			<table class="align-middle table table-hover text-center">
 					      	<thead>
 					      		<tr>
-					      			<th colspan="3">Skill Effects</th>
+					      			<th colspan="3">${cat.skill.name}</th>
 					      		</tr>
 					      		<tr>
 					      			<th colspan="3">Normal</th>
@@ -523,9 +523,9 @@
 						<table class="table table-hover text-center">
 							<thead>
 								<tr>
-					      			<th><img src="https://azurlane.koumakan.jp/w/images/thumb/1/12/MeowficerSupport.png/30px-MeowficerSupport.png"><br>Logistics</th>
-					      			<th><img src="https://azurlane.koumakan.jp/w/images/thumb/d/da/MeowficerCommand.png/30px-MeowficerCommand.png"><br>Directives</th>
-					      			<th><img src="https://azurlane.koumakan.jp/w/images/thumb/4/49/MeowficerTactics.png/30px-MeowficerTactics.png"><br>Tactics</th>
+					      			<th style="width: 33.33%"><img src="https://azurlane.koumakan.jp/w/images/thumb/1/12/MeowficerSupport.png/30px-MeowficerSupport.png"><br>Logistics</th>
+					      			<th style="width: 33.33%"><img src="https://azurlane.koumakan.jp/w/images/thumb/d/da/MeowficerCommand.png/30px-MeowficerCommand.png"><br>Directives</th>
+					      			<th style="width: 33.33%"><img src="https://azurlane.koumakan.jp/w/images/thumb/4/49/MeowficerTactics.png/30px-MeowficerTactics.png"><br>Tactics</th>
 					      		</tr>
 							</thead>
 							<tbody>
@@ -536,7 +536,8 @@
 					      		</tr>
 					      		<tr data-toggle="modal" data-target=".${cat.name}Skill">
 					      			<th>Skill</th>
-					      			<th colspan="2"><a href="#"><img src="${cat.skill.image}"> ${cat.skill.name}</a></th>
+					      			<th><a href="#">${cat.skill.name}</a></th>
+					      			<th><img src="${cat.skill.image}"></th>
 					      		</tr>
 					      	</tbody>
 					    </table>
@@ -557,7 +558,7 @@
 
 // meowfficer talent button link create
 	function talentList (target, title) {
-		return '<th data-toggle="modal" data-target=".'+target+'"><a href="#">'+title+'</a></th>';
+		return '<th style="width: 50%" data-toggle="modal" data-target=".'+target+'"><a href="#">'+title+'</a></th>';
 	}
 
 // meowfficer talent tab create
@@ -596,4 +597,9 @@
 // meowfficer talent primary/secondary/other create
 	function mt (talent) {
 		return '<tr class="'+talent+'"></tr>';
+	}
+
+// website dark mode // development
+	function darkmode () {
+		$(".table").addClass("table-dark")
 	}

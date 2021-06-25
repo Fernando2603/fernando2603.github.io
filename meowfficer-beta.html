@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<link rel="icon" href="Images/al-favicon.png">
+<head>
+	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta content="utf-8" http-equiv="encoding">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/script.js"></script>
+	<script type="text/javascript" src="js/meowfficer.js"></script>
+	<script type="text/javascript" src="js/meowfficer-talent.js"></script>
+	<script type="text/javascript" src="js/meowfficer-script.js"></script>
+	<style>
+		.table td, .table th {vertical-align: middle;}
+		.blue {background-color: powderblue;}
+		.purple {background-color: plum;}
+		.gold {background-color: palegoldenrod;}
+	</style>
+  <title>Meowfficer - Azur Lane</title>
+</head>
+<body>
+	<table class="table table-hover text-center">
+		<thead>
+			<tr>
+				<th data-toggle="modal" data-target=".allTalent"><a href="#" title="Talent list">Talent List</a></th>
+				<th>Name</th>
+				<th>Rarity</th>
+				<th>Type</th>
+				<th>Slot</th>
+				<th>Timer</th>
+				<th>Faction</th>
+				<th>Tactics</th>
+				<th>Support</th>
+				<th>Command</th>
+		</thead>
+		<tbody id="content">
+		</tbody>
+	</table>
+	</div>
+	<!-- Meowfficer Modal -->
+	<div class="catcontainer"></div>
+	<!-- Skill Modal -->
+	<div class="skillcontainer"></div>
+	<!-- Talents Modal-->
+	<div class="talentscontainer"></div>
+	<div>
+		<div class="modal fade allTalent" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+	    	<div class="modal-dialog modal-xl">
+	    		<div class="modal-content">
+	    			<table class="table table-hover text-center" id="table-darkmode">
+				    	<thead>
+				    		<tr>
+				    			<th colspan="3">Talent List</th>
+				    		</tr>
+				    	</thead>
+				    	<tbody class="Talentlist"></tbody>
+				    </table>
+	    		</div>
+	    	</div>
+	    </div>
+	</div>
+<script>
+	$("#content").append(output)
+	$(".skillcontainer").append(skilloutput)
+	$(".catcontainer").append(catoutput)
+	$(document).ready(mtCall())
+	$(document).ready(talents())
+</script>
+</body>
+</html>
+
