@@ -11007,7 +11007,7 @@ var gear = [
          "submarine":null,
          "submarineCarrier":null
       },
-      "image":"https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/equipments/Triple_152mm_Model_1934.png",
+      "image":"https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/equipments/Triple_152mm_(Model_1934).png",
       "misc":{
          "blueprints":"",
          "madeFrom":[
@@ -11017,7 +11017,7 @@ var gear = [
          "usedFor":[
             
          ],
-         "animation":"https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/equipments.animation/Triple_152mm_Model_1934.gif",
+         "animation":"https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/equipments.animation/Triple_152mm_(Model_1934).gif",
          "obtainedFrom":"Available in \"Daedalian Hymn\" event shop, D3 and SP."
       },
       "nationality":"Sardegna Empire",
@@ -50858,7 +50858,7 @@ var gear = [
          "submarine":null,
          "submarineCarrier":null
       },
-      "image":"https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/equipments/Triple_406mm_1650_Mk_7.png",
+      "image":"https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/equipments/Triple_406mm_(16%22_50_Mk_7).png",
       "misc":{
          "blueprints":"",
          "madeFrom":[
@@ -50868,7 +50868,7 @@ var gear = [
          "usedFor":[
             
          ],
-         "animation":"https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/equipments.animation/Triple_406mm_1650_Mk_7.gif",
+         "animation":null,
          "obtainedFrom":"Mirror Involution event shop"
       },
       "nationality":"Eagle Union",

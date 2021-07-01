@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en-US">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
+    <link rel="icon" href="Images/al-favicon.png">
+<head>
+	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta content="utf-8" http-equiv="encoding">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+	<script type="text/javascript" src="js/script.js"></script>
+    <script type="text/javascript" src="js/equipment.js"></script>
+	<script type="text/javascript" src="js/equipment-script.js"></script>
+    <script type="text/javascript" src="js/equipment-list.js"></script>
+	<script type="text/javascript" src="js/equipment-modal.js"></script>
+	<style>
+		.table td, .table th {vertical-align: middle!important;}
+		.blue, .Rare {background-color: powderblue;}
+		.purple, .Elite {background-color: plum;}
+		.gold, .Super {background-color: palegoldenrod;}
+        .rainbow, .Ultra {background: linear-gradient(120deg,#fbffca,#baffbf,#a7efff,#ffabff)!important;}
+		.eqy {background-color: #afa;}
+		.eqn {background-color: #faa;}
+		.eqd {background-color: #ffa;}
+        .icon {width: 60px;}
+        .divcon {width: 63px;}
+	</style>
+	<title>Equipment - Azur Lane</title>
+</head>
+<body>
+<!-- Tabs -->
+    <ul class="nav nav-tabs" id="tablist">
+        <li><a class="nav-link" data-toggle="tab" href="#DD-Gun"><strong>DD-Guns</strong></a></li>
+        <li><a class="nav-link" id="ocf-0" data-toggle="tab" href="#CL-Gun" onclick="CLSpawn()"><strong>CL-Guns</strong></a></li>
+        <li><a class="nav-link" id="ocf-1" data-toggle="tab" href="#CA-Gun" onclick="CASpawn()"><strong>CA-Guns</strong></a></li>
+        <li><a class="nav-link" id="ocf-2" data-toggle="tab" href="#CB-Gun" onclick="CBSpawn()"><strong>CB-Guns</strong></a></li>
+        <li><a class="nav-link" id="ocf-3" data-toggle="tab" href="#BB-Gun" onclick="BBSpawn()"><strong>BB-Guns</strong></a></li>
+        <li><a class="nav-link" id="ocf-4" data-toggle="tab" href="#Torpedo"><strong>Torpedoes</strong></a></li>
+        <li><a class="nav-link" id="ocf-5" data-toggle="tab" href="#Planes"><strong>Planes</strong></a></li>
+        <li><a class="nav-link" id="ocf-6" data-toggle="tab" href="#AntiAir-Gun"><strong>AA-Guns</strong></a></li>
+        <li><a class="nav-link" id="ocf-7" data-toggle="tab" href="#Aux"><strong>Auxiliary</strong></a></li>
+        <li><a class="nav-link" id="ocf-8" data-toggle="tab" href="#Cargo"><strong>Cargo</strong></a></li>
+        <li><a class="nav-link" id="ocf-9" data-toggle="tab" href="#ASW"><strong>Anti-Submarine</strong></a></li>
+        <li><a class="nav-link" data-toggle="modal" data-target=".changelog" href="#"><strong>Change Log</strong></a></li>
+    </ul>
+    <!-- Changelog Tabs -->
+    <div class="modal fade changelog" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <p class="text-center"><strong>1 July 2021</strong></p>
+                <ul>
+                    <li>Add tabs</li>
+                    <li>Add 7 Super Rare DD Gun</li>
+                    <li>Add 6 Super Rare CL Gun</li>
+                    <li>Add 11 Super Rare CA Gun</li>
+                    <li>Add 1 Super Rare CB Gun</li>
+                    <li>Add 13 Super Rare & 2 Ultra Rare BB Gun </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+<!-- Tab Content -->
+    <div class="tab-content">
+        <!-- Destroyer Gun -->
+        <div class="tab-pane active" id="DD-Gun">
+            <h2 class="text-center">Destroyer Guns</h2>
+            <!-- Destroyer Gun Tabs Child Button--->
+            <ul class="nav nav-tabs" id="DD-Gun-Tabs">
+                <li><a class="nav-link" data-toggle="tab" href="#DD-Gun-max"><strong>Destroyer Gun +10</strong></a></li>
+                <li><a class="nav-link" data-toggle="tab" href="#DD-Gun-full"><strong>Destroyer Gun +13</strong></a></li>
+            </ul>
+            <!-- Destroyer Gun Tabs Child Content -->
+            <div class="tab-content">
+                <div class="tab-pane active" id="DD-Gun-max">
+                    <table class="table table-hover table-bordered text-center">
+                        <thead class="DD-CL-CA-TableHead"></thead>
+                        <tbody class="DDGunMaxOutput"></tbody>
+                    </table>
+                </div>
+                <div class="tab-pane" id="DD-Gun-full">
+                    <table class="table table-hover table-bordered text-center">
+                        <thead class="DD-CL-CA-TableHead"></thead>
+                        <tbody class="DDGunFullOutput"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- Light Cruiser Gun -->
+        <div class="tab-pane" id="CL-Gun">
+            <h2 class="text-center">Light Cruiser Guns</h2>
+            <ul class="nav nav-tabs" id="CL-Gun-Tabs">
+                <li><a class="nav-link" data-toggle="tab" href="#CL-Gun-max"><strong>Light Cruiser Gun +10</strong></a></li>
+                <li><a class="nav-link" data-toggle="tab" href="#CL-Gun-full"><strong>Light Cruiser Gun +13</strong></a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane active" id="CL-Gun-max">
+                    <table class="table table-hover table-bordered text-center">
+                        <thead class="DD-CL-CA-TableHead"></thead>
+                        <tbody class="CLGunMaxOutput"></tbody>
+                    </table>
+                </div>
+                <div class="tab-pane" id="CL-Gun-full">
+                    <table class="table table-hover table-bordered text-center">
+                        <thead class="DD-CL-CA-TableHead"></thead>
+                        <tbody class="CLGunFullOutput"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- Heavy Cruiser Gun -->
+        <div class="tab-pane" id="CA-Gun">
+            <h2 class="text-center">Heavy Cruiser Guns</h2>
+            <ul class="nav nav-tabs" id="CA-Gun-Tabs">
+                <li><a class="nav-link" data-toggle="tab" href="#CA-Gun-max"><strong>Heavy Cruiser Gun +10</strong></a></li>
+                <li><a class="nav-link" data-toggle="tab" href="#CA-Gun-full"><strong>Heavy Cruiser Gun +13</strong></a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane active" id="CA-Gun-max">
+                    <table class="table table-hover table-bordered text-center">
+                        <thead class="DD-CL-CA-TableHead"></thead>
+                        <tbody class="CAGunMaxOutput"></tbody>
+                    </table>
+                </div>
+                <div class="tab-pane" id="CA-Gun-full">
+                    <table class="table table-hover table-bordered text-center">
+                        <thead class="DD-CL-CA-TableHead"></thead>
+                        <tbody class="CAGunFullOutput"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- Large Cruiser Gun -->
+        <div class="tab-pane" id="CB-Gun">
+            <h2 class="text-center">Large Cruiser Guns</h2>
+            <ul class="nav nav-tabs" id="CB-Gun-Tabs">
+                <li><a class="nav-link" data-toggle="tab" href="#CB-Gun-max"><strong>Large Cruiser Gun +10</strong></a></li>
+                <li><a class="nav-link" data-toggle="tab" href="#CB-Gun-full"><strong>Large Cruiser Gun +13</strong></a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane active" id="CB-Gun-max">
+                    <table class="table table-hover table-bordered text-center">
+                        <thead class="CB-BB-TableHead"></thead>
+                        <tbody class="CBGunMaxOutput"></tbody>
+                    </table>
+                </div>
+                <div class="tab-pane" id="CB-Gun-full">
+                    <table class="table table-hover table-bordered text-center">
+                        <thead class="CB-BB-TableHead"></thead>
+                        <tbody class="CBGunFullOutput"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- Battleship Gun -->
+        <div class="tab-pane" id="BB-Gun">
+            <h2 class="text-center">Battleship Guns</h2>
+            <ul class="nav nav-tabs" id="BB-Gun-Tabs">
+                <li><a class="nav-link" data-toggle="tab" href="#BB-Gun-max"><strong>Battleship Gun +10</strong></a></li>
+                <li><a class="nav-link" data-toggle="tab" href="#BB-Gun-full"><strong>Battleship Gun +13</strong></a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane active" id="BB-Gun-max">
+                    <table class="table table-hover table-bordered text-center">
+                        <thead class="CB-BB-TableHead"></thead>
+                        <tbody class="BBGunMaxOutput"></tbody>
+                    </table>
+                </div>
+                <div class="tab-pane" id="BB-Gun-full">
+                    <table class="table table-hover table-bordered text-center">
+                        <thead class="CB-BB-TableHead"></thead>
+                        <tbody class="BBGunFullOutput"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- Torpedoes -->
+        <div class="tab-pane" id="Torpedo">
+            <h2 class="text-center">Surface Torpedo & Submarine Torpedo</h2>
+            <ul class="nav nav-tabs" id="Torpedo-Tabs">
+                <li><a class="nav-link" data-toggle="tab" href="#Torpedo-Surface"><strong>Surface Torpedo +10</strong></a></li>
+                <li><a class="nav-link" data-toggle="tab" href="#Torpedo-Surface2"><strong>Surface Torpedo +13</strong></a></li>
+                <li><a class="nav-link" data-toggle="tab" href="#Torpedo-Submarine"><strong>Submarine Torpedo +10</strong></a></li>
+                <li><a class="nav-link" data-toggle="tab" href="#Torpedo-Submarine2"><strong>Submarine Torpedo +13</strong></a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane active" id="Torpedo-Surface">
+                    <table class="table table-hover table-bordered text-center">
+                        <thead class="Torpedo-Surface-TableHead"></thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+                <div class="tab-pane" id="Torpedo-Surface2">
+                    <table class="table table-hover table-bordered text-center">
+                        <thead class="Torpedo-Surface-TableHead"></thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+                <div class="tab-pane" id="Torpedo-Submarine">
+                    <table class="table table-hover table-bordered text-center">
+                        <thead class="Torpedo-Submarine-TableHead"></thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+                <div class="tab-pane" id="Torpedo-Submarine2">
+                    <table class="table table-hover table-bordered text-center">
+                        <thead class="Torpedo-Submarine-TableHead"></thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- Planes -->
+        <div class="tab-pane" id="Planes">
+            <h2 class="text-center">Fighter, Dive Bomber, Torpedo Bomber & Seaplane</h2>
+            <ul class="nav nav-tabs" id="Planes-Tabs">
+                <li><a class="nav-link" data-toggle="tab" href="#Fighter"><strong>Fighter +10</strong></a></li>
+                <li><a class="nav-link" data-toggle="tab" href="#Fighter2"><strong>Fighter +13</strong></a></li>
+                <li><a class="nav-link" data-toggle="tab" href="#DiveBomber"><strong>Dive Bomber +10</strong></a></li>
+                <li><a class="nav-link" data-toggle="tab" href="#DiveBomber2"><strong>Dive Bomber +13</strong></a></li>
+                <li><a class="nav-link" data-toggle="tab" href="#TorpedoBomber"><strong>Torpedo Bomber +10</strong></a></li>
+                <li><a class="nav-link" data-toggle="tab" href="#TorpedoBomber2"><strong>Torpedo Bomber +13</strong></a></li>
+                <li><a class="nav-link" data-toggle="tab" href="#Seaplanes"><strong>Seaplane +10</strong></a></li>
+                <li><a class="nav-link" data-toggle="tab" href="#Seaplanes2"><strong>Seaplane +13</strong></a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane active" id="Fighter">
+                    <table class="table table-hover table-bordered text-center">
+                        <thead class="Fighter-DiveBomber-Seaplane-TableHead"></thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+                <div class="tab-pane" id="Fighter2">
+                    <table class="table table-hover table-bordered text-center">
+                        <thead class="Fighter-DiveBomber-Seaplane-TableHead"></thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+                <div class="tab-pane" id="DiveBomber">
+                    <table class="table table-hover table-bordered text-center">
+                        <thead class="Fighter-DiveBomber-Seaplane-TableHead"></thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+                <div class="tab-pane" id="DiveBomber2">
+                    <table class="table table-hover table-bordered text-center">
+                        <thead class="Fighter-DiveBomber-Seaplane-TableHead"></thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+                <div class="tab-pane" id="TorpedoBomber">
+                    <table class="table table-hover table-bordered text-center">
+                        <thead class="TorpedoBomber-TableHead"></thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+                <div class="tab-pane" id="TorpedoBomber2">
+                    <table class="table table-hover table-bordered text-center">
+                        <thead class="TorpedoBomber-TableHead"></thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+                <div class="tab-pane" id="Seaplanes">
+                    <table class="table table-hover table-bordered text-center">
+                        <thead class="Fighter-DiveBomber-Seaplane-TableHead"></thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+                <div class="tab-pane" id="Seaplanes2">
+                    <table class="table table-hover table-bordered text-center">
+                        <thead class="Fighter-DiveBomber-Seaplane-TableHead"></thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- Anti-Air -->
+        <div class="tab-pane" id="AntiAir-Gun">
+            <h2 class="text-center">Anti-Air Gun</h2>
+            <ul class="nav nav-tabs" id="AA-Gun-Tabs">
+                <li><a class="nav-link" data-toggle="tab" href="#AA-Gun-max"><strong>Anti-Air Gun +10</strong></a></li>
+                <li><a class="nav-link" data-toggle="tab" href="#AA-Gun-full"><strong>Anti-Air Gun +13</strong></a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane active" id="AA-Gun-max">
+                    <table class="table table-hover table-bordered text-center">
+                        <thead class="AntiAir-TableHead"></thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+                <div class="tab-pane" id="AA-Gun-full">
+                    <table class="table table-hover table-bordered text-center">
+                        <thead class="AntiAir-TableHead"></thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- Auxiliary -->
+        <div class="tab-pane" id="Aux">
+            <h2 class="text-center">Auxiliary</h2>
+            <ul class="nav nav-tabs" id="Aux-Tabs">
+                <li><a class="nav-link" data-toggle="tab" href="#Aux-max"><strong>Auxiliary +10</strong></a></li>
+                <li><a class="nav-link" data-toggle="tab" href="#Aux-full"><strong>Auxiliary +13</strong></a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane active" id="Aux-max">
+                    <table class="table table-hover table-bordered text-center">
+                        <thead class="Aux-TableHead"></thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+                <div class="tab-pane" id="Aux-full">
+                    <table class="table table-hover table-bordered text-center">
+                        <thead class="Aux-TableHead"></thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- Cargo -->
+        <div class="tab-pane" id="Cargo">
+            <h2 class="text-center">Cargo</h2>
+            <ul class="nav nav-tabs" id="Cargo-Tabs">
+                <li><a class="nav-link" data-toggle="tab" href="#Cargo-max"><strong>Cargo +10</strong></a></li>
+                <li><a class="nav-link" data-toggle="tab" href="#Cargo-full"><strong>Cargo +13</strong></a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane active" id="Cargo-max">
+                    <table class="table table-hover table-bordered text-center">
+                        <thead class="Cargo-TableHead"></thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+                <div class="tab-pane" id="Cargo-full">
+                    <table class="table table-hover table-bordered text-center">
+                        <thead class="Cargo-TableHead"></thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- Anti-Submarine Equipment -->
+        <div class="tab-pane" id="ASW">
+            <h2 class="text-center">Anti-Submarine Warfare Equipment</h2>
+            <ul class="nav nav-tabs" id="ASW-Tabs">
+                <li><a class="nav-link" data-toggle="tab" href="#ASW-max"><strong>Anti Submarine +10</strong></a></li>
+                <li><a class="nav-link" data-toggle="tab" href="#ASW-full"><strong>Anti Submarine +13</strong></a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane active" id="ASW-max">
+                    <table class="table table-hover table-bordered text-center">
+                        <thead class="ASW-TableHead"></thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+                <div class="tab-pane" id="ASW-full">
+                    <table class="table table-hover table-bordered text-center">
+                        <thead class="ASW-TableHead"></thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-container"></div>
+</body>
+<script>
+$(function () {$('[data-toggle="tooltip"]').tooltip()})
+$(document).ready(TableHeadLoad())
+$(document).ready(DDSpawn())
+</script>
+</html>
