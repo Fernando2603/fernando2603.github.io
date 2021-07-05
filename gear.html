@@ -11,6 +11,7 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
 	<script type="text/javascript" src="js/script.js"></script>
     <script type="text/javascript" src="js/equipment.js"></script>
+    <script type="text/javascript" src="js/equipment-aux.js"></script>
 	<script type="text/javascript" src="js/equipment-script.js"></script>
     <script type="text/javascript" src="js/equipment-list.js"></script>
 	<script type="text/javascript" src="js/equipment-modal.js"></script>
@@ -24,7 +25,8 @@
 		.eqn {background-color: #faa;}
 		.eqd {background-color: #ffa;}
         .icon {width: 60px;}
-        .divcon {width: 63px;}
+        .divcon {width: 64px; height: 64px; text-align: center;}
+        .mozkit {text-align: -moz-center; text-align: -webkit-center}
 	</style>
 	<title>Equipment - Azur Lane</title>
 </head>
@@ -36,10 +38,10 @@
         <li><a class="nav-link" id="ocf-1" data-toggle="tab" href="#CA-Gun" onclick="CASpawn()"><strong>CA-Guns</strong></a></li>
         <li><a class="nav-link" id="ocf-2" data-toggle="tab" href="#CB-Gun" onclick="CBSpawn()"><strong>CB-Guns</strong></a></li>
         <li><a class="nav-link" id="ocf-3" data-toggle="tab" href="#BB-Gun" onclick="BBSpawn()"><strong>BB-Guns</strong></a></li>
-        <li><a class="nav-link" id="ocf-4" data-toggle="tab" href="#Torpedo"><strong>Torpedoes</strong></a></li>
-        <li><a class="nav-link" id="ocf-5" data-toggle="tab" href="#Planes"><strong>Planes</strong></a></li>
-        <li><a class="nav-link" id="ocf-6" data-toggle="tab" href="#AntiAir-Gun"><strong>AA-Guns</strong></a></li>
-        <li><a class="nav-link" id="ocf-7" data-toggle="tab" href="#Aux"><strong>Auxiliary</strong></a></li>
+        <li><a class="nav-link" id="ocf-4" data-toggle="tab" href="#Torpedo" onclick="TRPSpawn()"><strong>Torpedoes</strong></a></li>
+        <li><a class="nav-link" id="ocf-5" data-toggle="tab" href="#Planes" onclick="PLSpawn()"><strong>Planes</strong></a></li>
+        <li><a class="nav-link" id="ocf-6" data-toggle="tab" href="#AntiAir-Gun" onclick="AASpawn()"><strong>AA-Guns</strong></a></li>
+        <li><a class="nav-link" id="ocf-7" data-toggle="tab" href="#Aux" onclick="AuxSpawn()"><strong>Auxiliary</strong></a></li>
         <li><a class="nav-link" id="ocf-8" data-toggle="tab" href="#Cargo"><strong>Cargo</strong></a></li>
         <li><a class="nav-link" id="ocf-9" data-toggle="tab" href="#ASW"><strong>Anti-Submarine</strong></a></li>
         <li><a class="nav-link" data-toggle="modal" data-target=".changelog" href="#"><strong>Change Log</strong></a></li>
@@ -48,12 +50,29 @@
     <div class="modal fade changelog" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
+                <p class="text-center"><strong>5 July 2021</strong></p>
+                <ul>
+                    <li>Fix modal bug</li>
+                    <li>Add 16 Super Rare Anti-Air Guns</li>
+                </ul>
+                <p class="text-center"><strong>3 July 2021</strong></p>
+                <ul>
+                    <li>Add 13 Super Rare Fighters</li>
+                    <li>Add 7 Super Rare Dive Bombers</li>
+                    <li>Add 10 Super Rare & 1 Ultra Rare Torpedo Bombers</li>
+                    <li>Add 1 Super Rare Seaplanes</li>
+                </ul>
+                <p class="text-center"><strong>2 July 2021</strong></p>
+                <ul>
+                    <li>Add 6 Super Rare & 1 Ultra Rare Surface Torpedoes</li>
+                    <li>Add 7 Super Rare Submarine Torpedoes</li>
+                </ul>
                 <p class="text-center"><strong>1 July 2021</strong></p>
                 <ul>
                     <li>Add tabs</li>
                     <li>Add 7 Super Rare DD Gun</li>
                     <li>Add 6 Super Rare CL Gun</li>
-                    <li>Add 11 Super Rare CA Gun</li>
+                    <li>Add 10 Super Rare & 1 Ultra Rare CA Gun</li>
                     <li>Add 1 Super Rare CB Gun</li>
                     <li>Add 13 Super Rare & 2 Ultra Rare BB Gun </li>
                 </ul>
@@ -188,25 +207,25 @@
                 <div class="tab-pane active" id="Torpedo-Surface">
                     <table class="table table-hover table-bordered text-center">
                         <thead class="Torpedo-Surface-TableHead"></thead>
-                        <tbody></tbody>
+                        <tbody class="SurfaceTorpedoMaxOutput"></tbody>
                     </table>
                 </div>
                 <div class="tab-pane" id="Torpedo-Surface2">
                     <table class="table table-hover table-bordered text-center">
                         <thead class="Torpedo-Surface-TableHead"></thead>
-                        <tbody></tbody>
+                        <tbody class="SurfaceTorpedoFullOutput"></tbody>
                     </table>
                 </div>
                 <div class="tab-pane" id="Torpedo-Submarine">
                     <table class="table table-hover table-bordered text-center">
                         <thead class="Torpedo-Submarine-TableHead"></thead>
-                        <tbody></tbody>
+                        <tbody class="SubmarineTorpedoMaxOutput"></tbody>
                     </table>
                 </div>
                 <div class="tab-pane" id="Torpedo-Submarine2">
                     <table class="table table-hover table-bordered text-center">
                         <thead class="Torpedo-Submarine-TableHead"></thead>
-                        <tbody></tbody>
+                        <tbody class="SubmarineTorpedoFullOutput"></tbody>
                     </table>
                 </div>
             </div>
@@ -221,56 +240,56 @@
                 <li><a class="nav-link" data-toggle="tab" href="#DiveBomber2"><strong>Dive Bomber +13</strong></a></li>
                 <li><a class="nav-link" data-toggle="tab" href="#TorpedoBomber"><strong>Torpedo Bomber +10</strong></a></li>
                 <li><a class="nav-link" data-toggle="tab" href="#TorpedoBomber2"><strong>Torpedo Bomber +13</strong></a></li>
-                <li><a class="nav-link" data-toggle="tab" href="#Seaplanes"><strong>Seaplane +10</strong></a></li>
-                <li><a class="nav-link" data-toggle="tab" href="#Seaplanes2"><strong>Seaplane +13</strong></a></li>
+                <li><a class="nav-link" data-toggle="tab" href="#Seaplane"><strong>Seaplane +10</strong></a></li>
+                <li><a class="nav-link" data-toggle="tab" href="#Seaplane2"><strong>Seaplane +13</strong></a></li>
             </ul>
             <div class="tab-content">
                 <div class="tab-pane active" id="Fighter">
                     <table class="table table-hover table-bordered text-center">
                         <thead class="Fighter-DiveBomber-Seaplane-TableHead"></thead>
-                        <tbody></tbody>
+                        <tbody class="FighterMaxOutput"></tbody>
                     </table>
                 </div>
                 <div class="tab-pane" id="Fighter2">
                     <table class="table table-hover table-bordered text-center">
                         <thead class="Fighter-DiveBomber-Seaplane-TableHead"></thead>
-                        <tbody></tbody>
+                        <tbody class="FighterFullOutput"></tbody>
                     </table>
                 </div>
                 <div class="tab-pane" id="DiveBomber">
                     <table class="table table-hover table-bordered text-center">
                         <thead class="Fighter-DiveBomber-Seaplane-TableHead"></thead>
-                        <tbody></tbody>
+                        <tbody class="DiveBomberMaxOutput"></tbody>
                     </table>
                 </div>
                 <div class="tab-pane" id="DiveBomber2">
                     <table class="table table-hover table-bordered text-center">
                         <thead class="Fighter-DiveBomber-Seaplane-TableHead"></thead>
-                        <tbody></tbody>
+                        <tbody class="DiveBomberFullOutput"></tbody>
                     </table>
                 </div>
                 <div class="tab-pane" id="TorpedoBomber">
                     <table class="table table-hover table-bordered text-center">
                         <thead class="TorpedoBomber-TableHead"></thead>
-                        <tbody></tbody>
+                        <tbody class="TorpedoBomberMaxOutput"></tbody>
                     </table>
                 </div>
                 <div class="tab-pane" id="TorpedoBomber2">
                     <table class="table table-hover table-bordered text-center">
                         <thead class="TorpedoBomber-TableHead"></thead>
-                        <tbody></tbody>
+                        <tbody class="TorpedoBomberFullOutput"></tbody>
                     </table>
                 </div>
-                <div class="tab-pane" id="Seaplanes">
+                <div class="tab-pane" id="Seaplane">
                     <table class="table table-hover table-bordered text-center">
                         <thead class="Fighter-DiveBomber-Seaplane-TableHead"></thead>
-                        <tbody></tbody>
+                        <tbody class="SeaplaneMaxOutput"></tbody>
                     </table>
                 </div>
-                <div class="tab-pane" id="Seaplanes2">
+                <div class="tab-pane" id="Seaplane2">
                     <table class="table table-hover table-bordered text-center">
                         <thead class="Fighter-DiveBomber-Seaplane-TableHead"></thead>
-                        <tbody></tbody>
+                        <tbody class="SeaplaneFullOutput"></tbody>
                     </table>
                 </div>
             </div>
@@ -286,13 +305,13 @@
                 <div class="tab-pane active" id="AA-Gun-max">
                     <table class="table table-hover table-bordered text-center">
                         <thead class="AntiAir-TableHead"></thead>
-                        <tbody></tbody>
+                        <tbody class="AAGunMaxOutput"></tbody>
                     </table>
                 </div>
                 <div class="tab-pane" id="AA-Gun-full">
                     <table class="table table-hover table-bordered text-center">
                         <thead class="AntiAir-TableHead"></thead>
-                        <tbody></tbody>
+                        <tbody class="AAGunFullOutput"></tbody>
                     </table>
                 </div>
             </div>
@@ -308,13 +327,13 @@
                 <div class="tab-pane active" id="Aux-max">
                     <table class="table table-hover table-bordered text-center">
                         <thead class="Aux-TableHead"></thead>
-                        <tbody></tbody>
+                        <tbody class="AuxiliaryMaxOutput"></tbody>
                     </table>
                 </div>
                 <div class="tab-pane" id="Aux-full">
                     <table class="table table-hover table-bordered text-center">
                         <thead class="Aux-TableHead"></thead>
-                        <tbody></tbody>
+                        <tbody class="AuxiliaryFullOutput"></tbody>
                     </table>
                 </div>
             </div>
