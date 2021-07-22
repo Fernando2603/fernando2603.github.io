@@ -422,7 +422,7 @@
 	let output = ""
 	cat.forEach((cat) => {
 		output += `
-			<tr data-toggle="modal" data-target=".${cat.name}">
+			<tr data-toggle="modal" data-target=".${cat.name}" class="${cat.color}Cat">
 				<td class="${cat.color}"><img src="${cat.image}"></td>
 				<td>${cat.name}</td>
 				<td>${cat.rarity}</td>
@@ -512,13 +512,20 @@
 // meowfficer profile output
 	let catoutput = ""
 	cat.forEach((cat) => {
+		name = cat.name;
+		image = cat.image;
+		logistics = cat.stats.logistics[0] + " → "+ cat.stats.logistics[1];
+		directives = cat.stats.directives[0] + " → "+ cat.stats.directives[1];
+		tactics = cat.stats.tactics[0] + " → "+ cat.stats.tactics[1];
+		skillName = cat.skill.name;
+		skillImage = cat.skill.image;
 		catoutput += `
-			<div class="modal fade ${cat.name}" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+			<div class="modal fade ${name}" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
 				<div class="modal-dialog modal-lg">
-					<div class="modal-content ${cat.name}Talent">
-						<div class="text-center">
-							<img src="${cat.image}">
-							<br><strong>${cat.name}</strong>
+					<div class="modal-content ${name}Talent">
+						<div class="text-center darkmode">
+							<img src="${image}">
+							<br><strong>${name}</strong>
 						</div>
 						<table class="table table-hover text-center">
 							<thead>
@@ -530,14 +537,14 @@
 							</thead>
 							<tbody>
 					      		<tr>
-					      			<td>${cat.stats.logistics[0]} → ${cat.stats.logistics[1]}</td>
-					      			<td>${cat.stats.directives[0]} → ${cat.stats.directives[1]}</td>
-					      			<td>${cat.stats.tactics[0]} → ${cat.stats.tactics[1]}</td>
+					      			<td>${logistics}</td>
+					      			<td>${directives}</td>
+					      			<td>${tactics}</td>
 					      		</tr>
-					      		<tr data-toggle="modal" data-target=".${cat.name}Skill">
+					      		<tr data-toggle="modal" data-target=".${name}Skill">
 					      			<th>Skill</th>
-					      			<th><a href="#">${cat.skill.name}</a></th>
-					      			<th><img src="${cat.skill.image}"></th>
+					      			<th><a href="#">${skillName}</a></th>
+					      			<th><img src="${skillImage}"></th>
 					      		</tr>
 					      	</tbody>
 					    </table>
@@ -546,7 +553,7 @@
 					    		<tr>
 					    			<th colspan="5">Talent</th>
 					    		</tr>
-					    		<tr class="${cat.name}TL">
+					    		<tr class="${name}TL">
 					    		</tr>
 					    	</thead>
 					    </table>
@@ -554,7 +561,7 @@
 				</div>
 			</div>
 		`
-	})
+	});
 
 // meowfficer talent button link create
 	function talentList (target, title) {
@@ -601,5 +608,31 @@
 
 // website dark mode // development
 	function darkmode () {
-		$(".table").addClass("table-dark")
+		if($(".darkswitch").hasClass("darkactive")) {
+			$(".darkswitch").removeClass("darkactive")
+	    	$(".table").removeClass("table-dark")
+	    	$(".darkmode").removeClass("darkmode-active")
+	    	$("a").removeClass("darklink")
+	    } else {
+	    	$(".darkswitch").addClass("darkactive")
+	        $(".table").addClass("table-dark")
+	        $(".darkmode").addClass("darkmode-active")
+	        $("a").addClass("darklink")
+	    }
+	}
+
+	function allCat () {
+		$(".goldCat, .purpleCat, .blueCat").removeClass("hidecat")
+	}
+	function goldCat () {
+		$(".goldCat").removeClass("hidecat")
+		$(".purpleCat, .blueCat").addClass("hidecat")
+	}
+	function purpleCat () {
+		$(".purpleCat").removeClass("hidecat")
+		$(".goldCat, .blueCat").addClass("hidecat")
+	}
+	function blueCat () {
+		$(".blueCat").removeClass("hidecat")
+		$(".goldCat, .purpleCat").addClass("hidecat")
 	}

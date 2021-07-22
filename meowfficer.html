@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/toggle.css">
 	<link rel="icon" href="Images/al-favicon.png">
 <head>
 	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
@@ -13,18 +14,58 @@
 	<script type="text/javascript" src="js/meowfficer-talent.js"></script>
 	<script type="text/javascript" src="js/meowfficer-script.js"></script>
 	<style>
+		.table {margin-bottom: unset!important;}
 		.table td, .table th {vertical-align: middle;}
+		.darkmode-active {background-color: #343a40; color: white;}
+		.darklink {color: deepskyblue;}
 		.blue {background-color: powderblue;}
 		.purple {background-color: plum;}
 		.gold {background-color: palegoldenrod;}
+		.hidecat {display: none;}
 	</style>
   <title>Meowfficer - Azur Lane</title>
 </head>
 <body>
+	<div>
+		<table class="table text-center">
+			<thead>
+				<tr>
+					<th>Meowfficer</th>
+					<th>Super Rare</th>
+					<th>Elite</th>
+					<th>Rare</th>
+					<th colspan="4">Filter</th>
+					<th>Last Update</th>
+					<th>Dark Mode</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="meowtotal"></td>
+					<td class="goldContainer"></td>
+					<td class="purpleContainer"></td>
+					<td class="blueContainer"></td>
+					<td onclick="allCat()"><a href="#">All</a></td>
+					<td onclick="goldCat()"><a href="#">SR</a></td>
+					<td onclick="purpleCat()"><a href="#">E</a></td>
+					<td onclick="blueCat()"><a href="#">R</a></td>
+					<td>22 July 2021</td>
+					<td>
+						<label class="switch">
+							<input type="checkbox">
+							<span class="slider round darkswitch" onclick="darkmode()"></span>
+						</label>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
 	<table class="table table-hover text-center">
 		<thead>
 			<tr>
-				<th data-toggle="modal" data-target=".allTalent"><a href="#" title="Talent list">Talent List</a></th>
+				<th data-toggle="modal" data-target=".allTalent">
+					<a href="#" title="Talent list">Talent List</a>
+				</th>
 				<th>Name</th>
 				<th>Rarity</th>
 				<th>Type</th>
@@ -67,6 +108,10 @@
 	$(".catcontainer").append(catoutput)
 	$(document).ready(mtCall())
 	$(document).ready(talents())
+	$(".meowtotal").append($(".gold, .purple, .blue").length)
+	$(".goldContainer").append($(".gold").length)
+	$(".purpleContainer").append($(".purple").length)
+	$(".blueContainer").append($(".blue").length)
 </script>
 </body>
 </html>
