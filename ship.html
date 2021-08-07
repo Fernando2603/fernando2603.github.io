@@ -1,112 +1,314 @@
 <!DOCTYPE html>
 <html lang="en-US">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/ship.css">
     <link rel="icon" href="Images/al-favicon.png">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <head>
 	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta content="utf-8" http-equiv="encoding">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script></head>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+	<script type="text/javascript" src="js/ship.js"></script>
+	<script type="text/javascript" src="js/ship-script.js"></script>
+	<title>Development</title>
+</head>
 <body>
-	<div>
-		<table class="table table-hover table-bordered text-center">
-			<thead>
-				<tr>
-					<th>ID</th>
-					<th>Name</th>
-					<th>Type</th>
-					<th>Rarity</th>
-					<th>Faction</th>
-				</tr>
-			</thead>
-			<tbody class="output">
-			</tbody>
-		</table>
-	</div>
+	<a class="act-btn" href="#" data-toggle="modal" data-target=".settings">
+		<div 
+			class="parent-button button"
+			data-toggle="tooltip"
+			data-placement="bottom"
+			title="Filter Settings"
+		>
+			<i class="material-icons">settings</i>
+		</div>
+	</a>
+	<div class="modal fade settings" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+    	<div class="modal-dialog modal-xl">
+    		<div class="modal-content">
+    			<table class="table text-center filter-button">
+    				<thead>
+    					<tr>
+    						<th>Filter</th>
+    					</tr>
+    				</thead>
+    				<thead>
+    					<tr>
+    						<th>Hull Type</th>
+    					</tr>
+    				</thead>
+    				<tbody>
+    					<tr>
+    						<td>
+    							<button type="button" class="btn btn-00 btn-primary" onclick="filterByHullTypeReset()">All</button>
+								<button type="button" class="btn btn-01 btn-outline-primary" onclick="filterByHullType('01','BB')">BB</button>
+								<button type="button" class="btn btn-02 btn-outline-primary" onclick="filterByHullType('02','BC')">BC</button>
+								<button type="button" class="btn btn-03 btn-outline-primary" onclick="filterByHullType('03','BBV')">BBV</button>
+								<button type="button" class="btn btn-04 btn-outline-primary" onclick="filterByHullType('04','CV')">CV</button>
+								<button type="button" class="btn btn-05 btn-outline-primary" onclick="filterByHullType('05','CVL')">CVL</button>
+								<button type="button" class="btn btn-06 btn-outline-primary" onclick="filterByHullType('06','CB')">CB</button>
+								<button type="button" class="btn btn-07 btn-outline-primary" onclick="filterByHullType('07','CA')">CA</button>
+								<button type="button" class="btn btn-08 btn-outline-primary" onclick="filterByHullType('08','CL')">CL</button>
+								<button type="button" class="btn btn-09 btn-outline-primary" onclick="filterByHullType('09','DD')">DD</button>
+								<button type="button" class="btn btn-10 btn-outline-primary" onclick="filterByHullType('10','SS')">SS</button>
+								<button type="button" class="btn btn-11 btn-outline-primary" onclick="filterByHullType('11','SSV')">SSV</button>
+								<button type="button" class="btn btn-12 btn-outline-primary" onclick="filterByHullType('12','AR')">AR</button>
+								<button type="button" class="btn btn-13 btn-outline-primary" onclick="filterByHullType('13','BM')">BM</button>
+								<button type="button" class="btn btn-14 btn-outline-primary" onclick="filterByHullType('14','AE')">AE</button>
+							</td>
+    					</tr>
+    				</tbody>
+    				<thead>
+    					<tr>
+    						<th>Rarity</th>
+    					</tr>
+    				</thead>
+    				<tbody>
+    					<tr>
+    						<td>
+    							<button type="button" class="btn btn-15 btn-primary" onclick="filterByRarityReset()">All</button>
+								<button type="button" class="btn btn-16 btn-outline-primary" onclick="filterByRarity('16','1')">Normal</button>
+								<button type="button" class="btn btn-17 btn-outline-primary" onclick="filterByRarity('17','2')">Rare</button>
+								<button type="button" class="btn btn-18 btn-outline-primary" onclick="filterByRarity('18','3')">Elite</button>
+								<button type="button" class="btn btn-19 btn-outline-primary" onclick="filterByRarity('19','4')">Super Rare</button>
+								<button type="button" class="btn btn-20 btn-outline-primary" onclick="filterByRarity('20','5')">Ultra Rare</button>
+    						</td>
+    					</tr>
+    				</tbody>
+    				<thead>
+    					<tr>
+    						<th>Slot</th>
+    					</tr>
+    				</thead>
+    				<tbody>
+    					<tr>
+    						<td>
+    							<button type="button" class="btn btn-21 btn-primary" onclick="filterBySlotReset()">All</button>
+								<button type="button" class="btn btn-22 btn-outline-primary" onclick="filterBySlot('22','1')">Main</button>
+								<button type="button" class="btn btn-23 btn-outline-primary" onclick="filterBySlot('23','2')">Vanguard</button>
+								<button type="button" class="btn btn-24 btn-outline-primary" onclick="filterBySlot('24','3')">Submarine</button>
+    						</td>
+    					</tr>
+    				</tbody>
+    				<thead>
+    					<tr>
+    						<th>Unit</th>
+    					</tr>
+    				</thead>
+    				<tbody>
+    					<tr>
+    						<td>
+    							<button type="button" class="btn btn-25 btn-primary" onclick="filterByUnitReset()">All</button>
+								<button type="button" class="btn btn-26 btn-outline-primary" onclick="filterByUnit('26','Standart')">Standart</button>
+								<button type="button" class="btn btn-27 btn-outline-primary" onclick="filterByUnit('27','Retrofit')">Retrofit</button>
+								<button type="button" class="btn btn-28 btn-outline-primary" onclick="filterByUnit('28','Research')">Research</button>
+								<button type="button" class="btn btn-29 btn-outline-primary" onclick="filterByUnit('29','Collab')">Collab</button>
+								<button type="button" class="btn btn-30 btn-outline-primary" onclick="filterByUnit('30','META')">Meta</button>
+    						</td>
+    					</tr>
+    				</tbody>
+    				<thead>
+    					<tr>
+    						<th>Faction</th>
+    					</tr>
+    				</thead>
+    				<tbody>
+    					<tr>
+    						<td>
+    							<button type="button" class="btn btn-31 btn-primary" onclick="filterByNationReset()">All</button>
+								<button type="button" class="btn btn-32 btn-outline-primary" onclick="filterByNation('32','USS')">Eagle Union</button>
+								<button type="button" class="btn btn-33 btn-outline-primary" onclick="filterByNation('33','HMS')">Royal Navy</button>
+								<button type="button" class="btn btn-34 btn-outline-primary" onclick="filterByNation('34','IJN')">Sakura Empire</button>
+								<button type="button" class="btn btn-35 btn-outline-primary" onclick="filterByNation('35','KMS')">Iron Blood</button>
+								<button type="button" class="btn btn-36 btn-outline-primary" onclick="filterByNation('36','ROC')">Dragon Empery</button>
+								<button type="button" class="btn btn-37 btn-outline-primary" onclick="filterByNation('37','SN')">Northern Parliament</button>
+								<button type="button" class="btn btn-38 btn-outline-primary" onclick="filterByNation('38','FFNF')">Iris Libre</button>
+								<button type="button" class="btn btn-39 btn-outline-primary" onclick="filterByNation('39','MNF')">Vichya Dominion</button>
+								<button type="button" class="btn btn-40 btn-outline-primary" onclick="filterByNation('40','RN')">Sardegna Empire</button>
+								<button type="button" class="btn btn-41 btn-outline-primary" onclick="filterByNation('41','HDN')">Neptunia</button>
+								<button type="button" class="btn btn-42 btn-outline-primary" onclick="filterByNation('42','BILI')">Bilibili</button>
+								<button type="button" class="btn btn-43 btn-outline-primary" onclick="filterByNation('43','UTM')">Utawarerumono</button>
+								<button type="button" class="btn btn-44 btn-outline-primary" onclick="filterByNation('44','KAI')">KizunaAI</button>
+								<button type="button" class="btn btn-45 btn-outline-primary" onclick="filterByNation('45','HOLO')">Hololive</button>
+								<button type="button" class="btn btn-46 btn-outline-primary" onclick="filterByNation('46','VEVA')">Venus Vacation</button>
+								<button type="button" class="btn btn-49 btn-outline-primary" onclick="filterByNation('49','IMAS')">The Idolm@ster</button>
+								<button type="button" class="btn btn-47 btn-outline-primary" onclick="filterByNation('47','META')">META</button>
+								<button type="button" class="btn btn-48 btn-outline-primary" onclick="filterByNation('48','Universal')">Universal</button>
+    						</td>
+    					</tr>
+    				</tbody>
+    			</table>
+    		</div>
+    	</div>
+    </div>
+    <div class="text-center">
+    	<h1>Azur Lane - Ship List - AzurAPI v151 - Local v07082021</h1>
+    </div>
+	<div class="ship-card-container text-center align-middle output"></div>
 	<div class="modal-container"></div>
 <script>
-fetch("https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/ships.json")
-.then(response => response.json())
-.then((ship) => {
-console.log(ship) // console.log if promise success
-let output = "";
-ship.forEach((ship) => {
-	var id = ship.id;
-	var name = ship.names.en;
-	var type = ship.hullType;
-	var rarity = ship.rarity;
-	var faction = ship.nationality;
-	var wikiUrl = ship.wikiUrl;
-	output += `
-		<tr class="x${id}" data-toggle="modal" data-target=".modal${id}" onclick="modalCall('${id}')">
-			<td>${id}</td>
-			<td>${name}</td>
-			<td>${type}</td>
-			<td>${rarity}</td>
-			<td>${faction}</td>
-		</tr>
-	`
-})
+$(".output").append(output)
 
-// script
-$(".output").append(output);
-// fetch end
-})
-.catch((error) => {
-  console.error('Error:', error);
-});
-
-// creating modal script with ship idx looping
-function modalCreate (idx) {
-	fetch("https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/ships.json")
-	.then(response => response.json())
-	.then((ship) => {
+function shipModalCall(shipgid) {
+	shipModal(shipgid);
+	$(".o"+shipgid).removeAttr("onclick")
+}
+function shipModal(shipgid) {
+	let modal = "";
 	for (var i = 0; i < ship.length; i++) {
-		if (ship[i].id == idx) {
-			var name = ship[i].names.en;
-			var icon = ship[i].thumbnail;
-			var rarity = ship[i].rarity;
-			return `
-				<div class="modal fade modal${idx}" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-xl">
-                        <div class="modal-content">
-                            <table class="table table-bordered text-center">
-                                <thead>
-                                    <tr>
-                                        <th colspan="5">${name}</th>
-                                    </tr>
-                                    <tr>
-                                        <th colspan="5"><img src="${icon}"></th>
-                                    </tr>
-                                    <tr>
-                                        <th>Ships</th>
-                                        <td colspan="5">${rarity}</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Round Type</th>
-                                        <th>Light</th>
-                                        <th>Medium</th>
-                                        <th>Heavy</th>
-                                        <th>Notes</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
+		if (ship[i]._gid == shipgid) {
+			ships = ship[i]
+			name = ships.names.en;
+			hullType = ships.hullType;
+			thumbnail = ships.thumbnail;
+			if(ships.skins[0].name == "Default") {chibi = ships.skins[0].chibi}
+			if(ships.skins[0].name == "Default") {image = ships.skins[0].image}
+			shipclass = ships.class;
+			shipid = ships.id;
+			nationality = ships.nationality;
+			rarity = ships.rarity;
+			constructionTime = ships.construction.constructionTime;
+
+			// exists 
+			shipExist = [ships.exists.en, ships.exists.cn, ships.exists.jp, ships.exists.kr]
+				if (shipExist[0] == true) {shipExistEN = "✔"} else {shipExistEN = "✘"}
+				if (shipExist[1] == true) {shipExistCN = "✔"} else {shipExistCN = "✘"}
+				if (shipExist[2] == true) {shipExistJP = "✔"} else {shipExistJP = "✘"}
+				if (shipExist[3] == true) {shipExistKR = "✔"} else {shipExistKR = "✘"}
+			shipExistFormat = "EN:" + shipExistEN + "| CN:" + shipExistCN + "| JP:" + shipExistJP + "| KR:" + shipExistKR;
+
+			// scrap & enhance value
+			if(ships.enhanceValue !== null) {
+				enhanceFP = `<img src="AL/Stats/Firepower.png"> ${ships.enhanceValue.firepower} `;
+				enhanceTRP = `<img src="AL/Stats/Torpedo.png"> ${ships.enhanceValue.torpedo} `;
+				enhanceAVI = `<img src="AL/Stats/Aviation.png"> ${ships.enhanceValue.aviation} `;
+				enhanceRLD = `<img src="AL/Stats/Reload.png"> ${ships.enhanceValue.reload} `;
+			}
+			if(ships.scrapValue !== null) {
+				scrapCoin = `<img src="AL/Resources/Coin.png"> ${ships.scrapValue.coin} `;
+				scrapOil = `<img src="AL/Resources/Oil.png"> ${ships.scrapValue.oil} `;
+				scrapMedal = `<img src="AL/Resources/Medal.png"> ${ships.scrapValue.medal} `;
+			}
+			if(ships.enhanceValue !== null) {
+				enhanceValue = enhanceFP + " " + enhanceTRP + " " + enhanceRLD + " " + enhanceAVI
+			} else {enhanceValue = "Cannot be used to enhance"}
+			if(ships.scrapValue !== null) {
+				scrapValue = scrapCoin + " " + scrapOil + " " + scrapMedal
+			} else {scrapValue = "Cannot be scrapped"}
+			esValue = `
+				<table class="table table-hover text-center ship-align shiptable">
+					<thead>
+						<tr>
+							<th style="width: 50%">Enhance Value</th>
+							<th style="width: 50%">Scrap Value</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>${enhanceValue}</td>
+							<td>${scrapValue}</td>
+						</tr>
+					</tbody>
+				</table>
+			`
+			// gear slot
+			slot1Efficiency = ships.slots[0].minEfficiency + "% → " + ships.slots[0].maxEfficiency + "%";
+			slot1Type = ships.slots[0].type;
+			slot1Max = ships.slots[0].max;
+			slot2Efficiency = ships.slots[1].minEfficiency + "% → " + ships.slots[1].maxEfficiency + "%";
+			slot2Type = ships.slots[1].type;
+			slot2Max = ships.slots[1].max;
+			slot3Efficiency = ships.slots[2].minEfficiency + "% → " + ships.slots[2].maxEfficiency + "%";
+			slot3Type = ships.slots[2].type;
+			slot3Max = ships.slots[2].max;
+			shipSlots = `
+				<tr>
+					<td>1</td>
+					<td>${slot1Efficiency}</td>
+					<td>${slot1Type}</td>
+					<td>${slot1Max}</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>${slot2Efficiency}</td>
+					<td>${slot2Type}</td>
+					<td>${slot2Max}</td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td>${slot3Efficiency}</td>
+					<td>${slot3Type}</td>
+					<td>${slot3Max}</td>
+				</tr>
 			`;
+
+			// limit break
+
 		}
-	}})
+	}
+	modal = `
+		<div class="modal fade s${shipgid}" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+	    	<div class="modal-dialog modal-xl">
+	    		<div class="modal-content">
+	    			<table class="table table-hover text-center ship-align shiptable">
+	    				<thead>
+	    					<tr>
+	    						<th colspan="4">${name}</th>
+	    					</tr>
+	    				</thead>
+	    				<tbody>
+		    				<tr>
+	    						<td><img class="ship-thumbnail" src="${thumbnail}"></td>
+	    						<td colspan="2"><img class="ship-image" src="${image}"></td>
+	    						<td><img class="ship-chibi" src="${chibi}"></td>
+	    					</tr>
+	    					<tr>
+	    						<th style="width: 25%;">ID</th>
+	    						<td style="width: 25%;">${shipid}</td>
+	    						<th style="width: 25%;">Rarity</th>
+	    						<td style="width: 25%;">${rarity}</td>
+	    					</tr>
+	    					<tr>
+	    						<th>Class</th>
+	    						<td>${shipclass}</td>
+	    						<th>Exists</th>
+	    						<td>${shipExistFormat}</td>
+	    					</tr>
+	    					<tr>
+	    						<th>Hull Type</th>
+	    						<td>${hullType}</td>
+	    						<th>Construction Time</th>
+	    						<td>${constructionTime}</td>
+	    					</tr>
+	    				</tbody>
+	    			</table>
+	    			${esValue}
+	    			<table class="table table-hover text-center ship-align shiptable">
+	    				<thead>
+	    					<tr>
+	    						<th colspan="4">Gears</th>
+	    					</tr>
+	    				</thead>
+	    				<tbody>
+	    					<tr>
+	    						<th>Slot</th>
+	    						<th>Efficiency</th>
+	    						<th>Equippable</th>
+	    						<th>Max #</th>
+	    					</tr>
+	    					${shipSlots}
+	    				</tbody>
+	    			</table>
+	    		</div>
+	    	</div>
+	    </div>
+	`
+	$(".modal-container").append(modal)
 }
-// create modal and disable onclick attributes to prevent multiple call
-function modalCall (idx) {
-	$(".modal-container").append(modalCreate(idx))
-    $(".x"+idx).removeAttr("onclick")
-}
+$(function () {$('[data-toggle="tooltip"]').tooltip()})
 </script>
 </body>
 </html>
