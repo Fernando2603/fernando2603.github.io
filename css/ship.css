@@ -65,6 +65,21 @@
 .ship-image {margin-top: 5px; margin-bottom: 5px; width: auto; max-height: 200px;}
 .ship-align	tbody tr th, .ship-align tbody tr td, .ship-align thead tr th, .ship-align thead tr td {vertical-align: middle!important;} 
 .shiptable {margin-bottom: unset!important;}
+.shipstats thead tr th:nth-child(even) {width: 15%;}
+.shipstats thead tr th:nth-child(odd) {width: 10%;}
+
+.huntingRange {width: 45px!important; height: 45px!important; padding: 0!important; margin: 0!important;}
+.hrangeImage {width: 42px; height: 42px;}
+.hrange5 {background-color: #cb181d;}
+.hrange4 {background-color: #ef3b2c;}
+.hrange3 {background-color: #fb6a4a;}
+.hrange2 {background-color: #fc9272;}
+.hrange1 {background-color: #fcbba1;}
+.hrange0 {background-color: white;}
+.hrangeS {background-color: palegreen;}
+
+.tooltip-inner {max-width: 600px;}
+
 .Normal {background: var(--Normal-AL);}
 .Rare {background: var(--Rare-AL);}
 .Elite {background: var(--Elite-AL);}
