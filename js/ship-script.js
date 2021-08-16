@@ -16,6 +16,9 @@ ship.forEach((ship) => {
 	if (ship.rarity == "Priority") {rarityBorder = "Priority"; rarityClass = "rarity-4"}
 	if (ship.rarity == "Ultra Rare") {rarityBorder = "Ultra-Rare"; rarityClass = "rarity-5"}
 	if (ship.rarity == "Decisive") {rarityBorder = "Decisive"; rarityClass = "rarity-5"}
+	let retrofitBorder = "";
+	let retrofit = "";
+	if (ship.retrofit !== undefined && ship.retrofit == true) {retrofitBorder = "Retrofit"; retrofit = " - Retrofit"}
 
 	let hullTypeClass = "";
 	let slotType = "";
@@ -72,8 +75,10 @@ ship.forEach((ship) => {
 				class="shipBorder"
 				data-toggle="tooltip"
 				data-placement="top" 
-				title="${nation} - ${hullType}"
-			><img src="${thumbnail}" class="shipImage ${rarityBorder}"></div>
+				title="${nation} - ${hullType}${retrofit}"
+			>
+				<img src="${thumbnail}" class="shipImage ${rarityBorder + retrofitBorder}" style="border-image-slice: 1">
+			</div>
 			<div class="align-middle shipName">${name}</div>
 		</div>
 	`

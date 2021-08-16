@@ -37,7 +37,7 @@
     				</thead>
     				<thead>
     					<tr>
-    						<th>Hull Type</th>
+    						<th>Type</th>
     					</tr>
     				</thead>
     				<tbody>
@@ -134,9 +134,9 @@
 								<button type="button" class="btn btn-44 btn-outline-primary" onclick="filterByNation('44','KAI')">KizunaAI</button>
 								<button type="button" class="btn btn-45 btn-outline-primary" onclick="filterByNation('45','HOLO')">Hololive</button>
 								<button type="button" class="btn btn-46 btn-outline-primary" onclick="filterByNation('46','VEVA')">Venus Vacation</button>
-								<button type="button" class="btn btn-49 btn-outline-primary" onclick="filterByNation('49','IMAS')">The Idolm@ster</button>
-								<button type="button" class="btn btn-47 btn-outline-primary" onclick="filterByNation('47','META')">META</button>
-								<button type="button" class="btn btn-48 btn-outline-primary" onclick="filterByNation('48','Universal')">Universal</button>
+								<button type="button" class="btn btn-47 btn-outline-primary" onclick="filterByNation('47','IMAS')">The Idolm@ster</button>
+								<button type="button" class="btn btn-48 btn-outline-primary" onclick="filterByNation('48','META')">META</button>
+								<button type="button" class="btn btn-49 btn-outline-primary" onclick="filterByNation('49','Universal')">Universal</button>
     						</td>
     					</tr>
     				</tbody>
@@ -145,7 +145,7 @@
     	</div>
     </div>
     <div class="text-center">
-    	<h1>Azur Lane - Ship List - AzurAPI v153 - Local v10082021</h1>
+    	<h1>Azur Lane - Ship List - AzurAPI v154 - Local v10082021</h1>
     </div>
 	<div class="ship-card-container text-center align-middle output"></div>
 	<div class="modal-container"></div>
@@ -173,9 +173,89 @@ function shipModal(shipgid) {
 			nationality = ships.nationality;
 			rarity = ships.rarity;
 			constructionTime = ships.construction.constructionTime;
-			obtainedFrom = ships.obtainedFrom.obtainedFrom;
+			if(ships.obtainedFrom.obtainedFrom !== undefined) {obtainedFrom = ships.obtainedFrom.obtainedFrom} else {obtainedFrom = ""}
+		// ship Images
+			if(ships.retrofit !== undefined && ships.retrofit == true) {
+				if(ships.skins[1].name == "Retrofit") {chibiRetrofit = ships.skins[1].chibi}
+				if(ships.skins[1].name == "Retrofit") {imageRetrofit = ships.skins[1].image}
+				shipImage = `
+					<tr>
+						<th style="width: 20%!important;"><img class="ship-thumbnail" src="${thumbnail}"></th>
+						<th style="width: 60%!important;" colspan="2">
+							<img class="ship-image" data-toggle="tooltip" data-placement="top" title="Default" src="${image}">
+							<br>
+							<img class="ship-image" data-toggle="tooltip" data-placement="top" title="Retrofit" src="${imageRetrofit}">
+						</th>
+						<th style="width: 20%!important;">
+							<img class="ship-chibi" data-toggle="tooltip" data-placement="top" title="Default" src="${chibi}">
+							<br>
+							<img class="ship-chibi" data-toggle="tooltip" data-placement="top" title="Retrofit" src="${chibiRetrofit}">
+						</th>
+					</tr>
+				`
+			} else {
+				shipImage = `
+					<tr>
+						<th style="width: 20%!important;"><img class="ship-thumbnail" src="${thumbnail}"></th>
+						<th style="width: 60%!important;" colspan="2"><img class="ship-image" src="${image}"></th>
+						<th style="width: 20%!important;"><img class="ship-chibi" src="${chibi}"></th>
+					</tr>
+				`
+			}
 
-			// exists 
+		// ship info
+			if(ships.retrofit !== undefined && ships.retrofit == true) {
+				shipidRetrofit = ships.retrofitId;
+				hullTypeRetrofit = ships.retrofitHullType;
+				if(hullType == hullTypeRetrofit) {hullTypeKai = hullType} else {hullTypeKai = hullType + " → " + hullTypeRetrofit}
+				if(rarity == "Normal") {rarityRetrofit = "Rare"}
+				if(rarity == "Rare") {rarityRetrofit = "Elite"}
+				if(rarity == "Elite") {rarityRetrofit = "Super Rare"}
+				if(rarity == "Super Rare") {rarityRetrofit = "Ultra Rare"}
+				shipInfo = `
+					<tr>
+						<th style="width: 20%;">ID</th>
+						<th style="width: 30%;">${shipid} → ${shipidRetrofit}</th>
+						<th style="width: 20%;">Class</th>
+						<th style="width: 30%;">${shipclass}</th>
+					</tr>
+					<tr>
+						<th>Rarity</th>
+						<th>${rarity} → ${rarityRetrofit}</th>
+						<th>Faction</th>
+						<th>${nationality}</th>
+					</tr>
+					<tr>
+						<th>Type</th>
+						<th>${hullTypeKai}</th>
+						<th>Construction Time</th>
+						<th>${constructionTime}</th>
+					</tr>
+				`
+			} else {
+				shipInfo = `
+					<tr>
+						<th style="width: 20%;">ID</th>
+						<th style="width: 30%;">${shipid}</th>
+						<th style="width: 20%;">Class</th>
+						<th style="width: 30%;">${shipclass}</th>
+					</tr>
+					<tr>
+						<th>Rarity</th>
+						<th>${rarity}</th>
+						<th>Faction</th>
+						<th>${nationality}</th>
+					</tr>
+					<tr>
+						<th>Type</th>
+						<th>${hullType}</th>
+						<th>Construction Time</th>
+						<th>${constructionTime}</th>
+					</tr>
+				`
+			}
+
+		// exists 
 			shipExist = [ships.exists.en, ships.exists.cn, ships.exists.jp, ships.exists.kr]
 				if (shipExist[0] == true) {shipExistEN = "✔"} else {shipExistEN = "✘"}
 				if (shipExist[1] == true) {shipExistCN = "✔"} else {shipExistCN = "✘"}
@@ -183,7 +263,225 @@ function shipModal(shipgid) {
 				if (shipExist[3] == true) {shipExistKR = "✔"} else {shipExistKR = "✘"}
 			shipExistFormat = "EN:" + shipExistEN + "| CN:" + shipExistCN + "| JP:" + shipExistJP + "| KR:" + shipExistKR;
 
-			// stats 
+		// stats 
+			// level 120 Retrofit stats
+			if(ships.stats.level120Retrofit !== undefined) {
+				health120Retrofit = ships.stats.level120Retrofit.health;
+				armor120Retrofit = ships.stats.level120Retrofit.armor;
+				reload120Retrofit = ships.stats.level120Retrofit.reload;
+				luck120Retrofit = ships.stats.level120Retrofit.luck;
+				firepower120Retrofit = ships.stats.level120Retrofit.firepower;
+				torpedo120Retrofit = ships.stats.level120Retrofit.torpedo;
+				evasion120Retrofit = ships.stats.level120Retrofit.evasion;
+				speed120Retrofit = ships.stats.level120Retrofit.speed;
+				antiair120Retrofit = ships.stats.level120Retrofit.antiair;
+				aviation120Retrofit = ships.stats.level120Retrofit.aviation;
+				oilConsumption120Retrofit = ships.stats.level120Retrofit.oilConsumption;
+				accuracy120Retrofit = ships.stats.level120Retrofit.accuracy;
+				antisubmarineWarfare120Retrofit = ships.stats.level120Retrofit.antisubmarineWarfare;
+				level120Retrofitstats1 = `
+					<tr>
+						<th data-toggle="tooltip" data-placement="top" title="Health"><img src="AL/Stats/Health.png" alt="health"></th>
+						<th>${health120Retrofit}</th>
+						<th data-toggle="tooltip" data-placement="top" title="Armor"><img src="AL/Stats/Armor.png" alt="armor"></th>
+						<th>${armor120Retrofit}</th>
+						<th data-toggle="tooltip" data-placement="top" title="Reload"><img src="AL/Stats/Reload.png" alt="reload"></th>
+						<th>${reload120Retrofit}</th>
+						<th data-toggle="tooltip" data-placement="top" title="Luck"><img src="AL/Stats/Luck.png" alt="luck"></th>
+						<th>${luck120Retrofit}</th>
+					</tr>
+					<tr>
+						<th data-toggle="tooltip" data-placement="top" title="Firepower"><img src="AL/Stats/Firepower.png" alt="firepower"></th>
+						<th>${firepower120Retrofit}</th>
+						<th data-toggle="tooltip" data-placement="top" title="Torpedo"><img src="AL/Stats/Torpedo.png" alt="torpedo"></th>
+						<th>${torpedo120Retrofit}</th>
+						<th data-toggle="tooltip" data-placement="top" title="Evasion"><img src="AL/Stats/Evasion.png" alt="evasion"></th>
+						<th>${evasion120Retrofit}</th>
+						<th data-toggle="tooltip" data-placement="top" title="Speed">Spd</th>
+						<th>${speed120Retrofit}</th>
+					</tr>
+					<tr>
+						<th data-toggle="tooltip" data-placement="top" title="Anti-Air"><img src="AL/Stats/AntiAir.png" alt="anti-air"></th>
+						<th>${antiair120Retrofit}</th>
+						<th data-toggle="tooltip" data-placement="top" title="Aviation"><img src="AL/Stats/Aviation.png" alt="aviation"></th>
+						<th>${aviation120Retrofit}</th>
+						<th data-toggle="tooltip" data-placement="top" title="Oil Consumption"><img src="AL/Stats/Consumption.png" alt="cost"></th>
+						<th>${oilConsumption120Retrofit}</th>
+						<th data-toggle="tooltip" data-placement="top" title="Accuracy"><img src="AL/Stats/Hit.png" alt="accuracy"></th>
+						<th>${accuracy120Retrofit}</th>
+					</tr>
+				`
+				if (ships.stats.level120Retrofit.oxygen !== null && ships.stats.level120Retrofit.oxygen !== undefined) {
+					oxygen120Retrofit = ships.stats.level120Retrofit.oxygen;
+					ammunition120Retrofit = ships.stats.level120Retrofit.ammunition;
+					huntingRange120Retrofit = ships.stats.level120Retrofit.huntingRange;
+					huntingrangebase = huntingRange120Retrofit
+						.replaceAll("\n","</tr><tr>")
+						.replaceAll("5","<th>5</th>")
+						.replaceAll("4","<th>4</th>")
+						.replaceAll("3","<th>3</th>")
+						.replaceAll("2","<th>2</th>")
+						.replaceAll("*","<th>1</th>")
+						.replaceAll(" ","<th>0</th>")
+						.replaceAll("S","<th><img src='AL/Resources/Submarine.png' alt='S'></th>");
+					huntingrangefinal = huntingrangebase
+						.replaceAll("<th>5</th>","<th class='huntingRange hrange5'>5</th>")
+						.replaceAll("<th>4</th>","<th class='huntingRange hrange4'>4</th>")
+						.replaceAll("<th>3</th>","<th class='huntingRange hrange3'>3</th>")
+						.replaceAll("<th>2</th>","<th class='huntingRange hrange2'>2</th>")
+						.replaceAll("<th>1</th>","<th class='huntingRange hrange1'>1</th>")
+						.replaceAll("<th>0</th>","<th class='huntingRange hrange0'></th>")
+						.replaceAll("<th><img","<th class='huntingRange hrangeS'><img class='hrangeImage'");
+					huntingrange = `
+						<table class='table table-bordered text-center ship-align shiptable' style='background-color: white;'>
+							<thead>
+								<tr>
+									<th colspan='7'>Hunting Range</th>
+								</tr>
+								<tr>
+									${huntingrangefinal}
+								</tr>
+							</thead>
+						</table>
+					`
+					level120Retrofitstats2 = `
+						<tr>
+							<th data-toggle="tooltip" data-placement="top" title="Anti-Submarine Warfare"><img src="AL/Stats/ASW.png" alt="antisubmarinewarfare"></th>
+							<th>${antisubmarineWarfare120Retrofit}</th>
+							<th data-toggle="tooltip" data-placement="top" title="Oxygen"><img src="AL/Stats/Oxygen.png" alt="oxygen"></th>
+							<th>${oxygen120Retrofit}</th>
+							<th data-toggle="tooltip" data-placement="top" title="Ammunition"><img src="AL/Stats/Ammunition.png" alt="ammunition"></th>
+							<th>${ammunition120Retrofit}</th>
+							<th data-toggle="tooltip" data-placement="top" title="Hunting Range"><img src="AL/Stats/HuntRange.png" alt="hunting-range"></th>
+							<th 
+								class="submarinetooltip"
+								data-toggle="tooltip" 
+								data-html="true" 
+								data-placement="right"
+								title="${huntingrange}">Hover!</th>
+						</tr>
+					`
+				} else {
+					level120Retrofitstats2 = `
+						<tr>
+							<th data-toggle="tooltip" data-placement="top" title="Anti-Submarine Warfare"><img src="AL/Stats/ASW.png" alt="antisubmarinewarfare"></th>
+							<th>${antisubmarineWarfare120Retrofit}</th>
+							<th colspan="6"></th>
+						</tr>
+					`
+				}
+				level120Retrofitstats = level120Retrofitstats1 + level120Retrofitstats2;
+			}
+
+			// level 100 Retrofit stats
+			if(ships.stats.level100Retrofit !== undefined) {
+				health100Retrofit = ships.stats.level100Retrofit.health;
+				armor100Retrofit = ships.stats.level100Retrofit.armor;
+				reload100Retrofit = ships.stats.level100Retrofit.reload;
+				luck100Retrofit = ships.stats.level100Retrofit.luck;
+				firepower100Retrofit = ships.stats.level100Retrofit.firepower;
+				torpedo100Retrofit = ships.stats.level100Retrofit.torpedo;
+				evasion100Retrofit = ships.stats.level100Retrofit.evasion;
+				speed100Retrofit = ships.stats.level100Retrofit.speed;
+				antiair100Retrofit = ships.stats.level100Retrofit.antiair;
+				aviation100Retrofit = ships.stats.level100Retrofit.aviation;
+				oilConsumption100Retrofit = ships.stats.level100Retrofit.oilConsumption;
+				accuracy100Retrofit = ships.stats.level100Retrofit.accuracy;
+				antisubmarineWarfare100Retrofit = ships.stats.level100Retrofit.antisubmarineWarfare;
+				level100Retrofitstats1 = `
+					<tr>
+						<th data-toggle="tooltip" data-placement="top" title="Health"><img src="AL/Stats/Health.png" alt="health"></th>
+						<th>${health100Retrofit}</th>
+						<th data-toggle="tooltip" data-placement="top" title="Armor"><img src="AL/Stats/Armor.png" alt="armor"></th>
+						<th>${armor100Retrofit}</th>
+						<th data-toggle="tooltip" data-placement="top" title="Reload"><img src="AL/Stats/Reload.png" alt="reload"></th>
+						<th>${reload100Retrofit}</th>
+						<th data-toggle="tooltip" data-placement="top" title="Luck"><img src="AL/Stats/Luck.png" alt="luck"></th>
+						<th>${luck100Retrofit}</th>
+					</tr>
+					<tr>
+						<th data-toggle="tooltip" data-placement="top" title="Firepower"><img src="AL/Stats/Firepower.png" alt="firepower"></th>
+						<th>${firepower100Retrofit}</th>
+						<th data-toggle="tooltip" data-placement="top" title="Torpedo"><img src="AL/Stats/Torpedo.png" alt="torpedo"></th>
+						<th>${torpedo100Retrofit}</th>
+						<th data-toggle="tooltip" data-placement="top" title="Evasion"><img src="AL/Stats/Evasion.png" alt="evasion"></th>
+						<th>${evasion100Retrofit}</th>
+						<th data-toggle="tooltip" data-placement="top" title="Speed">Spd</th>
+						<th>${speed100Retrofit}</th>
+					</tr>
+					<tr>
+						<th data-toggle="tooltip" data-placement="top" title="Anti-Air"><img src="AL/Stats/AntiAir.png" alt="anti-air"></th>
+						<th>${antiair100Retrofit}</th>
+						<th data-toggle="tooltip" data-placement="top" title="Aviation"><img src="AL/Stats/Aviation.png" alt="aviation"></th>
+						<th>${aviation100Retrofit}</th>
+						<th data-toggle="tooltip" data-placement="top" title="Oil Consumption"><img src="AL/Stats/Consumption.png" alt="cost"></th>
+						<th>${oilConsumption100Retrofit}</th>
+						<th data-toggle="tooltip" data-placement="top" title="Accuracy"><img src="AL/Stats/Hit.png" alt="accuracy"></th>
+						<th>${accuracy100Retrofit}</th>
+					</tr>
+				`
+				if (ships.stats.level100Retrofit.oxygen !== null && ships.stats.level100Retrofit.oxygen !== undefined) {
+					oxygen100Retrofit = ships.stats.level100Retrofit.oxygen;
+					ammunition100Retrofit = ships.stats.level100Retrofit.ammunition;
+					huntingRange100Retrofit = ships.stats.level100Retrofit.huntingRange;
+					huntingrangebase = huntingRange100Retrofit
+						.replaceAll("\n","</tr><tr>")
+						.replaceAll("5","<th>5</th>")
+						.replaceAll("4","<th>4</th>")
+						.replaceAll("3","<th>3</th>")
+						.replaceAll("2","<th>2</th>")
+						.replaceAll("*","<th>1</th>")
+						.replaceAll(" ","<th>0</th>")
+						.replaceAll("S","<th><img src='AL/Resources/Submarine.png' alt='S'></th>");
+					huntingrangefinal = huntingrangebase
+						.replaceAll("<th>5</th>","<th class='huntingRange hrange5'>5</th>")
+						.replaceAll("<th>4</th>","<th class='huntingRange hrange4'>4</th>")
+						.replaceAll("<th>3</th>","<th class='huntingRange hrange3'>3</th>")
+						.replaceAll("<th>2</th>","<th class='huntingRange hrange2'>2</th>")
+						.replaceAll("<th>1</th>","<th class='huntingRange hrange1'>1</th>")
+						.replaceAll("<th>0</th>","<th class='huntingRange hrange0'></th>")
+						.replaceAll("<th><img","<th class='huntingRange hrangeS'><img class='hrangeImage'");
+					huntingrange = `
+						<table class='table table-bordered text-center ship-align shiptable' style='background-color: white;'>
+							<thead>
+								<tr>
+									<th colspan='7'>Hunting Range</th>
+								</tr>
+								<tr>
+									${huntingrangefinal}
+								</tr>
+							</thead>
+						</table>
+					`
+					level100Retrofitstats2 = `
+						<tr>
+							<th data-toggle="tooltip" data-placement="top" title="Anti-Submarine Warfare"><img src="AL/Stats/ASW.png" alt="antisubmarinewarfare"></th>
+							<th>${antisubmarineWarfare100Retrofit}</th>
+							<th data-toggle="tooltip" data-placement="top" title="Oxygen"><img src="AL/Stats/Oxygen.png" alt="oxygen"></th>
+							<th>${oxygen100Retrofit}</th>
+							<th data-toggle="tooltip" data-placement="top" title="Ammunition"><img src="AL/Stats/Ammunition.png" alt="ammunition"></th>
+							<th>${ammunition100Retrofit}</th>
+							<th data-toggle="tooltip" data-placement="top" title="Hunting Range"><img src="AL/Stats/HuntRange.png" alt="hunting-range"></th>
+							<th 
+								class="submarinetooltip"
+								data-toggle="tooltip" 
+								data-html="true" 
+								data-placement="right"
+								title="${huntingrange}">Hover!</th>
+						</tr>
+					`
+				} else {
+					level100Retrofitstats2 = `
+						<tr>
+							<th data-toggle="tooltip" data-placement="top" title="Anti-Submarine Warfare"><img src="AL/Stats/ASW.png" alt="antisubmarinewarfare"></th>
+							<th>${antisubmarineWarfare100Retrofit}</th>
+							<th colspan="6"></th>
+						</tr>
+					`
+				}
+				level100Retrofitstats = level100Retrofitstats1 + level100Retrofitstats2;
+			}
+			
 			// level 120 stats
 			health120 = ships.stats.level120.health;
 			armor120 = ships.stats.level120.armor;
@@ -505,15 +803,265 @@ function shipModal(shipgid) {
 			}
 			baseStats = baseStats1 + baseStats2;
 
-			// gear slot
-			slot1Efficiency = ships.slots[0].minEfficiency + "% → " + ships.slots[0].maxEfficiency + "%";
+			if (ships.stats.level120Retrofit !== undefined) {
+				shipStats = `
+					<ul class="nav nav-tabs" id="tablist">
+						<li><a class="nav-link active" data-toggle="tab" href="#level120kai-${shipgid}"><strong>Level 120 Retrofit</strong></a></li>
+						<li><a class="nav-link" data-toggle="tab" href="#level100kai-${shipgid}"><strong>Level 100 Retrofit</strong></a></li>
+		    			<li><a class="nav-link" data-toggle="tab" href="#level120-${shipgid}"><strong>Level 120</strong></a></li>
+		    			<li><a class="nav-link" data-toggle="tab" href="#level100-${shipgid}"><strong>Level 100</strong></a></li>
+		    			<li><a class="nav-link" data-toggle="tab" href="#level0-${shipgid}"><strong>Base Stats</strong></a></li>
+	    			</ul>
+	    			<div class="tab-content">
+	    				<div class="tab-pane active" id="level120kai-${shipgid}">
+					        <table class="table table-bordered text-center ship-align shiptable shipstats">
+								<thead>${level120Retrofitstats}</thead>
+							</table>
+						</div>
+						<div class="tab-pane" id="level100kai-${shipgid}">
+					        <table class="table table-bordered text-center ship-align shiptable shipstats">
+								<thead>${level100Retrofitstats}</thead>
+							</table>
+						</div>
+				        <div class="tab-pane" id="level120-${shipgid}">
+					        <table class="table table-bordered text-center ship-align shiptable shipstats">
+								<thead>${level120stats}</thead>
+							</table>
+						</div>
+				        <div class="tab-pane" id="level100-${shipgid}">
+				        	<table class="table table-bordered text-center ship-align shiptable shipstats">
+				        		<thead>${level100stats}</thead>
+				        	</table>
+				        </div>
+				        <div class="tab-pane" id="level0-${shipgid}">
+				        	<table class="table table-bordered text-center ship-align shiptable shipstats">
+				        		<thead>${baseStats}</thead>
+				        	</table>
+				        </div>
+			        </div>
+			    `
+			} else {
+				shipStats = `
+					<ul class="nav nav-tabs" id="tablist">
+		    			<li><a class="nav-link active" data-toggle="tab" href="#level120-${shipgid}"><strong>Level 120</strong></a></li>
+		    			<li><a class="nav-link" data-toggle="tab" href="#level100-${shipgid}"><strong>Level 100</strong></a></li>
+		    			<li><a class="nav-link" data-toggle="tab" href="#level0-${shipgid}"><strong>Base Stats</strong></a></li>
+	    			</ul>
+	    			<div class="tab-content">
+				        <div class="tab-pane active" id="level120-${shipgid}">
+					        <table class="table table-bordered text-center ship-align shiptable shipstats">
+								<thead>${level120stats}</thead>
+							</table>
+						</div>
+				        <div class="tab-pane" id="level100-${shipgid}">
+				        	<table class="table table-bordered text-center ship-align shiptable shipstats">
+				        		<thead>${level100stats}</thead>
+				        	</table>
+				        </div>
+				        <div class="tab-pane" id="level0-${shipgid}">
+				        	<table class="table table-bordered text-center ship-align shiptable shipstats">
+				        		<thead>${baseStats}</thead>
+				        	</table>
+				        </div>
+			        </div>
+			    `
+			}
+		
+		// Fleet Tech
+			if(ships.fleetTech.statsBonus.collection !== null) {
+				statsCollectionApplicable = ships.fleetTech.statsBonus.collection.applicable;
+				statsCollectionBonus = ships.fleetTech.statsBonus.collection.bonus;
+				statsCollectionStat = ships.fleetTech.statsBonus.collection.stat;
+
+				statsMaxLevelApplicable = ships.fleetTech.statsBonus.maxLevel.applicable;
+				statsMaxLevelBonus = ships.fleetTech.statsBonus.maxLevel.bonus;
+				statsMaxLevelStat = ships.fleetTech.statsBonus.maxLevel.stat;
+				let cBB = "";
+				let cBC = "";
+				let cBBV = "";
+				let cCV = "";
+				let cCVL = "";
+				let cCB = "";
+				let cCA = "";
+				let cCL = "";
+				let cDD = "";
+				let cSS = ""; 
+				let cSSV = "";
+				let cAR = "";
+				let cBM = "";
+				let cAE = "";
+				for(var y = 0; y < statsCollectionApplicable.length; y++) {
+					if(statsCollectionApplicable[y] == "Battleship") {
+						cBB = `<img src="AL/Type/BB.png" data-toggle="tooltip" data-placement="top" title="Battleship">`}
+					if(statsCollectionApplicable[y] == "Battlecruiser") {
+						cBC = `<img src="AL/Type/BC.png" data-toggle="tooltip" data-placement="top" title="Battlecruiser">`}
+					if(statsCollectionApplicable[y] == "Aviation battleship") {
+						cBBV = `<img src="AL/Type/BBV.png" data-toggle="tooltip" data-placement="top" title="Aviation Battleship">`}
+					if(statsCollectionApplicable[y] == "Aircraft carrier") {
+						cCV = `<img src="AL/Type/CV.png" data-toggle="tooltip" data-placement="top" title="Aircraft Carrier">`}
+					if(statsCollectionApplicable[y] == "Light aircraft carrier") {
+						cCVL = `<img src="AL/Type/CVL.png" data-toggle="tooltip" data-placement="top" title="Light Aircraft Carrier">`}
+					if(statsCollectionApplicable[y] == "Large cruiser") {
+						cCB = `<img src="AL/Type/CB.png" data-toggle="tooltip" data-placement="top" title="Large Cruiser">`}
+					if(statsCollectionApplicable[y] == "Heavy cruiser") {
+						cCA = `<img src="AL/Type/CA.png" data-toggle="tooltip" data-placement="top" title="Heavy Cruiser">`}
+					if(statsCollectionApplicable[y] == "Light cruiser") {
+						cCL = `<img src="AL/Type/CL.png" data-toggle="tooltip" data-placement="top" title="Light Cruiser">`}
+					if(statsCollectionApplicable[y] == "Destroyer") {
+						cDD = `<img src="AL/Type/DD.png" data-toggle="tooltip" data-placement="top" title="Destroyer">`}
+					if(statsCollectionApplicable[y] == "Submarine") {
+						cSS = `<img src="AL/Type/SS.png" data-toggle="tooltip" data-placement="top" title="Submarine">`}
+					if(statsCollectionApplicable[y] == "Submarine carrier") {
+						cSSV = `<img src="AL/Type/SSV.png" data-toggle="tooltip" data-placement="top" title="Submarine Carrier">`}
+					if(statsCollectionApplicable[y] == "Repair ship") {
+						cAR = `<img src="AL/Type/AR.png" data-toggle="tooltip" data-placement="top" title="Repair Ship">`}
+					if(statsCollectionApplicable[y] == "Monitor") {
+						cBM = `<img src="AL/Type/BM.png" data-toggle="tooltip" data-placement="top" title="Monitor">`}
+					if(statsCollectionApplicable[y] == "Munition ship") {
+						cAE = `<img src="AL/Type/AE.png" data-toggle="tooltip" data-placement="top" title="Munition Ship">`}
+				}
+				let mBB = "";
+				let mBC = "";
+				let mBBV = "";
+				let mCV = "";
+				let mCVL = "";
+				let mCB = "";
+				let mCA = "";
+				let mCL = "";
+				let mDD = "";
+				let mSS = "";
+				let mSSV = "";
+				let mAR = "";
+				let mBM = "";
+				let mAE = "";
+				for(var z = 0; z < statsMaxLevelApplicable.length; z++) {
+					if(statsMaxLevelApplicable[z] == "Battleship") {
+						mBB = `<img src="AL/Type/BB.png" data-toggle="tooltip" data-placement="top" title="Battleship">`}
+					if(statsMaxLevelApplicable[z] == "Battlecruiser") {
+						mBC = `<img src="AL/Type/BC.png" data-toggle="tooltip" data-placement="top" title="Battlecruiser">`}
+					if(statsMaxLevelApplicable[z] == "Aviation battleship") {
+						mBBV = `<img src="AL/Type/BBV.png" data-toggle="tooltip" data-placement="top" title="Aviation Battleship">`}
+					if(statsMaxLevelApplicable[z] == "Aircraft carrier") {
+						mCV = `<img src="AL/Type/CV.png" data-toggle="tooltip" data-placement="top" title="Aircraft Carrier">`}
+					if(statsMaxLevelApplicable[z] == "Light aircraft carrier") {
+						mCVL = `<img src="AL/Type/CVL.png" data-toggle="tooltip" data-placement="top" title="Light Aircraft Carrier">`}
+					if(statsMaxLevelApplicable[z] == "Large cruiser") {
+						mCB = `<img src="AL/Type/CB.png" data-toggle="tooltip" data-placement="top" title="Large Cruiser">`}
+					if(statsMaxLevelApplicable[z] == "Heavy cruiser") {
+						mCA = `<img src="AL/Type/CA.png" data-toggle="tooltip" data-placement="top" title="Heavy Cruiser">`}
+					if(statsMaxLevelApplicable[z] == "Light cruiser") {
+						mCL = `<img src="AL/Type/CL.png" data-toggle="tooltip" data-placement="top" title="Light Cruiser">`}
+					if(statsMaxLevelApplicable[z] == "Destroyer") {
+						mDD = `<img src="AL/Type/DD.png" data-toggle="tooltip" data-placement="top" title="Destroyer">`}
+					if(statsMaxLevelApplicable[z] == "Submarine") {
+						mSS = `<img src="AL/Type/SS.png" data-toggle="tooltip" data-placement="top" title="Submarine">`}
+					if(statsMaxLevelApplicable[z] == "Submarine carrier") {
+						mSSV = `<img src="AL/Type/SSV.png" data-toggle="tooltip" data-placement="top" title="Submarine Carrier">`}
+					if(statsMaxLevelApplicable[z] == "Repair ship") {
+						mAR = `<img src="AL/Type/AR.png" data-toggle="tooltip" data-placement="top" title="Repair Ship">`}
+					if(statsMaxLevelApplicable[z] == "Monitor") {
+						mBM = `<img src="AL/Type/BM.png" data-toggle="tooltip" data-placement="top" title="Monitor">`}
+					if(statsMaxLevelApplicable[z] == "Munition ship") {
+						mAE = `<img src="AL/Type/AE.png" data-toggle="tooltip" data-placement="top" title="Munition Ship">`}
+				}
+				if(statsCollectionStat == "health") {
+					cHP = `<img src="AL/Stats/Health.png" data-toggle="tooltip" data-placement="top" title="Health">`} else {cHP = "";}
+				if(statsCollectionStat == "firepower") {
+					cFP = `<img src="AL/Stats/Firepower.png" data-toggle="tooltip" data-placement="top" title="Firepower">`} else {cFP = "";}
+				if(statsCollectionStat == "antiair") {
+					cAA = `<img src="AL/Stats/AntiAir.png" data-toggle="tooltip" data-placement="top" title="Anti-Air">`} else {cAA = "";}
+				if(statsCollectionStat == "accuracy") {
+					cHIT = `<img src="AL/Stats/Hit.png" data-toggle="tooltip" data-placement="top" title="Hit">`} else {cHIT = "";}
+				if(statsCollectionStat == "reload") {
+					cRLD = `<img src="AL/Stats/Reload.png" data-toggle="tooltip" data-placement="top" title="Reload">`} else {cRLD = "";}
+				if(statsCollectionStat == "torpedo") {
+					cTRP = `<img src="AL/Stats/Torpedo.png" data-toggle="tooltip" data-placement="top" title="Torpedo">`} else {cTRP = "";}
+				if(statsCollectionStat == "evasion") {
+					cEVA = `<img src="AL/Stats/Evasion.png" data-toggle="tooltip" data-placement="top" title="Evasion">`} else {cEVA = "";}
+				if(statsCollectionStat == "antisubmarineWarfare") {
+					cASW = `<img src="AL/Stats/ASW.png" data-toggle="tooltip" data-placement="top" title="Anti-Submarine Warfare">`} else {cASW = "";}
+
+				if(statsMaxLevelStat == "health") {
+					mHP = `<img src="AL/Stats/Health.png" data-toggle="tooltip" data-placement="top" title="Health">`} else {mHP = "";}
+				if(statsMaxLevelStat == "firepower") {
+					mFP = `<img src="AL/Stats/Firepower.png" data-toggle="tooltip" data-placement="top" title="Firepower">`} else {mFP = "";}
+				if(statsMaxLevelStat == "antiair") {
+					mAA = `<img src="AL/Stats/AntiAir.png" data-toggle="tooltip" data-placement="top" title="Anti-Air">`} else {mAA = "";}
+				if(statsMaxLevelStat == "accuracy") {
+					mHIT = `<img src="AL/Stats/Hit.png" data-toggle="tooltip" data-placement="top" title="Hit">`} else {mHIT = "";}
+				if(statsMaxLevelStat == "reload") {
+					mRLD = `<img src="AL/Stats/Reload.png" data-toggle="tooltip" data-placement="top" title="Reload">`} else {mRLD = "";}
+				if(statsMaxLevelStat == "torpedo") {
+					mTRP = `<img src="AL/Stats/Torpedo.png" data-toggle="tooltip" data-placement="top" title="Torpedo">`} else {mTRP = "";}
+				if(statsMaxLevelStat == "evasion") {
+					mEVA = `<img src="AL/Stats/Evasion.png" data-toggle="tooltip" data-placement="top" title="Evasion">`} else {mEVA = "";}
+				if(statsMaxLevelStat == "antisubmarineWarfare") {
+					mASW = `<img src="AL/Stats/ASW.png" data-toggle="tooltip" data-placement="top" title="Anti-Submarine Warfare">`} else {mASW = "";}
+
+				CollectionApp = cBB + cBC + cBBV + cCV + cCVL + cCB + cCA + cCL + cDD + cSS + cSSV + cAR + cBM + cAE;
+				MaxLevelApp = mBB + mBC + mBBV + mCV + mCVL + mCB + mCA + mCL + mDD + mSS + mSSV + mAR + mBM + mAE;
+
+				CStats = cHP + cFP + cAA + cHIT + cRLD + cTRP + cEVA + cASW;
+				MStats = mHP + mFP + mAA + mHIT + mRLD + mTRP + mEVA + mASW;
+
+				CollectionStats = CollectionApp + " " + statsCollectionBonus + " " + CStats;
+				MaxLevelStats = MaxLevelApp + " " + statsMaxLevelBonus + " " + MStats;
+			} else {
+				CollectionStats = 0;
+				MaxLevelStats = 0;
+			}
+
+			techPoint = `<img src="AL/Resources/TechPoint.png" data-toggle="tooltip" data-placement="top" title="Tech Points">`;
+			techPointCollection = ships.fleetTech.techPoints.collection + techPoint;
+			techPointMaxLimitBreak = ships.fleetTech.techPoints.maxLimitBreak + techPoint;
+			techPointMaxLevel = ships.fleetTech.techPoints.maxLevel + techPoint;
+			techPointTotal = techPoint + `<br>` + ships.fleetTech.techPoints.total;
+
+			fleetTech = `
+				<table class="table table-bordered text-center ship-align shiptable">
+					<thead>
+						<tr>
+							<th>Unlock Conditions</th>
+							<th>Stat Bonuses</th>
+							<th colspan="2">Tech Points</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th>Collection</th>
+							<td>${CollectionStats}</td>
+							<td>${techPointCollection}</td>
+							<td rowspan="3">${techPointTotal}</td>
+						</tr>
+						<tr>
+							<th>Max Limit Break</th>
+							<td></td>
+							<td>${techPointMaxLimitBreak}</td>
+						</tr>
+						<tr>
+							<th>Level 120</th>
+							<td>${MaxLevelStats}</td>
+							<td>${techPointMaxLevel}</td>
+						</tr>
+					</tbody>
+				</table>
+			`
+
+		// gear slot
+			if(ships.slots[0].kaiEfficiency !== undefined) {
+				slot1Efficiency = ships.slots[0].minEfficiency + "% → " + ships.slots[0].maxEfficiency + "% → " + ships.slots[0].kaiEfficiency + "%";
+				slot2Efficiency = ships.slots[1].minEfficiency + "% → " + ships.slots[1].maxEfficiency + "% → " + ships.slots[1].kaiEfficiency + "%";
+				slot3Efficiency = ships.slots[2].minEfficiency + "% → " + ships.slots[2].maxEfficiency + "% → " + ships.slots[2].kaiEfficiency + "%";
+			} else {
+				slot1Efficiency = ships.slots[0].minEfficiency + "% → " + ships.slots[0].maxEfficiency + "%";
+				slot2Efficiency = ships.slots[1].minEfficiency + "% → " + ships.slots[1].maxEfficiency + "%";
+				slot3Efficiency = ships.slots[2].minEfficiency + "% → " + ships.slots[2].maxEfficiency + "%";
+			}
 			slot1Type = ships.slots[0].type;
-			slot1Max = ships.slots[0].max;
-			slot2Efficiency = ships.slots[1].minEfficiency + "% → " + ships.slots[1].maxEfficiency + "%";
 			slot2Type = ships.slots[1].type;
-			slot2Max = ships.slots[1].max;
-			slot3Efficiency = ships.slots[2].minEfficiency + "% → " + ships.slots[2].maxEfficiency + "%";
 			slot3Type = ships.slots[2].type;
+			slot1Max = ships.slots[0].max;
+			slot2Max = ships.slots[1].max;
 			slot3Max = ships.slots[2].max;
 			shipSlots = `
 				<tr>
@@ -536,7 +1084,7 @@ function shipModal(shipgid) {
 				</tr>
 			`;
 
-			// limit break
+		// limit break
 			limitBreaks = "";
 			if (ships.devLevels !== undefined) {
 			//PR SHIP
@@ -625,7 +1173,7 @@ function shipModal(shipgid) {
 	    		`;
 			}
 
-			// scrap & enhance value
+		// scrap & enhance value
 			if(ships.enhanceValue !== null) {
 				enhanceFP = `<img src="AL/Stats/Firepower.png" data-toggle="tooltip" data-placement="top" title="Firepower"> ${ships.enhanceValue.firepower} `;
 				enhanceTRP = `<img src="AL/Stats/Torpedo.png" data-toggle="tooltip" data-placement="top" title="Torpedo"> ${ships.enhanceValue.torpedo} `;
@@ -658,6 +1206,81 @@ function shipModal(shipgid) {
 						</tr>
 					</tbody>
 				</table>
+			`;
+
+		// ship skill
+			if (ships.skills[0] !== undefined) {
+				skillIcon1 = ships.skills[0].icon;
+				skillNames1 = ships.skills[0].names.en;
+				skillDesc1 = ships.skills[0].description;
+				skillColor1 = ships.skills[0].color;
+				skill1 = `
+					<tr>
+						<td class="skill${skillColor1}"><img src="${skillIcon1}"><br><strong>${skillNames1}</strong></td>
+						<td>${skillDesc1}</td>
+					</tr>
+				`
+			} else {skill1 = "";}
+			if (ships.skills[1] !== undefined) {
+				skillIcon2 = ships.skills[1].icon;
+				skillNames2 = ships.skills[1].names.en;
+				skillDesc2 = ships.skills[1].description;
+				skillColor2 = ships.skills[1].color;
+				skill2 = `
+					<tr>
+						<td class="skill${skillColor2}"><img src="${skillIcon2}"><br><strong>${skillNames2}</strong></td>
+						<td>${skillDesc2}</td>
+					</tr>
+				`
+			} else {skill2 = "";}
+			if (ships.skills[2] !== undefined) {
+				skillIcon3 = ships.skills[2].icon;
+				skillNames3 = ships.skills[2].names.en;
+				skillDesc3 = ships.skills[2].description;
+				skillColor3 = ships.skills[2].color;
+				skill3 = `
+					<tr>
+						<td class="skill${skillColor3}"><img src="${skillIcon3}"><br><strong>${skillNames3}</strong></td>
+						<td>${skillDesc3}</td>
+					</tr>
+				`
+			} else {skill3 = "";}
+			if (ships.skills[3] !== undefined) {
+				skillIcon4 = ships.skills[3].icon;
+				skillNames4 = ships.skills[3].names.en;
+				skillDesc4 = ships.skills[3].description;
+				skillColor4 = ships.skills[3].color;
+				skill4 = `
+					<tr>
+						<td class="skill${skillColor4}"><img src="${skillIcon4}"><br><strong>${skillNames4}</strong></td>
+						<td>${skillDesc4}</td>
+					</tr>
+				`
+			} else {skill4 = "";}
+			if (ships.skills[4] !== undefined) {
+				skillIcon5 = ships.skills[4].icon;
+				skillNames5 = ships.skills[4].names.en;
+				skillDesc5 = ships.skills[4].description;
+				skillColor5 = ships.skills[4].color;
+				skill5 = `
+					<tr>
+						<td class="skill${skillColor5}"><img src="${skillIcon5}"><br><strong>${skillNames5}</strong></td>
+						<td>${skillDesc5}</td>
+					</tr>
+				`
+			} else {skill5 = "";}
+			skill0 = skill1 + skill2 + skill3 + skill4 + skill5;
+			shipSkills = `
+				<table class="table table-hover text-center ship-align shiptable">
+					<thead>
+						<tr>
+							<th colspan="2">Skills</th>
+						</tr>
+					</thead>
+					<tbody>
+						${skill0}
+					</tbody>
+				</table>
 			`
 		}
 	}
@@ -670,60 +1293,20 @@ function shipModal(shipgid) {
 	    					<tr>
 	    						<th colspan="4">${name}</th>
 	    					</tr>
+	    					${shipImage}
 	    				</thead>
-	    				<tbody>
-		    				<tr>
-	    						<th><img class="ship-thumbnail" src="${thumbnail}"></th>
-	    						<th colspan="2"><img class="ship-image" src="${image}"></th>
-	    						<th><img class="ship-chibi" src="${chibi}"></th>
-	    					</tr>
-	    				</tbody>
 	    				<thead>
-	    					<tr>
-	    						<th style="width: 20%;">ID</th>
-	    						<th style="width: 30%;">${shipid}</th>
-	    						<th style="width: 20%;">Rarity</th>
-	    						<th style="width: 30%;">${rarity}</th>
-	    					</tr>
-	    					<tr>
-	    						<th>Class</th>
-	    						<th>${shipclass}</th>
-	    						<th>Exists</th>
-	    						<th>${shipExistFormat}</th>
-	    					</tr>
-	    					<tr>
-	    						<th>Type</th>
-	    						<th>${hullType}</th>
-	    						<th>Construction Time</th>
-	    						<th>${constructionTime}</th>
-	    					</tr>
+	    					${shipInfo}
+		    				<tr>
+			    				<th colspan="4">${shipExistFormat}</th>
+		    				</tr>
 		    				<tr>
 			    				<th colspan="4">${obtainedFrom}</th>
 		    				</tr>
 	    				</thead>
 	    			</table>
-	    			<ul class="nav nav-tabs" id="tablist">
-		    			<li><a class="nav-link active" data-toggle="tab" href="#level120-${shipgid}"><strong>Level 120</strong></a></li>
-		    			<li><a class="nav-link" data-toggle="tab" href="#level100-${shipgid}"><strong>Level 100</strong></a></li>
-		    			<li><a class="nav-link" data-toggle="tab" href="#level0-${shipgid}"><strong>Base Stats</strong></a></li>
-	    			</ul>
-	    			<div class="tab-content">
-				        <div class="tab-pane active" id="level120-${shipgid}">
-					        <table class="table table-bordered text-center ship-align shiptable shipstats">
-								<thead>${level120stats}</thead>
-							</table>
-						</div>
-				        <div class="tab-pane" id="level100-${shipgid}">
-				        	<table class="table table-bordered text-center ship-align shiptable shipstats">
-				        		<thead>${level100stats}</thead>
-				        	</table>
-				        </div>
-				        <div class="tab-pane" id="level0-${shipgid}">
-				        	<table class="table table-bordered text-center ship-align shiptable shipstats">
-				        		<thead>${baseStats}</thead>
-				        	</table>
-				        </div>
-			        </div>
+	    			${shipStats}
+	    			${fleetTech}
 	    			<table class="table table-hover text-center ship-align shiptable">
 	    				<thead>
 	    					<tr>
@@ -742,6 +1325,7 @@ function shipModal(shipgid) {
 	    				${limitBreaks}
 	    			</table>
 	    			${esValue}
+	    			${shipSkills}
 	    		</div>
 	    	</div>
 	    </div>

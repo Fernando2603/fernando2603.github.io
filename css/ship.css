@@ -26,14 +26,8 @@
 	width: 100%;
 }
 
-.shipImage {
-	width: 120px;
-	height: 120px;
-	padding: 4px;
-}
-.shipName {
-	margin-top: 10px;
-}
+.shipImage {width: 120px; height: 120px; padding: 4px;}
+.shipName {margin-top: 10px;}
 
 .shipBorder {text-align: center!important;}
 
@@ -85,6 +79,11 @@
 .Elite {background: var(--Elite-AL);}
 .Super-Rare, .Priority {background: var(--SRare-AL);}
 .Ultra-Rare, .Decisive {background: var(--URare-AL);}
+
+.NormalRetrofit {background: var(--Normal-AL); padding: 0px!important; border: 4px solid var(--Rare-AL);}
+.RareRetrofit {background: var(--Rare-AL); padding: 0px!important; border: 4px solid var(--Elite-AL);}
+.EliteRetrofit {background: var(--Elite-AL); padding: 0px!important; border: 4px solid var(--SRare-AL);}
+.Super-RareRetrofit {background: var(--SRare-AL); padding: 0px!important; border: 4px solid; border-image: var(--URare-AL);}
 
 .hide-ship {display: none;}
 .hide-rarity {display: none;}
