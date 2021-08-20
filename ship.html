@@ -145,7 +145,7 @@
     	</div>
     </div>
     <div class="text-center">
-    	<h1>Azur Lane - Ship List - AzurAPI v154 - Local v10082021</h1>
+    	<h1>Azur Lane - Ship List - AzurAPI v154 - Local v16082021</h1>
     </div>
 	<div class="ship-card-container text-center align-middle output"></div>
 	<div class="modal-container"></div>
@@ -180,13 +180,13 @@ function shipModal(shipgid) {
 				if(ships.skins[1].name == "Retrofit") {imageRetrofit = ships.skins[1].image}
 				shipImage = `
 					<tr>
-						<th style="width: 20%!important;"><img class="ship-thumbnail" src="${thumbnail}"></th>
-						<th style="width: 60%!important;" colspan="2">
+						<th style="width: 20%!important"><img class="ship-thumbnail" src="${thumbnail}"></th>
+						<th style="width: 60%!important" colspan="2">
 							<img class="ship-image" data-toggle="tooltip" data-placement="top" title="Default" src="${image}">
 							<br>
 							<img class="ship-image" data-toggle="tooltip" data-placement="top" title="Retrofit" src="${imageRetrofit}">
 						</th>
-						<th style="width: 20%!important;">
+						<th style="width: 20%!important">
 							<img class="ship-chibi" data-toggle="tooltip" data-placement="top" title="Default" src="${chibi}">
 							<br>
 							<img class="ship-chibi" data-toggle="tooltip" data-placement="top" title="Retrofit" src="${chibiRetrofit}">
@@ -196,9 +196,9 @@ function shipModal(shipgid) {
 			} else {
 				shipImage = `
 					<tr>
-						<th style="width: 20%!important;"><img class="ship-thumbnail" src="${thumbnail}"></th>
-						<th style="width: 60%!important;" colspan="2"><img class="ship-image" src="${image}"></th>
-						<th style="width: 20%!important;"><img class="ship-chibi" src="${chibi}"></th>
+						<th style="width: 20%!important"><img class="ship-thumbnail" src="${thumbnail}"></th>
+						<th style="width: 60%!important" colspan="2"><img class="ship-image" src="${image}"></th>
+						<th style="width: 20%!important"><img class="ship-chibi" src="${chibi}"></th>
 					</tr>
 				`
 			}
@@ -1293,8 +1293,10 @@ function shipModal(shipgid) {
 	    					<tr>
 	    						<th colspan="4">${name}</th>
 	    					</tr>
-	    					${shipImage}
 	    				</thead>
+	    				${shipImage}
+	    			</table>
+	    			<table class="table table-hover text-center ship-align shiptable">
 	    				<thead>
 	    					${shipInfo}
 		    				<tr>

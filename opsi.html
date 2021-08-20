@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en-US">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/ship.css">
+    <link rel="icon" href="Images/al-favicon.png">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<head>
+	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+	<meta content="utf-8" http-equiv="encoding">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+	<script type="text/javascript" src="API/OPSI.js"></script>
+	<title>Development</title>
+	<style>
+		.clear {color: blue;}
+		.lethal {color: red;}
+		.safe {color: green;}
+		.trueUnlock {background-color: palegreen;}
+		.falseUnlock {background-color: #faa;}
+		.act-btn{
+			background: black;
+			display: block;
+			width: 50px;
+			height: 50px;
+			line-height: 50px;
+			text-align: center;
+			color: white;
+			font-size: 30px;
+			font-weight: bold;
+			border-radius: 50%;
+			-webkit-border-radius: 50%;
+			text-decoration: none;
+			transition: ease all 0.3s;
+			position: fixed;
+			top: 10px;
+			left: 10px;
+			z-index: 1;
+		}
+		.act-btn:hover{background: purple;}
+		.hide-stars, .hide-rewards, .hide-status, .hide-file {display: none;}
+	</style>
+</head>
+<body>
+	<a class="act-btn" href="#" data-toggle="modal" data-target=".settings">
+		<div 
+			class="parent-button button"
+			data-toggle="tooltip"
+			data-placement="bottom"
+			title="Filter Settings"
+		>
+			<i class="material-icons">settings</i>
+		</div>
+	</a>
+	<div class="modal fade settings" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+    	<div class="modal-dialog modal-xl">
+    		<div class="modal-content">
+    			<table class="table text-center filter-button">
+    				<thead>
+    					<tr>
+    						<th>Filter</th>
+    					</tr>
+    				</thead>
+    				<thead>
+    					<tr>
+    						<th>Stars</th>
+    					</tr>
+    				</thead>
+    				<tbody>
+    					<tr>
+    						<td>
+    							<button type="button" class="btn btn-00 btn-primary" onclick="filterByStarsReset()">All</button>
+								<button 
+									type="button"
+									data-toggle="tooltip"
+									data-placement="top"
+									title="Gain control of 1 sector(s)." 
+									class="btn btn-01 btn-outline-primary" onclick="filterByStars('01','01')"
+								>01 - 72
+								</button>
+								<button 
+									type="button"
+									data-toggle="tooltip"
+									data-placement="top"
+									title="Perform Reconnaissance x time(s) in anomalous zones." 
+									class="btn btn-02 btn-outline-primary" onclick="filterByStars('02','02')"
+								>02 - 36
+								</button>
+								<button 
+									type="button"
+									data-toggle="tooltip"
+									data-placement="top"
+									title="Use the Siren Data Logging Tower x time(s)." 
+									class="btn btn-03 btn-outline-primary" onclick="filterByStars('03','03')"
+								>03 - 12
+								</button>
+								<button 
+									type="button"
+									data-toggle="tooltip"
+									data-placement="top"
+									title="Use the Siren Scanning Facility x time(s)." 
+									class="btn btn-04 btn-outline-primary" onclick="filterByStars('04','04')"
+								>04 - 09
+								</button>
+								<button 
+									type="button"
+									data-toggle="tooltip"
+									data-placement="top"
+									title="Conduct x Meowfficer retrieval operation(s)." 
+									class="btn btn-05 btn-outline-primary" onclick="filterByStars('05','05')"
+								>05 - 08
+								</button>
+								<button 
+									type="button"
+									data-toggle="tooltip"
+									data-placement="top"
+									title="Encounter the Mysterious Merchant x time(s)." 
+									class="btn btn-06 btn-outline-primary" onclick="filterByStars('06','06')"
+								>06 - 11
+								</button>
+								<button 
+									type="button"
+									data-toggle="tooltip"
+									data-placement="top"
+									title="Obtain x victorie(s)." 
+									class="btn btn-07 btn-outline-primary" onclick="filterByStars('07','07')"
+								>07 - 36
+								</button>
+								<button 
+									type="button"
+									data-toggle="tooltip"
+									data-placement="top"
+									title="Collect x resource node(s)." 
+									class="btn btn-08 btn-outline-primary" onclick="filterByStars('08','08')"
+								>08 - 36
+								</button>
+								<button 
+									type="button"
+									data-toggle="tooltip"
+									data-placement="top"
+									title="Recover 1 record file(s)." 
+									class="btn btn-09 btn-outline-primary" onclick="filterByStars('09','09')"
+								>09 - 54
+								</button>
+								<button 
+									type="button"
+									data-toggle="tooltip"
+									data-placement="top"
+									title="Restore x Energy Matrices to their correct position." 
+									class="btn btn-10 btn-outline-primary" onclick="filterByStars('10','10')"
+								>10 - 10
+								</button>
+								<button 
+									type="button"
+									data-toggle="tooltip"
+									data-placement="top"
+									title="Destroy x Siren weather control device(s)." 
+									class="btn btn-11 btn-outline-primary" onclick="filterByStars('11','11')"
+								>11 - 10
+								</button>
+								<button 
+									type="button"
+									data-toggle="tooltip"
+									data-placement="top"
+									title="Activate x switch mechanism(s)." 
+									class="btn btn-12 btn-outline-primary" onclick="filterByStars('12','12')"
+								>12 - 10
+								</button>
+								<button 
+									type="button"
+									data-toggle="tooltip"
+									data-placement="top"
+									title='Defeat x Promoted "Pawns" fleet(s).'
+									class="btn btn-13 btn-outline-primary" onclick="filterByStars('13','13')"
+								>13 - 36
+								</button>
+								<button 
+									type="button"
+									data-toggle="tooltip"
+									data-placement="top"
+									title='Repel Promoted "Pawns" fleet ambushes x time(s).' 
+									class="btn btn-14 btn-outline-primary" onclick="filterByStars('14','14')"
+								>14 - 11
+								</button>
+								<button 
+									type="button"
+									data-toggle="tooltip"
+									data-placement="top"
+									title="Retrieve sources from enchanced fleets x time(s)." 
+									class="btn btn-15 btn-outline-primary" onclick="filterByStars('15','15')"
+								>15 - 09
+								</button>
+							</td>
+    					</tr>
+    				</tbody>
+    				<thead>
+    					<tr>
+    						<th>Rewards</th>
+    					</tr>
+    				</thead>
+    				<tbody>
+    					<tr>
+    						<td>
+    							<button type="button" class="btn btn-16 btn-primary" onclick="filterByRewardsReset()">All</button>
+								<button type="button" class="btn btn-17 btn-outline-primary" onclick="filterByRewards('17','01')">Coins</button>
+								<button type="button" class="btn btn-18 btn-outline-primary" onclick="filterByRewards('18','02')">High-Efficiency Combat Logistics Plan</button>
+								<button type="button" class="btn btn-19 btn-outline-primary" onclick="filterByRewards('19','03')">R4 Siren Coordinate Logger</button>
+								<button type="button" class="btn btn-20 btn-outline-primary" onclick="filterByRewards('20','04')">R5 Siren Coordinate Logger</button>
+								<button type="button" class="btn btn-21 btn-outline-primary" onclick="filterByRewards('21','05')">R6 Siren Coordinate Logger</button>
+								<button type="button" class="btn btn-22 btn-outline-primary" onclick="filterByRewards('22','06')">R6 Coordinate Logger</button>
+								<button type="button" class="btn btn-23 btn-outline-primary" onclick="filterByRewards('23','07')">Special Item Tokens</button>
+								<button type="button" class="btn btn-24 btn-outline-primary" onclick="filterByRewards('24','08')">Super Rare Cat Box</button>
+								<button type="button" class="btn btn-25 btn-outline-primary" onclick="filterByRewards('25','09')">T3 Mystery Gear Part</button>
+								<button type="button" class="btn btn-26 btn-outline-primary" onclick="filterByRewards('26','10')">T4 Mystery Gear Part</button>
+								<button type="button" class="btn btn-27 btn-outline-primary" onclick="filterByRewards('27','11')">Wisdom Cube</button>
+    						</td>
+    					</tr>
+    				</tbody>
+    				<thead>
+    					<tr>
+    						<th>Zone Stars Status</th>
+    					</tr>
+    				</thead>
+    				<tbody>
+    					<tr>
+    						<td>
+    							<button type="button" class="btn btn-28 btn-primary" onclick="filterByStatusReset()">All</button>
+								<button type="button" class="btn btn-29 btn-outline-primary" onclick="filterByStatus('29','0')">Lethal 0 - Safe 4</button>
+								<button type="button" class="btn btn-30 btn-outline-primary" onclick="filterByStatus('30','1')">Lethal 1 - Safe 3</button>
+								<button type="button" class="btn btn-31 btn-outline-primary" onclick="filterByStatus('31','2')">Lethal 2 - Safe 2</button>
+								<button type="button" class="btn btn-32 btn-outline-primary" onclick="filterByStatus('32','3')">Lethal 3 - Safe 1</button>
+								<button type="button" class="btn btn-33 btn-outline-primary" onclick="filterByStatus('33','4')">Lethal 4 - Safe 0</button>
+    						</td>
+    					</tr>
+    				</tbody>
+    				<thead>
+    					<tr>
+    						<th>Record Files</th>
+    					</tr>
+    				</thead>
+    				<tbody>
+    					<tr>
+    						<td>
+    							<button type="button" class="btn btn-34 btn-primary" onclick="filterByFileReset()">All</button>
+								<button type="button" class="btn btn-35 btn-outline-primary" onclick="filterByFile('35','1')">Aerolith Incident</button>
+								<button type="button" class="btn btn-36 btn-outline-primary" onclick="filterByFile('36','2')">Energy Revolution</button>
+								<button type="button" class="btn btn-37 btn-outline-primary" onclick="filterByFile('37','3')">Tech & Life</button>
+								<button type="button" class="btn btn-38 btn-outline-primary" onclick="filterByFile('38','4')">New Lifestyle</button>
+								<button type="button" class="btn btn-39 btn-outline-primary" onclick="filterByFile('39','5')">Cube Militarization</button>
+								<button type="button" class="btn btn-40 btn-outline-primary" onclick="filterByFile('40','6')">Cube Militarization II</button>
+								<button type="button" class="btn btn-41 btn-outline-primary" onclick="filterByFile('41','7')">Glimmer Project</button>
+								<button type="button" class="btn btn-42 btn-outline-primary" onclick="filterByFile('42','8')">Arms Race</button>
+								<button type="button" class="btn btn-43 btn-outline-primary" onclick="filterByFile('43','9')">Cold War Escalation</button>
+    						</td>
+    					</tr>
+    				</tbody>
+    			</table>
+    		</div>
+    	</div>
+    </div>
+	<div>
+		<h1 class="text-center">Operation Siren v20082021</h1>
+		<table class="table table-bordered table-hover text-center align-middle">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Zone</th>
+					<th>Corruption</th>
+					<th>Record File</th>
+					<th>Lethal</th>
+					<th>Safe</th>
+					<th>Requires</th>
+				</tr>
+			</thead>
+			<tbody class="zoneOutput">
+			</tbody>
+		</table>
+	</div>
+	<div class="modal-container">
+		
+	</div>
+
+<script>
+	$(function () {$('[data-toggle="tooltip"]').tooltip()})
+	function buttonter(idx) {
+		if ($(".btn-"+idx).hasClass("btn-outline-primary")) {
+			$(".btn-"+idx).removeClass("btn-outline-primary")
+			$(".btn-"+idx).addClass("btn-primary")
+		} else {
+			$(".btn-"+idx).addClass("btn-outline-primary")
+			$(".btn-"+idx).removeClass("btn-primary")
+		}
+	}
+	var filterStars = [];
+	var filterRewards = [];
+	var filterStatus = [];
+	var filterFile = [];
+
+	function filterByStarsReset () {
+		$(".btn-00").removeClass("btn-outline-primary").addClass("btn-primary");
+		$(`
+			.btn-01,
+			.btn-02,
+			.btn-03,
+			.btn-04,
+			.btn-05,
+			.btn-06,
+			.btn-07,
+			.btn-08,
+			.btn-09,
+			.btn-10,
+			.btn-11,
+			.btn-12,
+			.btn-13,
+			.btn-14,
+			.btn-15
+		`).removeClass("btn-primary").removeClass("btn-outline-primary").addClass("btn-outline-primary");
+		$(".zone").removeClass("hide-stars");
+		filterStars = [];
+	}
+
+	function filterByStars (idx, stars) {
+		buttonter(idx);
+
+		if($(".btn-"+idx).hasClass("btn-outline-primary")) {
+			for (var i = 0; i < filterStars.length; i++) {
+				if (filterStars[i].valueOf() == stars) {filterStars.splice(i, 1)}
+			}
+		} else {
+			filterStars.push(stars);
+		}
+
+		if (filterStars.length == 0) {
+			$(".zone").removeClass("hide-stars");
+			$(".btn-00").removeClass("btn-outline-primary").addClass("btn-primary");
+		} else {
+			$(".zone").addClass("hide-stars")
+			$(".btn-00").removeClass("btn-primary").addClass("btn-outline-primary");
+		}
+
+		filterStars.forEach((filterStars) => {
+			$(".stars-"+filterStars).removeClass("hide-stars")
+		})
+	}
+
+	function filterByRewardsReset () {
+		$(".btn-16").removeClass("btn-outline-primary").addClass("btn-primary");
+		$(`
+			.btn-17,
+			.btn-18,
+			.btn-19,
+			.btn-20,
+			.btn-21,
+			.btn-22,
+			.btn-23,
+			.btn-24,
+			.btn-25,
+			.btn-26,
+			.btn-27
+		`).removeClass("btn-primary").removeClass("btn-outline-primary").addClass("btn-outline-primary");
+		$(".zone").removeClass("hide-rewards");
+		filterRewards = [];
+	}
+
+	function filterByRewards (idx, rewards) {
+		buttonter(idx);
+
+		if($(".btn-"+idx).hasClass("btn-outline-primary")) {
+			for (var i = 0; i < filterRewards.length; i++) {
+				if (filterRewards[i].valueOf() == rewards) {filterRewards.splice(i, 1)}
+			}
+		} else {
+			filterRewards.push(rewards);
+		}
+
+		if (filterRewards.length == 0) {
+			$(".zone").removeClass("hide-rewards");
+			$(".btn-16").removeClass("btn-outline-primary").addClass("btn-primary");
+		} else {
+			$(".zone").addClass("hide-rewards")
+			$(".btn-16").removeClass("btn-primary").addClass("btn-outline-primary");
+		}
+
+		filterRewards.forEach((filterRewards) => {
+			$(".rewards-"+filterRewards).removeClass("hide-rewards")
+		})
+	}
+
+	function filterByStatusReset () {
+		$(".btn-28").removeClass("btn-outline-primary").addClass("btn-primary");
+		$(`
+			.btn-29,
+			.btn-30,
+			.btn-31,
+			.btn-32,
+			.btn-33
+		`).removeClass("btn-primary").removeClass("btn-outline-primary").addClass("btn-outline-primary");
+		$(".zone").removeClass("hide-status");
+		filterStatus = [];
+	}
+
+	function filterByStatus (idx, status) {
+		buttonter(idx);
+
+		if($(".btn-"+idx).hasClass("btn-outline-primary")) {
+			for (var i = 0; i < filterStatus.length; i++) {
+				if (filterStatus[i].valueOf() == status) {filterStatus.splice(i, 1)}
+			}
+		} else {
+			filterStatus.push(status);
+		}
+
+		if (filterStatus.length == 0) {
+			$(".zone").removeClass("hide-status");
+			$(".btn-28").removeClass("btn-outline-primary").addClass("btn-primary");
+		} else {
+			$(".zone").addClass("hide-status")
+			$(".btn-28").removeClass("btn-primary").addClass("btn-outline-primary");
+		}
+
+		filterStatus.forEach((filterStatus) => {
+			$(".status-"+filterStatus).removeClass("hide-status")
+		})
+	}
+
+	function filterByFileReset () {
+		$(".btn-34").removeClass("btn-outline-primary").addClass("btn-primary");
+		$(`
+			.btn-35,
+			.btn-36,
+			.btn-37,
+			.btn-38,
+			.btn-39,
+			.btn-40,
+			.btn-41,
+			.btn-42,
+			.btn-43
+		`).removeClass("btn-primary").removeClass("btn-outline-primary").addClass("btn-outline-primary");
+		$(".zone").removeClass("hide-file");
+		filterFile = [];
+	}
+
+	function filterByFile (idx, file) {
+		buttonter(idx);
+
+		if($(".btn-"+idx).hasClass("btn-outline-primary")) {
+			for (var i = 0; i < filterFile.length; i++) {
+				if (filterFile[i].valueOf() == file) {filterFile.splice(i, 1)}
+			}
+		} else {
+			filterFile.push(file);
+		}
+
+		if (filterFile.length == 0) {
+			$(".zone").removeClass("hide-file");
+			$(".btn-34").removeClass("btn-outline-primary").addClass("btn-primary");
+		} else {
+			$(".zone").addClass("hide-file")
+			$(".btn-34").removeClass("btn-primary").addClass("btn-outline-primary");
+		}
+
+		filterFile.forEach((filterFile) => {
+			$(".file-"+filterFile).removeClass("hide-file")
+		})
+	}
+	let output = "";
+	opsi.forEach((opsi) => {
+		let record = "";
+		let fileClass = "file-0";
+		if(opsi.stars[3].formatted == "Recover 1 record file(s).") {
+			if(opsi.stars[3].file == "Aerolith Incident") {record = "1-" + opsi.stars[3].value; fileClass = "file-1";}
+			if(opsi.stars[3].file == "Energy Revolution") {record = "2-" + opsi.stars[3].value; fileClass = "file-2";}
+			if(opsi.stars[3].file == "Tech & Life") {record = "3-" + opsi.stars[3].value; fileClass = "file-3";}
+			if(opsi.stars[3].file == "New Lifestyle") {record = "4-" + opsi.stars[3].value; fileClass = "file-4";}
+			if(opsi.stars[3].file == "Cube Militarization") {record = "5-" + opsi.stars[3].value; fileClass = "file-5";}
+			if(opsi.stars[3].file == "Cube Militarization II") {record = "6-" + opsi.stars[3].value; fileClass = "file-6";}
+			if(opsi.stars[3].file == "Glimmer Project") {record = "7-" + opsi.stars[3].value; fileClass = "file-7";}
+			if(opsi.stars[3].file == "Arms Race") {record = "8-" + opsi.stars[3].value; fileClass = "file-8";}
+			if(opsi.stars[3].file == "Cold War Escalation") {record = "9-" + opsi.stars[3].value; fileClass = "file-9";}
+		}
+
+		let lethal1 = 0; let lethal2 = 0; let lethal3 = 0; let lethal4 = 0; let lethal5 = 0;
+			if(opsi.stars[0].condition == "lethal") {lethal1 = 1}
+			if(opsi.stars[1].condition == "lethal") {lethal2 = 1}
+			if(opsi.stars[2].condition == "lethal") {lethal3 = 1}
+			if(opsi.stars[3].condition == "lethal") {lethal4 = 1}
+			if(opsi.stars[4].condition == "lethal") {lethal5 = 1}
+
+		let safe1 = 0; let safe2 = 0; let safe3 = 0; let safe4 = 0; let safe5 = 0;
+			if(opsi.stars[0].condition == "safe") {safe1 = 1}
+			if(opsi.stars[1].condition == "safe") {safe2 = 1}
+			if(opsi.stars[2].condition == "safe") {safe3 = 1}
+			if(opsi.stars[3].condition == "safe") {safe4 = 1}
+			if(opsi.stars[4].condition == "safe") {safe5 = 1}
+
+		lethal = lethal1 + lethal2 + lethal3 + lethal4 + lethal5;
+		safe = safe1 + safe2 + safe3 + safe4 + safe5;
+
+		let star1 = ""; let star2 = ""; let star3 = ""; let star4 = ""; let star5 = "";
+		let star6 = ""; let star7 = ""; let star8 = ""; let star9 = ""; let star10 = "";
+		let star11 = ""; let star12 = ""; let star13 = ""; let star14 = ""; let star15 = "";
+		// star type
+			if(opsi.stars[1].type == "Perform Reconnaissance x time(s) in anomalous zones.") {star1 = " stars-02";}
+			if(opsi.stars[1].type == "Use the Siren Data Logging Tower x time(s).") {star2 = " stars-03";}
+			if(opsi.stars[1].type == "Use the Siren Scanning Facility x time(s).") {star3 = " stars-04";}
+			if(opsi.stars[1].type == "Conduct x Meowfficer retrieval operation(s).") {star4 = " stars-05";}
+			if(opsi.stars[1].type == "Encounter the Mysterious Merchant x time(s).") {star5 = " stars-06";}
+			if(opsi.stars[1].type == "Obtain x victorie(s).") {star6 = " stars-07";}
+			if(opsi.stars[1].type == "Collect x resource node(s).") {star7 = " stars-08";}
+			if(opsi.stars[1].type == "Recover 1 record file(s).") {star8 = " stars-09";}
+			if(opsi.stars[1].type == "Restore x Energy Matrices to their correct position.") {star9 = " stars-10";}
+			if(opsi.stars[1].type == "Destroy x Siren weather control device(s).") {star10 = " stars-11";}
+			if(opsi.stars[1].type == "Activate x switch mechanism(s).") {star11 = " stars-12";}
+			if(opsi.stars[1].type == "Defeat x Promoted \"Pawns\" fleet(s).") {star12 = " stars-13";}
+			if(opsi.stars[1].type == "Repel Promoted \"Pawns\" fleet ambushes x time(s).") {star13 = " stars-14";}
+			if(opsi.stars[1].type == "Retrieve sources from enchanced fleets x time(s).") {star14 = " stars-15";}
+			if(opsi.stars[2].type == "Perform Reconnaissance x time(s) in anomalous zones.") {star1 = " stars-02";}
+			if(opsi.stars[2].type == "Use the Siren Data Logging Tower x time(s).") {star2 = " stars-03";}
+			if(opsi.stars[2].type == "Use the Siren Scanning Facility x time(s).") {star3 = " stars-04";}
+			if(opsi.stars[2].type == "Conduct x Meowfficer retrieval operation(s).") {star4 = " stars-05";}
+			if(opsi.stars[2].type == "Encounter the Mysterious Merchant x time(s).") {star5 = " stars-06";}
+			if(opsi.stars[2].type == "Obtain x victorie(s).") {star6 = " stars-07";}
+			if(opsi.stars[2].type == "Collect x resource node(s).") {star7 = " stars-08";}
+			if(opsi.stars[2].type == "Recover 1 record file(s).") {star8 = " stars-09";}
+			if(opsi.stars[2].type == "Restore x Energy Matrices to their correct position.") {star9 = " stars-10";}
+			if(opsi.stars[2].type == "Destroy x Siren weather control device(s).") {star10 = " stars-11";}
+			if(opsi.stars[2].type == "Activate x switch mechanism(s).") {star11 = " stars-12";}
+			if(opsi.stars[2].type == "Defeat x Promoted \"Pawns\" fleet(s).") {star12 = " stars-13";}
+			if(opsi.stars[2].type == "Repel Promoted \"Pawns\" fleet ambushes x time(s).") {star13 = " stars-14";}
+			if(opsi.stars[2].type == "Retrieve sources from enchanced fleets x time(s).") {star14 = " stars-15";}
+			if(opsi.stars[3].type == "Perform Reconnaissance x time(s) in anomalous zones.") {star1 = " stars-02";}
+			if(opsi.stars[3].type == "Use the Siren Data Logging Tower x time(s).") {star2 = " stars-03";}
+			if(opsi.stars[3].type == "Use the Siren Scanning Facility x time(s).") {star3 = " stars-04";}
+			if(opsi.stars[3].type == "Conduct x Meowfficer retrieval operation(s).") {star4 = " stars-05";}
+			if(opsi.stars[3].type == "Encounter the Mysterious Merchant x time(s).") {star5 = " stars-06";}
+			if(opsi.stars[3].type == "Obtain x victorie(s).") {star6 = " stars-07";}
+			if(opsi.stars[3].type == "Collect x resource node(s).") {star7 = " stars-08";}
+			if(opsi.stars[3].type == "Recover 1 record file(s).") {star8 = " stars-09";}
+			if(opsi.stars[3].type == "Restore x Energy Matrices to their correct position.") {star9 = " stars-10";}
+			if(opsi.stars[3].type == "Destroy x Siren weather control device(s).") {star10 = " stars-11";}
+			if(opsi.stars[3].type == "Activate x switch mechanism(s).") {star11 = " stars-12";}
+			if(opsi.stars[3].type == "Defeat x Promoted \"Pawns\" fleet(s).") {star12 = " stars-13";}
+			if(opsi.stars[3].type == "Repel Promoted \"Pawns\" fleet ambushes x time(s).") {star13 = " stars-14";}
+			if(opsi.stars[3].type == "Retrieve sources from enchanced fleets x time(s).") {star14 = " stars-15";}
+			if(opsi.stars[4].type == "Perform Reconnaissance x time(s) in anomalous zones.") {star1 = " stars-02";}
+			if(opsi.stars[4].type == "Use the Siren Data Logging Tower x time(s).") {star2 = " stars-03";}
+			if(opsi.stars[4].type == "Use the Siren Scanning Facility x time(s).") {star3 = " stars-04";}
+			if(opsi.stars[4].type == "Conduct x Meowfficer retrieval operation(s).") {star4 = " stars-05";}
+			if(opsi.stars[4].type == "Encounter the Mysterious Merchant x time(s).") {star5 = " stars-06";}
+			if(opsi.stars[4].type == "Obtain x victorie(s).") {star6 = " stars-07";}
+			if(opsi.stars[4].type == "Collect x resource node(s).") {star7 = " stars-08";}
+			if(opsi.stars[4].type == "Recover 1 record file(s).") {star8 = " stars-09";}
+			if(opsi.stars[4].type == "Restore x Energy Matrices to their correct position.") {star9 = " stars-10";}
+			if(opsi.stars[4].type == "Destroy x Siren weather control device(s).") {star10 = " stars-11";}
+			if(opsi.stars[4].type == "Activate x switch mechanism(s).") {star11 = " stars-12";}
+			if(opsi.stars[4].type == "Defeat x Promoted \"Pawns\" fleet(s).") {star12 = " stars-13";}
+			if(opsi.stars[4].type == "Repel Promoted \"Pawns\" fleet ambushes x time(s).") {star13 = " stars-14";}
+			if(opsi.stars[4].type == "Retrieve sources from enchanced fleets x time(s).") {star14 = " stars-15";}
+		stars = star1 + star2 + star3 + star4 + star5 + star6 + star7 + star8 + star9 + star10 + star11 + star12 + star13 + star14 + star15;
+
+		let reward1 = ""; let reward2 = ""; let reward3 = ""; let reward4 = ""; let reward5 = "";
+		let reward6 = ""; let reward7 = ""; let reward8 = ""; let reward9 = ""; let reward10 = ""; let reward11 = "";
+		// reward type
+			if(opsi.rewards[0].item == "Coins") {reward1 = " rewards-01";}
+			if(opsi.rewards[0].item == "High-Efficiency Combat Logistics Plan") {reward2 = " rewards-02";}
+			if(opsi.rewards[0].item == "R4 Siren Coordinate Logger") {reward3 = " rewards-03";}
+			if(opsi.rewards[0].item == "R5 Siren Coordinate Logger") {reward4 = " rewards-04";}
+			if(opsi.rewards[0].item == "R6 Siren Coordinate Logger") {reward5 = " rewards-05";}
+			if(opsi.rewards[0].item == "R6 Coordinate Logger") {reward1 = " rewards-06";}
+			if(opsi.rewards[0].item == "Special Item Tokens") {reward2 = " rewards-07";}
+			if(opsi.rewards[0].item == "Super Rare Cat Box") {reward3 = " rewards-08";}
+			if(opsi.rewards[0].item == "T3 Mystery Gear Part") {reward4 = " rewards-09";}
+			if(opsi.rewards[0].item == "T4 Mystery Gear Part") {reward5 = " rewards-10";}
+			if(opsi.rewards[0].item == "Wisdom Cube") {reward5 = " rewards-11";}
+			if(opsi.rewards[1].item == "Coins") {reward1 = " rewards-01";}
+			if(opsi.rewards[1].item == "High-Efficiency Combat Logistics Plan") {reward2 = " rewards-02";}
+			if(opsi.rewards[1].item == "R4 Siren Coordinate Logger") {reward3 = " rewards-03";}
+			if(opsi.rewards[1].item == "R5 Siren Coordinate Logger") {reward4 = " rewards-04";}
+			if(opsi.rewards[1].item == "R6 Siren Coordinate Logger") {reward5 = " rewards-05";}
+			if(opsi.rewards[1].item == "R6 Coordinate Logger") {reward1 = " rewards-06";}
+			if(opsi.rewards[1].item == "Special Item Tokens") {reward2 = " rewards-07";}
+			if(opsi.rewards[1].item == "Super Rare Cat Box") {reward3 = " rewards-08";}
+			if(opsi.rewards[1].item == "T3 Mystery Gear Part") {reward4 = " rewards-09";}
+			if(opsi.rewards[1].item == "T4 Mystery Gear Part") {reward5 = " rewards-10";}
+			if(opsi.rewards[1].item == "Wisdom Cube") {reward5 = " rewards-11";}
+			if(opsi.rewards[2].item == "Coins") {reward1 = " rewards-01";}
+			if(opsi.rewards[2].item == "High-Efficiency Combat Logistics Plan") {reward2 = " rewards-02";}
+			if(opsi.rewards[2].item == "R4 Siren Coordinate Logger") {reward3 = " rewards-03";}
+			if(opsi.rewards[2].item == "R5 Siren Coordinate Logger") {reward4 = " rewards-04";}
+			if(opsi.rewards[2].item == "R6 Siren Coordinate Logger") {reward5 = " rewards-05";}
+			if(opsi.rewards[2].item == "R6 Coordinate Logger") {reward1 = " rewards-06";}
+			if(opsi.rewards[2].item == "Special Item Tokens") {reward2 = " rewards-07";}
+			if(opsi.rewards[2].item == "Super Rare Cat Box") {reward3 = " rewards-08";}
+			if(opsi.rewards[2].item == "T3 Mystery Gear Part") {reward4 = " rewards-09";}
+			if(opsi.rewards[2].item == "T4 Mystery Gear Part") {reward5 = " rewards-10";}
+			if(opsi.rewards[2].item == "Wisdom Cube") {reward5 = " rewards-11";}
+			if(opsi.rewards[3].item == "Coins") {reward1 = " rewards-01";}
+			if(opsi.rewards[3].item == "High-Efficiency Combat Logistics Plan") {reward2 = " rewards-02";}
+			if(opsi.rewards[3].item == "R4 Siren Coordinate Logger") {reward3 = " rewards-03";}
+			if(opsi.rewards[3].item == "R5 Siren Coordinate Logger") {reward4 = " rewards-04";}
+			if(opsi.rewards[3].item == "R6 Siren Coordinate Logger") {reward5 = " rewards-05";}
+			if(opsi.rewards[3].item == "R6 Coordinate Logger") {reward1 = " rewards-06";}
+			if(opsi.rewards[3].item == "Special Item Tokens") {reward2 = " rewards-07";}
+			if(opsi.rewards[3].item == "Super Rare Cat Box") {reward3 = " rewards-08";}
+			if(opsi.rewards[3].item == "T3 Mystery Gear Part") {reward4 = " rewards-09";}
+			if(opsi.rewards[3].item == "T4 Mystery Gear Part") {reward5 = " rewards-10";}
+			if(opsi.rewards[3].item == "Wisdom Cube") {reward5 = " rewards-11";}
+			if(opsi.rewards[4].item == "Coins") {reward1 = " rewards-01";}
+			if(opsi.rewards[4].item == "High-Efficiency Combat Logistics Plan") {reward2 = " rewards-02";}
+			if(opsi.rewards[4].item == "R4 Siren Coordinate Logger") {reward3 = " rewards-03";}
+			if(opsi.rewards[4].item == "R5 Siren Coordinate Logger") {reward4 = " rewards-04";}
+			if(opsi.rewards[4].item == "R6 Siren Coordinate Logger") {reward5 = " rewards-05";}
+			if(opsi.rewards[4].item == "R6 Coordinate Logger") {reward1 = " rewards-06";}
+			if(opsi.rewards[4].item == "Special Item Tokens") {reward2 = " rewards-07";}
+			if(opsi.rewards[4].item == "Super Rare Cat Box") {reward3 = " rewards-08";}
+			if(opsi.rewards[4].item == "T3 Mystery Gear Part") {reward4 = " rewards-09";}
+			if(opsi.rewards[4].item == "T4 Mystery Gear Part") {reward5 = " rewards-10";}
+			if(opsi.rewards[4].item == "Wisdom Cube") {reward5 = " rewards-11";}
+		rewards = reward1 + reward2 + reward3 + reward4 + reward5 + reward6 + reward7 + reward8 + reward9 + reward10 + reward11; 
+
+		output += `
+			<tr 
+				class="o${opsi.id} zone ${fileClass} status-${lethal} stars-01${stars}${rewards}" 
+				onclick="modalCall(${opsi.id})" 
+				data-toggle="modal"
+				data-target=".modal${opsi.id}"
+			>
+				<td class="${opsi.unlocked}Unlock">${opsi.id}</td>
+				<td>${opsi.name}</td>
+				<td>${opsi.corruption}</td>
+				<td>${record}</td>
+				<td>${lethal}</td>
+				<td>${safe}</td>
+				<td>${opsi.require}</td>
+			</tr>
+		`
+		$(".zoneOutput").html(output)
+	})
+
+	function modalCall(id) {
+		modalCreate(id);
+		$(".o"+id).removeAttr("onclick")
+		$(function () {$('[data-toggle="tooltip"]').tooltip()})
+	}
+
+	function modalCreate (id) {
+		let modal = ""
+		let recordFile = "None";
+		for (var i = 0; i < opsi.length; i++) {
+			if (opsi[i].id == id) {
+				op = opsi[i];
+				name = op.name;
+				star1 = `<td class="${op.stars[0].condition}">${op.stars[0].formatted}</td>`;
+				star2 = `<td class="${op.stars[1].condition}">${op.stars[1].formatted}</td>`;
+				star3 = `<td class="${op.stars[2].condition}">${op.stars[2].formatted}</td>`;
+				star4 = `<td class="${op.stars[3].condition}">${op.stars[3].formatted}</td>`;
+				star5 = `<td class="${op.stars[4].condition}">${op.stars[4].formatted}</td>`;
+				reward1 = op.rewards[0].item + " × " + op.rewards[0].value;
+				reward2 = op.rewards[1].item + " × " + op.rewards[1].value;
+				reward3 = op.rewards[2].item + " × " + op.rewards[2].value;
+				reward4 = op.rewards[3].item + " × " + op.rewards[3].value;
+				reward5 = op.rewards[4].item + " × " + op.rewards[4].value;
+				corruption = op.corruption;
+				let r1 = ""; let r2 = ""; let r3 = ""; let r4 = ""; let r5 = ""; let r6 = ""; let r7 = "";
+				for(var z = 0; z < opsi.length; z++) {
+					if(op.require[0] !== undefined && op.require[0] == 0) {
+						r1 = `
+							<tr>
+								<td>0</td>
+								<td>Port</td>
+								<td>0</td>
+								<td>None</td>
+							</tr>
+						`
+					}
+					if(op.require[0] !== undefined && op.require[0] == opsi[z].id) {
+						r1 = `
+							<tr>
+								<td>${opsi[z].id}</td>
+								<td>${opsi[z].name}</td>
+								<td>${opsi[z].corruption}</td>
+								<td>${opsi[z].require}</td>
+							</tr>
+						`
+					}
+					if(op.require[1] !== undefined && op.require[1] == opsi[z].id) {
+						r2 = `
+							<tr>
+								<td>${opsi[z].id}</td>
+								<td>${opsi[z].name}</td>
+								<td>${opsi[z].corruption}</td>
+								<td>${opsi[z].require}</td>
+							</tr>
+						`
+					}
+					if(op.require[2] !== undefined && op.require[2] == opsi[z].id) {
+						r3 = `
+							<tr>
+								<td>${opsi[z].id}</td>
+								<td>${opsi[z].name}</td>
+								<td>${opsi[z].corruption}</td>
+								<td>${opsi[z].require}</td>
+							</tr>
+						`
+					}
+					if(op.require[3] !== undefined && op.require[3] == opsi[z].id) {
+						r4 = `
+							<tr>
+								<td>${opsi[z].id}</td>
+								<td>${opsi[z].name}</td>
+								<td>${opsi[z].corruption}</td>
+								<td>${opsi[z].require}</td>
+							</tr>
+						`
+					}
+					if(op.require[4] !== undefined && op.require[4] == opsi[z].id) {
+						r5 = `
+							<tr>
+								<td>${opsi[z].id}</td>
+								<td>${opsi[z].name}</td>
+								<td>${opsi[z].corruption}</td>
+								<td>${opsi[z].require}</td>
+							</tr>
+						`
+					}
+					if(op.require[5] !== undefined && op.require[5] == opsi[z].id) {
+						r6 = `
+							<tr>
+								<td>${opsi[z].id}</td>
+								<td>${opsi[z].name}</td>
+								<td>${opsi[z].corruption}</td>
+								<td>${opsi[z].require}</td>
+							</tr>
+						`
+					}
+					if(op.require[6] !== undefined && op.require[6] == opsi[z].id) {
+						r7 = `
+							<tr>
+								<td>${opsi[z].id}</td>
+								<td>${opsi[z].name}</td>
+								<td>${opsi[z].corruption}</td>
+								<td>${opsi[z].require}</td>
+							</tr>
+						`
+					}
+				}
+				requireZone = `<tbody>${r1 + r2 + r3 + r4 + r5 + r6 + r7}</tbody>`;
+				if(op.stars[3].formatted == "Recover 1 record file(s).") {
+					file = op.stars[3].file;
+					record = op.stars[3].value;
+					recordFile = file + " - " + record;
+				}
+			}}
+		modal = `
+			<div class="modal fade modal${id}" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+		    	<div class="modal-dialog modal-xl">
+		    		<div class="modal-content">
+		    			<table class="table table-bordered text-center align-middle">
+		    				<thead>
+		    					<tr>
+		    						<th colspan="2">${name}</th>
+		    					</tr>
+		    					<tr>
+				    				<th style="width: 50%!important">Zone ID</th>
+				    				<th style="width: 50%!important">${id}</th>
+			    				</tr>
+		    					<tr>
+				    				<th>Record File</th>
+				    				<th>${recordFile}</th>
+			    				</tr>
+			    				<tr>
+				    				<th>Corruption</th>
+				    				<th>${corruption}</th>
+			    				</tr>
+		    				</thead>
+	    				</table>
+	    				<table class="table table-bordered text-center align-middle">
+		    				<thead>
+			    				<tr>
+				    				<th colspan="4">Require Zone to Unlock</th>
+			    				</tr>
+			    				<tr>
+			    					<th>ID</th>
+			    					<th>Zone</th>
+			    					<th>Corruption</th>
+			    					<th>Requires</th>
+			    				</tr>
+		    				</thead>
+		    				${requireZone}
+	    				</table>
+	    				<table class="table table-bordered text-center align-middle">
+		    				<thead>
+		    					<tr>
+			    					<th style="width: 5%!important">No.</th>
+		    						<th style="width: 47.5%!important">Stars</th>
+		    						<th style="width: 47.5%!important">Rewards</th>
+		    					</tr>
+		    				</thead>
+		    				<tbody>
+		    					<tr>
+		    						<td><strong>1</strong></td>
+		    						${star1}
+		    						<td>${reward1}</td>
+		    					</tr>
+		    					<tr>
+		    						<td><strong>2</strong></td>
+		    						${star2}
+		    						<td>${reward2}</td>
+		    					</tr>
+		    					<tr>
+		    						<td><strong>3</strong></td>
+		    						${star3}
+		    						<td>${reward3}</td>
+		    					</tr>
+		    					<tr>
+		    						<td><strong>4</strong></td>
+		    						${star4}
+		    						<td>${reward4}</td>
+		    					</tr>
+		    					<tr>
+		    						<td><strong>5</strong></td>
+		    						${star5}
+		    						<td>${reward5}</td>
+		    					</tr>
+		    				</tbody>
+		    			</table>
+		    		</div>
+		    	</div>
+		    </div>
+		`
+		$(".modal-container").append(modal)
+	}
+</script>
+</body>
