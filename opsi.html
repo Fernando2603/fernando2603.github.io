@@ -12,6 +12,7 @@
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
 	<script type="text/javascript" src="API/OPSI.js"></script>
+	<script type="text/javascript" src="API/user.js"></script>
 	<title>Development</title>
 	<style>
 		.clear {color: blue;}
@@ -267,6 +268,7 @@
 					<th>ID</th>
 					<th>Zone</th>
 					<th>Corruption</th>
+					<th>CT</th>
 					<th>Record File</th>
 					<th>Lethal</th>
 					<th>Safe</th>
@@ -619,16 +621,31 @@
 			if(opsi.rewards[4].item == "Wisdom Cube") {reward5 = " rewards-11";}
 		rewards = reward1 + reward2 + reward3 + reward4 + reward5 + reward6 + reward7 + reward8 + reward9 + reward10 + reward11; 
 
+		for (var i = 0; i < user.length; i++) {
+			if (user[i].id == opsi.id) {
+				starLength = user[i].star.length;
+				uC = ""; uH = ""
+				if(user[i].star.length == 5) {uH = "user-5"; uC = "trueUnlock";}
+				if(user[i].star.length == 4) {uH = "user-4"}
+				if(user[i].star.length == 3) {uH = "user-3"}
+				if(user[i].star.length == 2) {uH = "user-2"}
+				if(user[i].star.length == 1) {uH = "user-1"}
+				uS1 = 0; uS2 = 0; uS3 = 0; uS4 = 0; uS5 = 0;
+				uL1 = 0; uL2 = 0; uL3 = 0; uL4 = 0; uL5 = 0;
+			}
+		}
+
 		output += `
 			<tr 
-				class="o${opsi.id} zone ${fileClass} status-${lethal} stars-01${stars}${rewards}" 
+				class="o${opsi.id} zone ${fileClass} status-${lethal} stars-01${stars}${rewards} ${uH}" 
 				onclick="modalCall(${opsi.id})" 
 				data-toggle="modal"
 				data-target=".modal${opsi.id}"
 			>
 				<td class="${opsi.unlocked}Unlock">${opsi.id}</td>
-				<td>${opsi.name}</td>
+				<td class="${uC}">${opsi.name}</td>
 				<td>${opsi.corruption}</td>
+				<td>${starLength}</td>
 				<td>${record}</td>
 				<td>${lethal}</td>
 				<td>${safe}</td>
@@ -647,15 +664,33 @@
 	function modalCreate (id) {
 		let modal = ""
 		let recordFile = "None";
+		let us1 = ""; let us2 = ""; let us3 = ""; let us4 = ""; let us5 = "";
+		let usr1 = 0; let usr2 = 0; let usr3 = 0;  let usr4 = 0;  let usr5 = 0;
 		for (var i = 0; i < opsi.length; i++) {
 			if (opsi[i].id == id) {
 				op = opsi[i];
 				name = op.name;
-				star1 = `<td class="${op.stars[0].condition}">${op.stars[0].formatted}</td>`;
-				star2 = `<td class="${op.stars[1].condition}">${op.stars[1].formatted}</td>`;
-				star3 = `<td class="${op.stars[2].condition}">${op.stars[2].formatted}</td>`;
-				star4 = `<td class="${op.stars[3].condition}">${op.stars[3].formatted}</td>`;
-				star5 = `<td class="${op.stars[4].condition}">${op.stars[4].formatted}</td>`;
+				for (var x = 0; x < user.length; x++) {
+					if (user[x].id == id) {
+						if (user[x].star.length == 5) {
+							us1 = "trueUnlock"; us2 = "trueUnlock"; us3 = "trueUnlock"; us4 = "trueUnlock"; us5 = "trueUnlock"; 
+							usr1 = 1;usr2 = 1; usr3 = 1;usr4 = 1; usr5 = 1;}
+						if (user[x].star.length < 5) {
+							for(var z = 0; z < user[x].star.length; z++) {
+								if (user[x].star[z].valueOf() == 1) {us1 = "trueUnlock"; usr1 = 1;}
+								if (user[x].star[z].valueOf() == 2) {us2 = "trueUnlock"; usr2 = 1;}
+								if (user[x].star[z].valueOf() == 3) {us3 = "trueUnlock"; usr3 = 1;}
+								if (user[x].star[z].valueOf() == 4) {us4 = "trueUnlock"; usr4 = 1;}
+								if (user[x].star[z].valueOf() == 5) {us5 = "trueUnlock"; usr5 = 1;}
+							}
+						}
+					}
+				}
+				star1 = `<td class="${op.stars[0].condition} ${us1}">${op.stars[0].formatted}</td>`;
+				star2 = `<td class="${op.stars[1].condition} ${us2}">${op.stars[1].formatted}</td>`;
+				star3 = `<td class="${op.stars[2].condition} ${us3}">${op.stars[2].formatted}</td>`;
+				star4 = `<td class="${op.stars[3].condition} ${us4}">${op.stars[3].formatted}</td>`;
+				star5 = `<td class="${op.stars[4].condition} ${us5}">${op.stars[4].formatted}</td>`;
 				reward1 = op.rewards[0].item + " × " + op.rewards[0].value;
 				reward2 = op.rewards[1].item + " × " + op.rewards[1].value;
 				reward3 = op.rewards[2].item + " × " + op.rewards[2].value;
@@ -752,6 +787,12 @@
 					recordFile = file + " - " + record;
 				}
 			}}
+		usr = usr1 + usr2 + usr3 + usr4 + usr5;
+		if (usr == 1) {rw1 = "trueUnlock"; rw2 = ""; rw3 = ""; rw4 = ""; rw5 = "";}
+		if (usr == 2) {rw1 = "trueUnlock"; rw2 = "trueUnlock"; rw3 = ""; rw4 = ""; rw5 = "";}
+		if (usr == 3) {rw1 = "trueUnlock"; rw2 = "trueUnlock"; rw3 = "trueUnlock"; rw4 = ""; rw5 = "";}
+		if (usr == 4) {rw1 = "trueUnlock"; rw2 = "trueUnlock"; rw3 = "trueUnlock"; rw4 = "trueUnlock"; rw5 = "";}
+		if (usr == 5) {rw1 = "trueUnlock"; rw2 = "trueUnlock"; rw3 = "trueUnlock"; rw4 = "trueUnlock"; rw5 = "trueUnlock";}
 		modal = `
 			<div class="modal fade modal${id}" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
 		    	<div class="modal-dialog modal-xl">
@@ -799,29 +840,29 @@
 		    				</thead>
 		    				<tbody>
 		    					<tr>
-		    						<td><strong>1</strong></td>
+		    						<td class="${us1}"><strong>1</strong></td>
 		    						${star1}
-		    						<td>${reward1}</td>
+		    						<td class="${rw1}">${reward1}</td>
 		    					</tr>
 		    					<tr>
-		    						<td><strong>2</strong></td>
+		    						<td class="${us2}"><strong>2</strong></td>
 		    						${star2}
-		    						<td>${reward2}</td>
+		    						<td class="${rw2}">${reward2}</td>
 		    					</tr>
 		    					<tr>
-		    						<td><strong>3</strong></td>
+		    						<td class="${us3}"><strong>3</strong></td>
 		    						${star3}
-		    						<td>${reward3}</td>
+		    						<td class="${rw3}">${reward3}</td>
 		    					</tr>
 		    					<tr>
-		    						<td><strong>4</strong></td>
+		    						<td class="${us4}"><strong>4</strong></td>
 		    						${star4}
-		    						<td>${reward4}</td>
+		    						<td class="${rw4}">${reward4}</td>
 		    					</tr>
 		    					<tr>
-		    						<td><strong>5</strong></td>
+		    						<td class="${us5}"><strong>5</strong></td>
 		    						${star5}
-		    						<td>${reward5}</td>
+		    						<td class="${rw5}">${reward5}</td>
 		    					</tr>
 		    				</tbody>
 		    			</table>
