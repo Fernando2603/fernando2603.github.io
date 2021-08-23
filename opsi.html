@@ -39,7 +39,8 @@
 			left: 10px;
 			z-index: 1;
 		}
-		.act-btn:hover{background: purple;}
+		.act-btn:hover{background: white;}
+		.act-btn2 {left: 70px!important;}
 		.hide-stars, .hide-rewards, .hide-status, .hide-file, .hide-user, .hide-zones {display: none;}
 	</style>
 </head>
@@ -52,6 +53,16 @@
 			title="Filter Settings"
 		>
 			<i class="material-icons">settings</i>
+		</div>
+	</a>
+	<a class="act-btn act-btn2" href="#" data-toggle="modal" data-target=".opsimap">
+		<div 
+			class="parent-button button"
+			data-toggle="tooltip"
+			data-placement="bottom"
+			title="Operation Siren Maps"
+		>
+			<i class="material-icons">memory</i>
 		</div>
 	</a>
 	<div class="modal fade settings" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
@@ -273,6 +284,13 @@
     				</tbody>
     			</table>
     		</div>
+    	</div>
+    </div>
+    <div class="modal fade opsimap" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+    	<div class="modal-dialog modal-xl">
+    		<div class="modal-content">
+    			<img src="Images/operation-siren-map.png">
+			</div>
     	</div>
     </div>
 	<div>
