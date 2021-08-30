@@ -1,4 +1,5 @@
 // 30 08 2021
+var opsiVersion = 'v30082021';
 var user = [
  {
    "id": 11,

@@ -313,7 +313,7 @@
     	</div>
     </div>
 	<div>
-		<h1 class="text-center">Operation Siren v23082021</h1>
+		<h1 class="text-center version">Operation Siren</h1>
 		<table class="table table-bordered table-hover text-center align-middle">
 			<thead>
 				<tr>
@@ -345,6 +345,7 @@
 
 <script>
 	$(function () {$('[data-toggle="tooltip"]').tooltip()})
+	$('.version').append(" " + opsiVersion);
 	function buttonter(idx) {
 		if ($(".btn-"+idx).hasClass("btn-outline-primary")) {
 			$(".btn-"+idx).removeClass("btn-outline-primary")
