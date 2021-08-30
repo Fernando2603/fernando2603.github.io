@@ -41,7 +41,7 @@
 		}
 		.act-btn:hover{background: white;}
 		.act-btn2 {left: 70px!important;}
-		.hide-stars, .hide-rewards, .hide-status, .hide-file, .hide-user, .hide-zones {display: none;}
+		.hide-stars, .hide-rewards, .hide-status, .hide-file, .hide-user, .hide-zones, .hide-corruption {display: none;}
 	</style>
 </head>
 <body>
@@ -246,6 +246,25 @@
     				</tbody>
     				<thead>
     					<tr>
+    						<th>Corruption</th>
+    					</tr>
+    				</thead>
+    				<tbody>
+    					<tr>
+    						<td>
+	    						<button type="button" class="btn btn-44 btn-primary" onclick="filterByCorruptionReset()">All</button>
+	    						<button type="button" class="btn btn-45 btn-outline-primary" onclick="filterByCorruption('45','1')">Corruption 1</button>
+	    						<button type="button" class="btn btn-46 btn-outline-primary" onclick="filterByCorruption('46','2')">Corruption 2</button>
+	    						<button type="button" class="btn btn-47 btn-outline-primary" onclick="filterByCorruption('47','3')">Corruption 3</button>
+	    						<button type="button" class="btn btn-48 btn-outline-primary" onclick="filterByCorruption('48','4')">Corruption 4</button>
+	    						<button type="button" class="btn btn-49 btn-outline-primary" onclick="filterByCorruption('49','5')">Corruption 5</button>
+	    						<button type="button" class="btn btn-50 btn-outline-primary" onclick="filterByCorruption('50','6')">Corruption 6</button>
+	    						<button type="button" class="btn btn-51 btn-outline-primary" onclick="filterByCorruption('51','7')">Corruption 7</button>
+							</td>
+    					</tr>
+    				</tbody>
+    				<thead>
+    					<tr>
     						<th>Zone Stars Status</th>
     					</tr>
     				</thead>
@@ -338,6 +357,7 @@
 
 	var filterStars = [];
 	var filterRewards = [];
+	var filterCorruption = [];
 	var filterStatus = [];
 	var filterFile = [];
 
@@ -477,6 +497,45 @@
 
 		filterStatus.forEach((filterStatus) => {
 			$(".status-"+filterStatus).removeClass("hide-status")
+		})
+	}
+
+	function filterByCorruptionReset () {
+		$(".btn-44").removeClass("btn-outline-primary").addClass("btn-primary");
+		$(`
+			.btn-45,
+			.btn-46,
+			.btn-47,
+			.btn-48,
+			.btn-49,
+			.btn-50,
+			.btn-51
+		`).removeClass("btn-primary").removeClass("btn-outline-primary").addClass("btn-outline-primary");
+		$(".zone").removeClass("hide-corruption");
+		filterCorruption = [];
+	}
+
+	function filterByCorruption (idx, corruption) {
+		buttonter(idx);
+
+		if($(".btn-"+idx).hasClass("btn-outline-primary")) {
+			for (var i = 0; i < filterCorruption.length; i++) {
+				if (filterCorruption[i].valueOf() == corruption) {filterCorruption.splice(i, 1)}
+			}
+		} else {
+			filterCorruption.push(corruption);
+		}
+
+		if (filterCorruption.length == 0) {
+			$(".zone").removeClass("hide-corruption");
+			$(".btn-44").removeClass("btn-outline-primary").addClass("btn-primary");
+		} else {
+			$(".zone").addClass("hide-corruption")
+			$(".btn-44").removeClass("btn-primary").addClass("btn-outline-primary");
+		}
+
+		filterCorruption.forEach((filterCorruption) => {
+			$(".corruption-"+filterCorruption).removeClass("hide-corruption")
 		})
 	}
 
@@ -848,16 +907,19 @@
 		}
 
 		if(opsi.unlocked == false) {lockedZones = "locked-zones"} else {lockedZones = ""}
+		corruption = opsi.corruption;
+		corruptionClass = `corruption-${corruption}`;
+
 		output += `
 			<tr 
-				class="o${opsi.id} zone ${uSC} ${fileClass} ${lockedZones} status-${lethal} ${stars}${rewards} ${uH} ${uSClass} ${uReward}" 
+				class="o${opsi.id} zone ${uSC} ${corruptionClass} ${fileClass} ${lockedZones} status-${lethal} ${stars}${rewards} ${uH} ${uSClass} ${uReward}" 
 				onclick="modalCall(${opsi.id})" 
 				data-toggle="modal"
 				data-target=".modal${opsi.id}"
 			>
 				<td class="${opsi.unlocked}Unlock">${opsi.id}</td>
 				<td class="${uC}">${opsi.name}</td>
-				<td>${opsi.corruption}</td>
+				<td>${corruption}</td>
 				<td>${sLP5}</td>
 				<td>${record}</td>
 				<td>${lethal}</td>
