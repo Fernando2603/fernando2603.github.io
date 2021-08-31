@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en-US">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/ship.css">
+    <link rel="icon" href="Images/al-favicon.png">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<head>
+	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+	<meta content="utf-8" http-equiv="encoding">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+	<script type="text/javascript" src="API/retrofit.js"></script>
+	<title>Fernando26</title>
+	<style>
+		.clear {color: blue;}
+		.lethal {color: red;}
+		.safe {color: green;}
+		.trueUnlock {background-color: palegreen;}
+		.falseUnlock {background-color: #faa;}
+		.kaiOutput tr td {vertical-align: middle!important;}
+		.act-btn{
+			background: black;
+			display: block;
+			width: 50px;
+			height: 50px;
+			line-height: 50px;
+			text-align: center;
+			color: white;
+			font-size: 30px;
+			font-weight: bold;
+			border-radius: 50%;
+			-webkit-border-radius: 50%;
+			text-decoration: none;
+			transition: ease all 0.3s;
+			position: fixed;
+			top: 10px;
+			left: 10px;
+			z-index: 1;
+		}
+		.act-btn:hover{background: white;}
+		.act-btn2 {left: 70px!important;}
+		.hide-stars, .hide-rewards, .hide-status, .hide-file, .hide-user, .hide-zones, .hide-corruption {display: none;}
+	</style>
+</head>
+<body>
+	<a class="act-btn" href="#" data-toggle="modal" data-target=".settings">
+		<div 
+			class="parent-button button"
+			data-toggle="tooltip"
+			data-placement="bottom"
+			title="Filter Settings"
+		>
+			<i class="material-icons">settings</i>
+		</div>
+	</a>
+	<a class="act-btn act-btn2" href="#" data-toggle="modal" data-target=".opsimap">
+		<div 
+			class="parent-button button"
+			data-toggle="tooltip"
+			data-placement="bottom"
+			title="Operation Siren Maps"
+		>
+			<i class="material-icons">memory</i>
+		</div>
+	</a>
+	<div class="modal fade settings" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+    	<div class="modal-dialog modal-xl">
+    		<div class="modal-content">
+    		</div>
+    	</div>
+    </div>
+    <div class="modal fade opsimap" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+    	<div class="modal-dialog modal-xl">
+    		<div class="modal-content">
+			</div>
+    	</div>
+    </div>
+	<div>
+		<h1 class="text-center version">Coins</h1>
+		<table class="table table-bordered table-hover text-center align-middle">
+			<thead>
+				<tr>
+					<th>Retrofit</th>
+					<th>Research</th>
+					<th>Limit Breaks</th>
+					<th>Total Coins</th>
+				</tr>
+				<tr>
+					<th class="totalCoins"></th>
+					<th>470000</th>
+					<th>1200000</th>
+					<th>3141000</th>
+				</tr>
+			</thead>
+		</table>
+		<table class="table table-bordered table-hover text-center align-middle">
+			<thead>
+				<tr>
+					<th style="width: 25%">Retrofit Blue</th>
+					<th style="width: 25%">Retrofit Purple</th>
+					<th style="width: 25%">Retrofit Gold</th>
+					<th style="width: 25%">Retrofit Coins</th>
+				</tr>
+				<tr>
+					<th class="totalBlue"></th>
+					<th class="totalPurple"></th>
+					<th class="totalGold"></th>
+					<th class="totalCoins"></th>
+				</tr>
+			</thead>
+		</table>
+		<table class="table table-bordered table-hover text-center align-middle">
+			<thead>
+				<tr>
+					<th>Priority</th>
+					<th>Cubes</th>
+					<th>Coins</th>
+				</tr>
+				<tr>
+					<th>PR 1</th>
+					<th>15</th>
+					<th>80000</th>
+				</tr>
+				<tr>
+					<th>PR 2</th>
+					<th>40</th>
+					<th>210000</th>
+				</tr>
+				<tr>
+					<th>PR 3</th>
+					<th>0</th>
+					<th>0</th>
+				</tr>
+				<tr>
+					<th>PR 4</th>
+					<th>35</th>
+					<th>180000</th>
+				</tr>
+				<tr>
+					<th>Total</th>
+					<th>90</th>
+					<th>470000</th>
+				</tr>
+			</thead>
+		</table>
+	</div>
+	<div class="modal-container"></div>
+
+<script>
+	$(function () {$('[data-toggle="tooltip"]').tooltip()})
+	$('.version').append(" - " + retrofitVersion);
+
+	var totalBlue 	= 1183;
+	var totalPurple = 1182;
+	var totalGold 	= 343;
+	var totalCoins 	= 1828400;
+
+	var userBlue	= 0;
+	var userPurple	= 0;
+	var userGold 	= 0;
+	var userCoins 	= 0;
+
+	let output 		= "";
+
+	for(var x = 0; x < retrofit.length; x++) {
+		for(var i = 0; i < userKai.length; i++) {
+			if(userKai[i] == retrofit[x].id) {
+				bluebps   = retrofit[x].blue;
+				purplebps = retrofit[x].purple;
+				goldbps	  = retrofit[x].gold;
+				coins 	  = retrofit[x].coins;
+
+				userBlue 	+= bluebps;
+				userPurple 	+= purplebps;
+				userGold 	+= goldbps;
+				userCoins 	+= coins;
+			}
+		}
+	}
+
+	$(".totalBlue").html(totalBlue - userBlue);
+	$(".totalPurple").html(totalPurple - userPurple);
+	$(".totalGold").html(totalGold - userGold);
+	$(".totalCoins").html(totalCoins - userCoins);
+
+</script>
+</body>

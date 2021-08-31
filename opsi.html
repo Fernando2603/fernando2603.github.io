@@ -15,11 +15,13 @@
 	<script type="text/javascript" src="API/user.js"></script>
 	<title>Fernando26 - Operation Siren</title>
 	<style>
-		.clear {color: blue;}
+		.clear 	{color: blue;}
 		.lethal {color: red;}
-		.safe {color: green;}
-		.trueUnlock {background-color: palegreen;}
-		.falseUnlock {background-color: #faa;}
+		.safe 	{color: green;}
+
+		.trueUnlock 	{background-color: palegreen;}
+		.falseUnlock 	{background-color: #faa;}
+
 		.act-btn{
 			background: black;
 			display: block;
@@ -41,6 +43,7 @@
 		}
 		.act-btn:hover{background: white;}
 		.act-btn2 {left: 70px!important;}
+
 		.hide-stars, .hide-rewards, .hide-status, .hide-file, .hide-user, .hide-zones, .hide-corruption {display: none;}
 	</style>
 </head>
@@ -356,11 +359,11 @@
 		}
 	}
 
-	var filterStars = [];
-	var filterRewards = [];
-	var filterCorruption = [];
-	var filterStatus = [];
-	var filterFile = [];
+	var filterStars 		= [];
+	var filterRewards 		= [];
+	var filterCorruption 	= [];
+	var filterStatus 		= [];
+	var filterFile 			= [];
 
 	function filterByStarsReset () {
 		$(".btn-00").removeClass("btn-outline-primary").addClass("btn-primary");
@@ -606,18 +609,19 @@
 
 	let output = "";
 	opsi.forEach((opsi) => {
-		let record = "";
-		let fileClass = "file-0";
+		let record 		= "";
+		let fileClass 	= "file-0";
+
 		if(opsi.stars[3].formatted == "Recover 1 record file(s).") {
-			if(opsi.stars[3].file == "Aerolith Incident") {record = "1-" + opsi.stars[3].value; fileClass = "file-1";}
-			if(opsi.stars[3].file == "Energy Revolution") {record = "2-" + opsi.stars[3].value; fileClass = "file-2";}
-			if(opsi.stars[3].file == "Tech & Life") {record = "3-" + opsi.stars[3].value; fileClass = "file-3";}
-			if(opsi.stars[3].file == "New Lifestyle") {record = "4-" + opsi.stars[3].value; fileClass = "file-4";}
-			if(opsi.stars[3].file == "Cube Militarization") {record = "5-" + opsi.stars[3].value; fileClass = "file-5";}
-			if(opsi.stars[3].file == "Cube Militarization II") {record = "6-" + opsi.stars[3].value; fileClass = "file-6";}
-			if(opsi.stars[3].file == "Glimmer Project") {record = "7-" + opsi.stars[3].value; fileClass = "file-7";}
-			if(opsi.stars[3].file == "Arms Race") {record = "8-" + opsi.stars[3].value; fileClass = "file-8";}
-			if(opsi.stars[3].file == "Cold War Escalation") {record = "9-" + opsi.stars[3].value; fileClass = "file-9";}
+			if(opsi.stars[3].file == "Aerolith Incident") 		{record = "1-" + opsi.stars[3].value; fileClass = "file-1";}
+			if(opsi.stars[3].file == "Energy Revolution")		{record = "2-" + opsi.stars[3].value; fileClass = "file-2";}
+			if(opsi.stars[3].file == "Tech & Life")				{record = "3-" + opsi.stars[3].value; fileClass = "file-3";}
+			if(opsi.stars[3].file == "New Lifestyle") 			{record = "4-" + opsi.stars[3].value; fileClass = "file-4";}
+			if(opsi.stars[3].file == "Cube Militarization") 	{record = "5-" + opsi.stars[3].value; fileClass = "file-5";}
+			if(opsi.stars[3].file == "Cube Militarization II")	{record = "6-" + opsi.stars[3].value; fileClass = "file-6";}
+			if(opsi.stars[3].file == "Glimmer Project") 		{record = "7-" + opsi.stars[3].value; fileClass = "file-7";}
+			if(opsi.stars[3].file == "Arms Race") 				{record = "8-" + opsi.stars[3].value; fileClass = "file-8";}
+			if(opsi.stars[3].file == "Cold War Escalation") 	{record = "9-" + opsi.stars[3].value; fileClass = "file-9";}
 		}
 
 		let lethal1 = 0; let lethal2 = 0; let lethal3 = 0; let lethal4 = 0; let lethal5 = 0;
@@ -627,137 +631,137 @@
 			if(opsi.stars[3].condition == "lethal") {lethal4 = 1}
 			if(opsi.stars[4].condition == "lethal") {lethal5 = 1}
 
-		let safe1 = 0; let safe2 = 0; let safe3 = 0; let safe4 = 0; let safe5 = 0;
+		let safe1 	= 0; let safe2	 = 0; let safe3   = 0; let safe4   = 0; let safe5 	= 0;
 			if(opsi.stars[0].condition == "safe") {safe1 = 1}
 			if(opsi.stars[1].condition == "safe") {safe2 = 1}
 			if(opsi.stars[2].condition == "safe") {safe3 = 1}
 			if(opsi.stars[3].condition == "safe") {safe4 = 1}
 			if(opsi.stars[4].condition == "safe") {safe5 = 1}
 
-		lethal = lethal1 + lethal2 + lethal3 + lethal4 + lethal5;
-		safe = safe1 + safe2 + safe3 + safe4 + safe5;
+		lethal 	= lethal1 + lethal2 + lethal3 + lethal4 + lethal5;
+		safe 	= safe1 + safe2 + safe3 + safe4 + safe5;
 
-		let star1 = ""; let star2 = ""; let star3 = ""; let star4 = ""; let star5 = "";
-		let star6 = ""; let star7 = ""; let star8 = ""; let star9 = ""; let star10 = "";
-		let star11 = ""; let star12 = ""; let star13 = ""; let star14 = ""; let star15 = "";
+		let star1 	= ""; let star2 	= ""; let star3 	= ""; let star4 	= ""; let star5 	= "";
+		let star6 	= ""; let star7 	= ""; let star8 	= ""; let star9 	= ""; let star10 	= "";
+		let star11 	= ""; let star12 	= ""; let star13 	= ""; let star14 	= ""; let star15 	= "";
 		// star type
-			if(opsi.stars[1].type == "Perform Reconnaissance x time(s) in anomalous zones.") {star1 = " stars-02"}
-			if(opsi.stars[1].type == "Use the Siren Data Logging Tower x time(s).") {star2 = " stars-03"}
-			if(opsi.stars[1].type == "Use the Siren Scanning Facility x time(s).") {star3 = " stars-04"}
-			if(opsi.stars[1].type == "Conduct x Meowfficer retrieval operation(s).") {star4 = " stars-05"}
-			if(opsi.stars[1].type == "Encounter the Mysterious Merchant x time(s).") {star5 = " stars-06"}
-			if(opsi.stars[1].type == "Obtain x victorie(s).") {star6 = " stars-07"}
-			if(opsi.stars[1].type == "Collect x resource node(s).") {star7 = " stars-08"}
-			if(opsi.stars[1].type == "Recover 1 record file(s).") {star8 = " stars-09"}
-			if(opsi.stars[1].type == "Restore x Energy Matrices to their correct position.") {star9 = " stars-10"}
-			if(opsi.stars[1].type == "Destroy x Siren weather control device(s).") {star10 = " stars-11"}
-			if(opsi.stars[1].type == "Activate x switch mechanism(s).") {star11 = " stars-12"}
-			if(opsi.stars[1].type == "Defeat x Promoted \"Pawns\" fleet(s).") {star12 = " stars-13"}
-			if(opsi.stars[1].type == "Repel Promoted \"Pawns\" fleet ambushes x time(s).") {star13 = " stars-14"}
-			if(opsi.stars[1].type == "Retrieve sources from enchanced fleets x time(s).") {star14 = " stars-15"}
-			if(opsi.stars[2].type == "Perform Reconnaissance x time(s) in anomalous zones.") {star1 = " stars-02"}
-			if(opsi.stars[2].type == "Use the Siren Data Logging Tower x time(s).") {star2 = " stars-03"}
-			if(opsi.stars[2].type == "Use the Siren Scanning Facility x time(s).") {star3 = " stars-04"}
-			if(opsi.stars[2].type == "Conduct x Meowfficer retrieval operation(s).") {star4 = " stars-05"}
-			if(opsi.stars[2].type == "Encounter the Mysterious Merchant x time(s).") {star5 = " stars-06"}
-			if(opsi.stars[2].type == "Obtain x victorie(s).") {star6 = " stars-07"}
-			if(opsi.stars[2].type == "Collect x resource node(s).") {star7 = " stars-08"}
-			if(opsi.stars[2].type == "Recover 1 record file(s).") {star8 = " stars-09"}
-			if(opsi.stars[2].type == "Restore x Energy Matrices to their correct position.") {star9 = " stars-10"}
-			if(opsi.stars[2].type == "Destroy x Siren weather control device(s).") {star10 = " stars-11"}
-			if(opsi.stars[2].type == "Activate x switch mechanism(s).") {star11 = " stars-12"}
-			if(opsi.stars[2].type == "Defeat x Promoted \"Pawns\" fleet(s).") {star12 = " stars-13"}
-			if(opsi.stars[2].type == "Repel Promoted \"Pawns\" fleet ambushes x time(s).") {star13 = " stars-14"}
-			if(opsi.stars[2].type == "Retrieve sources from enchanced fleets x time(s).") {star14 = " stars-15"}
-			if(opsi.stars[3].type == "Perform Reconnaissance x time(s) in anomalous zones.") {star1 = " stars-02"}
-			if(opsi.stars[3].type == "Use the Siren Data Logging Tower x time(s).") {star2 = " stars-03"}
-			if(opsi.stars[3].type == "Use the Siren Scanning Facility x time(s).") {star3 = " stars-04"}
-			if(opsi.stars[3].type == "Conduct x Meowfficer retrieval operation(s).") {star4 = " stars-05"}
-			if(opsi.stars[3].type == "Encounter the Mysterious Merchant x time(s).") {star5 = " stars-06"}
-			if(opsi.stars[3].type == "Obtain x victorie(s).") {star6 = " stars-07"}
-			if(opsi.stars[3].type == "Collect x resource node(s).") {star7 = " stars-08"}
-			if(opsi.stars[3].type == "Recover 1 record file(s).") {star8 = " stars-09"}
-			if(opsi.stars[3].type == "Restore x Energy Matrices to their correct position.") {star9 = " stars-10"}
-			if(opsi.stars[3].type == "Destroy x Siren weather control device(s).") {star10 = " stars-11"}
-			if(opsi.stars[3].type == "Activate x switch mechanism(s).") {star11 = " stars-12"}
-			if(opsi.stars[3].type == "Defeat x Promoted \"Pawns\" fleet(s).") {star12 = " stars-13"}
-			if(opsi.stars[3].type == "Repel Promoted \"Pawns\" fleet ambushes x time(s).") {star13 = " stars-14"}
-			if(opsi.stars[3].type == "Retrieve sources from enchanced fleets x time(s).") {star14 = " stars-15"}
-			if(opsi.stars[4].type == "Perform Reconnaissance x time(s) in anomalous zones.") {star1 = " stars-02"}
-			if(opsi.stars[4].type == "Use the Siren Data Logging Tower x time(s).") {star2 = " stars-03"}
-			if(opsi.stars[4].type == "Use the Siren Scanning Facility x time(s).") {star3 = " stars-04"}
-			if(opsi.stars[4].type == "Conduct x Meowfficer retrieval operation(s).") {star4 = " stars-05"}
-			if(opsi.stars[4].type == "Encounter the Mysterious Merchant x time(s).") {star5 = " stars-06"}
-			if(opsi.stars[4].type == "Obtain x victorie(s).") {star6 = " stars-07"}
-			if(opsi.stars[4].type == "Collect x resource node(s).") {star7 = " stars-08"}
-			if(opsi.stars[4].type == "Recover 1 record file(s).") {star8 = " stars-09"}
-			if(opsi.stars[4].type == "Restore x Energy Matrices to their correct position.") {star9 = " stars-10"}
-			if(opsi.stars[4].type == "Destroy x Siren weather control device(s).") {star10 = " stars-11"}
-			if(opsi.stars[4].type == "Activate x switch mechanism(s).") {star11 = " stars-12"}
-			if(opsi.stars[4].type == "Defeat x Promoted \"Pawns\" fleet(s).") {star12 = " stars-13"}
-			if(opsi.stars[4].type == "Repel Promoted \"Pawns\" fleet ambushes x time(s).") {star13 = " stars-14"}
-			if(opsi.stars[4].type == "Retrieve sources from enchanced fleets x time(s).") {star14 = " stars-15"}
+			if(opsi.stars[1].type == "Perform Reconnaissance x time(s) in anomalous zones.") 	{star1 	= " stars-02"}
+			if(opsi.stars[1].type == "Use the Siren Data Logging Tower x time(s).") 			{star2 	= " stars-03"}
+			if(opsi.stars[1].type == "Use the Siren Scanning Facility x time(s).") 				{star3 	= " stars-04"}
+			if(opsi.stars[1].type == "Conduct x Meowfficer retrieval operation(s).") 			{star4 	= " stars-05"}
+			if(opsi.stars[1].type == "Encounter the Mysterious Merchant x time(s).") 			{star5 	= " stars-06"}
+			if(opsi.stars[1].type == "Obtain x victorie(s).") 									{star6 	= " stars-07"}
+			if(opsi.stars[1].type == "Collect x resource node(s).") 							{star7 	= " stars-08"}
+			if(opsi.stars[1].type == "Recover 1 record file(s).") 								{star8 	= " stars-09"}
+			if(opsi.stars[1].type == "Restore x Energy Matrices to their correct position.")	{star9 	= " stars-10"}
+			if(opsi.stars[1].type == "Destroy x Siren weather control device(s).") 				{star10 = " stars-11"}
+			if(opsi.stars[1].type == "Activate x switch mechanism(s).") 						{star11 = " stars-12"}
+			if(opsi.stars[1].type == "Defeat x Promoted \"Pawns\" fleet(s).") 					{star12 = " stars-13"}
+			if(opsi.stars[1].type == "Repel Promoted \"Pawns\" fleet ambushes x time(s).") 		{star13 = " stars-14"}
+			if(opsi.stars[1].type == "Retrieve sources from enchanced fleets x time(s).") 		{star14 = " stars-15"}
+			if(opsi.stars[2].type == "Perform Reconnaissance x time(s) in anomalous zones.") 	{star1 	= " stars-02"}
+			if(opsi.stars[2].type == "Use the Siren Data Logging Tower x time(s).") 			{star2 	= " stars-03"}
+			if(opsi.stars[2].type == "Use the Siren Scanning Facility x time(s).") 				{star3 	= " stars-04"}
+			if(opsi.stars[2].type == "Conduct x Meowfficer retrieval operation(s).") 			{star4 	= " stars-05"}
+			if(opsi.stars[2].type == "Encounter the Mysterious Merchant x time(s).") 			{star5 	= " stars-06"}
+			if(opsi.stars[2].type == "Obtain x victorie(s).") 									{star6 	= " stars-07"}
+			if(opsi.stars[2].type == "Collect x resource node(s).") 							{star7 	= " stars-08"}
+			if(opsi.stars[2].type == "Recover 1 record file(s).") 								{star8 	= " stars-09"}
+			if(opsi.stars[2].type == "Restore x Energy Matrices to their correct position.") 	{star9 	= " stars-10"}
+			if(opsi.stars[2].type == "Destroy x Siren weather control device(s).") 				{star10 = " stars-11"}
+			if(opsi.stars[2].type == "Activate x switch mechanism(s).") 						{star11 = " stars-12"}
+			if(opsi.stars[2].type == "Defeat x Promoted \"Pawns\" fleet(s).") 					{star12 = " stars-13"}
+			if(opsi.stars[2].type == "Repel Promoted \"Pawns\" fleet ambushes x time(s).") 		{star13 = " stars-14"}
+			if(opsi.stars[2].type == "Retrieve sources from enchanced fleets x time(s).") 		{star14 = " stars-15"}
+			if(opsi.stars[3].type == "Perform Reconnaissance x time(s) in anomalous zones.") 	{star1 	= " stars-02"}
+			if(opsi.stars[3].type == "Use the Siren Data Logging Tower x time(s).") 			{star2 	= " stars-03"}
+			if(opsi.stars[3].type == "Use the Siren Scanning Facility x time(s).") 				{star3 	= " stars-04"}
+			if(opsi.stars[3].type == "Conduct x Meowfficer retrieval operation(s).") 			{star4 	= " stars-05"}
+			if(opsi.stars[3].type == "Encounter the Mysterious Merchant x time(s).") 			{star5 	= " stars-06"}
+			if(opsi.stars[3].type == "Obtain x victorie(s).") 									{star6 	= " stars-07"}
+			if(opsi.stars[3].type == "Collect x resource node(s).") 							{star7 	= " stars-08"}
+			if(opsi.stars[3].type == "Recover 1 record file(s).") 								{star8 	= " stars-09"}
+			if(opsi.stars[3].type == "Restore x Energy Matrices to their correct position.") 	{star9 	= " stars-10"}
+			if(opsi.stars[3].type == "Destroy x Siren weather control device(s).") 				{star10 = " stars-11"}
+			if(opsi.stars[3].type == "Activate x switch mechanism(s).") 						{star11 = " stars-12"}
+			if(opsi.stars[3].type == "Defeat x Promoted \"Pawns\" fleet(s).") 					{star12 = " stars-13"}
+			if(opsi.stars[3].type == "Repel Promoted \"Pawns\" fleet ambushes x time(s).") 		{star13 = " stars-14"}
+			if(opsi.stars[3].type == "Retrieve sources from enchanced fleets x time(s).") 		{star14 = " stars-15"}
+			if(opsi.stars[4].type == "Perform Reconnaissance x time(s) in anomalous zones.") 	{star1	= " stars-02"}
+			if(opsi.stars[4].type == "Use the Siren Data Logging Tower x time(s).") 			{star2	= " stars-03"}
+			if(opsi.stars[4].type == "Use the Siren Scanning Facility x time(s).") 				{star3	= " stars-04"}
+			if(opsi.stars[4].type == "Conduct x Meowfficer retrieval operation(s).") 			{star4	= " stars-05"}
+			if(opsi.stars[4].type == "Encounter the Mysterious Merchant x time(s).") 			{star5	= " stars-06"}
+			if(opsi.stars[4].type == "Obtain x victorie(s).") 									{star6	= " stars-07"}
+			if(opsi.stars[4].type == "Collect x resource node(s).") 							{star7	= " stars-08"}
+			if(opsi.stars[4].type == "Recover 1 record file(s).") 								{star8	= " stars-09"}
+			if(opsi.stars[4].type == "Restore x Energy Matrices to their correct position.") 	{star9	= " stars-10"}
+			if(opsi.stars[4].type == "Destroy x Siren weather control device(s).")				{star10 = " stars-11"}
+			if(opsi.stars[4].type == "Activate x switch mechanism(s).") 						{star11 = " stars-12"}
+			if(opsi.stars[4].type == "Defeat x Promoted \"Pawns\" fleet(s).") 					{star12 = " stars-13"}
+			if(opsi.stars[4].type == "Repel Promoted \"Pawns\" fleet ambushes x time(s).") 		{star13 = " stars-14"}
+			if(opsi.stars[4].type == "Retrieve sources from enchanced fleets x time(s).") 		{star14 = " stars-15"}
 		if(opsi.id == 154) {star0 = "";} else {star0 = "stars-01"}
 		stars = star0 + star1 + star2 + star3 + star4 + star5 + star6 + star7 + star8 + star9 + star10 + star11 + star12 + star13 + star14 + star15;
 
 		let reward1 = ""; let reward2 = ""; let reward3 = ""; let reward4 = ""; let reward5 = "";
 		let reward6 = ""; let reward7 = ""; let reward8 = ""; let reward9 = ""; let reward10 = ""; let reward11 = "";
 		// reward type
-			if(opsi.rewards[0].item == "Coins") {reward1 = " rewards-01"}
-			if(opsi.rewards[0].item == "High-Efficiency Combat Logistics Plan") {reward2 = " rewards-02"}
-			if(opsi.rewards[0].item == "R4 Siren Coordinate Logger") {reward3 = " rewards-03"}
-			if(opsi.rewards[0].item == "R5 Siren Coordinate Logger") {reward4 = " rewards-04"}
-			if(opsi.rewards[0].item == "R6 Siren Coordinate Logger") {reward5 = " rewards-05"}
-			if(opsi.rewards[0].item == "R6 Coordinate Logger") {reward6 = " rewards-06"}
-			if(opsi.rewards[0].item == "Special Item Tokens") {reward7 = " rewards-07"}
-			if(opsi.rewards[0].item == "Super Rare Cat Box") {reward8 = " rewards-08"}
-			if(opsi.rewards[0].item == "T3 Mystery Gear Part") {reward9 = " rewards-09"}
-			if(opsi.rewards[0].item == "T4 Mystery Gear Part") {reward10 = " rewards-10"}
-			if(opsi.rewards[0].item == "Wisdom Cube") {reward11 = " rewards-11"}
-			if(opsi.rewards[1].item == "Coins") {reward1 = " rewards-01"}
-			if(opsi.rewards[1].item == "High-Efficiency Combat Logistics Plan") {reward2 = " rewards-02"}
-			if(opsi.rewards[1].item == "R4 Siren Coordinate Logger") {reward3 = " rewards-03"}
-			if(opsi.rewards[1].item == "R5 Siren Coordinate Logger") {reward4 = " rewards-04"}
-			if(opsi.rewards[1].item == "R6 Siren Coordinate Logger") {reward5 = " rewards-05"}
-			if(opsi.rewards[1].item == "R6 Coordinate Logger") {reward6 = " rewards-06"}
-			if(opsi.rewards[1].item == "Special Item Tokens") {reward7 = " rewards-07"}
-			if(opsi.rewards[1].item == "Super Rare Cat Box") {reward8 = " rewards-08"}
-			if(opsi.rewards[1].item == "T3 Mystery Gear Part") {reward9 = " rewards-09"}
-			if(opsi.rewards[1].item == "T4 Mystery Gear Part") {reward10 = " rewards-10"}
-			if(opsi.rewards[1].item == "Wisdom Cube") {reward11 = " rewards-11"}
-			if(opsi.rewards[2].item == "Coins") {reward1 = " rewards-01"}
-			if(opsi.rewards[2].item == "High-Efficiency Combat Logistics Plan") {reward2 = " rewards-02"}
-			if(opsi.rewards[2].item == "R4 Siren Coordinate Logger") {reward3 = " rewards-03"}
-			if(opsi.rewards[2].item == "R5 Siren Coordinate Logger") {reward4 = " rewards-04"}
-			if(opsi.rewards[2].item == "R6 Siren Coordinate Logger") {reward5 = " rewards-05"}
-			if(opsi.rewards[2].item == "R6 Coordinate Logger") {reward6 = " rewards-06"}
-			if(opsi.rewards[2].item == "Special Item Tokens") {reward7 = " rewards-07"}
-			if(opsi.rewards[2].item == "Super Rare Cat Box") {reward8 = " rewards-08"}
-			if(opsi.rewards[2].item == "T3 Mystery Gear Part") {reward9 = " rewards-09"}
-			if(opsi.rewards[2].item == "T4 Mystery Gear Part") {reward10 = " rewards-10"}
-			if(opsi.rewards[2].item == "Wisdom Cube") {reward11 = " rewards-11"}
-			if(opsi.rewards[3].item == "Coins") {reward1 = " rewards-01"}
-			if(opsi.rewards[3].item == "High-Efficiency Combat Logistics Plan") {reward2 = " rewards-02"}
-			if(opsi.rewards[3].item == "R4 Siren Coordinate Logger") {reward3 = " rewards-03"}
-			if(opsi.rewards[3].item == "R5 Siren Coordinate Logger") {reward4 = " rewards-04"}
-			if(opsi.rewards[3].item == "R6 Siren Coordinate Logger") {reward5 = " rewards-05"}
-			if(opsi.rewards[3].item == "R6 Coordinate Logger") {reward6 = " rewards-06"}
-			if(opsi.rewards[3].item == "Special Item Tokens") {reward7 = " rewards-07"}
-			if(opsi.rewards[3].item == "Super Rare Cat Box") {reward8 = " rewards-08"}
-			if(opsi.rewards[3].item == "T3 Mystery Gear Part") {reward9 = " rewards-09"}
-			if(opsi.rewards[3].item == "T4 Mystery Gear Part") {reward10 = " rewards-10"}
-			if(opsi.rewards[3].item == "Wisdom Cube") {reward11 = " rewards-11"}
-			if(opsi.rewards[4].item == "Coins") {reward1 = " rewards-01"}
-			if(opsi.rewards[4].item == "High-Efficiency Combat Logistics Plan") {reward2 = " rewards-02"}
-			if(opsi.rewards[4].item == "R4 Siren Coordinate Logger") {reward3 = " rewards-03"}
-			if(opsi.rewards[4].item == "R5 Siren Coordinate Logger") {reward4 = " rewards-04"}
-			if(opsi.rewards[4].item == "R6 Siren Coordinate Logger") {reward5 = " rewards-05"}
-			if(opsi.rewards[4].item == "R6 Coordinate Logger") {reward6 = " rewards-06"}
-			if(opsi.rewards[4].item == "Special Item Tokens") {reward7 = " rewards-07"}
-			if(opsi.rewards[4].item == "Super Rare Cat Box") {reward8 = " rewards-08"}
-			if(opsi.rewards[4].item == "T3 Mystery Gear Part") {reward9 = " rewards-09"}
-			if(opsi.rewards[4].item == "T4 Mystery Gear Part") {reward10 = " rewards-10"}
-			if(opsi.rewards[4].item == "Wisdom Cube") {reward11 = " rewards-11"}
+			if(opsi.rewards[0].item == "Coins") 								{reward1  = " rewards-01"}
+			if(opsi.rewards[0].item == "High-Efficiency Combat Logistics Plan") {reward2  = " rewards-02"}
+			if(opsi.rewards[0].item == "R4 Siren Coordinate Logger") 			{reward3  = " rewards-03"}
+			if(opsi.rewards[0].item == "R5 Siren Coordinate Logger") 			{reward4  = " rewards-04"}
+			if(opsi.rewards[0].item == "R6 Siren Coordinate Logger") 			{reward5  = " rewards-05"}
+			if(opsi.rewards[0].item == "R6 Coordinate Logger") 					{reward6  = " rewards-06"}
+			if(opsi.rewards[0].item == "Special Item Tokens") 					{reward7  = " rewards-07"}
+			if(opsi.rewards[0].item == "Super Rare Cat Box") 					{reward8  = " rewards-08"}
+			if(opsi.rewards[0].item == "T3 Mystery Gear Part") 					{reward9  = " rewards-09"}
+			if(opsi.rewards[0].item == "T4 Mystery Gear Part") 					{reward10 = " rewards-10"}
+			if(opsi.rewards[0].item == "Wisdom Cube") 							{reward11 = " rewards-11"}
+			if(opsi.rewards[1].item == "Coins") 								{reward1  = " rewards-01"}
+			if(opsi.rewards[1].item == "High-Efficiency Combat Logistics Plan") {reward2  = " rewards-02"}
+			if(opsi.rewards[1].item == "R4 Siren Coordinate Logger") 			{reward3  = " rewards-03"}
+			if(opsi.rewards[1].item == "R5 Siren Coordinate Logger") 			{reward4  = " rewards-04"}
+			if(opsi.rewards[1].item == "R6 Siren Coordinate Logger") 			{reward5  = " rewards-05"}
+			if(opsi.rewards[1].item == "R6 Coordinate Logger") 					{reward6  = " rewards-06"}
+			if(opsi.rewards[1].item == "Special Item Tokens") 					{reward7  = " rewards-07"}
+			if(opsi.rewards[1].item == "Super Rare Cat Box") 					{reward8  = " rewards-08"}
+			if(opsi.rewards[1].item == "T3 Mystery Gear Part") 					{reward9  = " rewards-09"}
+			if(opsi.rewards[1].item == "T4 Mystery Gear Part") 					{reward10 = " rewards-10"}
+			if(opsi.rewards[1].item == "Wisdom Cube") 							{reward11 = " rewards-11"}
+			if(opsi.rewards[2].item == "Coins") 								{reward1  = " rewards-01"}
+			if(opsi.rewards[2].item == "High-Efficiency Combat Logistics Plan") {reward2  = " rewards-02"}
+			if(opsi.rewards[2].item == "R4 Siren Coordinate Logger") 			{reward3  = " rewards-03"}
+			if(opsi.rewards[2].item == "R5 Siren Coordinate Logger") 			{reward4  = " rewards-04"}
+			if(opsi.rewards[2].item == "R6 Siren Coordinate Logger") 			{reward5  = " rewards-05"}
+			if(opsi.rewards[2].item == "R6 Coordinate Logger") 					{reward6  = " rewards-06"}
+			if(opsi.rewards[2].item == "Special Item Tokens") 					{reward7  = " rewards-07"}
+			if(opsi.rewards[2].item == "Super Rare Cat Box") 					{reward8  = " rewards-08"}
+			if(opsi.rewards[2].item == "T3 Mystery Gear Part") 					{reward9  = " rewards-09"}
+			if(opsi.rewards[2].item == "T4 Mystery Gear Part") 					{reward10 = " rewards-10"}
+			if(opsi.rewards[2].item == "Wisdom Cube") 							{reward11 = " rewards-11"}
+			if(opsi.rewards[3].item == "Coins") 								{reward1  = " rewards-01"}
+			if(opsi.rewards[3].item == "High-Efficiency Combat Logistics Plan") {reward2  = " rewards-02"}
+			if(opsi.rewards[3].item == "R4 Siren Coordinate Logger") 			{reward3  = " rewards-03"}
+			if(opsi.rewards[3].item == "R5 Siren Coordinate Logger") 			{reward4  = " rewards-04"}
+			if(opsi.rewards[3].item == "R6 Siren Coordinate Logger") 			{reward5  = " rewards-05"}
+			if(opsi.rewards[3].item == "R6 Coordinate Logger") 					{reward6  = " rewards-06"}
+			if(opsi.rewards[3].item == "Special Item Tokens") 					{reward7  = " rewards-07"}
+			if(opsi.rewards[3].item == "Super Rare Cat Box") 					{reward8  = " rewards-08"}
+			if(opsi.rewards[3].item == "T3 Mystery Gear Part") 					{reward9  = " rewards-09"}
+			if(opsi.rewards[3].item == "T4 Mystery Gear Part") 					{reward10 = " rewards-10"}
+			if(opsi.rewards[3].item == "Wisdom Cube") 							{reward11 = " rewards-11"}
+			if(opsi.rewards[4].item == "Coins") 								{reward1  = " rewards-01"}
+			if(opsi.rewards[4].item == "High-Efficiency Combat Logistics Plan") {reward2  = " rewards-02"}
+			if(opsi.rewards[4].item == "R4 Siren Coordinate Logger") 			{reward3  = " rewards-03"}
+			if(opsi.rewards[4].item == "R5 Siren Coordinate Logger") 			{reward4  = " rewards-04"}
+			if(opsi.rewards[4].item == "R6 Siren Coordinate Logger") 			{reward5  = " rewards-05"}
+			if(opsi.rewards[4].item == "R6 Coordinate Logger") 					{reward6  = " rewards-06"}
+			if(opsi.rewards[4].item == "Special Item Tokens") 					{reward7  = " rewards-07"}
+			if(opsi.rewards[4].item == "Super Rare Cat Box") 					{reward8  = " rewards-08"}
+			if(opsi.rewards[4].item == "T3 Mystery Gear Part") 					{reward9  = " rewards-09"}
+			if(opsi.rewards[4].item == "T4 Mystery Gear Part") 					{reward10 = " rewards-10"}
+			if(opsi.rewards[4].item == "Wisdom Cube") 							{reward11 = " rewards-11"}
 		rewards = reward1 + reward2 + reward3 + reward4 + reward5 + reward6 + reward7 + reward8 + reward9 + reward10 + reward11; 
 
 		for (var i = 0; i < user.length; i++) {
@@ -766,61 +770,61 @@
 				if(opsi.id !== 154) {sLP5 = starLength + "/5"} else {sLP5 = starLength + "/0"}
 				let uReward1 = ""; let uReward2 = ""; let uReward3 = ""; let uReward4 = ""; let uReward5 = "";
 				// user reward type
-					if(opsi.rewards[0].item == "Coins") {uReward1 = "ureward-01";}
-					if(opsi.rewards[0].item == "High-Efficiency Combat Logistics Plan") {uReward1 = "ureward-02";}
-					if(opsi.rewards[0].item == "R4 Siren Coordinate Logger") {uReward1 = "ureward-03";}
-					if(opsi.rewards[0].item == "R5 Siren Coordinate Logger") {uReward1 = "ureward-04";}
-					if(opsi.rewards[0].item == "R6 Siren Coordinate Logger") {uReward1 = "ureward-05";}
-					if(opsi.rewards[0].item == "R6 Coordinate Logger") {uReward1 = "ureward-06";}
-					if(opsi.rewards[0].item == "Special Item Tokens") {uReward1 = "ureward-07";}
-					if(opsi.rewards[0].item == "Super Rare Cat Box") {uReward1 = "ureward-08";}
-					if(opsi.rewards[0].item == "T3 Mystery Gear Part") {uReward1 = "ureward-09";}
-					if(opsi.rewards[0].item == "T4 Mystery Gear Part") {uReward1 = "ureward-10";}
-					if(opsi.rewards[0].item == "Wisdom Cube") {uReward1 = "ureward-11";}
-					if(opsi.rewards[1].item == "Coins") {uReward2 = "ureward-01";}
-					if(opsi.rewards[1].item == "High-Efficiency Combat Logistics Plan") {uReward2 = "ureward-02";}
-					if(opsi.rewards[1].item == "R4 Siren Coordinate Logger") {uReward2 = "ureward-03";}
-					if(opsi.rewards[1].item == "R5 Siren Coordinate Logger") {uReward2 = "ureward-04";}
-					if(opsi.rewards[1].item == "R6 Siren Coordinate Logger") {uReward2 = "ureward-05";}
-					if(opsi.rewards[1].item == "R6 Coordinate Logger") {uReward2 = "ureward-06";}
-					if(opsi.rewards[1].item == "Special Item Tokens") {uReward2 = "ureward-07";}
-					if(opsi.rewards[1].item == "Super Rare Cat Box") {uReward2 = "ureward-08";}
-					if(opsi.rewards[1].item == "T3 Mystery Gear Part") {uReward2 = "ureward-09";}
-					if(opsi.rewards[1].item == "T4 Mystery Gear Part") {uReward2 = "ureward-10";}
-					if(opsi.rewards[1].item == "Wisdom Cube") {uReward2 = "ureward-11";}
-					if(opsi.rewards[2].item == "Coins") {uReward3 = "ureward-01";}
-					if(opsi.rewards[2].item == "High-Efficiency Combat Logistics Plan") {uReward3 = "ureward-02";}
-					if(opsi.rewards[2].item == "R4 Siren Coordinate Logger") {uReward3 = "ureward-03";}
-					if(opsi.rewards[2].item == "R5 Siren Coordinate Logger") {uReward3 = "ureward-04";}
-					if(opsi.rewards[2].item == "R6 Siren Coordinate Logger") {uReward3 = "ureward-05";}
-					if(opsi.rewards[2].item == "R6 Coordinate Logger") {uReward3 = "ureward-06";}
-					if(opsi.rewards[2].item == "Special Item Tokens") {uReward3 = "ureward-07";}
-					if(opsi.rewards[2].item == "Super Rare Cat Box") {uReward3 = "ureward-08";}
-					if(opsi.rewards[2].item == "T3 Mystery Gear Part") {uReward3 = "ureward-09";}
-					if(opsi.rewards[2].item == "T4 Mystery Gear Part") {uReward3 = "ureward-10";}
-					if(opsi.rewards[2].item == "Wisdom Cube") {uReward3 = "ureward-11";}
-					if(opsi.rewards[3].item == "Coins") {uReward4 = "ureward-01";}
-					if(opsi.rewards[3].item == "High-Efficiency Combat Logistics Plan") {uReward4 = "ureward-02";}
-					if(opsi.rewards[3].item == "R4 Siren Coordinate Logger") {uReward4 = "ureward-03";}
-					if(opsi.rewards[3].item == "R5 Siren Coordinate Logger") {uReward4 = "ureward-04";}
-					if(opsi.rewards[3].item == "R6 Siren Coordinate Logger") {uReward4 = "ureward-05";}
-					if(opsi.rewards[3].item == "R6 Coordinate Logger") {uReward4 = "ureward-06";}
-					if(opsi.rewards[3].item == "Special Item Tokens") {uReward4 = "ureward-07";}
-					if(opsi.rewards[3].item == "Super Rare Cat Box") {uReward4 = "ureward-08";}
-					if(opsi.rewards[3].item == "T3 Mystery Gear Part") {uReward4 = "ureward-09";}
-					if(opsi.rewards[3].item == "T4 Mystery Gear Part") {uReward4 = "ureward-10";}
-					if(opsi.rewards[3].item == "Wisdom Cube") {uReward4 = "ureward-11";}
-					if(opsi.rewards[4].item == "Coins") {uReward5 = "ureward-01";}
-					if(opsi.rewards[4].item == "High-Efficiency Combat Logistics Plan") {uReward5 = "ureward-02";}
-					if(opsi.rewards[4].item == "R4 Siren Coordinate Logger") {uReward5 = "ureward-03";}
-					if(opsi.rewards[4].item == "R5 Siren Coordinate Logger") {uReward5 = "ureward-04";}
-					if(opsi.rewards[4].item == "R6 Siren Coordinate Logger") {uReward5 = "ureward-05";}
-					if(opsi.rewards[4].item == "R6 Coordinate Logger") {uReward5 = "ureward-06";}
-					if(opsi.rewards[4].item == "Special Item Tokens") {uReward5 = "ureward-07";}
-					if(opsi.rewards[4].item == "Super Rare Cat Box") {uReward5 = "ureward-08";}
-					if(opsi.rewards[4].item == "T3 Mystery Gear Part") {uReward5 = "ureward-09";}
-					if(opsi.rewards[4].item == "T4 Mystery Gear Part") {uReward5 = "ureward-10";}
-					if(opsi.rewards[4].item == "Wisdom Cube") {uReward5 = "ureward-11";}
+					if(opsi.rewards[0].item == "Coins") 								{uReward1 = "ureward-01"}
+					if(opsi.rewards[0].item == "High-Efficiency Combat Logistics Plan") {uReward1 = "ureward-02"}
+					if(opsi.rewards[0].item == "R4 Siren Coordinate Logger") 			{uReward1 = "ureward-03"}
+					if(opsi.rewards[0].item == "R5 Siren Coordinate Logger") 			{uReward1 = "ureward-04"}
+					if(opsi.rewards[0].item == "R6 Siren Coordinate Logger") 			{uReward1 = "ureward-05"}
+					if(opsi.rewards[0].item == "R6 Coordinate Logger") 					{uReward1 = "ureward-06"}
+					if(opsi.rewards[0].item == "Special Item Tokens") 					{uReward1 = "ureward-07"}
+					if(opsi.rewards[0].item == "Super Rare Cat Box") 					{uReward1 = "ureward-08"}
+					if(opsi.rewards[0].item == "T3 Mystery Gear Part") 					{uReward1 = "ureward-09"}
+					if(opsi.rewards[0].item == "T4 Mystery Gear Part") 					{uReward1 = "ureward-10"}
+					if(opsi.rewards[0].item == "Wisdom Cube") 							{uReward1 = "ureward-11"}
+					if(opsi.rewards[1].item == "Coins") 								{uReward2 = "ureward-01"}
+					if(opsi.rewards[1].item == "High-Efficiency Combat Logistics Plan") {uReward2 = "ureward-02"}
+					if(opsi.rewards[1].item == "R4 Siren Coordinate Logger") 			{uReward2 = "ureward-03"}
+					if(opsi.rewards[1].item == "R5 Siren Coordinate Logger") 			{uReward2 = "ureward-04"}
+					if(opsi.rewards[1].item == "R6 Siren Coordinate Logger") 			{uReward2 = "ureward-05"}
+					if(opsi.rewards[1].item == "R6 Coordinate Logger") 					{uReward2 = "ureward-06"}
+					if(opsi.rewards[1].item == "Special Item Tokens") 					{uReward2 = "ureward-07"}
+					if(opsi.rewards[1].item == "Super Rare Cat Box") 					{uReward2 = "ureward-08"}
+					if(opsi.rewards[1].item == "T3 Mystery Gear Part") 					{uReward2 = "ureward-09"}
+					if(opsi.rewards[1].item == "T4 Mystery Gear Part") 					{uReward2 = "ureward-10"}
+					if(opsi.rewards[1].item == "Wisdom Cube") 							{uReward2 = "ureward-11"}
+					if(opsi.rewards[2].item == "Coins") 								{uReward3 = "ureward-01"}
+					if(opsi.rewards[2].item == "High-Efficiency Combat Logistics Plan") {uReward3 = "ureward-02"}
+					if(opsi.rewards[2].item == "R4 Siren Coordinate Logger") 			{uReward3 = "ureward-03"}
+					if(opsi.rewards[2].item == "R5 Siren Coordinate Logger") 			{uReward3 = "ureward-04"}
+					if(opsi.rewards[2].item == "R6 Siren Coordinate Logger") 			{uReward3 = "ureward-05"}
+					if(opsi.rewards[2].item == "R6 Coordinate Logger") 					{uReward3 = "ureward-06"}
+					if(opsi.rewards[2].item == "Special Item Tokens") 					{uReward3 = "ureward-07"}
+					if(opsi.rewards[2].item == "Super Rare Cat Box") 					{uReward3 = "ureward-08"}
+					if(opsi.rewards[2].item == "T3 Mystery Gear Part") 					{uReward3 = "ureward-09"}
+					if(opsi.rewards[2].item == "T4 Mystery Gear Part") 					{uReward3 = "ureward-10"}
+					if(opsi.rewards[2].item == "Wisdom Cube") 							{uReward3 = "ureward-11"}
+					if(opsi.rewards[3].item == "Coins") 								{uReward4 = "ureward-01"}
+					if(opsi.rewards[3].item == "High-Efficiency Combat Logistics Plan") {uReward4 = "ureward-02"}
+					if(opsi.rewards[3].item == "R4 Siren Coordinate Logger") 			{uReward4 = "ureward-03"}
+					if(opsi.rewards[3].item == "R5 Siren Coordinate Logger") 			{uReward4 = "ureward-04"}
+					if(opsi.rewards[3].item == "R6 Siren Coordinate Logger") 			{uReward4 = "ureward-05"}
+					if(opsi.rewards[3].item == "R6 Coordinate Logger") 					{uReward4 = "ureward-06"}
+					if(opsi.rewards[3].item == "Special Item Tokens") 					{uReward4 = "ureward-07"}
+					if(opsi.rewards[3].item == "Super Rare Cat Box") 					{uReward4 = "ureward-08"}
+					if(opsi.rewards[3].item == "T3 Mystery Gear Part") 					{uReward4 = "ureward-09"}
+					if(opsi.rewards[3].item == "T4 Mystery Gear Part") 					{uReward4 = "ureward-10"}
+					if(opsi.rewards[3].item == "Wisdom Cube") 							{uReward4 = "ureward-11"}
+					if(opsi.rewards[4].item == "Coins") 								{uReward5 = "ureward-01"}
+					if(opsi.rewards[4].item == "High-Efficiency Combat Logistics Plan") {uReward5 = "ureward-02"}
+					if(opsi.rewards[4].item == "R4 Siren Coordinate Logger") 			{uReward5 = "ureward-03"}
+					if(opsi.rewards[4].item == "R5 Siren Coordinate Logger") 			{uReward5 = "ureward-04"}
+					if(opsi.rewards[4].item == "R6 Siren Coordinate Logger") 			{uReward5 = "ureward-05"}
+					if(opsi.rewards[4].item == "R6 Coordinate Logger") 					{uReward5 = "ureward-06"}
+					if(opsi.rewards[4].item == "Special Item Tokens") 					{uReward5 = "ureward-07"}
+					if(opsi.rewards[4].item == "Super Rare Cat Box") 					{uReward5 = "ureward-08"}
+					if(opsi.rewards[4].item == "T3 Mystery Gear Part") 					{uReward5 = "ureward-09"}
+					if(opsi.rewards[4].item == "T4 Mystery Gear Part") 					{uReward5 = "ureward-10"}
+					if(opsi.rewards[4].item == "Wisdom Cube") 							{uReward5 = "ureward-11"}
 				if(starLength == 0) {uReward = ""}
 				if(starLength == 1) {uReward = uReward1}
 				if(starLength == 2) {uReward = uReward1 + " " + uReward2}
@@ -839,68 +843,68 @@
 						if(opsi.stars[0].type == "Gain control of 1 sector(s).") {uStar1 = "ustar-01"}
 					}
 					if (user[i].star[x] == 2) {
-						if(opsi.stars[1].type == "Perform Reconnaissance x time(s) in anomalous zones.") {uStar2 = "ustar-02"}
-						if(opsi.stars[1].type == "Use the Siren Data Logging Tower x time(s).") {uStar2 = "ustar-03"}
-						if(opsi.stars[1].type == "Use the Siren Scanning Facility x time(s).") {uStar2 = "ustar-04"}
-						if(opsi.stars[1].type == "Conduct x Meowfficer retrieval operation(s).") {uStar2 = "ustar-05"}
-						if(opsi.stars[1].type == "Encounter the Mysterious Merchant x time(s).") {uStar2 = "ustar-06"}
-						if(opsi.stars[1].type == "Obtain x victorie(s).") {uStar2 = "ustar-07"}
-						if(opsi.stars[1].type == "Collect x resource node(s)." ) {uStar2 = "ustar-08"}
-						if(opsi.stars[1].type == "Recover 1 record file(s).") {uStar2 = "ustar-09"}
-						if(opsi.stars[1].type == "Restore x Energy Matrices to their correct position.") {uStar2 = "ustar-10"}
-						if(opsi.stars[1].type == "Destroy x Siren weather control device(s).") {uStar2 = "ustar-11"}
-						if(opsi.stars[1].type == "Activate x switch mechanism(s).") {uStar2 = "ustar-12"}
-						if(opsi.stars[1].type == "Defeat x Promoted \"Pawns\" fleet(s).") {uStar2 = "ustar-13"}
-						if(opsi.stars[1].type == "Repel Promoted \"Pawns\" fleet ambushes x time(s).") {uStar2 = "ustar-14"}
-						if(opsi.stars[1].type == "Retrieve sources from enchanced fleets x time(s).") {uStar2 = "ustar-15"}
+						if(opsi.stars[1].type == "Perform Reconnaissance x time(s) in anomalous zones.")	{uStar2 = "ustar-02"}
+						if(opsi.stars[1].type == "Use the Siren Data Logging Tower x time(s).") 			{uStar2 = "ustar-03"}
+						if(opsi.stars[1].type == "Use the Siren Scanning Facility x time(s).") 				{uStar2 = "ustar-04"}
+						if(opsi.stars[1].type == "Conduct x Meowfficer retrieval operation(s).") 			{uStar2 = "ustar-05"}
+						if(opsi.stars[1].type == "Encounter the Mysterious Merchant x time(s).") 			{uStar2 = "ustar-06"}
+						if(opsi.stars[1].type == "Obtain x victorie(s).") 									{uStar2 = "ustar-07"}
+						if(opsi.stars[1].type == "Collect x resource node(s)." ) 							{uStar2 = "ustar-08"}
+						if(opsi.stars[1].type == "Recover 1 record file(s).") 								{uStar2 = "ustar-09"}
+						if(opsi.stars[1].type == "Restore x Energy Matrices to their correct position.") 	{uStar2 = "ustar-10"}
+						if(opsi.stars[1].type == "Destroy x Siren weather control device(s).") 				{uStar2 = "ustar-11"}
+						if(opsi.stars[1].type == "Activate x switch mechanism(s).") 						{uStar2 = "ustar-12"}
+						if(opsi.stars[1].type == "Defeat x Promoted \"Pawns\" fleet(s).") 					{uStar2 = "ustar-13"}
+						if(opsi.stars[1].type == "Repel Promoted \"Pawns\" fleet ambushes x time(s).") 		{uStar2 = "ustar-14"}
+						if(opsi.stars[1].type == "Retrieve sources from enchanced fleets x time(s).") 		{uStar2 = "ustar-15"}
 					}
 					if (user[i].star[x] == 3) {
-						if(opsi.stars[2].type == "Perform Reconnaissance x time(s) in anomalous zones.") {uStar3 = "ustar-02"}
-						if(opsi.stars[2].type == "Use the Siren Data Logging Tower x time(s).") {uStar3 = "ustar-03"}
-						if(opsi.stars[2].type == "Use the Siren Scanning Facility x time(s).") {uStar3 = "ustar-04"}
-						if(opsi.stars[2].type == "Conduct x Meowfficer retrieval operation(s).") {uStar3 = "ustar-05"}
-						if(opsi.stars[2].type == "Encounter the Mysterious Merchant x time(s).") {uStar3 = "ustar-06"}
-						if(opsi.stars[2].type == "Obtain x victorie(s).") {uStar3 = "ustar-07"}
-						if(opsi.stars[2].type == "Collect x resource node(s)." ) {uStar3 = "ustar-08"}
-						if(opsi.stars[2].type == "Recover 1 record file(s).") {uStar3 = "ustar-09"}
-						if(opsi.stars[2].type == "Restore x Energy Matrices to their correct position.") {uStar3 = "ustar-10"}
-						if(opsi.stars[2].type == "Destroy x Siren weather control device(s).") {uStar3 = "ustar-11"}
-						if(opsi.stars[2].type == "Activate x switch mechanism(s).") {uStar3 = "ustar-12"}
-						if(opsi.stars[2].type == "Defeat x Promoted \"Pawns\" fleet(s).") {uStar3 = "ustar-13"}
-						if(opsi.stars[2].type == "Repel Promoted \"Pawns\" fleet ambushes x time(s).") {uStar3 = "ustar-14"}
-						if(opsi.stars[2].type == "Retrieve sources from enchanced fleets x time(s).") {uStar3 = "ustar-15"}
+						if(opsi.stars[2].type == "Perform Reconnaissance x time(s) in anomalous zones.") 	{uStar3 = "ustar-02"}
+						if(opsi.stars[2].type == "Use the Siren Data Logging Tower x time(s).") 			{uStar3 = "ustar-03"}
+						if(opsi.stars[2].type == "Use the Siren Scanning Facility x time(s).") 				{uStar3 = "ustar-04"}
+						if(opsi.stars[2].type == "Conduct x Meowfficer retrieval operation(s).") 			{uStar3 = "ustar-05"}
+						if(opsi.stars[2].type == "Encounter the Mysterious Merchant x time(s).") 			{uStar3 = "ustar-06"}
+						if(opsi.stars[2].type == "Obtain x victorie(s).") 									{uStar3 = "ustar-07"}
+						if(opsi.stars[2].type == "Collect x resource node(s)." ) 							{uStar3 = "ustar-08"}
+						if(opsi.stars[2].type == "Recover 1 record file(s).") 								{uStar3 = "ustar-09"}
+						if(opsi.stars[2].type == "Restore x Energy Matrices to their correct position.") 	{uStar3 = "ustar-10"}
+						if(opsi.stars[2].type == "Destroy x Siren weather control device(s).") 				{uStar3 = "ustar-11"}
+						if(opsi.stars[2].type == "Activate x switch mechanism(s).") 						{uStar3 = "ustar-12"}
+						if(opsi.stars[2].type == "Defeat x Promoted \"Pawns\" fleet(s).") 					{uStar3 = "ustar-13"}
+						if(opsi.stars[2].type == "Repel Promoted \"Pawns\" fleet ambushes x time(s).") 		{uStar3 = "ustar-14"}
+						if(opsi.stars[2].type == "Retrieve sources from enchanced fleets x time(s).") 		{uStar3 = "ustar-15"}
 					}
 					if (user[i].star[x] == 4) {
-						if(opsi.stars[3].type == "Perform Reconnaissance x time(s) in anomalous zones.") {uStar4 = "ustar-02"}
-						if(opsi.stars[3].type == "Use the Siren Data Logging Tower x time(s).") {uStar4 = "ustar-03"}
-						if(opsi.stars[3].type == "Use the Siren Scanning Facility x time(s).") {uStar4 = "ustar-04"}
-						if(opsi.stars[3].type == "Conduct x Meowfficer retrieval operation(s).") {uStar4 = "ustar-05"}
-						if(opsi.stars[3].type == "Encounter the Mysterious Merchant x time(s).") {uStar4 = "ustar-06"}
-						if(opsi.stars[3].type == "Obtain x victorie(s).") {uStar4 = "ustar-07"}
-						if(opsi.stars[3].type == "Collect x resource node(s)." ) {uStar4 = "ustar-08"}
-						if(opsi.stars[3].type == "Recover 1 record file(s).") {uStar4 = "ustar-09"}
-						if(opsi.stars[3].type == "Restore x Energy Matrices to their correct position.") {uStar4 = "ustar-10"}
-						if(opsi.stars[3].type == "Destroy x Siren weather control device(s).") {uStar4 = "ustar-11"}
-						if(opsi.stars[3].type == "Activate x switch mechanism(s).") {uStar4 = "ustar-12"}
-						if(opsi.stars[3].type == "Defeat x Promoted \"Pawns\" fleet(s).") {uStar4 = "ustar-13"}
-						if(opsi.stars[3].type == "Repel Promoted \"Pawns\" fleet ambushes x time(s).") {uStar4 = "ustar-14"}
-						if(opsi.stars[3].type == "Retrieve sources from enchanced fleets x time(s).") {uStar4 = "ustar-15"}
+						if(opsi.stars[3].type == "Perform Reconnaissance x time(s) in anomalous zones.") 	{uStar4 = "ustar-02"}
+						if(opsi.stars[3].type == "Use the Siren Data Logging Tower x time(s).") 			{uStar4 = "ustar-03"}
+						if(opsi.stars[3].type == "Use the Siren Scanning Facility x time(s).") 				{uStar4 = "ustar-04"}
+						if(opsi.stars[3].type == "Conduct x Meowfficer retrieval operation(s).") 			{uStar4 = "ustar-05"}
+						if(opsi.stars[3].type == "Encounter the Mysterious Merchant x time(s).") 			{uStar4 = "ustar-06"}
+						if(opsi.stars[3].type == "Obtain x victorie(s).") 									{uStar4 = "ustar-07"}
+						if(opsi.stars[3].type == "Collect x resource node(s)." ) 							{uStar4 = "ustar-08"}
+						if(opsi.stars[3].type == "Recover 1 record file(s).") 								{uStar4 = "ustar-09"}
+						if(opsi.stars[3].type == "Restore x Energy Matrices to their correct position.")	{uStar4 = "ustar-10"}
+						if(opsi.stars[3].type == "Destroy x Siren weather control device(s).") 				{uStar4 = "ustar-11"}
+						if(opsi.stars[3].type == "Activate x switch mechanism(s).") 						{uStar4 = "ustar-12"}
+						if(opsi.stars[3].type == "Defeat x Promoted \"Pawns\" fleet(s).") 					{uStar4 = "ustar-13"}
+						if(opsi.stars[3].type == "Repel Promoted \"Pawns\" fleet ambushes x time(s).") 		{uStar4 = "ustar-14"}
+						if(opsi.stars[3].type == "Retrieve sources from enchanced fleets x time(s).") 		{uStar4 = "ustar-15"}
 					}
 					if (user[i].star[x] == 5) {
-						if(opsi.stars[4].type == "Perform Reconnaissance x time(s) in anomalous zones.") {uStar5 = "ustar-02"}
-						if(opsi.stars[4].type == "Use the Siren Data Logging Tower x time(s).") {uStar5 = "ustar-03"}
-						if(opsi.stars[4].type == "Use the Siren Scanning Facility x time(s).") {uStar5 = "ustar-04"}
-						if(opsi.stars[4].type == "Conduct x Meowfficer retrieval operation(s).") {uStar5 = "ustar-05"}
-						if(opsi.stars[4].type == "Encounter the Mysterious Merchant x time(s).") {uStar5 = "ustar-06"}
-						if(opsi.stars[4].type == "Obtain x victorie(s).") {uStar5 = "ustar-07"}
-						if(opsi.stars[4].type == "Collect x resource node(s)." ) {uStar5 = "ustar-08"}
-						if(opsi.stars[4].type == "Recover 1 record file(s).") {uStar5 = "ustar-09"}
-						if(opsi.stars[4].type == "Restore x Energy Matrices to their correct position.") {uStar5 = "ustar-10"}
-						if(opsi.stars[4].type == "Destroy x Siren weather control device(s).") {uStar5 = "ustar-11"}
-						if(opsi.stars[4].type == "Activate x switch mechanism(s).") {uStar5 = "ustar-12"}
-						if(opsi.stars[4].type == "Defeat x Promoted \"Pawns\" fleet(s).") {uStar5 = "ustar-13"}
-						if(opsi.stars[4].type == "Repel Promoted \"Pawns\" fleet ambushes x time(s).") {uStar5 = "ustar-14"}
-						if(opsi.stars[4].type == "Retrieve sources from enchanced fleets x time(s).") {uStar5 = "ustar-15"}
+						if(opsi.stars[4].type == "Perform Reconnaissance x time(s) in anomalous zones.") 	{uStar5 = "ustar-02"}
+						if(opsi.stars[4].type == "Use the Siren Data Logging Tower x time(s).") 			{uStar5 = "ustar-03"}
+						if(opsi.stars[4].type == "Use the Siren Scanning Facility x time(s).") 				{uStar5 = "ustar-04"}
+						if(opsi.stars[4].type == "Conduct x Meowfficer retrieval operation(s).") 			{uStar5 = "ustar-05"}
+						if(opsi.stars[4].type == "Encounter the Mysterious Merchant x time(s).") 			{uStar5 = "ustar-06"}
+						if(opsi.stars[4].type == "Obtain x victorie(s).") 									{uStar5 = "ustar-07"}
+						if(opsi.stars[4].type == "Collect x resource node(s)." ) 							{uStar5 = "ustar-08"}
+						if(opsi.stars[4].type == "Recover 1 record file(s).") 								{uStar5 = "ustar-09"}
+						if(opsi.stars[4].type == "Restore x Energy Matrices to their correct position.") 	{uStar5 = "ustar-10"}
+						if(opsi.stars[4].type == "Destroy x Siren weather control device(s).") 				{uStar5 = "ustar-11"}
+						if(opsi.stars[4].type == "Activate x switch mechanism(s).") 						{uStar5 = "ustar-12"}
+						if(opsi.stars[4].type == "Defeat x Promoted \"Pawns\" fleet(s).") 					{uStar5 = "ustar-13"}
+						if(opsi.stars[4].type == "Repel Promoted \"Pawns\" fleet ambushes x time(s).") 		{uStar5 = "ustar-14"}
+						if(opsi.stars[4].type == "Retrieve sources from enchanced fleets x time(s).")		{uStar5 = "ustar-15"}
 					}
 				}
 				uSClass = uStar1 + " " + uStar2 + " " + uStar3 + " " + uStar4 + " " + uStar5;
@@ -931,21 +935,21 @@
 		$(".zoneOutput").html(output)
 	})
 
-	$(".uS01").append($(".ustar-01").length + "/72");
-	$(".uS02").append($(".ustar-02").length + "/36");
-	$(".uS03").append($(".ustar-03").length + "/12");
-	$(".uS04").append($(".ustar-04").length + "/9");
-	$(".uS05").append($(".ustar-05").length + "/8");
-	$(".uS06").append($(".ustar-06").length + "/11");
-	$(".uS07").append($(".ustar-07").length + "/36");
-	$(".uS08").append($(".ustar-08").length + "/36");
-	$(".uS09").append($(".ustar-09").length + "/54");
-	$(".uS10").append($(".ustar-10").length + "/10");
-	$(".uS11").append($(".ustar-11").length + "/10");
-	$(".uS12").append($(".ustar-12").length + "/10");
-	$(".uS13").append($(".ustar-13").length + "/36");
-	$(".uS14").append($(".ustar-14").length + "/11");
-	$(".uS15").append($(".ustar-15").length + "/9");
+	$(".uS01").append($(".ustar-01").length + "/72"	);
+	$(".uS02").append($(".ustar-02").length + "/36"	);
+	$(".uS03").append($(".ustar-03").length + "/12"	);
+	$(".uS04").append($(".ustar-04").length + "/9"	);
+	$(".uS05").append($(".ustar-05").length + "/8"	);
+	$(".uS06").append($(".ustar-06").length + "/11"	);
+	$(".uS07").append($(".ustar-07").length + "/36"	);
+	$(".uS08").append($(".ustar-08").length + "/36"	);
+	$(".uS09").append($(".ustar-09").length + "/54"	);
+	$(".uS10").append($(".ustar-10").length + "/10"	);
+	$(".uS11").append($(".ustar-11").length + "/10"	);
+	$(".uS12").append($(".ustar-12").length + "/10"	);
+	$(".uS13").append($(".ustar-13").length + "/36"	);
+	$(".uS14").append($(".ustar-14").length + "/11"	);
+	$(".uS15").append($(".ustar-15").length + "/9"	);
 
 	function modalCall(id) {
 		modalCreate(id);
@@ -956,12 +960,12 @@
 	function modalCreate (id) {
 		let modal = ""
 		let recordFile = "None";
-		let us1 = ""; let us2 = ""; let us3 = ""; let us4 = ""; let us5 = "";
-		let usr1 = 0; let usr2 = 0; let usr3 = 0;  let usr4 = 0;  let usr5 = 0;
+		let us1	= ""; let us2 = ""; let us3 = ""; let us4 = ""; let us5 = "";
+		let usr1 = 0; let usr2 = 0; let usr3 = 0; let usr4 = 0; let usr5 = 0;
 		for (var i = 0; i < opsi.length; i++) {
 			if (opsi[i].id == id) {
-				op = opsi[i];
-				name = op.name;
+				op 		= opsi[i];
+				name 	= op.name;
 				for (var x = 0; x < user.length; x++) {
 					if (user[x].id == id) {
 						if (user[x].star.length == 5) {
@@ -978,17 +982,18 @@
 						}
 					}
 				}
-				star1 = `<td class="${op.stars[0].condition} ${us1}">${op.stars[0].formatted}</td>`;
-				star2 = `<td class="${op.stars[1].condition} ${us2}">${op.stars[1].formatted}</td>`;
-				star3 = `<td class="${op.stars[2].condition} ${us3}">${op.stars[2].formatted}</td>`;
-				star4 = `<td class="${op.stars[3].condition} ${us4}">${op.stars[3].formatted}</td>`;
-				star5 = `<td class="${op.stars[4].condition} ${us5}">${op.stars[4].formatted}</td>`;
-				reward1 = op.rewards[0].item + " × " + op.rewards[0].value;
-				reward2 = op.rewards[1].item + " × " + op.rewards[1].value;
-				reward3 = op.rewards[2].item + " × " + op.rewards[2].value;
-				reward4 = op.rewards[3].item + " × " + op.rewards[3].value;
-				reward5 = op.rewards[4].item + " × " + op.rewards[4].value;
-				corruption = op.corruption;
+				star1 		= `<td class="${op.stars[0].condition} ${us1}">${op.stars[0].formatted}</td>`;
+				star2 		= `<td class="${op.stars[1].condition} ${us2}">${op.stars[1].formatted}</td>`;
+				star3 		= `<td class="${op.stars[2].condition} ${us3}">${op.stars[2].formatted}</td>`;
+				star4 		= `<td class="${op.stars[3].condition} ${us4}">${op.stars[3].formatted}</td>`;
+				star5 		= `<td class="${op.stars[4].condition} ${us5}">${op.stars[4].formatted}</td>`;
+				reward1 	= op.rewards[0].item + " × " + op.rewards[0].value;
+				reward2 	= op.rewards[1].item + " × " + op.rewards[1].value;
+				reward3 	= op.rewards[2].item + " × " + op.rewards[2].value;
+				reward4 	= op.rewards[3].item + " × " + op.rewards[3].value;
+				reward5 	= op.rewards[4].item + " × " + op.rewards[4].value;
+				corruption 	= op.corruption;
+
 				let r1 = ""; let r2 = ""; let r3 = ""; let r4 = ""; let r5 = ""; let r6 = ""; let r7 = "";
 				for(var z = 0; z < opsi.length; z++) {
 					if(op.require[0] !== undefined && op.require[0] == 0) {
@@ -1074,9 +1079,9 @@
 				}
 				requireZone = `<tbody>${r1 + r2 + r3 + r4 + r5 + r6 + r7}</tbody>`;
 				if(op.stars[3].formatted == "Recover 1 record file(s).") {
-					file = op.stars[3].file;
-					record = op.stars[3].value;
-					recordFile = file + " - " + record;
+					file 		= op.stars[3].file;
+					record 		= op.stars[3].value;
+					recordFile 	= file + " - " + record;
 				}
 			}}
 		usr = usr1 + usr2 + usr3 + usr4 + usr5;
