@@ -161,7 +161,8 @@ function shipModalCall(shipgid) {
 function shipModal(shipgid) {
 	let modal = "";
 	tooltipTrigger = `data-toggle="tooltip" data-placement="top"`;
-	for (var i = 0; i < ship.length; i++) {
+	for (var i = 0; i < ship.length; i++)
+	{
 		if (ship[i]._gid == shipgid) 
 		{
 		// ship base
@@ -170,7 +171,7 @@ function shipModal(shipgid) {
 			hullType			= ships.hullType						;
 			thumbnail			= ships.thumbnail						;
 			shipclass			= ships.class							;
-			shipid				= ships.id								;
+			shipid				= ships.id 								;
 			nationality			= ships.nationality						;
 			rarity 				= ships.rarity							;
 			constructionTime	= ships.construction.constructionTime	;
@@ -209,7 +210,7 @@ function shipModal(shipgid) {
 							<img class="ship-chibi" ${tooltipTrigger} title="Retrofit" src="${chibiRetrofit}">
 						</th>
 					</tr>
-				`
+				`;
 			}
 			else
 			{
@@ -219,7 +220,7 @@ function shipModal(shipgid) {
 						<th style="width: 60%!important" colspan="2"><img class="ship-image" src="${image}"></th>
 						<th style="width: 20%!important"><img class="ship-chibi" src="${chibi}"></th>
 					</tr>
-				`
+				`;
 			}
 
 		// ship info
@@ -304,19 +305,19 @@ function shipModal(shipgid) {
 			// level 120 Retrofit stats
 			if(ships.stats.level120Retrofit !== undefined) 
 			{
-				health120Retrofit 				= ships.stats.level120Retrofit.health				;
-				armor120Retrofit 				= ships.stats.level120Retrofit.armor				;
-				reload120Retrofit 				= ships.stats.level120Retrofit.reload				;
-				luck120Retrofit 				= ships.stats.level120Retrofit.luck					;
-				firepower120Retrofit 			= ships.stats.level120Retrofit.firepower			;
-				torpedo120Retrofit 				= ships.stats.level120Retrofit.torpedo				;
-				evasion120Retrofit 				= ships.stats.level120Retrofit.evasion				;
-				speed120Retrofit 				= ships.stats.level120Retrofit.speed				;
-				antiair120Retrofit 				= ships.stats.level120Retrofit.antiair				;
-				aviation120Retrofit 			= ships.stats.level120Retrofit.aviation				;
-				oilConsumption120Retrofit 		= ships.stats.level120Retrofit.oilConsumption		;
-				accuracy120Retrofit 			= ships.stats.level120Retrofit.accuracy				;
-				antisubmarineWarfare120Retrofit = ships.stats.level120Retrofit.antisubmarineWarfare ;
+				health120Retrofit				= ships.stats.level120Retrofit.health				;
+				armor120Retrofit				= ships.stats.level120Retrofit.armor				;
+				reload120Retrofit				= ships.stats.level120Retrofit.reload				;
+				luck120Retrofit					= ships.stats.level120Retrofit.luck					;
+				firepower120Retrofit			= ships.stats.level120Retrofit.firepower			;
+				torpedo120Retrofit				= ships.stats.level120Retrofit.torpedo				;
+				evasion120Retrofit				= ships.stats.level120Retrofit.evasion				;
+				speed120Retrofit				= ships.stats.level120Retrofit.speed				;
+				antiair120Retrofit				= ships.stats.level120Retrofit.antiair				;
+				aviation120Retrofit				= ships.stats.level120Retrofit.aviation				;
+				oilConsumption120Retrofit		= ships.stats.level120Retrofit.oilConsumption		;
+				accuracy120Retrofit				= ships.stats.level120Retrofit.accuracy				;
+				antisubmarineWarfare120Retrofit	= ships.stats.level120Retrofit.antisubmarineWarfare ;
 
 				level120Retrofitstats1 			= `
 					<tr>
