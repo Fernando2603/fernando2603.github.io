@@ -26,7 +26,7 @@
 	width: 100%;
 }
 
-.shipImage {width: 120px; height: 120px; padding: 4px;}
+.shipImage {width: 128px; height: 168px; padding: 4px;}
 .shipName {margin-top: 10px;}
 
 .shipBorder {text-align: center!important;}
