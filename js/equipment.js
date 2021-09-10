@@ -53718,4 +53718,19 @@ var gear = [
          "kr":"치열의 노래"
        }
    },
+   {
+       "image":"https://azurlane.netojuu.com/w/images/thumb/d/d5/2400.png/128px-2400.png",
+       "id":"Repair Toolkit",
+       "wikiUrl":"https://azurlane.koumakan.jp/Repair_Toolkit",
+   },
+   {
+       "image":"https://azurlane.netojuu.com/w/images/c/cf/800.png",
+       "id":"Pressure-Resistant Hull Design",
+       "wikiUrl":"https://azurlane.koumakan.jp/Pressure-Resistant_Hull_Design",
+   },
+   {
+       "image":"https://azurlane.netojuu.com/w/images/6/6e/780.png",
+       "id":"Intel Report - Arctic Stronghold",
+       "wikiUrl":"https://azurlane.koumakan.jp/Intel_Report_-_Arctic_Stronghold",
+   },
 ]

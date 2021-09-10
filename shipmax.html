@@ -12,8 +12,14 @@
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
 	<script type="text/javascript" src="js/ship.js"></script>
+	<script type="text/javascript" src="js/equipment.js"></script>
 	<script type="text/javascript" src="API/userShip.js"></script>
-	<title>Fernando26 - Operation Siren</title>
+	<style>
+		.img 		{width: 75px; height: 75px; padding: 5px; outline: 1px solid black;}
+		.faction 	{height: 75px;}
+		.output td 	{vertical-align: middle!important;}
+	</style>
+	<title>Fernando26 - 120s</title>
 </head>
 <body>
 	<div>
@@ -34,8 +40,7 @@
 					<th>Type</th>
 					<th>Rarity</th>
 					<th>Faction</th>
-					<th>Collection</th>
-					<th>Max level</th>
+					<th colspan="5">Equipment</th>
 				</tr>
 			</thead>
 			<tbody class="output">
@@ -53,36 +58,97 @@
 	$(".totalShip").append(user.length);
 
 	let output = "";
-	for(var i = 0; i < ship.length; i++)
+	user.forEach((user) => 
 	{
-		for(var x = 0; x < user.length; x++)
+		for(var i = 0; i < ship.length; i++)
 		{
-			if(ship[i].names.en == user[x].name) 
+			if(ship[i].names.en == user.name)
 			{
-				ship 		= ship[i]								;
-				id 			= ship.id 								;
-				name 		= ship.names.en 						;
-				hullType	= ship.hullType 						;
-				rarity 		= ship.rarity 							;
-				nation		= ship.nationality						;
-				collection 	= ship.fleetTech.statsBonus.collection	;
-				maxlevel 	= ship.fleetTech.statsBonus.maxLevel	;
+				// ship API metadata
+					ships 		= ship[i]			;
+					id 			= ships.id 			;
+					name 		= ships.names.en 	;
+					link 		= ships.wikiUrl		;
+					hullType	= ships.hullType 	;
+					rarity 		= ships.rarity 		;
+					nation		= ships.nationality	;
+					if(ships.retrofit == true) 
+					{
+						if(rarity == "Normal"		) {rarityKai = "Rare"		; name = ships.names.en + "<br>(Retrofit)"}
+						if(rarity == "Rare"			) {rarityKai = "Elite"		; name = ships.names.en + "<br>(Retrofit)"}
+						if(rarity == "Elite"		) {rarityKai = "Super Rare"	; name = ships.names.en + "<br>(Retrofit)"}
+						if(rarity == "Super Rare"	) {rarityKai = "Ultra Rare"	; name = ships.names.en + "<br>(Retrofit)"}
+						rarity 	= rarityKai			;
+					}
+
+				// user equipment metadata
+					equipment1	= user.slot1		;
+					equipment2 	= user.slot2		;
+					equipment3 	= user.slot3		;
+					equipment4 	= user.slot4 		;
+					equipment5	= user.slot5		;
+
+				// equipment rarity check
+					// rarity slot 1
+						if(user.rarity[0] == 0) {rarityEq1 = "Ultra-Rare"	}
+						if(user.rarity[0] == 1) {rarityEq1 = "Super-Rare"	}
+						if(user.rarity[0] == 2) {rarityEq1 = "Elite"		}
+						if(user.rarity[0] == 3) {rarityEq1 = "Rare"			}
+
+					// rarity slot 2
+						if(user.rarity[1] == 0) {rarityEq2 = "Ultra-Rare"	}
+						if(user.rarity[1] == 1) {rarityEq2 = "Super-Rare"	}
+						if(user.rarity[1] == 2) {rarityEq2 = "Elite"		}
+						if(user.rarity[1] == 3) {rarityEq1 = "Rare"			}
+
+					// rarity slot 3
+						if(user.rarity[2] == 0) {rarityEq3 = "Ultra-Rare"	}
+						if(user.rarity[2] == 1) {rarityEq3 = "Super-Rare"	}
+						if(user.rarity[2] == 2) {rarityEq3 = "Elite"		}
+						if(user.rarity[2] == 3) {rarityEq1 = "Rare"			}
+
+					// rarity slot 4
+						if(user.rarity[3] == 0) {rarityEq4 = "Ultra-Rare"	}
+						if(user.rarity[3] == 1) {rarityEq4 = "Super-Rare"	}
+						if(user.rarity[3] == 2) {rarityEq4 = "Elite"		}
+						if(user.rarity[3] == 3) {rarityEq1 = "Rare"			}
+
+					// rarity slot 5
+						if(user.rarity[4] == 0) {rarityEq5 = "Ultra-Rare"	}
+						if(user.rarity[4] == 1) {rarityEq5 = "Super-Rare"	}
+						if(user.rarity[4] == 2) {rarityEq5 = "Elite"		}
+						if(user.rarity[4] == 3) {rarityEq1 = "Rare"			}
+
+				for(var e = 0; e < gear.length; e++)
+				{
+					if(equipment1 == gear[e].id) {slot1 = gear[e].image}
+					if(equipment2 == gear[e].id) {slot2 = gear[e].image}
+					if(equipment3 == gear[e].id) {slot3 = gear[e].image}
+					if(equipment4 == gear[e].id) {slot4 = gear[e].image}
+					if(equipment5 == gear[e].id) {slot5 = gear[e].image}
+			
+				}
+
+				tooltipTrigger = `data-toggle="tooltip" data-placement="top"`;
 
 				output = `
 					<tr>
 						<td>${id}</td>
-						<td>${name}</td>
+						<td><a href="${link}">${name}</a></td>
 						<td>${hullType}</td>
 						<td>${rarity}</td>
-						<td>${nation}</td>
-						<td>${collection}</td>
-						<td>${maxlevel}</td>
+						<td><img class="faction" ${tooltipTrigger} title="${nation}" src="AL/Faction/${nation}.png"</td>
+						<td><img class="img ${rarityEq1}" ${tooltipTrigger} title="${equipment1}" src="${slot1}"></td>
+						<td><img class="img ${rarityEq2}" ${tooltipTrigger} title="${equipment2}" src="${slot2}"></td>
+						<td><img class="img ${rarityEq3}" ${tooltipTrigger} title="${equipment3}" src="${slot3}"></td>
+						<td><img class="img ${rarityEq4}" ${tooltipTrigger} title="${equipment4}" src="${slot4}"></td>
+						<td><img class="img ${rarityEq5}" ${tooltipTrigger} title="${equipment5}" src="${slot5}"></td>
 					</tr>
 				`;
 
-				$(".output").append(output);
+				$(".output").prepend(output);
 			}
 		}
-	}
+	})
 </script>
 </body>
