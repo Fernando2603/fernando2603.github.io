@@ -43,13 +43,10 @@
 					<th colspan="5">Equipment</th>
 				</tr>
 			</thead>
-			<tbody class="output">
-			</tbody>
+			<tbody class="output"></tbody>
 		</table>
 	</div>
-	<div class="modal-container">
-		
-	</div>
+	<div class="modal-container"></div>
 
 <script>
 	$(function () {$('[data-toggle="tooltip"]').tooltip()})
@@ -119,15 +116,16 @@
 						if(user.rarity[4] == 2) {rarityEq5 = "Elite"		}
 						if(user.rarity[4] == 3) {rarityEq1 = "Rare"			}
 
-				for(var e = 0; e < gear.length; e++)
-				{
-					if(equipment1 == gear[e].id) {slot1 = gear[e].image}
-					if(equipment2 == gear[e].id) {slot2 = gear[e].image}
-					if(equipment3 == gear[e].id) {slot3 = gear[e].image}
-					if(equipment4 == gear[e].id) {slot4 = gear[e].image}
-					if(equipment5 == gear[e].id) {slot5 = gear[e].image}
-			
-				}
+				// get equipment image on API
+					for(var e = 0; e < gear.length; e++)
+					{
+						if(equipment1 == gear[e].id) {slot1 = gear[e].image}
+						if(equipment2 == gear[e].id) {slot2 = gear[e].image}
+						if(equipment3 == gear[e].id) {slot3 = gear[e].image}
+						if(equipment4 == gear[e].id) {slot4 = gear[e].image}
+						if(equipment5 == gear[e].id) {slot5 = gear[e].image}
+				
+					}
 
 				tooltipTrigger = `data-toggle="tooltip" data-placement="top"`;
 
