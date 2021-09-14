@@ -2783,8 +2783,8 @@ var opsi = [
             "condition":"safe"
          },
          {
-            "formatted":"Use the Siren Data Logging Tower x time(s).",
-            "type":"Use the Siren Data Logging Tower 2 time(s).",
+            "formatted":"Use the Siren Data Logging Tower 2 time(s).",
+            "type":"Use the Siren Data Logging Tower x time(s).",
             "value":2,
             "condition":"safe"
          },
