@@ -1,0 +1,151 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<style>
+			body {background: black; color: white;}
+			ul, li {list-style-type: none; margin-top: 0px; margin-bottom: 0px;}
+			.filled {color: white;}
+			.unfilled {color: red; background-color: #faa;}
+			pre {margin-top: 0px; margin-bottom: 0px;}
+			.missingBorder {background-color: red;}
+			.missingSkin {text-align: center; vertical-align: center; background-color: #faa; color: red; font-weight: bolder;}
+			.unknownBanner {color: darkorange;}
+			pre.code {
+			  white-space: pre-wrap;
+			}
+			body {
+			  counter-reset: listing;
+			  margin: 0px;
+			}
+			.count {
+			  counter-increment: listing;
+			}
+			.count::before {
+			  content: counter(listing) ". ";
+			  display: inline-block;
+			  background-color: darkviolet;
+			  width: 50px;         /* now works */
+			  padding-left: auto; /* now works */
+			  margin-left: auto;  /* now works */
+			  text-align: right;  /* now works */
+			}
+			pre {
+			white-space: normal;
+			}
+			span {
+			white-space: pre-wrap;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="missingSkin"></div>
+		<div>
+			<pre class="code"><code class="count">[</code></pre>
+			<pre class="demo code"></pre>
+			<pre class="code"><code class="count">]</code></pre>
+		</div>
+	</body>
+	<script>
+		Promise.all([
+			fetch("https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/ships.json")
+			.then(res => res.json()),
+			fetch("https://raw.githubusercontent.com/Fernando2603/AzurLane/main/ShipBanner.json")
+			.then(res => res.json())
+		]).then(
+			([azurAPI, shipBanner]) => {
+				console.log(azurAPI);
+				console.log(shipBanner)
+				dataExtractor(azurAPI, shipBanner);
+		    },
+		    (error) => {
+		    	console.log('error: ' + error);
+		    }
+	    );
+
+		// ShipBanner Extractor
+		let teste = "";
+		let count = 0;
+		let missingArray = [];
+		let unknownArray = [];
+		function showMissing() {missingArray.forEach((alert) => console.error("Alert " + alert + " skin banner is missing!"))}
+		function showUnknown() {unknownArray.forEach((alert) => console.warn("Warn " + alert + " skin banner is unknown!"))}
+
+		function dataExtractor(azurAPI, banner) {
+			azurAPI.forEach((ship) => {
+				let skins = "";
+				let parentFill = false;
+				let bannerid = 0;
+				for(var i = 0; i < banner.length; i++) {
+					if(banner[i].id == ship.id) {
+						bannerid = banner[i];
+					}
+				}
+				console.log("of " + azurAPI.length + " #Rendered");
+				ship.skins.forEach((skin) => {
+					let skinbanner = "https://raw.githubusercontent.com/Fernando2603/AzurLane/main/images/skins/";
+					let bannerStatus = true;
+					let unknownStatus = false;
+					if(bannerid.skins !== undefined) {
+						for(var i = 0; i < bannerid.skins.length; i++) {
+							if(bannerid.skins[i].name === skin.name) {
+								skinbanner = bannerid.skins[i].banner;
+								bannerStatus = false;
+								if(skinbanner === "https://raw.githubusercontent.com/Fernando2603/AzurLane/main/images/skins/Unknown/UnknownBanner.png") {
+									unknownArray.push(ship.names.en);
+									unknownStatus = true;
+								}
+							}
+						}
+					}
+					let unknownClass = "";
+					if(unknownStatus) {unknownClass = " unknownBanner"}
+					let bannerClass = `class=\"filled ${unknownClass}\"`;
+					if(bannerStatus) {bannerClass = "unfilled"; parentFill = true;}
+// pre alignment weird
+skins += `
+<span ${bannerClass}><code class="count">&#09;&#09;&#09;{</code>
+<code class="count">&#09;&#09;&#09;&#09;\"name\":\"${skin.name.replace(/\"/g,"\\\"")}\",</code>
+<code class="count">&#09;&#09;&#09;&#09;\"banner\":\"${skinbanner}\"</code>
+<code class="count">&#09;&#09;&#09;},</code></span>`
+				}) // forEach Separator in line 87;
+
+
+				let missingBorder = "";
+				if(parentFill) {
+					missingArray.push(ship.names.en);
+					missingBorder = "class=\"missingBorder\"";
+				}
+
+
+teste += `<span ${missingBorder}><code class="count">&#09;{</code>
+<code class="count">&#09;&#09;\"id\":\"${ship.id}\",</code>
+<code class="count">&#09;&#09;\"names\":\"${ship.names.en}\",</code>
+<code class="count">&#09;&#09;\"skins\":[</code>${skins}
+<code class="count">&#09;&#09;]</code>
+<code class="count">&#09;},</code>
+</span>`	
+
+   				count++;
+   				if(count === azurAPI.length) {
+   					console.log("Completed")
+   					if(missingArray.length > 0) {
+   						$(".missingSkin").append("<br>Alert " + missingArray + " skin is missing!");
+   						console.warn("missing banner : " + missingArray.length)
+   						console.log("type \"showMissing()\" to show the list")
+   					} else {console.log ("No missing banner!")}
+
+   					if(unknownArray.length > 0) {
+   						console.warn("unknown banner : " + unknownArray.length)
+   						console.log("type \"showUnknown()\" to show the list")
+   					} else {console.log("No unknown banner!")}
+   				}
+   				if(count > 516) {
+   					$(".demo").html(teste);
+   				}
+			})
+		}
+	</script>
+</html>
