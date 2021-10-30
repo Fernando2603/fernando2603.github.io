@@ -8,11 +8,14 @@
 			body {background: black; color: white;}
 			ul, li {list-style-type: none; margin-top: 0px; margin-bottom: 0px;}
 			.filled {color: white;}
-			.unfilled {color: red; background-color: #faa;}
+			.unfilled {color: #c00000; background-color: #faa;}
 			pre {margin-top: 0px; margin-bottom: 0px;}
-			.missingBorder {background-color: red;}
-			.missingSkin {text-align: center; vertical-align: center; background-color: #faa; color: red; font-weight: bolder;}
+			.missingBorder {background-color: blueviolet;}
+			.missingSkin {text-align: center; vertical-align: center; background-color: #faa; color: #c00000; font-weight: bolder;}
 			.unknownBanner {color: darkorange;}
+			.missingBorder .filled {background-color: #c6efce; color: #006100;}
+			.missingBorder > .count::before {background-color: darkviolet; color: white;}
+			.missingBorder > .unknownBanner {background-color: antiquewhite!important; color: #9c6500!important;}
 			pre.code {
 			  white-space: pre-wrap;
 			}
@@ -26,7 +29,7 @@
 			.count::before {
 			  content: counter(listing) ". ";
 			  display: inline-block;
-			  background-color: darkviolet;
+			  background-color: dimgray;
 			  width: 50px;         /* now works */
 			  padding-left: auto; /* now works */
 			  margin-left: auto;  /* now works */
@@ -37,6 +40,18 @@
 			}
 			span {
 			white-space: pre-wrap;
+			}
+			.unknownBanner .count::before {
+				background-color: #ffc017!important;
+				color: black!important;
+			}
+			.unfilled .count::before {
+				background-color: #dc3545!important;
+				color: black!important;
+			}
+			.missingBorder .filled .count::before {
+				background-color: springgreen;
+				color: black;
 			}
 		</style>
 	</head>
@@ -49,6 +64,8 @@
 		</div>
 	</body>
 	<script>
+		let AzurAPI = [];
+		let ShipBanner = [];
 		Promise.all([
 			fetch("https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/ships.json")
 			.then(res => res.json()),
@@ -56,8 +73,10 @@
 			.then(res => res.json())
 		]).then(
 			([azurAPI, shipBanner]) => {
-				console.log(azurAPI);
-				console.log(shipBanner)
+				AzurAPI = azurAPI;
+				console.log("AzurAPI & ShipBanner Loaded!")
+				ShipBanner = shipBanner;
+				console.log("Type %cAzurAPI" + " %cor " + "%cShipBanner" + " %cto show in console", "color:yellow", "color:white", "color:yellow", "color:white")
 				dataExtractor(azurAPI, shipBanner);
 		    },
 		    (error) => {
@@ -70,24 +89,26 @@
 		let count = 0;
 		let missingArray = [];
 		let unknownArray = [];
-		function showMissing() {missingArray.forEach((alert) => console.error("Alert " + alert + " skin banner is missing!"))}
-		function showUnknown() {unknownArray.forEach((alert) => console.warn("Warn " + alert + " skin banner is unknown!"))}
+		function showMissing() {missingArray.forEach((alert) => console.log("%cAlert " + alert + " skin banner is missing!", "color: #faa"))}
+		function showUnknown() {unknownArray.forEach((alert) => console.log("%cWarn " + alert + " skin banner is unknown!", "color: orange"))}
 
 		function dataExtractor(azurAPI, banner) {
 			azurAPI.forEach((ship) => {
 				let skins = "";
 				let parentFill = false;
 				let bannerid = 0;
+				let parentSparator = ",";
 				for(var i = 0; i < banner.length; i++) {
 					if(banner[i].id == ship.id) {
 						bannerid = banner[i];
 					}
 				}
-				console.log("of " + azurAPI.length + " #Rendered");
+				console.log("of " + azurAPI.length + " %c#Rendered", "color:yellow");
 				ship.skins.forEach((skin) => {
 					let skinbanner = "https://raw.githubusercontent.com/Fernando2603/AzurLane/main/images/skins/";
 					let bannerStatus = true;
 					let unknownStatus = false;
+					let lastSparator = ","
 					if(bannerid.skins !== undefined) {
 						for(var i = 0; i < bannerid.skins.length; i++) {
 							if(bannerid.skins[i].name === skin.name) {
@@ -97,19 +118,21 @@
 									unknownArray.push(ship.names.en);
 									unknownStatus = true;
 								}
+								var currentLength = i + 1;
+								if(ship.skins.length == currentLength) {lastSparator = ""};
 							}
 						}
 					}
 					let unknownClass = "";
 					if(unknownStatus) {unknownClass = " unknownBanner"}
-					let bannerClass = `class=\"filled ${unknownClass}\"`;
+					let bannerClass = `class=\"filled${unknownClass}\"`;
 					if(bannerStatus) {bannerClass = "unfilled"; parentFill = true;}
 // pre alignment weird
 skins += `
 <span ${bannerClass}><code class="count">&#09;&#09;&#09;{</code>
 <code class="count">&#09;&#09;&#09;&#09;\"name\":\"${skin.name.replace(/\"/g,"\\\"")}\",</code>
 <code class="count">&#09;&#09;&#09;&#09;\"banner\":\"${skinbanner}\"</code>
-<code class="count">&#09;&#09;&#09;},</code></span>`
+<code class="count">&#09;&#09;&#09;}${lastSparator}</code></span>`
 				}) // forEach Separator in line 87;
 
 
@@ -118,29 +141,30 @@ skins += `
 					missingArray.push(ship.names.en);
 					missingBorder = "class=\"missingBorder\"";
 				}
+				var parentLength = azurAPI.length - 1;
 
-
+if(ship.id == azurAPI[parentLength].id) {parentSparator = ""}
 teste += `<span ${missingBorder}><code class="count">&#09;{</code>
 <code class="count">&#09;&#09;\"id\":\"${ship.id}\",</code>
 <code class="count">&#09;&#09;\"names\":\"${ship.names.en}\",</code>
 <code class="count">&#09;&#09;\"skins\":[</code>${skins}
 <code class="count">&#09;&#09;]</code>
-<code class="count">&#09;},</code>
+<code class="count">&#09;}${parentSparator}</code>
 </span>`	
 
    				count++;
    				if(count === azurAPI.length) {
-   					console.log("Completed")
+   					console.log("%cCompleted!","color: limegreen;")
    					if(missingArray.length > 0) {
-   						$(".missingSkin").append("<br>Alert " + missingArray + " skin is missing!");
-   						console.warn("missing banner : " + missingArray.length)
-   						console.log("type \"showMissing()\" to show the list")
-   					} else {console.log ("No missing banner!")}
+   						$(".missingSkin").append("Alert<br>" + missingArray + " skin is missing!");
+   						console.warn("Missing Banner : " + missingArray.length)
+   						console.log("type %c\"showMissing() %cor %cmissingArray\" %cto show the list", "color:yellow", "color:white", "color:yellow", "color:white")
+   					} else {console.log ("%cNo missing banner!","color: limegreen;")}
 
    					if(unknownArray.length > 0) {
-   						console.warn("unknown banner : " + unknownArray.length)
-   						console.log("type \"showUnknown()\" to show the list")
-   					} else {console.log("No unknown banner!")}
+   						console.warn("Unknown Banner : " + unknownArray.length)
+   						console.log("type %c\"showUnknown()\" %cor \"%cunknownArray\" %cto show the list", "color:yellow", "color:white", "color:yellow", "color:white")
+   					} else {console.log("%cNo unknown banner!","color: limegreen;")}
    				}
    				if(count > 516) {
    					$(".demo").html(teste);
