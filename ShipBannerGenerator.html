@@ -123,10 +123,11 @@
 							}
 						}
 					}
+					if(bannerStatus) {lastSparator = ""};
 					let unknownClass = "";
 					if(unknownStatus) {unknownClass = " unknownBanner"}
 					let bannerClass = `class=\"filled${unknownClass}\"`;
-					if(bannerStatus) {bannerClass = "unfilled"; parentFill = true;}
+					if(bannerStatus) {bannerClass = `class=\"unfilled\"`; parentFill = true;}
 // pre alignment weird
 skins += `
 <span ${bannerClass}><code class="count">&#09;&#09;&#09;{</code>
@@ -163,7 +164,7 @@ teste += `<span ${missingBorder}><code class="count">&#09;{</code>
 
    					if(unknownArray.length > 0) {
    						console.warn("Unknown Banner : " + unknownArray.length)
-   						console.log("type %c\"showUnknown()\" %cor \"%cunknownArray\" %cto show the list", "color:yellow", "color:white", "color:yellow", "color:white")
+   						console.log("type %c\"showUnknown\" %cor \"%cunknownArray\" %cto show the list", "color:yellow", "color:white", "color:yellow", "color:white")
    					} else {console.log("%cNo unknown banner!","color: limegreen;")}
    				}
    				if(count > 516) {
