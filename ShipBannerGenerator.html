@@ -130,10 +130,10 @@
 					if(bannerStatus) {bannerClass = `class=\"unfilled\"`; parentFill = true;}
 // pre alignment weird
 skins += `
-<span ${bannerClass}><code class="count">&#09;&#09;&#09;{</code>
-<code class="count">&#09;&#09;&#09;&#09;\"name\":\"${skin.name.replace(/\"/g,"\\\"")}\",</code>
-<code class="count">&#09;&#09;&#09;&#09;\"banner\":\"${skinbanner}\"</code>
-<code class="count">&#09;&#09;&#09;}${lastSparator}</code></span>`
+<span ${bannerClass}><code class="count">         {</code>
+<code class="count">            \"name\":\"${skin.name.replace(/\"/g,"\\\"")}\",</code>
+<code class="count">            \"banner\":\"${skinbanner}\"</code>
+<code class="count">         }${lastSparator}</code></span>`
 				}) // forEach Separator in line 87;
 
 
@@ -145,12 +145,12 @@ skins += `
 				var parentLength = azurAPI.length - 1;
 
 if(ship.id == azurAPI[parentLength].id) {parentSparator = ""}
-teste += `<span ${missingBorder}><code class="count">&#09;{</code>
-<code class="count">&#09;&#09;\"id\":\"${ship.id}\",</code>
-<code class="count">&#09;&#09;\"names\":\"${ship.names.en}\",</code>
-<code class="count">&#09;&#09;\"skins\":[</code>${skins}
-<code class="count">&#09;&#09;]</code>
-<code class="count">&#09;}${parentSparator}</code>
+teste += `<span ${missingBorder}><code class="count">   {</code>
+<code class="count">      \"id\":\"${ship.id}\",</code>
+<code class="count">      \"names\":\"${ship.names.en}\",</code>
+<code class="count">      \"skins\":[</code>${skins}
+<code class="count">      ]</code>
+<code class="count">   }${parentSparator}</code>
 </span>`	
 
    				count++;
@@ -164,7 +164,7 @@ teste += `<span ${missingBorder}><code class="count">&#09;{</code>
 
    					if(unknownArray.length > 0) {
    						console.warn("Unknown Banner : " + unknownArray.length)
-   						console.log("type %c\"showUnknown\" %cor \"%cunknownArray\" %cto show the list", "color:yellow", "color:white", "color:yellow", "color:white")
+   						console.log("type %c\"showUnknown()\" %cor \"%cunknownArray\" %cto show the list", "color:yellow", "color:white", "color:yellow", "color:white")
    					} else {console.log("%cNo unknown banner!","color: limegreen;")}
    				}
    				if(count > 516) {
