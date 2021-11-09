@@ -1,88 +1,131 @@
 <!doctype html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title></title>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-		<style>
-			select {width: 200px;}
-			.disflex {display: flex;}
-			table {margin-left: 20px;}
-			th {width: 100px;}
-			.mt50px {margin-top: 50px;}
-			.aligncenter {text-align: center; vertical-align: middle;}
-		</style>
-	</head>
-	<body>
-		<div>
-			<h1 class="aligncenter">Total Table</h1>
-			<table>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+	<style>
+		body {margin: 0;}
+		select {width: 200px;}
+		.disflex {display: flex;}
+		table {margin-left: 20px;}
+		.mt50px {margin-top: 50px;}
+		.aligncenter {text-align: center; vertical-align: middle;}
+		h3 {background: chartreuse;}
+		.mainShip {background: palegoldenrod;}
+		.vanguardShip {background: palegreen;}
+		.table95 {width: 95%;}
+		.w10 {width: 10%;}
+		.w15 {width: 15%;}
+		.w16 {width: 16%;}
+		.w17 {width: 17%;}
+		.rarity-0 {background: #ccc}
+		.rarity-1 {background: #9fe8ff}
+		.rarity-2 {background: #c4adff}
+		.rarity-3 {background: #ee9}
+		.rarity-4 {background: linear-gradient(120deg,#fbffca,#baffbf,#a7efff,#ffabff)}
+	</style>
+	<title>Event Oil Calculator</title>
+</head>
+<body>
+	<ul class="nav nav-tabs" id="tablist">
+        <li><a class="nav-link active" data-toggle="tab" href="#Normal-Oil"><strong>Normal</strong></a></li>
+        <li><a class="nav-link" data-toggle="tab" href="#Event-Oil"><strong>Event</strong></a></li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane active" id="Normal-Oil">
+        	<h3 class="aligncenter">Normal Mode</h3>
+        	<div class="disflex">
+        		<table>
+        			<thead>
+        				<tr>
+        					<th>
+        						<div class="templateMobNormalOil">
+									<h3 class="aligncenter">Mob Fleet</h3>
+								</div>
+        					</th>
+        					<th>
+        						<div class="templateBossNormalOil">
+									<h3 class="aligncenter">Boss Fleet</h3>
+								</div>
+        					</th>
+        				</tr>
+        			</thead>
+        		</table>
+        		<table class="table text-center equality">
+        			<thead>
+        				<tr>
+        					<th><a href="#" onclick="decrement()">-</a></th>
+        					<th class="decrin">1</th>
+        					<th><a href="#" onclick="increment()">+</a></th>
+        					<th>|</th>
+        					<th><a href="#" onclick="decrement2()">-</a></th>
+        					<th class="indec">1</th>
+        					<th><a href="#" onclick="increment2()">+</a></th>
+        				</tr>
+        				<tr>
+        					<th class="w10">Mob</th>
+        					<th class="NM-mob-1 w15">0(0)</th>
+        					<th class="NM-mob-2 w15">0(0)</th>
+        					<th class="NM-mob-3 w15">0(0)</th>
+        					<th class="NM-mob-4 w15">0(0)</th>
+        					<th class="NM-mob-5 w15">0(0)</th>
+        					<th class="NM-mob-6 w15">0(0)</th>
+        				</tr>
+        				<tr>
+        					<th class="w10">Boss</th>
+        					<th class="NM-bos-1 w15">0</th>
+        					<th class="NM-bos-2 w15">0</th>
+        					<th class="NM-bos-3 w15">0</th>
+        					<th class="NM-bos-4 w15">0</th>
+        					<th class="NM-bos-5 w15">0</th>
+        					<th class="NM-bos-6 w15">0</th>
+        				</tr>
+        				<tr>
+        					<th>Total</th>
+        					<th class="normalOilTotal">0</th>
+        					<th>*</th>
+        					<th class="indec">1</th>
+        					<th>=</th>
+        					<th colspan="2" class="indecTotal">0</th>
+        				</tr>
+        			</thead>
+        		</table>
+			</div>
+			<table class="table text-center">
 				<thead>
 					<tr>
-						<th>Map</th>
-						<th>A1</th>
-						<th>A2</th>
-						<th>A3</th>
-						<th>B1</th>
-						<th>B2</th>
-						<th>B3</th>
-						<th>C1</th>
-						<th>C2</th>
-						<th>C3</th>
-						<th>D1</th>
-						<th>D2</th>
-						<th>D3</th>
-						<th>Extra</th>
+						<th colspan="6">MOB</th>
 					</tr>
 					<tr>
-						<th>#</th>
-						<th>3</th>
-						<th>4</th>
-						<th>4</th>
-						<th>4</th>
-						<th>5</th>
-						<th>5</th>
-						<th>4</th>
-						<th>4</th>
-						<th>5</th>
-						<th>5</th>
-						<th>6</th>
-						<th>6</th>
-						<th>7</th>
+						<th class="w16 chibi-mob-0">Chibi</th>
+						<th class="w17 chibi-mob-1">Chibi</th>
+						<th class="w17 chibi-mob-2">Chibi</th>
+						<th class="w17 chibi-mob-3">Chibi</th>
+						<th class="w17 chibi-mob-4">Chibi</th>
+						<th class="w16 chibi-mob-5">Chibi</th>
 					</tr>
 					<tr>
-						<th>Oil</th>
-						<th class="NA1">0</th>
-						<th class="NA2">0</th>
-						<th class="NA3">0</th>
-						<th class="NB1">0</th>
-						<th class="NB2">0</th>
-						<th class="NB3">0</th>
-						<th class="HC1">0</th>
-						<th class="HC2">0</th>
-						<th class="HC3">0</th>
-						<th class="HD1">0</th>
-						<th class="HD2">0</th>
-						<th class="HD3">0</th>
-						<th class="exModeTotal">0</th>
+						<th colspan="6">BOSS</th>
 					</tr>
 					<tr>
-						<th>Total</th>
-						<th colspan="13" class="SumOfOil">0</th>
+						<th class="w16 chibi-bos-6">Chibi</th>
+						<th class="w17 chibi-bos-7">Chibi</th>
+						<th class="w17 chibi-bos-8">Chibi</th>
+						<th class="w17 chibi-bos-9">Chibi</th>
+						<th class="w17 chibi-bos-10">Chibi</th>
+						<th class="w16 chibi-bos-11">Chibi</th>
 					</tr>
 				</thead>
 			</table>
-		</div>
-		<div>
-			<h3 class="aligncenter">Normal Map A-B</h3>
-			<div class="disflex">
-				<div class="templateMobNormal">
-					<h3 class="aligncenter">Mob Fleet</h3>
-				</div>
-				<div class="templateBossNormal">
-					<h3 class="aligncenter">Boss Fleet</h3>
-				</div>
-				<table>
+        </div>
+        <div class="tab-pane" id="Event-Oil">
+			<div>
+				<h1 class="aligncenter">Total Table</h1>
+				<table class="table text-center table95">
 					<thead>
 						<tr>
 							<th>Map</th>
@@ -92,6 +135,13 @@
 							<th>B1</th>
 							<th>B2</th>
 							<th>B3</th>
+							<th>C1</th>
+							<th>C2</th>
+							<th>C3</th>
+							<th>D1</th>
+							<th>D2</th>
+							<th>D3</th>
+							<th>Extra</th>
 						</tr>
 						<tr>
 							<th>#</th>
@@ -101,6 +151,13 @@
 							<th>4</th>
 							<th>5</th>
 							<th>5</th>
+							<th>4</th>
+							<th>4</th>
+							<th>5</th>
+							<th>5</th>
+							<th>6</th>
+							<th>6</th>
+							<th>7</th>
 						</tr>
 						<tr>
 							<th>Oil</th>
@@ -110,339 +167,489 @@
 							<th class="NB1">0</th>
 							<th class="NB2">0</th>
 							<th class="NB3">0</th>
-						</tr>
-						<tr>
-							<th>Total</th>
-							<th colspan="6" class="totalNormalMap">0</th>
-						</tr>
-					</thead>
-				</table>
-			</div>
-		</div>
-		<div>
-			<h3 class="aligncenter">Hard Map C</h3>
-			<div class="disflex">
-				<div class="templateMobHardC">
-					<h3 class="aligncenter">Mob Fleet</h3>
-				</div>
-				<div class="templateBossHardC">
-					<h3 class="aligncenter">Boss Fleet</h3>
-				</div>
-				<table>
-					<thead>
-						<tr>
-							<th>Map</th>
-							<th>C1</th>
-							<th>C2</th>
-							<th>C3</th>
-						</tr>
-						<tr>
-							<th>#</th>
-							<th>4</th>
-							<th>4</th>
-							<th>5</th>
-						</tr>
-						<tr>
-							<th>Oil</th>
 							<th class="HC1">0</th>
 							<th class="HC2">0</th>
 							<th class="HC3">0</th>
-						</tr>
-						<tr>
-							<th>Total</th>
-							<th colspan="3" class="totalHardCMap">0</th>
-						</tr>
-					</thead>
-				</table>
-			</div>
-		</div>
-		<div>
-			<h3 class="aligncenter">Hard Map D</h3>
-			<div class="disflex">
-				<div class="templateMobHardD">
-					<h3 class="aligncenter">Mob Fleet</h3>
-				</div>
-				<div class="templateBossHardD">
-					<h3 class="aligncenter">Boss Fleet</h3>
-				</div>
-				<table>
-					<thead>
-						<tr>
-							<th>Map</th>
-							<th>D1</th>
-							<th>D2</th>
-							<th>D3</th>
-						</tr>
-						<tr>
-							<th>#</th>
-							<th>4</th>
-							<th>4</th>
-							<th>5</th>
-						</tr>
-						<tr>
-							<th>Oil</th>
 							<th class="HD1">0</th>
 							<th class="HD2">0</th>
 							<th class="HD3">0</th>
-						</tr>
-						<tr>
-							<th>Total</th>
-							<th colspan="3" class="totalHardDMap">0</th>
-						</tr>
-					</thead>
-				</table>
-			</div>
-		</div>
-		<div>
-			<h3 class="aligncenter">Ex Mode</h3>
-			<div class="disflex">
-				<div class="templateMobExMode">
-					<h3 class="aligncenter">Mob Fleet</h3>
-				</div>
-				<div class="templateBossExMode">
-					<h3 class="aligncenter">Boss Fleet</h3>
-				</div>
-				<table>
-					<thead>
-						<tr>
-							<th>Map</th>
-							<th>Extra Mode</th>
-						</tr>
-						<tr>
-							<th>#</th>
-							<th>7</th>
-						</tr>
-						<tr>
-							<th>Total</th>
 							<th class="exModeTotal">0</th>
 						</tr>
+						<tr>
+							<th>Total</th>
+							<th colspan="13" class="SumOfOil">0</th>
+						</tr>
 					</thead>
 				</table>
 			</div>
-		</div>
-		</body>
-	<script>
-		function generateTemplate(target) {
-			return `
-				<select class="mainShip" onchange="${target}1(event)">
-				    <option disabled selected>Loading AzurAPI</option>
-				</select>
-				<br>
-				<select class="mainShip" onchange="${target}2(event)">
-				    <option disabled selected>Loading AzurAPI</option>
-				</select>
-				<br>
-				<select class="mainShip" onchange="${target}3(event)">
-				    <option disabled selected>Loading AzurAPI</option>
-				</select>
-				<br>
-				<select class="vanguardShip" onchange="${target}4(event)">
-				    <option disabled selected>Loading AzurAPI</option>
-				</select>
-				<br>
-				<select class="vanguardShip" onchange="${target}5(event)">
-				    <option disabled selected>Loading AzurAPI</option>
-				</select>
-				<br>
-				<select class="vanguardShip" onchange="${target}6(event)">
-				    <option disabled selected>Loading AzurAPI</option>
-				</select>
-			`
-		}
-		function callTemplate() {
-			$(".templateMobNormal" ).append(generateTemplate("normalMobFleet"));
-			$(".templateBossNormal").append(generateTemplate("normalBossFleet"));
-			$(".templateMobHardC"  ).append(generateTemplate("hardCMobFleet"));
-			$(".templateBossHardC" ).append(generateTemplate("hardCBossFleet"));
-			$(".templateMobHardD"  ).append(generateTemplate("hardDMobFleet"));
-			$(".templateBossHardD" ).append(generateTemplate("hardDBossFleet"));
-			$(".templateMobExMode" ).append(generateTemplate("exModeMobFleet"));
-			$(".templateBossExMode").append(generateTemplate("exModeBossFleet"));
-		}
-		$(document).ready(callTemplate());
+			<ul class="nav nav-tabs" id="tablist">
+		        <li><a class="nav-link active" data-toggle="tab" href="#Normal-Tab"><strong>Normal A-B</strong></a></li>
+		        <li><a class="nav-link" data-toggle="tab" href="#HardC-Tab"><strong>Hard C</strong></a></li>
+		        <li><a class="nav-link" data-toggle="tab" href="#HardD-Tab"><strong>Hard D</strong></a></li>
+		        <li><a class="nav-link" data-toggle="tab" href="#ExMode-Tab"><strong>ExMode</strong></a></li>
+		    </ul>
+		    <div class="tab-content">
+		        <div class="tab-pane active" id="Normal-Tab">
+					<h3 class="aligncenter">Normal Map A-B</h3>
+					<div class="disflex">
+						<div class="templateMobNormal">
+							<h3 class="aligncenter">Mob Fleet</h3>
+						</div>
+						<div class="templateBossNormal">
+							<h3 class="aligncenter">Boss Fleet</h3>
+						</div>
+						<table class="table text-center">
+							<thead>
+								<tr>
+									<th>Map</th>
+									<th>A1</th>
+									<th>A2</th>
+									<th>A3</th>
+									<th>B1</th>
+									<th>B2</th>
+									<th>B3</th>
+								</tr>
+								<tr>
+									<th>#</th>
+									<th>3</th>
+									<th>4</th>
+									<th>4</th>
+									<th>4</th>
+									<th>5</th>
+									<th>5</th>
+								</tr>
+								<tr>
+									<th>Oil</th>
+									<th class="NA1">0</th>
+									<th class="NA2">0</th>
+									<th class="NA3">0</th>
+									<th class="NB1">0</th>
+									<th class="NB2">0</th>
+									<th class="NB3">0</th>
+								</tr>
+								<tr>
+									<th>Total</th>
+									<th colspan="6" class="totalNormalMap">0</th>
+								</tr>
+							</thead>
+						</table>
+					</div>
+		        </div>
+		        <div class="tab-pane" id="HardC-Tab">
+					<h3 class="aligncenter">Hard Map C</h3>
+					<div class="disflex">
+						<div class="templateMobHardC">
+							<h3 class="aligncenter">Mob Fleet</h3>
+						</div>
+						<div class="templateBossHardC">
+							<h3 class="aligncenter">Boss Fleet</h3>
+						</div>
+						<table class="table text-center">
+							<thead>
+								<tr>
+									<th>Map</th>
+									<th>C1</th>
+									<th>C2</th>
+									<th>C3</th>
+								</tr>
+								<tr>
+									<th>#</th>
+									<th>4</th>
+									<th>4</th>
+									<th>5</th>
+								</tr>
+								<tr>
+									<th>Oil</th>
+									<th class="HC1">0</th>
+									<th class="HC2">0</th>
+									<th class="HC3">0</th>
+								</tr>
+								<tr>
+									<th>Total</th>
+									<th colspan="3" class="totalHardCMap">0</th>
+								</tr>
+							</thead>
+						</table>
+					</div>
+		        </div>
+		        <div class="tab-pane" id="HardD-Tab">
+					<h3 class="aligncenter">Hard Map D</h3>
+					<div class="disflex">
+						<div class="templateMobHardD">
+							<h3 class="aligncenter">Mob Fleet</h3>
+						</div>
+						<div class="templateBossHardD">
+							<h3 class="aligncenter">Boss Fleet</h3>
+						</div>
+						<table class="table text-center">
+							<thead>
+								<tr>
+									<th>Map</th>
+									<th>D1</th>
+									<th>D2</th>
+									<th>D3</th>
+								</tr>
+								<tr>
+									<th>#</th>
+									<th>4</th>
+									<th>4</th>
+									<th>5</th>
+								</tr>
+								<tr>
+									<th>Oil</th>
+									<th class="HD1">0</th>
+									<th class="HD2">0</th>
+									<th class="HD3">0</th>
+								</tr>
+								<tr>
+									<th>Total</th>
+									<th colspan="3" class="totalHardDMap">0</th>
+								</tr>
+							</thead>
+						</table>
+					</div>
+		        </div>
+		        <div class="tab-pane" id="ExMode-Tab">
+					<h3 class="aligncenter">Ex Mode</h3>
+					<div class="disflex">
+						<div class="templateMobExMode">
+							<h3 class="aligncenter">Mob Fleet</h3>
+						</div>
+						<div class="templateBossExMode">
+							<h3 class="aligncenter">Boss Fleet</h3>
+						</div>
+						<table class="table text-center">
+							<thead>
+								<tr>
+									<th>Map</th>
+									<th>Extra Mode</th>
+								</tr>
+								<tr>
+									<th>#</th>
+									<th>7</th>
+								</tr>
+								<tr>
+									<th>Total</th>
+									<th class="exModeTotal">0</th>
+								</tr>
+							</thead>
+						</table>
+					</div>
+		        </div>
+		    </div>
+		</div> 
+    </div>
+</body>
+<script>
+	function generateTemplate(target) {
+		return `
+			<select class="mainShip" onchange="${target}1(event)" id="${target}1">
+			    <option disabled selected>Loading AzurAPI</option>
+			</select>
+			<br>
+			<select class="mainShip" onchange="${target}2(event)" id="${target}2">
+			    <option disabled selected>Loading AzurAPI</option>
+			</select>
+			<br>
+			<select class="mainShip" onchange="${target}3(event)" id="${target}3">
+			    <option disabled selected>Loading AzurAPI</option>
+			</select>
+			<br>
+			<select class="vanguardShip" onchange="${target}4(event)" id="${target}4">
+			    <option disabled selected>Loading AzurAPI</option>
+			</select>
+			<br>
+			<select class="vanguardShip" onchange="${target}5(event)" id="${target}5">
+			    <option disabled selected>Loading AzurAPI</option>
+			</select>
+			<br>
+			<select class="vanguardShip" onchange="${target}6(event)" id="${target}6">
+			    <option disabled selected>Loading AzurAPI</option>
+			</select>
+		`;
+	}
+	function callTemplate() {
+		$(".templateMobNormalOil" ).append(generateTemplate("normalOilMobFleet"));
+		$(".templateBossNormalOil").append(generateTemplate("normalOilBossFleet"));
+		$(".templateMobNormal" ).append(generateTemplate("normalMobFleet"));
+		$(".templateBossNormal").append(generateTemplate("normalBossFleet"));
+		$(".templateMobHardC"  ).append(generateTemplate("hardCMobFleet"));
+		$(".templateBossHardC" ).append(generateTemplate("hardCBossFleet"));
+		$(".templateMobHardD"  ).append(generateTemplate("hardDMobFleet"));
+		$(".templateBossHardD" ).append(generateTemplate("hardDBossFleet"));
+		$(".templateMobExMode" ).append(generateTemplate("exModeMobFleet"));
+		$(".templateBossExMode").append(generateTemplate("exModeBossFleet"));
+		shipnameGet()
+	}
+	$(document).ready(callTemplate());
 
-		var normalMapMOB = [0,0,0,0,0,0];
-		var normalMapBOS = [0,0,0,0,0,0];
-		var hardCMapMOB  = [0,0,0,0,0,0];
-		var hardCMapBOS  = [0,0,0,0,0,0];
-		var hardDMapMOB  = [0,0,0,0,0,0];
-		var hardDMapBOS  = [0,0,0,0,0,0];
-		var exModeMapMOB = [0,0,0,0,0,0];
-		var exModeMapBOS = [0,0,0,0,0,0];
+	var decrinValue = 1;
+	var indecValue 	= 1;
+	function decrement() {decrinValue --; $(".decrin").html(decrinValue); normalOilRefresher(decrinValue)}
+	function increment() {decrinValue ++; $(".decrin").html(decrinValue); normalOilRefresher(decrinValue)}
+	function decrement2() {indecValue --; $(".indec").html(indecValue); normalOilRefresher(decrinValue)}
+	function increment2() {indecValue ++; $(".indec").html(indecValue); normalOilRefresher(decrinValue)}
 
-		function normalMobFleet1(event)	 {normalMapMOB[0] = parseInt(event.target.value); normalMapRefresher()};
-		function normalMobFleet2(event)	 {normalMapMOB[1] = parseInt(event.target.value); normalMapRefresher()};
-		function normalMobFleet3(event)	 {normalMapMOB[2] = parseInt(event.target.value); normalMapRefresher()};
-		function normalMobFleet4(event)	 {normalMapMOB[3] = parseInt(event.target.value); normalMapRefresher()};
-		function normalMobFleet5(event)	 {normalMapMOB[4] = parseInt(event.target.value); normalMapRefresher()};
-		function normalMobFleet6(event)	 {normalMapMOB[5] = parseInt(event.target.value); normalMapRefresher()};
-		function normalBossFleet1(event) {normalMapBOS[0] = parseInt(event.target.value); normalMapRefresher()};
-		function normalBossFleet2(event) {normalMapBOS[1] = parseInt(event.target.value); normalMapRefresher()};
-		function normalBossFleet3(event) {normalMapBOS[2] = parseInt(event.target.value); normalMapRefresher()};
-		function normalBossFleet4(event) {normalMapBOS[3] = parseInt(event.target.value); normalMapRefresher()};
-		function normalBossFleet5(event) {normalMapBOS[4] = parseInt(event.target.value); normalMapRefresher()};
-		function normalBossFleet6(event) {normalMapBOS[5] = parseInt(event.target.value); normalMapRefresher()};
-		function normalBossFleet1(event) {normalMapBOS[0] = parseInt(event.target.value); normalMapRefresher()};
+	var shipNameLink = [null];
+	var chibiLinkers = [null];
+	var chibiRarity  = [null];
+	var normalOilMOB = [0,0,0,0,0,0];
+	var normalOilBOS = [0,0,0,0,0,0];
+	var normalMapMOB = [0,0,0,0,0,0];
+	var normalMapBOS = [0,0,0,0,0,0];
+	var hardCMapMOB  = [0,0,0,0,0,0];
+	var hardCMapBOS  = [0,0,0,0,0,0];
+	var hardDMapMOB  = [0,0,0,0,0,0];
+	var hardDMapBOS  = [0,0,0,0,0,0];
+	var exModeMapMOB = [0,0,0,0,0,0];
+	var exModeMapBOS = [0,0,0,0,0,0];
 
-		function hardCMobFleet1(event)	 {hardCMapMOB[0] = parseInt(event.target.value); hardCMapRefresher()};
-		function hardCMobFleet2(event)	 {hardCMapMOB[1] = parseInt(event.target.value); hardCMapRefresher()};
-		function hardCMobFleet3(event)	 {hardCMapMOB[2] = parseInt(event.target.value); hardCMapRefresher()};
-		function hardCMobFleet4(event)	 {hardCMapMOB[3] = parseInt(event.target.value); hardCMapRefresher()};
-		function hardCMobFleet5(event)	 {hardCMapMOB[4] = parseInt(event.target.value); hardCMapRefresher()};
-		function hardCMobFleet6(event)	 {hardCMapMOB[5] = parseInt(event.target.value); hardCMapRefresher()};
-		function hardCBossFleet1(event)  {hardCMapBOS[0] = parseInt(event.target.value); hardCMapRefresher()};
-		function hardCBossFleet2(event)  {hardCMapBOS[1] = parseInt(event.target.value); hardCMapRefresher()};
-		function hardCBossFleet3(event)  {hardCMapBOS[2] = parseInt(event.target.value); hardCMapRefresher()};
-		function hardCBossFleet4(event)  {hardCMapBOS[3] = parseInt(event.target.value); hardCMapRefresher()};
-		function hardCBossFleet5(event)  {hardCMapBOS[4] = parseInt(event.target.value); hardCMapRefresher()};
-		function hardCBossFleet6(event)  {hardCMapBOS[5] = parseInt(event.target.value); hardCMapRefresher()};
-		function hardCBossFleet1(event)  {hardCMapBOS[0] = parseInt(event.target.value); hardCMapRefresher()};
+	function shipnameGet() {
+		var getMOB1 = $("#normalOilMobFleet1 option:selected").text() != "Select" ? $("#normalOilMobFleet1 option:selected").text() : null;
+		var getMOB2 = $("#normalOilMobFleet2 option:selected").text() != "Select" ? $("#normalOilMobFleet2 option:selected").text() : null;
+		var getMOB3 = $("#normalOilMobFleet3 option:selected").text() != "Select" ? $("#normalOilMobFleet3 option:selected").text() : null;
+		var getMOB4 = $("#normalOilMobFleet4 option:selected").text() != "Select" ? $("#normalOilMobFleet4 option:selected").text() : null;
+		var getMOB5 = $("#normalOilMobFleet5 option:selected").text() != "Select" ? $("#normalOilMobFleet5 option:selected").text() : null;
+		var getMOB6 = $("#normalOilMobFleet6 option:selected").text() != "Select" ? $("#normalOilMobFleet6 option:selected").text() : null;
+		var getBOS1 = $("#normalOilBossFleet1 option:selected").text() != "Select" ? $("#normalOilBossFleet1 option:selected").text() : null;
+		var getBOS2 = $("#normalOilBossFleet2 option:selected").text() != "Select" ? $("#normalOilBossFleet2 option:selected").text() : null;
+		var getBOS3 = $("#normalOilBossFleet3 option:selected").text() != "Select" ? $("#normalOilBossFleet3 option:selected").text() : null;
+		var getBOS4 = $("#normalOilBossFleet4 option:selected").text() != "Select" ? $("#normalOilBossFleet4 option:selected").text() : null;
+		var getBOS5 = $("#normalOilBossFleet5 option:selected").text() != "Select" ? $("#normalOilBossFleet5 option:selected").text() : null;
+		var getBOS6 = $("#normalOilBossFleet6 option:selected").text() != "Select" ? $("#normalOilBossFleet6 option:selected").text() : null;
+		shipNameLink = [getMOB1,getMOB2,getMOB3,getMOB4,getMOB5,getMOB6,getBOS1,getBOS2,getBOS3,getBOS4,getBOS5,getBOS6];
+	}
 
-		function hardDMobFleet1(event)	 {hardDMapMOB[0] = parseInt(event.target.value); hardDMapRefresher()};
-		function hardDMobFleet2(event)	 {hardDMapMOB[1] = parseInt(event.target.value); hardDMapRefresher()};
-		function hardDMobFleet3(event)	 {hardDMapMOB[2] = parseInt(event.target.value); hardDMapRefresher()};
-		function hardDMobFleet4(event)	 {hardDMapMOB[3] = parseInt(event.target.value); hardDMapRefresher()};
-		function hardDMobFleet5(event)	 {hardDMapMOB[4] = parseInt(event.target.value); hardDMapRefresher()};
-		function hardDMobFleet6(event)	 {hardDMapMOB[5] = parseInt(event.target.value); hardDMapRefresher()};
-		function hardDBossFleet1(event)  {hardDMapBOS[0] = parseInt(event.target.value); hardDMapRefresher()};
-		function hardDBossFleet2(event)  {hardDMapBOS[1] = parseInt(event.target.value); hardDMapRefresher()};
-		function hardDBossFleet3(event)  {hardDMapBOS[2] = parseInt(event.target.value); hardDMapRefresher()};
-		function hardDBossFleet4(event)  {hardDMapBOS[3] = parseInt(event.target.value); hardDMapRefresher()};
-		function hardDBossFleet5(event)  {hardDMapBOS[4] = parseInt(event.target.value); hardDMapRefresher()};
-		function hardDBossFleet6(event)  {hardDMapBOS[5] = parseInt(event.target.value); hardDMapRefresher()};
-		function hardDBossFleet1(event)  {hardDMapBOS[0] = parseInt(event.target.value); hardDMapRefresher()};
+	function chibiGenerate() {
+		for(var idx = 0; idx < shipNameLink.length; idx++) {
+			if(AzurAPI.find(ship => ship.names.en === shipNameLink[idx])) {
+				var getShip = AzurAPI.find(ship => ship.names.en === shipNameLink[idx]);
+				chibiLinkers[idx] = getShip.skins[0].chibi;
+				chibiRarity[idx]  = getShip.rarity;
+			} else {chibiLinkers[idx] = null; chibiRarity[idx] = null;}
+			if(chibiLinkers[idx]){
+				var rarityClass = "none";
+				if(chibiRarity[idx] === "Normal") 	 {rarityClass = "rarity-0"};
+				if(chibiRarity[idx] === "Rare") 	 {rarityClass = "rarity-1"};
+				if(chibiRarity[idx] === "Elite") 	 {rarityClass = "rarity-2"};
+				if(chibiRarity[idx] === "Super Rare"){rarityClass = "rarity-3"};
+				if(chibiRarity[idx] === "Priority")  {rarityClass = "rarity-3"};
+				if(chibiRarity[idx] === "Ultra Rare"){rarityClass = "rarity-4"};
+				if(chibiRarity[idx] === "Decisive")  {rarityClass = "rarity-4"};
 
-		function exModeMobFleet1(event)	 {exModeMapMOB[0] = parseInt(event.target.value); exModeMapRefresher()};
-		function exModeMobFleet2(event)	 {exModeMapMOB[1] = parseInt(event.target.value); exModeMapRefresher()};
-		function exModeMobFleet3(event)	 {exModeMapMOB[2] = parseInt(event.target.value); exModeMapRefresher()};
-		function exModeMobFleet4(event)	 {exModeMapMOB[3] = parseInt(event.target.value); exModeMapRefresher()};
-		function exModeMobFleet5(event)	 {exModeMapMOB[4] = parseInt(event.target.value); exModeMapRefresher()};
-		function exModeMobFleet6(event)	 {exModeMapMOB[5] = parseInt(event.target.value); exModeMapRefresher()};
-		function exModeBossFleet1(event) {exModeMapBOS[0] = parseInt(event.target.value); exModeMapRefresher()};
-		function exModeBossFleet2(event) {exModeMapBOS[1] = parseInt(event.target.value); exModeMapRefresher()};
-		function exModeBossFleet3(event) {exModeMapBOS[2] = parseInt(event.target.value); exModeMapRefresher()};
-		function exModeBossFleet4(event) {exModeMapBOS[3] = parseInt(event.target.value); exModeMapRefresher()};
-		function exModeBossFleet5(event) {exModeMapBOS[4] = parseInt(event.target.value); exModeMapRefresher()};
-		function exModeBossFleet6(event) {exModeMapBOS[5] = parseInt(event.target.value); exModeMapRefresher()};
-		function exModeBossFleet1(event) {exModeMapBOS[0] = parseInt(event.target.value); exModeMapRefresher()};
-
-		// Variable Array Refreshser
-		function normalMapRefresher() {
-			var sumOfMOB = normalMapMOB.reduce((partial_sum, a) => partial_sum + a, 0);
-			var sumOfBOS = normalMapBOS.reduce((partial_sum, a) => partial_sum + a, 0);
-			function Equator(number) {return (sumOfMOB*number)+(sumOfBOS)}
-			$(".NA1").html(Equator(3));
-			$(".NA2").html(Equator(4));
-			$(".NA3").html(Equator(4));
-			$(".NB1").html(Equator(4));
-			$(".NB2").html(Equator(5));
-			$(".NB3").html(Equator(5));
-			$(".totalNormalMap").html(Equator(3)+Equator(4)+Equator(4)+Equator(4)+Equator(5)+Equator(5));
-			totalOfOil();
-		}
-		function hardCMapRefresher() {
-			var sumOfMOB = hardCMapMOB.reduce((partial_sum, a) => partial_sum + a, 0);
-			var sumOfBOS = hardCMapBOS.reduce((partial_sum, a) => partial_sum + a, 0);
-			function Equator(number) {return (sumOfMOB*number)+(sumOfBOS)}
-			$(".HC1").html(Equator(4));
-			$(".HC2").html(Equator(4));
-			$(".HC3").html(Equator(5));
-			$(".totalHardCMap").html(Equator(4)+Equator(4)+Equator(5));
-			totalOfOil();
-		}
-		function hardDMapRefresher() {
-			var sumOfMOB = hardDMapMOB.reduce((partial_sum, a) => partial_sum + a, 0);
-			var sumOfBOS = hardDMapBOS.reduce((partial_sum, a) => partial_sum + a, 0);
-			function Equator(number) {return (sumOfMOB*number)+(sumOfBOS)}
-			$(".HD1").html(Equator(5));
-			$(".HD2").html(Equator(6));
-			$(".HD3").html(Equator(6));
-			$(".totalHardDMap").html(Equator(5)+Equator(6)+Equator(6));
-			totalOfOil();
-		}
-		function exModeMapRefresher() {
-			var sumOfMOB = exModeMapMOB.reduce((partial_sum, a) => partial_sum + a, 0);
-			var sumOfBOS = exModeMapBOS.reduce((partial_sum, a) => partial_sum + a, 0);
-			function Equator(number) {return (sumOfMOB*number)+(sumOfBOS)}
-			$(".exModeTotal").html(Equator(7));
-			totalOfOil();
-		}
-
-		function totalOfOil() {
-			var sumOfNormalMob 	= normalMapMOB.reduce((partial_sum, a) => partial_sum + a, 0);
-			var sumOfNormalBoss = normalMapBOS.reduce((partial_sum, a) => partial_sum + a, 0);
-			var sumOfHardCMob 	= hardCMapMOB.reduce((partial_sum, a) => partial_sum + a, 0);
-			var sumOfHardCBoss 	= hardCMapBOS.reduce((partial_sum, a) => partial_sum + a, 0);
-			var sumOfHardDMob 	= hardDMapMOB.reduce((partial_sum, a) => partial_sum + a, 0);
-			var sumOfHardDBoss 	= hardDMapBOS.reduce((partial_sum, a) => partial_sum + a, 0);
-			var sumOfExMob 		= exModeMapMOB.reduce((partial_sum, a) => partial_sum + a, 0);
-			var sumOfExBoss 	= exModeMapBOS.reduce((partial_sum, a) => partial_sum + a, 0);
-			function EquatorGetter(number, sum1, sum2) {return (sum1*number)+(sum2)};
-			var A1 = EquatorGetter(3, sumOfNormalMob, sumOfNormalBoss);
-			var A2 = EquatorGetter(4, sumOfNormalMob, sumOfNormalBoss);
-			var A3 = EquatorGetter(4, sumOfNormalMob, sumOfNormalBoss);
-			var B1 = EquatorGetter(4, sumOfNormalMob, sumOfNormalBoss);
-			var B2 = EquatorGetter(5, sumOfNormalMob, sumOfNormalBoss);
-			var B3 = EquatorGetter(5, sumOfNormalMob, sumOfNormalBoss);
-			var C1 = EquatorGetter(4, sumOfHardCMob, sumOfHardCBoss);
-			var C2 = EquatorGetter(4, sumOfHardCMob, sumOfHardCBoss);
-			var C3 = EquatorGetter(5, sumOfHardCMob, sumOfHardCBoss);
-			var D1 = EquatorGetter(5, sumOfHardDMob, sumOfHardDBoss);
-			var D2 = EquatorGetter(6, sumOfHardDMob, sumOfHardDBoss);
-			var D3 = EquatorGetter(6, sumOfHardDMob, sumOfHardDBoss);
-			var Ex = EquatorGetter(7, sumOfExMob, sumOfExBoss);
-			$(".SumOfOil").html(A1+A2+A3+B1+B2+B3+C1+C2+C3+D1+D2+D3+Ex);
-		}
-		// fetching value 
-		let AzurAPI = "";
-		Promise.all([
-			fetch("https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/ships.json")
-			.then(res => res.json()),
-		]).then(
-			([azurAPI]) => {
-				AzurAPI = azurAPI;
-				MainListAppend(azurAPI);
-				console.log(azurAPI)
-		    },
-		    (error) => {
-		    	console.log('error: ' + error);
-		    }
-	    );
-
-		// doc ready function
-		let MainShip = "<option value=\"0\">Select</option>";
-		let VanguardShip = "<option value=\"0\">Select</option>";
-		function MainListAppend(ship) {
-			for(var i = 0; i < ship.length; i++) {
-				let MainPass = false;
-				if(ship[i].hullType == "Battleship") 	 	  {MainPass = true}
-				if(ship[i].hullType == "Battlecruiser") 	  {MainPass = true}
-				if(ship[i].hullType == "Aviation Battleship") {MainPass = true}
-				if(ship[i].hullType == "Aircraft Carrier")    {MainPass = true}
-				if(ship[i].hullType == "Light Carrier")  	  {MainPass = true}
-				if(ship[i].hullType == "Repair")		 	  {MainPass = true}
-				if(ship[i].hullType == "Monitor") 		 	  {MainPass = true}
-				if(MainPass) {
-					shipName = ship[i].names.en;
-					shipOil  = ship[i].stats.level100.oilConsumption;
-
-					MainShip += `
-						<option value="${shipOil}">${shipName}</option>
-					`;
-				} else {
-					shipName = ship[i].names.en;
-					shipOil  = ship[i].stats.level100.oilConsumption;
-
-					VanguardShip += `
-						<option value="${shipOil}">${shipName}</option>
-					`;
-				}
-				var shipLength = i + 1;
-				if(shipLength === AzurAPI.length) {
-					$(".mainShip").html(MainShip);
-					$(".vanguardShip").html(VanguardShip);
-				}
+				var fleetChecker = idx < 6 ? "mob" : "bos";
+				var classAppend  = "chibi-" + fleetChecker + "-" + idx;
+				$(`.${classAppend}`).html(`<img class="chibi" src="${chibiLinkers[idx]}"></img>`)
+				$(`.${classAppend}`).removeClass("rarity-0 rarity-1 rarity-2 rarity-3 rarity-4").addClass(rarityClass)
 			}
 		}
-	</script>
+	}
+
+	function normalOilMobFleet1(event)	{normalOilMOB[0] = parseInt(event.target.value); normalOilRefresher(decrinValue)};
+	function normalOilMobFleet2(event)	{normalOilMOB[1] = parseInt(event.target.value); normalOilRefresher(decrinValue)};
+	function normalOilMobFleet3(event)	{normalOilMOB[2] = parseInt(event.target.value); normalOilRefresher(decrinValue)};
+	function normalOilMobFleet4(event)	{normalOilMOB[3] = parseInt(event.target.value); normalOilRefresher(decrinValue)};
+	function normalOilMobFleet5(event)	{normalOilMOB[4] = parseInt(event.target.value); normalOilRefresher(decrinValue)};
+	function normalOilMobFleet6(event)	{normalOilMOB[5] = parseInt(event.target.value); normalOilRefresher(decrinValue)};
+	function normalOilBossFleet1(event) {normalOilBOS[0] = parseInt(event.target.value); normalOilRefresher(decrinValue)};
+	function normalOilBossFleet2(event) {normalOilBOS[1] = parseInt(event.target.value); normalOilRefresher(decrinValue)};
+	function normalOilBossFleet3(event) {normalOilBOS[2] = parseInt(event.target.value); normalOilRefresher(decrinValue)};
+	function normalOilBossFleet4(event) {normalOilBOS[3] = parseInt(event.target.value); normalOilRefresher(decrinValue)};
+	function normalOilBossFleet5(event) {normalOilBOS[4] = parseInt(event.target.value); normalOilRefresher(decrinValue)};
+	function normalOilBossFleet6(event) {normalOilBOS[5] = parseInt(event.target.value); normalOilRefresher(decrinValue)};
+
+	function normalMobFleet1(event)	 {normalMapMOB[0] = parseInt(event.target.value); normalMapRefresher()};
+	function normalMobFleet2(event)	 {normalMapMOB[1] = parseInt(event.target.value); normalMapRefresher()};
+	function normalMobFleet3(event)	 {normalMapMOB[2] = parseInt(event.target.value); normalMapRefresher()};
+	function normalMobFleet4(event)	 {normalMapMOB[3] = parseInt(event.target.value); normalMapRefresher()};
+	function normalMobFleet5(event)	 {normalMapMOB[4] = parseInt(event.target.value); normalMapRefresher()};
+	function normalMobFleet6(event)	 {normalMapMOB[5] = parseInt(event.target.value); normalMapRefresher()};
+	function normalBossFleet1(event) {normalMapBOS[0] = parseInt(event.target.value); normalMapRefresher()};
+	function normalBossFleet2(event) {normalMapBOS[1] = parseInt(event.target.value); normalMapRefresher()};
+	function normalBossFleet3(event) {normalMapBOS[2] = parseInt(event.target.value); normalMapRefresher()};
+	function normalBossFleet4(event) {normalMapBOS[3] = parseInt(event.target.value); normalMapRefresher()};
+	function normalBossFleet5(event) {normalMapBOS[4] = parseInt(event.target.value); normalMapRefresher()};
+	function normalBossFleet6(event) {normalMapBOS[5] = parseInt(event.target.value); normalMapRefresher()};
+
+	function hardCMobFleet1(event)	 {hardCMapMOB[0] = parseInt(event.target.value); hardCMapRefresher()};
+	function hardCMobFleet2(event)	 {hardCMapMOB[1] = parseInt(event.target.value); hardCMapRefresher()};
+	function hardCMobFleet3(event)	 {hardCMapMOB[2] = parseInt(event.target.value); hardCMapRefresher()};
+	function hardCMobFleet4(event)	 {hardCMapMOB[3] = parseInt(event.target.value); hardCMapRefresher()};
+	function hardCMobFleet5(event)	 {hardCMapMOB[4] = parseInt(event.target.value); hardCMapRefresher()};
+	function hardCMobFleet6(event)	 {hardCMapMOB[5] = parseInt(event.target.value); hardCMapRefresher()};
+	function hardCBossFleet1(event)  {hardCMapBOS[0] = parseInt(event.target.value); hardCMapRefresher()};
+	function hardCBossFleet2(event)  {hardCMapBOS[1] = parseInt(event.target.value); hardCMapRefresher()};
+	function hardCBossFleet3(event)  {hardCMapBOS[2] = parseInt(event.target.value); hardCMapRefresher()};
+	function hardCBossFleet4(event)  {hardCMapBOS[3] = parseInt(event.target.value); hardCMapRefresher()};
+	function hardCBossFleet5(event)  {hardCMapBOS[4] = parseInt(event.target.value); hardCMapRefresher()};
+	function hardCBossFleet6(event)  {hardCMapBOS[5] = parseInt(event.target.value); hardCMapRefresher()};
+
+	function hardDMobFleet1(event)	 {hardDMapMOB[0] = parseInt(event.target.value); hardDMapRefresher()};
+	function hardDMobFleet2(event)	 {hardDMapMOB[1] = parseInt(event.target.value); hardDMapRefresher()};
+	function hardDMobFleet3(event)	 {hardDMapMOB[2] = parseInt(event.target.value); hardDMapRefresher()};
+	function hardDMobFleet4(event)	 {hardDMapMOB[3] = parseInt(event.target.value); hardDMapRefresher()};
+	function hardDMobFleet5(event)	 {hardDMapMOB[4] = parseInt(event.target.value); hardDMapRefresher()};
+	function hardDMobFleet6(event)	 {hardDMapMOB[5] = parseInt(event.target.value); hardDMapRefresher()};
+	function hardDBossFleet1(event)  {hardDMapBOS[0] = parseInt(event.target.value); hardDMapRefresher()};
+	function hardDBossFleet2(event)  {hardDMapBOS[1] = parseInt(event.target.value); hardDMapRefresher()};
+	function hardDBossFleet3(event)  {hardDMapBOS[2] = parseInt(event.target.value); hardDMapRefresher()};
+	function hardDBossFleet4(event)  {hardDMapBOS[3] = parseInt(event.target.value); hardDMapRefresher()};
+	function hardDBossFleet5(event)  {hardDMapBOS[4] = parseInt(event.target.value); hardDMapRefresher()};
+	function hardDBossFleet6(event)  {hardDMapBOS[5] = parseInt(event.target.value); hardDMapRefresher()};
+
+	function exModeMobFleet1(event)	 {exModeMapMOB[0] = parseInt(event.target.value); exModeMapRefresher()};
+	function exModeMobFleet2(event)	 {exModeMapMOB[1] = parseInt(event.target.value); exModeMapRefresher()};
+	function exModeMobFleet3(event)	 {exModeMapMOB[2] = parseInt(event.target.value); exModeMapRefresher()};
+	function exModeMobFleet4(event)	 {exModeMapMOB[3] = parseInt(event.target.value); exModeMapRefresher()};
+	function exModeMobFleet5(event)	 {exModeMapMOB[4] = parseInt(event.target.value); exModeMapRefresher()};
+	function exModeMobFleet6(event)	 {exModeMapMOB[5] = parseInt(event.target.value); exModeMapRefresher()};
+	function exModeBossFleet1(event) {exModeMapBOS[0] = parseInt(event.target.value); exModeMapRefresher()};
+	function exModeBossFleet2(event) {exModeMapBOS[1] = parseInt(event.target.value); exModeMapRefresher()};
+	function exModeBossFleet3(event) {exModeMapBOS[2] = parseInt(event.target.value); exModeMapRefresher()};
+	function exModeBossFleet4(event) {exModeMapBOS[3] = parseInt(event.target.value); exModeMapRefresher()};
+	function exModeBossFleet5(event) {exModeMapBOS[4] = parseInt(event.target.value); exModeMapRefresher()};
+	function exModeBossFleet6(event) {exModeMapBOS[5] = parseInt(event.target.value); exModeMapRefresher()};
+
+	// Variable Array Refreshser
+	function normalOilRefresher(decrinValue) {
+		var sumOfMOB = normalOilMOB.reduce((partial_sum, a) => partial_sum + a, 0);
+		var sumOfBOS = normalOilBOS.reduce((partial_sum, a) => partial_sum + a, 0);
+		function Equator(number) {return (sumOfMOB*number)+(sumOfBOS)};
+		function Equation(index) {return normalOilMOB[index] + "("+(normalOilMOB[index]*decrinValue)+")"}
+		$(".NM-mob-1").html(Equation(0));
+		$(".NM-mob-2").html(Equation(1));
+		$(".NM-mob-3").html(Equation(2));
+		$(".NM-mob-4").html(Equation(3));
+		$(".NM-mob-5").html(Equation(4));
+		$(".NM-mob-6").html(Equation(5));
+		$(".NM-bos-1").html(normalOilBOS[0]);
+		$(".NM-bos-2").html(normalOilBOS[1]);
+		$(".NM-bos-3").html(normalOilBOS[2]);
+		$(".NM-bos-4").html(normalOilBOS[3]);
+		$(".NM-bos-5").html(normalOilBOS[4]);
+		$(".NM-bos-6").html(normalOilBOS[5]);
+		$(".normalOilTotal").html(Equator(decrinValue));
+		$(".indecTotal").html(Equator(decrinValue)*indecValue);
+		shipnameGet()
+		chibiGenerate()
+	}
+	function normalMapRefresher() {
+		var sumOfMOB = normalMapMOB.reduce((partial_sum, a) => partial_sum + a, 0);
+		var sumOfBOS = normalMapBOS.reduce((partial_sum, a) => partial_sum + a, 0);
+		function Equator(number) {return (sumOfMOB*number)+(sumOfBOS)};
+		$(".NA1").html(Equator(3));
+		$(".NA2").html(Equator(4));
+		$(".NA3").html(Equator(4));
+		$(".NB1").html(Equator(4));
+		$(".NB2").html(Equator(5));
+		$(".NB3").html(Equator(5));
+		$(".totalNormalMap").html(Equator(3)+Equator(4)+Equator(4)+Equator(4)+Equator(5)+Equator(5));
+		totalOfOil();
+	}
+	function hardCMapRefresher() {
+		var sumOfMOB = hardCMapMOB.reduce((partial_sum, a) => partial_sum + a, 0);
+		var sumOfBOS = hardCMapBOS.reduce((partial_sum, a) => partial_sum + a, 0);
+		function Equator(number) {return (sumOfMOB*number)+(sumOfBOS)};
+		$(".HC1").html(Equator(4));
+		$(".HC2").html(Equator(4));
+		$(".HC3").html(Equator(5));
+		$(".totalHardCMap").html(Equator(4)+Equator(4)+Equator(5));
+		totalOfOil();
+	}
+	function hardDMapRefresher() {
+		var sumOfMOB = hardDMapMOB.reduce((partial_sum, a) => partial_sum + a, 0);
+		var sumOfBOS = hardDMapBOS.reduce((partial_sum, a) => partial_sum + a, 0);
+		function Equator(number) {return (sumOfMOB*number)+(sumOfBOS)};
+		$(".HD1").html(Equator(5));
+		$(".HD2").html(Equator(6));
+		$(".HD3").html(Equator(6));
+		$(".totalHardDMap").html(Equator(5)+Equator(6)+Equator(6));
+		totalOfOil();
+	}
+	function exModeMapRefresher() {
+		var sumOfMOB = exModeMapMOB.reduce((partial_sum, a) => partial_sum + a, 0);
+		var sumOfBOS = exModeMapBOS.reduce((partial_sum, a) => partial_sum + a, 0);
+		function Equator(number) {return (sumOfMOB*number)+(sumOfBOS)};
+		$(".exModeTotal").html(Equator(7));
+		totalOfOil();
+	}
+
+	function totalOfOil() {
+		var sumOfNormalMob 	= normalMapMOB.reduce((partial_sum, a) => partial_sum + a, 0);
+		var sumOfNormalBoss = normalMapBOS.reduce((partial_sum, a) => partial_sum + a, 0);
+		var sumOfHardCMob 	= hardCMapMOB.reduce((partial_sum, a) => partial_sum + a, 0);
+		var sumOfHardCBoss 	= hardCMapBOS.reduce((partial_sum, a) => partial_sum + a, 0);
+		var sumOfHardDMob 	= hardDMapMOB.reduce((partial_sum, a) => partial_sum + a, 0);
+		var sumOfHardDBoss 	= hardDMapBOS.reduce((partial_sum, a) => partial_sum + a, 0);
+		var sumOfExMob 		= exModeMapMOB.reduce((partial_sum, a) => partial_sum + a, 0);
+		var sumOfExBoss 	= exModeMapBOS.reduce((partial_sum, a) => partial_sum + a, 0);
+		function EquatorGetter(number, sum1, sum2) {return (sum1*number)+(sum2)};
+		var A1 = EquatorGetter(3, sumOfNormalMob, sumOfNormalBoss);
+		var A2 = EquatorGetter(4, sumOfNormalMob, sumOfNormalBoss);
+		var A3 = EquatorGetter(4, sumOfNormalMob, sumOfNormalBoss);
+		var B1 = EquatorGetter(4, sumOfNormalMob, sumOfNormalBoss);
+		var B2 = EquatorGetter(5, sumOfNormalMob, sumOfNormalBoss);
+		var B3 = EquatorGetter(5, sumOfNormalMob, sumOfNormalBoss);
+		var C1 = EquatorGetter(4, sumOfHardCMob, sumOfHardCBoss);
+		var C2 = EquatorGetter(4, sumOfHardCMob, sumOfHardCBoss);
+		var C3 = EquatorGetter(5, sumOfHardCMob, sumOfHardCBoss);
+		var D1 = EquatorGetter(5, sumOfHardDMob, sumOfHardDBoss);
+		var D2 = EquatorGetter(6, sumOfHardDMob, sumOfHardDBoss);
+		var D3 = EquatorGetter(6, sumOfHardDMob, sumOfHardDBoss);
+		var Ex = EquatorGetter(7, sumOfExMob, sumOfExBoss);
+		$(".SumOfOil").html(A1+A2+A3+B1+B2+B3+C1+C2+C3+D1+D2+D3+Ex);
+	}
+	// fetching value 
+	let AzurAPI = "";
+	Promise.all([
+		fetch("https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/ships.json")
+		.then(res => res.json()),
+	]).then(
+		([azurAPI]) => {
+			AzurAPI = azurAPI;
+			MainListAppend(azurAPI);
+			console.log(azurAPI)
+	    },
+	    (error) => {
+	    	console.log('error: ' + error);
+	    }
+    );
+
+	// doc ready function
+	let MainShip = "<option value=\"0\">Select</option>";
+	let VanguardShip = "<option value=\"0\">Select</option>";
+	function MainListAppend(ship) {
+		for(var i = 0; i < ship.length; i++) {
+			let MainPass = false;
+			let VanguardPass = false;
+			if(ship[i].hullType == "Battleship") 	 	  {MainPass = true}
+			if(ship[i].hullType == "Battlecruiser") 	  {MainPass = true}
+			if(ship[i].hullType == "Aviation Battleship") {MainPass = true}
+			if(ship[i].hullType == "Aircraft Carrier")    {MainPass = true}
+			if(ship[i].hullType == "Light Carrier")  	  {MainPass = true}
+			if(ship[i].hullType == "Repair")		 	  {MainPass = true}
+			if(ship[i].hullType == "Monitor") 		 	  {MainPass = true}
+			if(ship[i].hullType == "Large Cruiser") 	  {VanguardPass = true}
+			if(ship[i].hullType == "Heavy Cruiser") 	  {VanguardPass = true}
+			if(ship[i].hullType == "Light Cruiser") 	  {VanguardPass = true}
+			if(ship[i].hullType == "Destroyer")    	  	  {VanguardPass = true}
+			if(ship[i].hullType == "Munition Ship")  	  {VanguardPass = true}
+			if(MainPass) {
+				shipName = ship[i].names.en;
+				shipOil  = ship[i].stats.level100.oilConsumption;
+				MainShip += `<option value="${shipOil}">${shipName}</option>`;
+			} 
+			if(VanguardPass) {
+				shipName = ship[i].names.en;
+				shipOil  = ship[i].stats.level100.oilConsumption;
+				VanguardShip += `<option value="${shipOil}">${shipName}</option>`;
+			}
+			var shipLength = i + 1;
+			if(shipLength === AzurAPI.length) {
+				$(".mainShip").html(MainShip);
+				$(".vanguardShip").html(VanguardShip);
+			}
+		}
+	}
+</script>
 </html>
