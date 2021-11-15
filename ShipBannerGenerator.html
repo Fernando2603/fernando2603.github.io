@@ -103,7 +103,7 @@
 						bannerid = banner[i];
 					}
 				}
-				console.log("of " + azurAPI.length + " %c#Rendered", "color:yellow");
+				console.log("%c#Rendering " + azurAPI.length + " Ship", "color:yellow");
 				ship.skins.forEach((skin) => {
 					let skinbanner = "https://raw.githubusercontent.com/Fernando2603/AzurLane/main/images/skins/";
 					let bannerStatus = true;
@@ -156,6 +156,7 @@ teste += `<span ${missingBorder}><code class="count">   {</code>
    				count++;
    				if(count === azurAPI.length) {
    					console.log("%cCompleted!","color: limegreen;")
+					console.log("https://azurlane.koumakan.jp/wiki/Special:ListFiles?limit=50&ilsearch=banner.png&user=")
    					if(missingArray.length > 0) {
    						$(".missingSkin").append("Alert<br>" + missingArray + " skin is missing!");
    						console.warn("Missing Banner : " + missingArray.length)
