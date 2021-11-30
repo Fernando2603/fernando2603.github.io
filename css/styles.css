@@ -286,10 +286,10 @@
 
 /* Card ID */
 /* Card-01 - Azur Lane */
-	#azur-lane {
+	.azur-lane {
 		box-shadow: 0 2px 20px rgb(255 0 0 / 100%);
 	}
-	#azur-lane .image {
+	.azur-lane .image {
 		background-color: black;
 		height: 85%;
 	}
