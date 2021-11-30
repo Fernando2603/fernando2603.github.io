@@ -6,7 +6,7 @@ function cards (cardparent, cid, ctype, clink, cimage, ctitle, cidnumber, cstatu
       <div class="card ${cid}">
         <div class="cover">
           <div class="edit ${ctype}"></div>
-          <div class="image" onclick="location.href=\'${clink}\'" style="backgrond-image: url(\'Images/${cimage}\');"></div>
+          <div class="image" onclick="location.href=\'${clink}\'" style="background-image: url(\'Images/${cimage}\');"></div>
         </div>
         <div class="title">
           <a id="${clink}">${ctitle}</a>
