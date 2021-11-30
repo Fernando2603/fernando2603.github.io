@@ -59,7 +59,7 @@ function pscard (shiprarity, shiptype, shiplink, shipimage, shipname, shipid) {
 			<div class="shipname">
 				<a href="../AL/${shiplink}">${shipname}</a>
 			</div>
-			<div id="shipid">#${shipid]}</div>
+			<div id="shipid">#${shipid}</div>
 			<div class="rarity ${shiprarity}">${shiprarity}</div>
 		</div>
 	</div>
