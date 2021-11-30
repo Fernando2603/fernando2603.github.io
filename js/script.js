@@ -3,7 +3,7 @@
   var A1 = '<div id="'
   var Axs =  'card-01' //Card Parent
   var A2 = '">' +
-  		 '<div class="card" id="';
+  		 '<div class="card ';
   var Axs = 'Azur-Lane'; //Card ID
   var A3 = '">' +
            '<div class="cover">' +
