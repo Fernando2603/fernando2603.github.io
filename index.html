@@ -31,8 +31,22 @@
 	</div>
 
 <script>
-	$("#container-01").append(cards(card01[0], card01[1], card01[2], card01[3], card01[4], card01[5], card01[6], card01[7]))
-	$("#container-01").append(cards(card02[0], card02[1], card02[2], card02[3], card02[4], card02[5], card02[6], card02[7]))
+	var cardlist = 11;
+	var cardvars = "card";
+	for(var i = 1; i < cardlist; i++) {
+		let cardswitch = false;
+		if(i < 10) {
+			cardvars = "card0" + i; 
+			cardswitch = true;
+		}
+		if(i > 9 ) {
+			cardvars = "card" + i; 
+			cardswitch = true;
+		}
+		if(cardswitch === true) {
+			$("#container-01").append(cards(cardvars[0], cardvars[1], cardvars[2], cardvars[3], cardvars[4], cardvars[5], cardvars[6], cardvars[7]))
+		}
+	}
 </script>
 </body>
 </html>
