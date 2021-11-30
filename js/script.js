@@ -1,43 +1,21 @@
 // Index Cards
 // function cards
-  var A1 = '<div id="'
-  var Axs =  'card-01' //Card Parent
-  var A2 = '">' +
-  		 '<div class="card ';
-  var Axs = 'Azur-Lane'; //Card ID
-  var A3 = '">' +
-           '<div class="cover">' +
-           '<div class="edit ';
-  var Axs = 'BB/CV/CVL'; //Card Type
-  var A4 = '">' +
-           '</div>' +
-           '<div class="image" onclick="location.href=\'';
-  var Axs = 'al-card.html'; //Card Link -> Card ID FOR AJAX X
-  var A5 = '\'" style="background-image: url(\'Images/';
-  var Axs = 'Azurlane.png'; //Card Image
-  var A6 = '\');"></div>' +
-           '</div>' +
-           '<div class="title">' +
-  		     '<a id="';
-  var Axs = 'al-card.html'; //Card Link -> Card ID FOR AJAX X
-  var A7 = '">';
-  var Axs = 'Azur Lane'; //Card Title
-  var A8 = '</a>' + 
-           '</div>' +
-           '<div id="number">';
-  var Axs = '#01'; //Card IDNumber
-  var A9 = '</div>' + 
-           '<div class="progress ';
-  var Axs = 'Azur-Lane' //Card Status
-  var A10 = '">';
-  var Axs = 'Developing'; //Card Status
-  var A11 = '</div>' +
-          '</div>' +
-          '</div>';
-
-  function cards (cardparent, cid, ctype, clink, cimage, ctitle, cidnumber, cstatus) {
-          return A1+cardparent+A2+cid+A3+ctype+A4+clink+A5+cimage+A6+clink+A7+ctitle+A8+cidnumber+A9+cstatus+A10+cstatus+A11
-      }
+function cards (cardparent, cid, ctype, clink, cimage, ctitle, cidnumber, cstatus) {
+  return `
+    <div id="${cardparent}">
+      <div class="card ${cid}">
+        <div class="cover">
+          <div class="edit ${ctype}"></div>
+          <div class="image" onclick="location.href=\'${clink}\'"> style="backgrond-image: url(\'Images/${cimage}\');"></div>
+        </div>
+        <div class="title">
+          <a id="${clink}">${ctitle}</a>
+        </div>
+        <div id="number">${cidnumber}</div>
+        <div class="progress ${cstatus}">${cstatus}</div>
+      </div>
+    </div>`;
+	}
 
 // function scard
   // Azur Lane Cards
