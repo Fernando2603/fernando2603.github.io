@@ -6,7 +6,7 @@ function cards (cardparent, cid, ctype, clink, cimage, ctitle, cidnumber, cstatu
       <div class="card ${cid}">
         <div class="cover">
           <div class="edit ${ctype}"></div>
-          <div class="image" onclick="location.href=\'${clink}\'"> style="backgrond-image: url(\'Images/${cimage}\');"></div>
+          <div class="image" onclick="location.href=\'${clink}\'" style="backgrond-image: url(\'Images/${cimage}\');"></div>
         </div>
         <div class="title">
           <a id="${clink}">${ctitle}</a>
@@ -69,33 +69,22 @@ function cards (cardparent, cid, ctype, clink, cimage, ctitle, cidnumber, cstatu
   // create common shipcards
   // document.getElementById("demo1").innerHTML = sc1("Rare","a.html","a.png","zara","#22");
   // $("#tester").html(scard(n52[0], n52[1], n52[2], n52[3], n52[4], n52[5]))
-  var PS1 =  '<div id="';
-  var PS2 =  '">' +
-             '<div class="shipcard" id="';
-  var PS3 =  '">' +
-             '<div class="shipcover">' +
-             '<div class="shiptype ';
-  var PS4 =  '">' +
-             '</div>' +
-             '<div class="shipimage" onclick="window.open(\'../AL/';
-  var PS5 =  '\', \'_blank\')" style="background-image: url(\'../AL/Shipcover/';
-  var PS6 =  '\');"></div>' +
-             '</div>' +
-             '<div class="shipname">' +
-             '<a href="../AL/';
-  var PS7 =  '">';
-  var PS8 =  '</a>' + 
-             '</div>' +
-             '<div id="shipid">#';
-  var PS9 =  '</div>' + 
-             '<div class="rarity ';
-  var PS10 = '">'; 
-  var PS11 = '</div>' +
-             '</div>' +
-             '</div>';
-
-  function pscard (shiprarity, shiptype, shiplink, shipimage, shipname, shipid) {
-      return PS1+shipid+PS2+shiprarity+PS3+shiptype+PS4+shiplink+PS5+shipimage+PS6+shiplink+PS7+shipname+PS8+shipid+PS9+shiprarity+PS10+shiprarity+PS11
+function pscard (shiprarity, shiptype, shiplink, shipimage, shipname, shipid) {
+	return `
+	<div id="${shipid}">
+		<div class="shipcard" id="${shiprarity}">
+			<div class="shipcover">
+				<div class="shiptype ${shiptype}"></div>
+				<div class="shipimage" onclick="window.open(\'../AL/${shiplink}\', \'_blank\')" style="background-image: url(\'../AL/Shipcover/${shipimage}\');"></div>'
+			</div> 
+			<div class="shipname">
+				<a href="../AL/${shiplink}">${shipname}</a>
+			</div>
+			<div id="shipid">#${shipid]}</div>
+			<div class="rarity ${shiprarity}">${shiprarity}</div>
+		</div>
+	</div>
+`
   }
 
 // AZUR LANE TAB FUNCTION
