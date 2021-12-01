@@ -3,6 +3,7 @@
 // create new id with card id // on patch 30112021 [id] change to [class]
 // create new class at cardstatus 
 //   var card = [parent, class, type, link, image, title, number, status]
+var cardCount = 12;
 function cardCreate01(data) {
   $(".container-01").append(cards(data[0], data[1], data[2], data[3], data[4], data[5], data[6], data[7]))
 }
