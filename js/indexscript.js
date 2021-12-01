@@ -18,7 +18,7 @@ var card11 = ["card-11", "azur-lane", "blank", "ships", "Azur-Lane.png", "Ship S
 var card12 = ["card-12", "fernando", "blank", "Fernando", "Fernando.jpg", "Fernando", "#12", "Personal"];
 
 function cardCreate01(data) {
-  $(".container-01").append(cards(data[0], data[1], data[2], data[3], data[4], data[5], data[6], data[7]))
+  $("#container-01").append(cards(data[0], data[1], data[2], data[3], data[4], data[5], data[6], data[7]))
 }
 
 function cardCall() {
