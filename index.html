@@ -31,18 +31,10 @@
 	</div>
 
 <script>
-	$("#container-01").append(cards(card01[0], card01[1], card01[2], card01[3], card01[4], card01[5], card01[6], card01[7]))
-	$("#container-01").append(cards(card02[0], card02[1], card02[2], card02[3], card02[4], card02[5], card02[6], card02[7]))
-	$("#container-01").append(cards(card03[0], card03[1], card03[2], card03[3], card03[4], card03[5], card03[6], card03[7]))
-	$("#container-01").append(cards(card04[0], card04[1], card04[2], card04[3], card04[4], card04[5], card04[6], card04[7]))
-	$("#container-01").append(cards(card05[0], card05[1], card05[2], card05[3], card05[4], card05[5], card05[6], card05[7]))
-	$("#container-01").append(cards(card06[0], card06[1], card06[2], card06[3], card06[4], card06[5], card06[6], card06[7]))
-	$("#container-01").append(cards(card07[0], card07[1], card07[2], card07[3], card07[4], card07[5], card07[6], card07[7]))
-	$("#container-01").append(cards(card08[0], card08[1], card08[2], card08[3], card08[4], card08[5], card08[6], card08[7]))
-	$("#container-01").append(cards(card09[0], card09[1], card09[2], card09[3], card09[4], card09[5], card09[6], card09[7]))
-	$("#container-01").append(cards(card10[0], card10[1], card10[2], card10[3], card10[4], card10[5], card10[6], card10[7]))
-	$("#container-01").append(cards(card11[0], card11[1], card11[2], card11[3], card11[4], card11[5], card11[6], card11[7]))
-	$("#container-01").append(cards(card12[0], card12[1], card12[2], card12[3], card12[4], card12[5], card12[6], card12[7]))
+	for(i = 0; i < cardCount; i++) {
+		if(i < 10) {cardCreate01(card0+i)}
+		if(i > 9 ) {cardCreate01(card+i)}
+	}
 </script>
 </body>
 </html>
