@@ -32,7 +32,7 @@
 
 <script>
 	for(i = 0; i < cardCount; i++) {
-		if(i < 10) {cardCreate01(card0+i)}
+		if(i < 10 && i > 0) {cardCreate01(card0+i)}
 		if(i > 9 ) {cardCreate01(card+i)}
 	}
 	console.log("cardCount = "+ cardCount)
