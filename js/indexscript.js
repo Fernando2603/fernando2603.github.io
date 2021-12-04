@@ -3,6 +3,7 @@
 // create new id with card id // on patch 30112021 [id] change to [class]
 // create new class at cardstatus 
 //   var card = [parent, class, type, link, image, title, number, status]
+var card00 = ["card-00", "fernando", "blank", "Fernando", "Fernando.jpg", "Fernando", "#00", "Personal"];
 
 var card01 = ["card-01", "azur-lane", "blank", "AL", "Azur-Lane.png", "AL", "#01", "Database"];
 var card02 = ["card-02", "azur-lane", "blank", "EventOil", "Azur-Lane.png", "EventOil", "#02", "Calculator"];
@@ -15,7 +16,6 @@ var card08 = ["card-08", "azur-lane", "blank", "opsi", "Azur-Lane.png", "Operati
 var card09 = ["card-09", "azur-lane", "blank", "ship", "Azur-Lane.png", "ShipList", "#09", "Database"];
 var card10 = ["card-10", "azur-lane", "blank", "shipmax", "Azur-Lane.png", "Ship Max", "#10", "Personal"];
 var card11 = ["card-11", "azur-lane", "blank", "ships", "Azur-Lane.png", "Ship Stats", "#11", "Database"];
-var card12 = ["card-12", "fernando", "blank", "Fernando", "Fernando.jpg", "Fernando", "#12", "Personal"];
 
 function cardCreateIndex(container, data){
   $("#container-"+container).append(cards(data[0], data[1], data[2], data[3], data[4], data[5], data[6], data[7]))
@@ -25,6 +25,7 @@ function cardCreate00(data) {cardCreateIndex("00", data)}
 function cardCreate01(data) {cardCreateIndex("01", data)}
 
 function cardCall() {
+  cardCreate00(card00);
   cardCreate01(card01);
   cardCreate01(card02);
   cardCreate01(card03);
@@ -36,5 +37,4 @@ function cardCall() {
   cardCreate01(card09);
   cardCreate01(card10);
   cardCreate01(card11);
-  cardCreate01(card12);
 }
