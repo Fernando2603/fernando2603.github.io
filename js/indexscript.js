@@ -25,7 +25,7 @@ function cardCreate00(data) {cardCreateIndex("00", data)}
 function cardCreate01(data) {cardCreateIndex("01", data)}
 
 function cardCall() {
-  cardCreate00(card00);
+  cardCreate01(card00);
   cardCreate01(card01);
   cardCreate01(card02);
   cardCreate01(card03);
