@@ -90,12 +90,61 @@
 		let count = 0;
 		let missingArray = [];
 		let unknownArray = [];
+		let unknownIcon = [];
+		let unknownChibi = [];
+		let unknownShipyard = [];
 		function showMissing() {missingArray.forEach((alert) => console.log("%cAlert " + alert + " skin banner is missing!", "color: #faa"))}
 		function showUnknown() {unknownArray.forEach((alert) => console.log("%cWarn " + alert + " skin banner is unknown!", "color: orange"))}
 
+		var Exception = [
+			"Admiral_Hipper_μ",
+			"Akagi_μ",
+			"Akagi-chan",
+			"Albacore_μ",
+			"Amagi-chan",
+			"Anniversary_Kizuna_AI",
+			"Ark_Royal_META",
+			"Baltimore_μ",
+			"Cleveland_μ",
+			"Dido_μ",
+			"Elegant_Kizuna_AI",
+			"Fusou_META",
+			"Gascogne_μ",
+			"Helena_META",
+			"Hiei-chan",
+			"Hiryuu_META",
+			"Hiyou_META",
+			"Illustrious_μ",
+			"Kaga(BB)",
+			"Kasumi",
+			"Kasumi_Retrofit",
+			"Le_Malin_μ",
+			"Neptune",
+			"Pamiat'_Merkuria",
+			"Roon_μ",
+			"Sheffield_μ",
+			"Souryuu_META",
+			"Super_Gamer_Kizuna_AI",
+			"Taihou_μ",
+			"Tashkent_μ",
+			"Ōkami_Mio"
+		];
 		function dataExtractor(azurAPI, banner) {
 			azurAPI.forEach((ship) => {
 				let skins = "";
+				var shipName = ship.names.en.replace(/ /g,"_");
+				var imgName = shipName.replace("_μ","_µ");
+				var libName = shipName.replace("_μ","").replace("_µ","").replace("-chan", "");
+
+				if(libName === "Anniversary_Kizuna_AI" || libName === "Elegant_Kizuna_AI" || libName === "Super_Gamer_Kizuna_AI") {libName = "Kizuna_AI"};
+				if(ship.nationality === "META") {libName = "META"};
+				if(libName === "Kaga(BB)") {libName = "Kaga"; imgName = "Kaga_(Battleship)"};
+				if(libName === "Kasumi") {libName = "Kasumi_Venus_Vacation"; imgName = "Kasumi_(Venus_Vacation)"};
+				if(libName === "Kasumi_Retrofit") {libName = "Kasumi"; imgName = "Kasumi"};
+				if(ship.id === "Collab001") {libName = "Neptune_Neptunia"; imgName = "Neptune_(Neptunia)"};
+				if(libName === "Pamiat'_Merkuria") {libName = "Pamiat_Merkuria"; imgName = "Pamiat_Merkuria"};
+				if(libName === "Ōkami_Mio") {imgName = "Ookami_Mio"};
+
 				let parentFill = false;
 				let bannerid = 0;
 				let parentSparator = ",";
@@ -106,7 +155,10 @@
 				}
 				console.log("%c#Rendering " + azurAPI.length + " Ship", "color:yellow");
 				ship.skins.forEach((skin) => {
-					let skinbanner = "https://raw.githubusercontent.com/Fernando2603/AzurLane/main/images/skins/";
+					let skinbanner = "https://raw.githubusercontent.com/Fernando2603/AzurLane/main/images/skins/" + libName + "/" + imgName + "Banner.png";
+					let skinIcon = "https://raw.githubusercontent.com/Fernando2603/AzurLane/main/images/skins/" + libName + "/" + imgName + "Icon.png";
+					let skinChibi = "https://raw.githubusercontent.com/Fernando2603/AzurLane/main/images/skins/" + libName + "/" + imgName + "ChibiIcon.png";
+					let skinShipyard = "https://raw.githubusercontent.com/Fernando2603/AzurLane/main/images/skins/" + libName + "/" + imgName + "ShipyardIcon.png";
 					let bannerStatus = true;
 					let unknownStatus = false;
 					let lastSparator = ","
@@ -114,9 +166,24 @@
 						for(var i = 0; i < bannerid.skins.length; i++) {
 							if(bannerid.skins[i].name === skin.name) {
 								skinbanner = bannerid.skins[i].banner;
+								skinIcon = bannerid.skins[i].icon;
+								skinChibi = bannerid.skins[i].chibi;
+								skinShipyard = bannerid.skins[i].shipyard;
 								bannerStatus = false;
 								if(skinbanner === "https://raw.githubusercontent.com/Fernando2603/AzurLane/main/images/skins/Unknown/UnknownBanner.png") {
 									unknownArray.push(ship.names.en);
+									unknownStatus = true;
+								}
+								if(skinIcon === "https://raw.githubusercontent.com/Fernando2603/AzurLane/main/images/skins/Unknown/UnknownIcon.png") {
+									unknownIcon.push(ship.names.en);
+									unknownStatus = true;
+								}
+								if(skinIcon === "https://raw.githubusercontent.com/Fernando2603/AzurLane/main/images/skins/Unknown/UnknownChibiIcon.png") {
+									unknownChibi.push(ship.names.en);
+									unknownStatus = true;
+								}
+								if(skinShipyard === "https://raw.githubusercontent.com/Fernando2603/AzurLane/main/images/skins/Unknown/UnknownShipyardIcon.png") {
+									unknownShipyard.push(ship.names.en);
 									unknownStatus = true;
 								}
 								var currentLength = i + 1;
@@ -126,14 +193,17 @@
 					}
 					if(bannerStatus) {lastSparator = ""};
 					let unknownClass = "";
-					if(unknownStatus) {unknownClass = " unknownBanner"}
+					if(unknownStatus) {unknownClass = " unknownBanner"};
 					let bannerClass = `class=\"filled${unknownClass}\"`;
-					if(bannerStatus) {bannerClass = `class=\"unfilled\"`; parentFill = true;}
+					if(bannerStatus) {bannerClass = `class=\"unfilled\"`; parentFill = true;};
 // pre alignment weird
 skins += `
 <span ${bannerClass}><code class="count">         {</code>
 <code class="count">            \"name\":\"${skin.name.replace(/\"/g,"\\\"")}\",</code>
-<code class="count">            \"banner\":\"${skinbanner}\"</code>
+<code class="count">            \"banner\":\"${skinbanner}\",</code>
+<code class="count">            \"icon\":\"${skinChibi}\",</code>
+<code class="count">            \"chibi\":\"${skinIcon}\",</code>
+<code class="count">            \"shipyard\":\"${skinShipyard}\"</code>
 <code class="count">         }${lastSparator}</code></span>`
 				}) // forEach Separator in line 87;
 
@@ -162,7 +232,7 @@ teste += `<span ${missingBorder}><code class="count">   {</code>
    						$(".missingSkin").append("Alert<br>" + missingArray + " skin is missing!");
    						console.warn("Missing Banner : " + missingArray.length)
    						console.log("type %c\"showMissing() %cor %cmissingArray\" %cto show the list", "color:yellow", "color:white", "color:yellow", "color:white")
-   					} else {console.log ("%cNo missing banner!","color: limegreen;")}
+   					} else {console.log("%cNo missing banner!","color: limegreen;")}
 
    					if(unknownArray.length > 0) {
    						console.warn("Unknown Banner : " + unknownArray.length)
