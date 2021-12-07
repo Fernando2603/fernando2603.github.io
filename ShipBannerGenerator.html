@@ -13,7 +13,11 @@
 			pre {margin-top: 0px; margin-bottom: 0px;}
 			.missingBorder {background-color: blueviolet;}
 			.missingSkin {text-align: center; vertical-align: center; background-color: #faa; color: #c00000; font-weight: bolder;}
-			.unknownBanner {color: darkorange;}
+			.unknownStatus > .count:nth-child(1), .unknownStatus > .count:nth-child(2), .unknownStatus > .count:nth-child(7) {color: darkorange;}
+			.unknownBanner > .count:nth-child(3) {color: darkorange;}
+			.unknownIcon > .count:nth-child(4) {color: darkorange;}
+			.unknownChibi > .count:nth-child(5) {color: darkorange;}
+			.unknownShipyard > .count:nth-child(6) {color: darkorange;}
 			.missingBorder .filled {background-color: #c6efce; color: #006100;}
 			.missingBorder > .count::before {background-color: darkviolet; color: white;}
 			.missingBorder > .unknownBanner {background-color: antiquewhite!important; color: #9c6500!important;}
@@ -42,7 +46,7 @@
 			span {
 			white-space: pre-wrap;
 			}
-			.unknownBanner .count::before {
+			.unknownStatus .count::before {
 				background-color: #ffc017!important;
 				color: black!important;
 			}
@@ -90,11 +94,20 @@
 		let count = 0;
 		let missingArray = [];
 		let unknownArray = [];
-		let unknownIcon = [];
-		let unknownChibi = [];
-		let unknownShipyard = [];
+		let unknownIconArray = [];
+		let unknownChibiArray = [];
+		let unknownShipyardArray = [];
 		function showMissing() {missingArray.forEach((alert) => console.log("%cAlert " + alert + " skin banner is missing!", "color: #faa"))}
-		function showUnknown() {unknownArray.forEach((alert) => console.log("%cWarn " + alert + " skin banner is unknown!", "color: orange"))}
+		function showUnknown() {
+			console.log("unknownArray");
+			console.log(unknownArray);
+			console.log("unknownIconArray");
+			console.log(unknownIconArray);
+			console.log("unknownChibiArray");
+			console.log(unknownChibiArray);
+			console.log("unknownShipyardArray");
+			console.log(unknownShipyardArray);
+		}
 
 		var Exception = [
 			"Admiral_Hipper_μ",
@@ -161,6 +174,10 @@
 					let skinShipyard = "https://raw.githubusercontent.com/Fernando2603/AzurLane/main/images/skins/" + libName + "/" + imgName + "ShipyardIcon.png";
 					let bannerStatus = true;
 					let unknownStatus = false;
+					let unknownBanner = false;
+					let unknownIcon = false;
+					let unknownChibi = false;
+					let unknownShipyard = false;
 					let lastSparator = ","
 					if(bannerid.skins !== undefined) {
 						for(var i = 0; i < bannerid.skins.length; i++) {
@@ -170,21 +187,27 @@
 								skinChibi = bannerid.skins[i].chibi;
 								skinShipyard = bannerid.skins[i].shipyard;
 								bannerStatus = false;
+								originalArts = false;
+								if(bannerid.skins[i].name === "Original Art") {originalArts = true;}
 								if(skinbanner === "https://raw.githubusercontent.com/Fernando2603/AzurLane/main/images/skins/Unknown/UnknownBanner.png") {
-									unknownArray.push(ship.names.en);
+									if(!originalArts) {unknownArray.push(ship.names.en);}
 									unknownStatus = true;
+									unknownBanner = true;
 								}
 								if(skinIcon === "https://raw.githubusercontent.com/Fernando2603/AzurLane/main/images/skins/Unknown/UnknownIcon.png") {
-									unknownIcon.push(ship.names.en);
+									if(!originalArts) {unknownIconArray.push(ship.names.en);}
 									unknownStatus = true;
+									unknownIcon = true;
 								}
-								if(skinIcon === "https://raw.githubusercontent.com/Fernando2603/AzurLane/main/images/skins/Unknown/UnknownChibiIcon.png") {
-									unknownChibi.push(ship.names.en);
+								if(skinChibi === "https://raw.githubusercontent.com/Fernando2603/AzurLane/main/images/skins/Unknown/UnknownChibiIcon.png") {
+									if(!originalArts) {unknownChibiArray.push(ship.names.en);}
 									unknownStatus = true;
+									unknownChibi = true;
 								}
 								if(skinShipyard === "https://raw.githubusercontent.com/Fernando2603/AzurLane/main/images/skins/Unknown/UnknownShipyardIcon.png") {
-									unknownShipyard.push(ship.names.en);
+									if(!originalArts) {unknownShipyardArray.push(ship.names.en);}
 									unknownStatus = true;
+									unknownShipyard = true;
 								}
 								var currentLength = i + 1;
 								if(ship.skins.length == currentLength) {lastSparator = ""};
@@ -193,7 +216,17 @@
 					}
 					if(bannerStatus) {lastSparator = ""};
 					let unknownClass = "";
-					if(unknownStatus) {unknownClass = " unknownBanner"};
+					if(unknownStatus) {
+						let uSBanner = "";
+						let uSIcon = "";
+						let uSChibi = "";
+						let uSShipyard = "";
+						if(unknownBanner) {uSBanner = " unknownBanner"};
+						if(unknownIcon) {uSIcon = " unknownIcon"};
+						if(unknownChibi) {uSChibi = " unknownChibi"};
+						if(unknownShipyard) {uSShipyard = " unknownShipyard"};
+						unknownClass = ` unknownStatus${uSBanner + uSIcon + uSChibi + uSShipyard}`;
+					};
 					let bannerClass = `class=\"filled${unknownClass}\"`;
 					if(bannerStatus) {bannerClass = `class=\"unfilled\"`; parentFill = true;};
 // pre alignment weird
@@ -201,11 +234,11 @@ skins += `
 <span ${bannerClass}><code class="count">         {</code>
 <code class="count">            \"name\":\"${skin.name.replace(/\"/g,"\\\"")}\",</code>
 <code class="count">            \"banner\":\"${skinbanner}\",</code>
-<code class="count">            \"icon\":\"${skinChibi}\",</code>
-<code class="count">            \"chibi\":\"${skinIcon}\",</code>
+<code class="count">            \"icon\":\"${skinIcon}\",</code>
+<code class="count">            \"chibi\":\"${skinChibi}\",</code>
 <code class="count">            \"shipyard\":\"${skinShipyard}\"</code>
 <code class="count">         }${lastSparator}</code></span>`
-				}) // forEach Separator in line 87;
+				}) // forEach Separator in ship.skins;
 
 
 				let missingBorder = "";
@@ -235,8 +268,13 @@ teste += `<span ${missingBorder}><code class="count">   {</code>
    					} else {console.log("%cNo missing banner!","color: limegreen;")}
 
    					if(unknownArray.length > 0) {
-   						console.warn("Unknown Banner : " + unknownArray.length)
-   						console.log("type %c\"showUnknown()\" %cor \"%cunknownArray\" %cto show the list", "color:yellow", "color:white", "color:yellow", "color:white")
+   						console.warn("Unknown Banner   : " + unknownArray.length)
+   						console.warn("Unknown Icon     : " + unknownIconArray.length)
+   						console.warn("Unknown Chibi    : " + unknownChibiArray.length)
+   						console.warn("Unknown Shipyard : " + unknownShipyardArray.length)
+   						console.log("Notes: %cOriginal Arts not included.", "color:yellow")
+   						console.log("type %c\"showUnknown()\" %cto show all list", "color:yellow", "color:white")
+   						console.log("type %cunknownArray%c, %cunknownIconArray%c, %cunknownChibiArray %cor %cunknownShipyardArray %cto show the list", "color:yellow", "color:white", "color:yellow", "color:white", "color:yellow", "color:white", "color:yellow", "color:white")
    					} else {console.log("%cNo unknown banner!","color: limegreen;")}
    				}
    				if(count > 516) {
