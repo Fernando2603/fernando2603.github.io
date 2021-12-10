@@ -4412,7 +4412,7 @@ var opsi = [
       "node":"A",
       "area":"NA Ocean Depths",
       "require":[],
-      "unlocked":false,
+      "unlocked":true,
       "stars":[
          {
             "formatted":"Gain control of 1 sector(s).",
@@ -4480,7 +4480,7 @@ var opsi = [
       "node":"B",
       "area":"NA Ocean Depths",
       "require":[],
-      "unlocked":false,
+      "unlocked":true,
       "stars":[
          {
             "formatted":"Gain control of 1 sector(s).",
@@ -4548,7 +4548,7 @@ var opsi = [
       "node":"C",
       "area":"NA Ocean Depths",
       "require":[],
-      "unlocked":false,
+      "unlocked":true,
       "stars":[
          {
             "formatted":"Gain control of 1 sector(s).",
@@ -4616,7 +4616,7 @@ var opsi = [
       "node":"",
       "area":"NA Ocean Central Sector",
       "require":[],
-      "unlocked":false,
+      "unlocked":true,
       "stars":[
          {
             "type":"",
@@ -4679,7 +4679,7 @@ var opsi = [
       "node":"D",
       "area":"NA Ocean Depths",
       "require":[],
-      "unlocked":false,
+      "unlocked":true,
       "stars":[
          {
             "formatted":"Gain control of 1 sector(s).",
@@ -4747,7 +4747,7 @@ var opsi = [
       "node":"E",
       "area":"NA Ocean Depths",
       "require":[],
-      "unlocked":false,
+      "unlocked":true,
       "stars":[
          {
             "formatted":"Gain control of 1 sector(s).",
@@ -4815,7 +4815,7 @@ var opsi = [
       "node":"F",
       "area":"NA Ocean Depths",
       "require":[],
-      "unlocked":false,
+      "unlocked":true,
       "stars":[
          {
             "formatted":"Gain control of 1 sector(s).",
@@ -4883,7 +4883,7 @@ var opsi = [
       "node":"D",
       "area":"NA Ocean Depths",
       "require":[],
-      "unlocked":false,
+      "unlocked":true,
       "stars":[
          {
             "formatted":"Gain control of 1 sector(s).",
@@ -4951,7 +4951,7 @@ var opsi = [
       "node":"H",
       "area":"NA Ocean Depths",
       "require":[],
-      "unlocked":false,
+      "unlocked":true,
       "stars":[
          {
             "formatted":"Gain control of 1 sector(s).",
