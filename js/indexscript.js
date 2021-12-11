@@ -16,6 +16,7 @@ var card08 = ["card-08", "azur-lane", "blank", "opsi", "Azur-Lane.png", "Operati
 var card09 = ["card-09", "azur-lane", "blank", "ship", "Azur-Lane.png", "ShipList", "#09", "Database"];
 var card10 = ["card-10", "azur-lane", "blank", "shipmax", "Azur-Lane.png", "Ship Max", "#10", "Personal"];
 var card11 = ["card-11", "azur-lane", "blank", "ships", "Azur-Lane.png", "Ship Stats", "#11", "Database"];
+var card11 = ["card-12", "azur-lane", "blank", "ArbiterChart", "Azur-Lane.png", "Arbiter Record", "#11", "Personal"];
 
 function cardCreateIndex(container, data){
   $("#container-"+container).append(cards(data[0], data[1], data[2], data[3], data[4], data[5], data[6], data[7]))
@@ -37,4 +38,5 @@ function cardCall() {
   cardCreate01(card09);
   cardCreate01(card10);
   cardCreate01(card11);
+  cardCreate01(card12);
 }
