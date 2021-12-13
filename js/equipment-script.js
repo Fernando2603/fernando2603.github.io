@@ -282,7 +282,7 @@ function DDGun (name, target, rarity, modifier1, modifier2, modifier3, coefficie
                                 <td>${angle}°</td>
                                 <td>${attr}</td>
                                 <td data-toggle="tooltip" data-placement="top" title="${ammoTypeDesc}">${ammoType}</td>
-                                <td data-toggle="tooltip" data-placement="top" title="${faction}"><img src="AL/Faction/${faction}.png"></td>
+                                <td data-toggle="tooltip" data-placement="top" title="${faction}"><img class="faction-banner" src="AL/Faction/${faction}.png"></td>
                             </tr>
                         `
                     }
@@ -340,7 +340,7 @@ function CLGun (name, target, rarity, modifier1, modifier2, modifier3, coefficie
                                 <td>${angle}°</td>
                                 <td>${attr}</td>
                                 <td data-toggle="tooltip" data-placement="top" title="${ammoTypeDesc}">${ammoType}</td>
-                                <td data-toggle="tooltip" data-placement="top" title="${faction}"><img src="AL/Faction/${faction}.png"></td>
+                                <td data-toggle="tooltip" data-placement="top" title="${faction}"><img class="faction-banner" src="AL/Faction/${faction}.png"></td>
                             </tr>
                         `
                     }
@@ -398,7 +398,7 @@ function CAGun (name, target, rarity, modifier1, modifier2, modifier3, coefficie
                                 <td>${angle}°</td>
                                 <td>${attr}</td>
                                 <td data-toggle="tooltip" data-placement="top" title="${ammoTypeDesc}">${ammoType}</td>
-                                <td data-toggle="tooltip" data-placement="top" title="${faction}"><img src="AL/Faction/${faction}.png"></td>
+                                <td data-toggle="tooltip" data-placement="top" title="${faction}"><img class="faction-banner" src="AL/Faction/${faction}.png"></td>
                             </tr>
                         `
                     }
@@ -454,7 +454,7 @@ function CBGun (name, target, rarity, modifier1, modifier2, modifier3, coefficie
                                 <td>${angle}°</td>
                                 <td>${attr}</td>
                                 <td data-toggle="tooltip" data-placement="top" title="${ammoTypeDesc}">${ammoType}</td>
-                                <td data-toggle="tooltip" data-placement="top" title="${faction}"><img src="AL/Faction/${faction}.png"></td>
+                                <td data-toggle="tooltip" data-placement="top" title="${faction}"><img class="faction-banner" src="AL/Faction/${faction}.png"></td>
                             </tr>
                         `
                     }
@@ -511,7 +511,7 @@ function BBGun (name, target, rarity, modifier1, modifier2, modifier3, coefficie
                                 <td>${angle}°</td>
                                 <td>${attr}</td>
                                 <td data-toggle="tooltip" data-placement="top" title="${ammoTypeDesc}">${ammoType}</td>
-                                <td data-toggle="tooltip" data-placement="top" title="${faction}"><img src="AL/Faction/${faction}.png"></td>
+                                <td data-toggle="tooltip" data-placement="top" title="${faction}"><img class="faction-banner" src="AL/Faction/${faction}.png"></td>
                             </tr>
                         `
                     }
@@ -561,7 +561,7 @@ function TSurf (name, target, rarity, range, coefficient) {
                                 <td>${spread}°</td>
                                 <td>${angle}°</td>
                                 <td>${attr}</td>
-                                <td data-toggle="tooltip" data-placement="top" title="${faction}"><img src="AL/Faction/${faction}.png"></td>
+                                <td data-toggle="tooltip" data-placement="top" title="${faction}"><img class="faction-banner" src="AL/Faction/${faction}.png"></td>
                             </tr>
                         `
                     }
@@ -606,7 +606,7 @@ function TSubs (name, target, rarity, coefficient) {
                                 <td>${spread}°</td>
                                 <td>${angle}°</td>
                                 <td>${attr}</td>
-                                <td data-toggle="tooltip" data-placement="top" title="${faction}"><img src="AL/Faction/${faction}.png"></td>
+                                <td data-toggle="tooltip" data-placement="top" title="${faction}"><img class="faction-banner" src="AL/Faction/${faction}.png"></td>
                             </tr>
                         `
                     }
@@ -710,7 +710,7 @@ function FDive (name, target, rarity, AADPS, AABurst, coefficient) {
                                 <td>${AABurst}</td>
                                 <td>${speed}</td>
                                 <td>${crashDamage}</td>
-                                <td data-toggle="tooltip" data-placement="top" title="${faction}"><img src="AL/Faction/${faction}.png"></td>
+                                <td data-toggle="tooltip" data-placement="top" title="${faction}"><img class="faction-banner" src="AL/Faction/${faction}.png"></td>
                             </tr>
                         `
                     }
@@ -765,7 +765,7 @@ function TBomb (name, target, rarity, damage, AADPS, AABurst, coefficient) {
                                 <td>${AABurst}</td>
                                 <td>${speed}</td>
                                 <td>${crashDamage}</td>
-                                <td data-toggle="tooltip" data-placement="top" title="${faction}"><img src="AL/Faction/${faction}.png"></td>
+                                <td data-toggle="tooltip" data-placement="top" title="${faction}"><img class="faction-banner" src="AL/Faction/${faction}.png"></td>
                             </tr>
                         `
                     }
@@ -802,7 +802,7 @@ function AAGun (name, target, rarity, coefficient) {
                                 <td>${rateOfFire}</td>
                                 <td>${AADPS}</td>
                                 <td>${range}</td>
-                                <td data-toggle="tooltip" data-placement="top" title="${faction}"><img src="AL/Faction/${faction}.png"></td>
+                                <td data-toggle="tooltip" data-placement="top" title="${faction}"><img class="faction-banner" src="AL/Faction/${faction}.png"></td>
                             </tr>
                         `
                     }
