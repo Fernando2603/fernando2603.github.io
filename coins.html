@@ -12,6 +12,8 @@
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
 	<script type="text/javascript" src="API/retrofit.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.11.3/datatables.min.css"/>
+	<script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.11.3/datatables.min.js"></script>
 	<title>Fernando26</title>
 	<style>
 		.clear {color: blue;}
@@ -39,6 +41,10 @@
 			left: 10px;
 			z-index: 1;
 		}
+		.coins {background: #faa}
+		.blue {background: powderblue;}
+		.purple {background: #aaf;}
+		.gold {background: palegoldenrod;}
 		.act-btn:hover{background: white;}
 		.act-btn2 {left: 70px!important;}
 		.hide-stars, .hide-rewards, .hide-status, .hide-file, .hide-user, .hide-zones, .hide-corruption {display: none;}
@@ -109,6 +115,22 @@
 				</tr>
 			</thead>
 		</table>
+		<table class="table table-bordered table-hover text-center align-middle" id="mainTable">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>NAME</th>
+					<th>RARITY</th>
+					<th>TYPE</th>
+					<th>RELEASE</th>
+					<th>BLUE</th>
+					<th>PURPLE</th>
+					<th>GOLD</th>
+					<th>COINS</th>
+				</tr>
+			</thead>
+			<tbody class="retrofitList"></tbody>
+		</table>
 	</div>
 	<div class="modal-container"></div>
 
@@ -127,7 +149,7 @@
 	var userCoins 	= 0;
 
 	let output 		= "";
-
+	let retrofitList = "";
 	for(var x = 0; x < retrofit.length; x++) {
 		for(var i = 0; i < userKai.length; i++) {
 			if(userKai[i] == retrofit[x].id) {
@@ -143,11 +165,30 @@
 			}
 		}
 	}
-
+	retrofit.forEach((kai) => {
+		exist = userKai.find(element => element === kai.id);
+		if(exist === undefined) {
+			retrofitList += `
+				<tr>
+					<th>${kai.id}</th>
+					<th>${kai.name}</th>
+					<th>${kai.rarity}</th>
+					<th>${kai.type}</th>
+					<th>${kai.release}</th>
+					<th class="blue">${kai.blue}</th>
+					<th class="purple">${kai.purple}</th>
+					<th class="gold">${kai.gold}</th>
+					<th class="coins">${kai.coins}</th>
+				</tr>
+			`;
+		}
+	})
 	$(".totalBlue").html(totalBlue - userBlue);
 	$(".totalPurple").html(totalPurple - userPurple);
 	$(".totalGold").html(totalGold - userGold);
 	$(".totalCoins").html(totalCoins - userCoins);
 	$(".totalSum").html((totalCoins - userCoins)+1200000)
+	$(".retrofitList").html(retrofitList);
+	$("#mainTable").dataTable({searching: false, paging: false, info: false});
 </script>
 </body>
