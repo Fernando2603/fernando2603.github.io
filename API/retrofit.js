@@ -1,5 +1,89 @@
 var retrofitVersion = "Retrofit - v31082021";
-var userKai = [19, 33, 36, 70, 74, 131, 144, 155, 236,434]
+var userKai = [
+   5, // Cassin
+   6, // Downes
+   19, // Laffey
+   //26, // Sims
+   //27, // Hammann
+   33, // Helena
+   36, // San Diego
+   44, // Portland
+   //52, // Nevada
+   //53, // Oklahoma
+   70, // Long Island
+   //71, // Bogue
+   //72, // Langley
+   74, // Saratoga
+   //75, // Ranger
+   //81, // Amazon
+   //82, // Acasta
+   //83, // Ardent
+   //88, // Comet
+   //89, // Crescent
+   //90, // Cygnet
+   //91, // Foxhound
+   //92, // Fortune
+   //101, // Javelin
+   //104, // Leander
+   105, // Achilles
+   //106, // Ajax
+   //119, // London
+   //122, // Suffolk
+   //125, // York
+   126, // Exeter
+   131, // Warspite
+   //140, // Hermes
+   155, // Ayanami
+   144, // Ark Royal
+   164, // Yuudachi
+   //165, // Shigure
+   //167, // Kagerou
+   //168, // Shiranui
+   171, // Hatsuharu
+   //174, // Hatsushimo
+   //175, // Ariake
+   //176, // Yuugure
+   //179, // Yuubari
+   183, // Isuzu
+   //186, // Kinu
+   //187, // Abukuma
+   //188, // Mogami
+   //190, // Furutaka
+   //191, // Kako
+   //208, // Fusou
+   209, // Yamashiro
+   210, // Ise
+   211, // Hyuuga
+   222, // Shouhou
+   //226, // Souryuu
+   227, // Hiryuu
+   //233, // Z1
+   236, // Z23
+   //239, // Karlsruhe
+   //240, // Köln
+   //241, // Leipzig
+   //258, // Ning Hai
+   //259, // Ping Hai
+   //263, // Bailey
+   //269, // Kamikaze
+   //270, // Matsukaze
+   //271, // Mutsuki
+   //272, // Kisaragi
+   //301, // Nicholas
+   //308, // Sendai
+   //309, // Jintsuu
+   //318, // Hamakaze
+   //319, // Tanikaze
+   //348, // Forbin
+   //349, // Emile Bertin
+   //351, // Le Mars
+   //361, // Newcastle
+   //372, // Curacoa
+   //373, // Curlew
+   //377, // Independence
+   //424, // Kasumi
+   434, // Pamiat Merkuria
+]
 var retrofit = [
    {
       "id":5,
@@ -420,6 +504,18 @@ var retrofit = [
       "gold":10,
       "coins":29100,
       "notes":"Also requires 50 T3 Aircraft parts, 50 T3 Auxiliary parts"
+   },
+   {
+      "id":164,
+      "name":"Yuudachi",
+      "rarity":"Super Rare",
+      "type":"Destroyer",
+      "release":"Sep. 30, 2021",
+      "blue":11,
+      "purple":13,
+      "gold":7,
+      "coins":36800,
+      "notes":"Also requires 50 T3 Gun parts, 1 copy of Yuudachi or Bulin, 1 Eau de Barbeque"
    },
    {
       "id":165,
