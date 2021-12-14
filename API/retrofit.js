@@ -474,7 +474,7 @@ var retrofit = [
       "name":"Hermes",
       "rarity":"Normal",
       "type":"Light aircraft carrier",
-      "release":"9-May-19",
+      "release":"May. 9, 2019",
       "blue":13,
       "purple":18,
       "gold":null,
