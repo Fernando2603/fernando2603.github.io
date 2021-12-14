@@ -83,15 +83,13 @@
 			<thead>
 				<tr>
 					<th>Retrofit</th>
-					<th>Research</th>
 					<th>Limit Breaks</th>
 					<th>Total Coins</th>
 				</tr>
 				<tr>
 					<th class="totalCoins"></th>
-					<th>470000</th>
 					<th>1200000</th>
-					<th>3141000</th>
+					<th class="totalSum"></th>
 				</tr>
 			</thead>
 		</table>
@@ -108,40 +106,6 @@
 					<th class="totalPurple"></th>
 					<th class="totalGold"></th>
 					<th class="totalCoins"></th>
-				</tr>
-			</thead>
-		</table>
-		<table class="table table-bordered table-hover text-center align-middle">
-			<thead>
-				<tr>
-					<th>Priority</th>
-					<th>Cubes</th>
-					<th>Coins</th>
-				</tr>
-				<tr>
-					<th>PR 1</th>
-					<th>15</th>
-					<th>80000</th>
-				</tr>
-				<tr>
-					<th>PR 2</th>
-					<th>40</th>
-					<th>210000</th>
-				</tr>
-				<tr>
-					<th>PR 3</th>
-					<th>0</th>
-					<th>0</th>
-				</tr>
-				<tr>
-					<th>PR 4</th>
-					<th>35</th>
-					<th>180000</th>
-				</tr>
-				<tr>
-					<th>Total</th>
-					<th>90</th>
-					<th>470000</th>
 				</tr>
 			</thead>
 		</table>
@@ -184,6 +148,6 @@
 	$(".totalPurple").html(totalPurple - userPurple);
 	$(".totalGold").html(totalGold - userGold);
 	$(".totalCoins").html(totalCoins - userCoins);
-
+	$(".totalSum").html((totalCoins - userCoins)+1200000)
 </script>
 </body>
