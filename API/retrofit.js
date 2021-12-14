@@ -1,4 +1,4 @@
-var retrofitVersion = "Retrofit - v31082021";
+var retrofitVersion = "Retrofit - v14122021";
 var userKai = [
    5, // Cassin
    6, // Downes
