@@ -746,6 +746,8 @@ function modalCall (idx) {
 function classLoad () {
     document.getElementById("ocf-1").onclick = ()=> false
     $(".ClassOutput").append(ClassOutput)};
+    $("#ClassBarraeg").dataTable({searching: false, paging: false, info: false});
 function skillLoad () {
     document.getElementById("ocf-2").onclick = ()=> false
     $(".SkillOutput").append(SkillOutput)};
+    $("#SkillBarrage").dataTable({searching: false, paging: false, info: false});
