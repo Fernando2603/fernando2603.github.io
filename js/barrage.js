@@ -5,6 +5,9 @@ fetch("https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/barrage
       barrage = data;
       console.log("barrage Loaded");
       barrageCall();
+      $(function () {$('[data-toggle="tooltip"]').tooltip()})
+      $(".ShipOutput").append(ShipOutput)
+      $("#ShipBarrage").dataTable({searching: false, paging: false, info: false});
    },
    (error) => {
       console.log('error: ' + error);
