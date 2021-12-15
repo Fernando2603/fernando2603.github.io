@@ -2,581 +2,583 @@ let ShipOutput = "";
 let ClassOutput = "";
 let SkillOutput = "";
 let ModalOutput = "";
-barrage.forEach((barrage)=> {
-    if (barrage.type == "ship") {
-        var id = barrage.id.replace(/\./g,'').replace(/\:/g,'');
-        var name = barrage.name;
-        var icon = barrage.icon;
-        // Ship
-            let ship01 = "";
-            let ship02 = "";
-            let ship03 = "";
-            let ship04 = "";
-            let ship05 = "";
-            let ship06 = "";
-            let ship07 = "";
-            let ship08 = "";
-            let ship09 = "";
-            let ship10 = "";
-            let ship11 = "";
-            let ship12 = "";
-            let ship13 = "";
-            let ship14 = "";
-            let ship15 = "";
-            let ship16 = "";
-            let ship17 = "";
-            let ship18 = "";
-            let ship19 = "";
-            let ship20 = "";
-            if (barrage.ships[0] !== undefined) {ship01 = barrage.ships[0]}
-            if (barrage.ships[1] !== undefined) {ship02 = ", " + barrage.ships[1]}
-            if (barrage.ships[2] !== undefined) {ship03 = ", " + barrage.ships[2]}
-            if (barrage.ships[3] !== undefined) {ship04 = ", " + barrage.ships[3]}
-            if (barrage.ships[4] !== undefined) {ship05 = ", " + barrage.ships[4]}
-            if (barrage.ships[5] !== undefined) {ship06 = ", " + barrage.ships[5]}
-            if (barrage.ships[6] !== undefined) {ship07 = ", " + barrage.ships[6]}
-            if (barrage.ships[7] !== undefined) {ship08 = ", " + barrage.ships[7]}
-            if (barrage.ships[8] !== undefined) {ship09 = ", " + barrage.ships[8]}
-            if (barrage.ships[9] !== undefined) {ship10 = ", " + barrage.ships[9]}
-            if (barrage.ships[10] !== undefined) {ship11 = ", " + barrage.ships[10]}
-            if (barrage.ships[11] !== undefined) {ship12 = ", " + barrage.ships[11]}
-            if (barrage.ships[12] !== undefined) {ship13 = ", " + barrage.ships[12]}
-            if (barrage.ships[13] !== undefined) {ship14 = ", " + barrage.ships[13]}
-            if (barrage.ships[14] !== undefined) {ship15 = ", " + barrage.ships[14]}
-            if (barrage.ships[15] !== undefined) {ship16 = ", " + barrage.ships[15]}
-            if (barrage.ships[16] !== undefined) {ship17 = ", " + barrage.ships[16]}
-            if (barrage.ships[17] !== undefined) {ship18 = ", " + barrage.ships[17]}
-            if (barrage.ships[18] !== undefined) {ship19 = ", " + barrage.ships[18]}
-            if (barrage.ships[19] !== undefined) {ship20 = ", " + barrage.ships[19]}
-        var ship = ship01+ship02+ship03+ship04+ship05+ship06+ship07+ship08+ship09+ship10+ship11+ship12+ship13+ship14+ship15+ship16+ship17+ship18+ship19+ship20;
-        var hull = barrage.hull;
-        var roundLength = barrage.rounds.length;
-        let type = barrage.rounds[0].type;
-        let dmgL = barrage.rounds[0].dmgL;
-        let dmgM = barrage.rounds[0].dmgM;
-        let dmgH = barrage.rounds[0].dmgH;
-        let note = "";
-        if (barrage.rounds[0].note !== undefined && barrage.rounds[0].note !== null) {note = barrage.rounds[0].note;}
-        let gif = "eqn";
-        if (barrage.image !== undefined && barrage.image !== null) {gif = "eqy"}
-        if (roundLength == 1) {
-            ShipOutput += `
-                <tr class="x${id}" data-toggle="modal" data-target=".${id}" onclick="modalCall('${id}')">
-                    <td class="${gif}"><img class="icon" src="${icon}"></td>
-                    <td><a href="#${id}">${name}</a></td>
-                    <td>${ship}</td>
-                    <td>${hull}</td>
-                    <td class="${type}">${type}</td>
-                    <td>${dmgL}</td>
-                    <td>${dmgM}</td>
-                    <td>${dmgH}</td>
-                    <td>${note}</td>
-                </tr>
-            `}
-        if (roundLength == 2) {
-            let type1 = barrage.rounds[1].type;
-            let dmgL1 = barrage.rounds[1].dmgL;
-            let dmgM1 = barrage.rounds[1].dmgM;
-            let dmgH1 = barrage.rounds[1].dmgH;
-            let note1 = "";
-            if (barrage.rounds[1].note !== undefined && barrage.rounds[1].note !== null) {note1 = barrage.rounds[1].note;}
-            ShipOutput += `
-                <tr class="x${id}" data-toggle="modal" data-target=".${id}" onclick="modalCall('${id}')">
-                    <td rowspan="2" class="${gif}"><img class="icon" src="${icon}"></td>
-                    <td rowspan="2"><a href="#${id}">${name}</a></td>
-                    <td rowspan="2">${ship}</td>
-                    <td rowspan="2">${hull}</td>
-                    <td class="${type}">${type}</td>
-                    <td>${dmgL}</td>
-                    <td>${dmgM}</td>
-                    <td>${dmgH}</td>
-                    <td>${note}</td>
-                </tr>
-                <tr data-toggle="modal" data-target=".${id}">
-                    <td class="${type1}">${type1}</td>
-                    <td>${dmgL1}</td>
-                    <td>${dmgM1}</td>
-                    <td>${dmgH1}</td>
-                    <td>${note1}</td>
-                </tr>
-            `}
-        if (roundLength == 3) {
-            let type1 = barrage.rounds[1].type;
-            let dmgL1 = barrage.rounds[1].dmgL;
-            let dmgM1 = barrage.rounds[1].dmgM;
-            let dmgH1 = barrage.rounds[1].dmgH;
-            let note1 = "";
-            if (barrage.rounds[1].note !== undefined && barrage.rounds[1].note !== null) {note1 = barrage.rounds[1].note;}
-            let type2 = barrage.rounds[2].type;
-            let dmgL2 = barrage.rounds[2].dmgL;
-            let dmgM2 = barrage.rounds[2].dmgM;
-            let dmgH2 = barrage.rounds[2].dmgH;
-            let note2 = "";
-            if (barrage.rounds[2].note !== undefined && barrage.rounds[2].note !== null) {note2 = barrage.rounds[2].note;}
-            ShipOutput += `
-                <tr class="x${id}" data-toggle="modal" data-target=".${id}" onclick="modalCall('${id}')">
-                    <td rowspan="3" class="${gif}"><img class="icon" src="${icon}"></td>
-                    <td rowspan="3"><a href="#${id}">${name}</a></td>
-                    <td rowspan="3">${ship}</td>
-                    <td rowspan="3">${hull}</td>
-                    <td class="${type}">${type}</td>
-                    <td>${dmgL}</td>
-                    <td>${dmgM}</td>
-                    <td>${dmgH}</td>
-                    <td>${note}</td>
-                </tr>
-                <tr data-toggle="modal" data-target=".${id}">
-                    <td class="${type1}">${type1}</td>
-                    <td>${dmgL1}</td>
-                    <td>${dmgM1}</td>
-                    <td>${dmgH1}</td>
-                    <td>${note1}</td>
-                </tr>
-                <tr>
-                    <td class="${type2}">${type2}</td>
-                    <td>${dmgL2}</td>
-                    <td>${dmgM2}</td>
-                    <td>${dmgH2}</td>
-                    <td>${note2}</td>
-                </tr>
-            `}
-        if (roundLength == 4) {
-            let type1 = barrage.rounds[1].type;
-            let dmgL1 = barrage.rounds[1].dmgL;
-            let dmgM1 = barrage.rounds[1].dmgM;
-            let dmgH1 = barrage.rounds[1].dmgH;
-            let note1 = "";
-            if (barrage.rounds[1].note !== undefined && barrage.rounds[1].note !== null) {note1 = barrage.rounds[1].note;}
-            let type2 = barrage.rounds[2].type;
-            let dmgL2 = barrage.rounds[2].dmgL;
-            let dmgM2 = barrage.rounds[2].dmgM;
-            let dmgH2 = barrage.rounds[2].dmgH;
-            let note2 = "";
-            if (barrage.rounds[2].note !== undefined && barrage.rounds[2].note !== null) {note2 = barrage.rounds[2].note;}
-            let type3 = barrage.rounds[3].type;
-            let dmgL3 = barrage.rounds[3].dmgL;
-            let dmgM3 = barrage.rounds[3].dmgM;
-            let dmgH3 = barrage.rounds[3].dmgH;
-            let note3 = "";
-            if (barrage.rounds[3].note !== undefined && barrage.rounds[3].note !== null) {note2 = barrage.rounds[3].note;}
-            ShipOutput += `
-                <tr class="x${id}" data-toggle="modal" data-target=".${id}" onclick="modalCall('${id}')">
-                    <td rowspan="4" class="${gif}"><img class="icon" src="${icon}"></td>
-                    <td rowspan="4"><a href="#${id}">${name}</a></td>
-                    <td rowspan="4">${ship}</td>
-                    <td rowspan="4">${hull}</td>
-                    <td class="${type}">${type}</td>
-                    <td>${dmgL}</td>
-                    <td>${dmgM}</td>
-                    <td>${dmgH}</td>
-                    <td>${note}</td>
-                </tr>
-                <tr data-toggle="modal" data-target=".${id}">
-                    <td class="${type1}">${type1}</td>
-                    <td>${dmgL1}</td>
-                    <td>${dmgM1}</td>
-                    <td>${dmgH1}</td>
-                    <td>${note1}</td>
-                </tr>
-                <tr data-toggle="modal" data-target=".${id}">
-                    <td class="${type2}">${type2}</td>
-                    <td>${dmgL2}</td>
-                    <td>${dmgM2}</td>
-                    <td>${dmgH2}</td>
-                    <td>${note2}</td>
-                </tr>
-                <tr>
-                    <td class="${type3}">${type3}</td>
-                    <td>${dmgL3}</td>
-                    <td>${dmgM3}</td>
-                    <td>${dmgH3}</td>
-                    <td>${note3}</td>
-                </tr>
-            `}
-    }
-    if (barrage.type == "class") {
-        var id = barrage.id.replace(/\./g,'').replace(/\:/g,'');
-        var name = barrage.name;
-        var icon = barrage.icon;
-        // Ship
-            let ship01 = "";
-            let ship02 = "";
-            let ship03 = "";
-            let ship04 = "";
-            let ship05 = "";
-            let ship06 = "";
-            let ship07 = "";
-            let ship08 = "";
-            let ship09 = "";
-            let ship10 = "";
-            let ship11 = "";
-            let ship12 = "";
-            let ship13 = "";
-            let ship14 = "";
-            let ship15 = "";
-            let ship16 = "";
-            let ship17 = "";
-            let ship18 = "";
-            let ship19 = "";
-            let ship20 = "";
-            if (barrage.ships[0] !== undefined) {ship01 = barrage.ships[0]}
-            if (barrage.ships[1] !== undefined) {ship02 = ", " + barrage.ships[1]}
-            if (barrage.ships[2] !== undefined) {ship03 = ", " + barrage.ships[2]}
-            if (barrage.ships[3] !== undefined) {ship04 = ", " + barrage.ships[3]}
-            if (barrage.ships[4] !== undefined) {ship05 = ", " + barrage.ships[4]}
-            if (barrage.ships[5] !== undefined) {ship06 = ", " + barrage.ships[5]}
-            if (barrage.ships[6] !== undefined) {ship07 = ", " + barrage.ships[6]}
-            if (barrage.ships[7] !== undefined) {ship08 = ", " + barrage.ships[7]}
-            if (barrage.ships[8] !== undefined) {ship09 = ", " + barrage.ships[8]}
-            if (barrage.ships[9] !== undefined) {ship10 = ", " + barrage.ships[9]}
-            if (barrage.ships[10] !== undefined) {ship11 = ", " + barrage.ships[10]}
-            if (barrage.ships[11] !== undefined) {ship12 = ", " + barrage.ships[11]}
-            if (barrage.ships[12] !== undefined) {ship13 = ", " + barrage.ships[12]}
-            if (barrage.ships[13] !== undefined) {ship14 = ", " + barrage.ships[13]}
-            if (barrage.ships[14] !== undefined) {ship15 = ", " + barrage.ships[14]}
-            if (barrage.ships[15] !== undefined) {ship16 = ", " + barrage.ships[15]}
-            if (barrage.ships[16] !== undefined) {ship17 = ", " + barrage.ships[16]}
-            if (barrage.ships[17] !== undefined) {ship18 = ", " + barrage.ships[17]}
-            if (barrage.ships[18] !== undefined) {ship19 = ", " + barrage.ships[18]}
-            if (barrage.ships[19] !== undefined) {ship20 = ", " + barrage.ships[19]}
-        var ship = ship01+ship02+ship03+ship04+ship05+ship06+ship07+ship08+ship09+ship10+ship11+ship12+ship13+ship14+ship15+ship16+ship17+ship18+ship19+ship20;
-        var hull = barrage.hull;
-        var roundLength = barrage.rounds.length;
-        let type = barrage.rounds[0].type;
-        let dmgL = barrage.rounds[0].dmgL;
-        let dmgM = barrage.rounds[0].dmgM;
-        let dmgH = barrage.rounds[0].dmgH;
-        let note = "";
-        if (barrage.rounds[0].note !== undefined && barrage.rounds[0].note !== null) {note = barrage.rounds[0].note;}
-        let gif = "eqn";
-        if (barrage.image !== undefined && barrage.image !== null) {gif = "eqy"}
-        if (roundLength == 1) {
-            ClassOutput += `
-                <tr class="x${id}" data-toggle="modal" data-target=".${id}" onclick="modalCall('${id}')">
-                    <td class="${gif}"><img class="icon" src="${icon}"></td>
-                    <td><a href="#${id}">${name}</a></td>
-                    <td>${ship}</td>
-                    <td>${hull}</td>
-                    <td class="${type}">${type}</td>
-                    <td>${dmgL}</td>
-                    <td>${dmgM}</td>
-                    <td>${dmgH}</td>
-                    <td>${note}</td>
-                </tr>
-            `}
-        if (roundLength == 2) {
-            let type1 = barrage.rounds[1].type;
-            let dmgL1 = barrage.rounds[1].dmgL;
-            let dmgM1 = barrage.rounds[1].dmgM;
-            let dmgH1 = barrage.rounds[1].dmgH;
-            let note1 = "";
-            if (barrage.rounds[1].note !== undefined && barrage.rounds[1].note !== null) {note1 = barrage.rounds[1].note;}
-            ClassOutput += `
-                <tr class="x${id}" data-toggle="modal" data-target=".${id}" onclick="modalCall('${id}')">
-                    <td rowspan="2" class="${gif}"><img class="icon" src="${icon}"></td>
-                    <td rowspan="2"><a href="#${id}">${name}</a></td>
-                    <td rowspan="2">${ship}</td>
-                    <td rowspan="2">${hull}</td>
-                    <td class="${type}">${type}</td>
-                    <td>${dmgL}</td>
-                    <td>${dmgM}</td>
-                    <td>${dmgH}</td>
-                    <td>${note}</td>
-                </tr>
-                <tr data-toggle="modal" data-target=".${id}">
-                    <td class="${type1}">${type1}</td>
-                    <td>${dmgL1}</td>
-                    <td>${dmgM1}</td>
-                    <td>${dmgH1}</td>
-                    <td>${note1}</td>
-                </tr>
-            `}
-        if (roundLength == 3) {
-            let type1 = barrage.rounds[1].type;
-            let dmgL1 = barrage.rounds[1].dmgL;
-            let dmgM1 = barrage.rounds[1].dmgM;
-            let dmgH1 = barrage.rounds[1].dmgH;
-            let note1 = "";
-            if (barrage.rounds[1].note !== undefined && barrage.rounds[1].note !== null) {note1 = barrage.rounds[1].note;}
-            let type2 = barrage.rounds[2].type;
-            let dmgL2 = barrage.rounds[2].dmgL;
-            let dmgM2 = barrage.rounds[2].dmgM;
-            let dmgH2 = barrage.rounds[2].dmgH;
-            let note2 = "";
-            if (barrage.rounds[2].note !== undefined && barrage.rounds[2].note !== null) {note2 = barrage.rounds[2].note;}
-            ClassOutput += `
-                <tr class="x${id}" data-toggle="modal" data-target=".${id}" onclick="modalCall('${id}')">
-                    <td rowspan="3" class="${gif}"><img class="icon" src="${icon}"></td>
-                    <td rowspan="3"><a href="#${id}">${name}</a></td>
-                    <td rowspan="3">${ship}</td>
-                    <td rowspan="3">${hull}</td>
-                    <td class="${type}">${type}</td>
-                    <td>${dmgL}</td>
-                    <td>${dmgM}</td>
-                    <td>${dmgH}</td>
-                    <td>${note}</td>
-                </tr>
-                <tr data-toggle="modal" data-target=".${id}">
-                    <td class="${type1}">${type1}</td>
-                    <td>${dmgL1}</td>
-                    <td>${dmgM1}</td>
-                    <td>${dmgH1}</td>
-                    <td>${note1}</td>
-                </tr>
-                <tr>
-                    <td class="${type2}">${type2}</td>
-                    <td>${dmgL2}</td>
-                    <td>${dmgM2}</td>
-                    <td>${dmgH2}</td>
-                    <td>${note2}</td>
-                </tr>
-            `}
-        if (roundLength == 4) {
-            let type1 = barrage.rounds[1].type;
-            let dmgL1 = barrage.rounds[1].dmgL;
-            let dmgM1 = barrage.rounds[1].dmgM;
-            let dmgH1 = barrage.rounds[1].dmgH;
-            let note1 = "";
-            if (barrage.rounds[1].note !== undefined && barrage.rounds[1].note !== null) {note1 = barrage.rounds[1].note;}
-            let type2 = barrage.rounds[2].type;
-            let dmgL2 = barrage.rounds[2].dmgL;
-            let dmgM2 = barrage.rounds[2].dmgM;
-            let dmgH2 = barrage.rounds[2].dmgH;
-            let note2 = "";
-            if (barrage.rounds[2].note !== undefined && barrage.rounds[2].note !== null) {note2 = barrage.rounds[2].note;}
-            let type3 = barrage.rounds[3].type;
-            let dmgL3 = barrage.rounds[3].dmgL;
-            let dmgM3 = barrage.rounds[3].dmgM;
-            let dmgH3 = barrage.rounds[3].dmgH;
-            let note3 = "";
-            if (barrage.rounds[3].note !== undefined && barrage.rounds[3].note !== null) {note2 = barrage.rounds[3].note;}
-            ClassOutput += `
-                <tr class="x${id}" data-toggle="modal" data-target=".${id}" onclick="modalCall('${id}')">
-                    <td rowspan="4" class="${gif}"><img class="icon" src="${icon}"></td>
-                    <td rowspan="4"><a href="#${id}">${name}</a></td>
-                    <td rowspan="4">${ship}</td>
-                    <td rowspan="4">${hull}</td>
-                    <td class="${type}">${type}</td>
-                    <td>${dmgL}</td>
-                    <td>${dmgM}</td>
-                    <td>${dmgH}</td>
-                    <td>${note}</td>
-                </tr>
-                <tr data-toggle="modal" data-target=".${id}">
-                    <td class="${type1}">${type1}</td>
-                    <td>${dmgL1}</td>
-                    <td>${dmgM1}</td>
-                    <td>${dmgH1}</td>
-                    <td>${note1}</td>
-                </tr>
-                <tr data-toggle="modal" data-target=".${id}">
-                    <td class="${type2}">${type2}</td>
-                    <td>${dmgL2}</td>
-                    <td>${dmgM2}</td>
-                    <td>${dmgH2}</td>
-                    <td>${note2}</td>
-                </tr>
-                <tr>
-                    <td class="${type3}">${type3}</td>
-                    <td>${dmgL3}</td>
-                    <td>${dmgM3}</td>
-                    <td>${dmgH3}</td>
-                    <td>${note3}</td>
-                </tr>
-            `}
-    }
-    if (barrage.type == "skill") {
-        var id = barrage.id.replace(/\./g,'').replace(/\:/g,'');
-        var name = barrage.name;
-        var icon = barrage.icon;
-        // Ship
-            let ship01 = "";
-            let ship02 = "";
-            let ship03 = "";
-            let ship04 = "";
-            let ship05 = "";
-            let ship06 = "";
-            let ship07 = "";
-            let ship08 = "";
-            let ship09 = "";
-            let ship10 = "";
-            let ship11 = "";
-            let ship12 = "";
-            let ship13 = "";
-            let ship14 = "";
-            let ship15 = "";
-            let ship16 = "";
-            let ship17 = "";
-            let ship18 = "";
-            let ship19 = "";
-            let ship20 = "";
-            if (barrage.ships[0] !== undefined) {ship01 = barrage.ships[0]}
-            if (barrage.ships[1] !== undefined) {ship02 = ", " + barrage.ships[1]}
-            if (barrage.ships[2] !== undefined) {ship03 = ", " + barrage.ships[2]}
-            if (barrage.ships[3] !== undefined) {ship04 = ", " + barrage.ships[3]}
-            if (barrage.ships[4] !== undefined) {ship05 = ", " + barrage.ships[4]}
-            if (barrage.ships[5] !== undefined) {ship06 = ", " + barrage.ships[5]}
-            if (barrage.ships[6] !== undefined) {ship07 = ", " + barrage.ships[6]}
-            if (barrage.ships[7] !== undefined) {ship08 = ", " + barrage.ships[7]}
-            if (barrage.ships[8] !== undefined) {ship09 = ", " + barrage.ships[8]}
-            if (barrage.ships[9] !== undefined) {ship10 = ", " + barrage.ships[9]}
-            if (barrage.ships[10] !== undefined) {ship11 = ", " + barrage.ships[10]}
-            if (barrage.ships[11] !== undefined) {ship12 = ", " + barrage.ships[11]}
-            if (barrage.ships[12] !== undefined) {ship13 = ", " + barrage.ships[12]}
-            if (barrage.ships[13] !== undefined) {ship14 = ", " + barrage.ships[13]}
-            if (barrage.ships[14] !== undefined) {ship15 = ", " + barrage.ships[14]}
-            if (barrage.ships[15] !== undefined) {ship16 = ", " + barrage.ships[15]}
-            if (barrage.ships[16] !== undefined) {ship17 = ", " + barrage.ships[16]}
-            if (barrage.ships[17] !== undefined) {ship18 = ", " + barrage.ships[17]}
-            if (barrage.ships[18] !== undefined) {ship19 = ", " + barrage.ships[18]}
-            if (barrage.ships[19] !== undefined) {ship20 = ", " + barrage.ships[19]}
-        var ship = ship01+ship02+ship03+ship04+ship05+ship06+ship07+ship08+ship09+ship10+ship11+ship12+ship13+ship14+ship15+ship16+ship17+ship18+ship19+ship20;
-        var hull = barrage.hull;
-        var roundLength = barrage.rounds.length;
-        let type = barrage.rounds[0].type;
-        let dmgL = barrage.rounds[0].dmgL;
-        let dmgM = barrage.rounds[0].dmgM;
-        let dmgH = barrage.rounds[0].dmgH;
-        let note = "";
-        if (barrage.rounds[0].note !== undefined && barrage.rounds[0].note !== null) {note = barrage.rounds[0].note;}
-        let gif = "eqn";
-        if (barrage.image !== undefined && barrage.image !== null) {gif = "eqy"}
-        if (roundLength == 1) {
-            SkillOutput += `
-                <tr class="x${id}" data-toggle="modal" data-target=".${id}" onclick="modalCall('${id}')">
-                    <td class="${gif}"><img class="icon" src="${icon}"></td>
-                    <td><a href="#${id}">${name}</a></td>
-                    <td>${ship}</td>
-                    <td>${hull}</td>
-                    <td class="${type}">${type}</td>
-                    <td>${dmgL}</td>
-                    <td>${dmgM}</td>
-                    <td>${dmgH}</td>
-                    <td>${note}</td>
-                </tr>
-            `}
-        if (roundLength == 2) {
-            let type1 = barrage.rounds[1].type;
-            let dmgL1 = barrage.rounds[1].dmgL;
-            let dmgM1 = barrage.rounds[1].dmgM;
-            let dmgH1 = barrage.rounds[1].dmgH;
-            let note1 = "";
-            if (barrage.rounds[1].note !== undefined && barrage.rounds[1].note !== null) {note1 = barrage.rounds[1].note;}
-            SkillOutput += `
-                <tr class="x${id}" data-toggle="modal" data-target=".${id}" onclick="modalCall('${id}')">
-                    <td rowspan="2" class="${gif}"><img class="icon" src="${icon}"></td>
-                    <td rowspan="2"><a href="#${id}">${name}</a></td>
-                    <td rowspan="2">${ship}</td>
-                    <td rowspan="2">${hull}</td>
-                    <td class="${type}">${type}</td>
-                    <td>${dmgL}</td>
-                    <td>${dmgM}</td>
-                    <td>${dmgH}</td>
-                    <td>${note}</td>
-                </tr>
-                <tr data-toggle="modal" data-target=".${id}">
-                    <td class="${type1}">${type1}</td>
-                    <td>${dmgL1}</td>
-                    <td>${dmgM1}</td>
-                    <td>${dmgH1}</td>
-                    <td>${note1}</td>
-                </tr>
-            `}
-        if (roundLength == 3) {
-            let type1 = barrage.rounds[1].type;
-            let dmgL1 = barrage.rounds[1].dmgL;
-            let dmgM1 = barrage.rounds[1].dmgM;
-            let dmgH1 = barrage.rounds[1].dmgH;
-            let note1 = "";
-            if (barrage.rounds[1].note !== undefined && barrage.rounds[1].note !== null) {note1 = barrage.rounds[1].note;}
-            let type2 = barrage.rounds[2].type;
-            let dmgL2 = barrage.rounds[2].dmgL;
-            let dmgM2 = barrage.rounds[2].dmgM;
-            let dmgH2 = barrage.rounds[2].dmgH;
-            let note2 = "";
-            if (barrage.rounds[2].note !== undefined && barrage.rounds[2].note !== null) {note2 = barrage.rounds[2].note;}
-            SkillOutput += `
-                <tr class="x${id}" data-toggle="modal" data-target=".${id}" onclick="modalCall('${id}')">
-                    <td rowspan="3" class="${gif}"><img class="icon" src="${icon}"></td>
-                    <td rowspan="3"><a href="#${id}">${name}</a></td>
-                    <td rowspan="3">${ship}</td>
-                    <td rowspan="3">${hull}</td>
-                    <td class="${type}">${type}</td>
-                    <td>${dmgL}</td>
-                    <td>${dmgM}</td>
-                    <td>${dmgH}</td>
-                    <td>${note}</td>
-                </tr>
-                <tr data-toggle="modal" data-target=".${id}">
-                    <td class="${type1}">${type1}</td>
-                    <td>${dmgL1}</td>
-                    <td>${dmgM1}</td>
-                    <td>${dmgH1}</td>
-                    <td>${note1}</td>
-                </tr>
-                <tr>
-                    <td class="${type2}">${type2}</td>
-                    <td>${dmgL2}</td>
-                    <td>${dmgM2}</td>
-                    <td>${dmgH2}</td>
-                    <td>${note2}</td>
-                </tr>
-            `}
-        if (roundLength == 4) {
-            let type1 = barrage.rounds[1].type;
-            let dmgL1 = barrage.rounds[1].dmgL;
-            let dmgM1 = barrage.rounds[1].dmgM;
-            let dmgH1 = barrage.rounds[1].dmgH;
-            let note1 = "";
-            if (barrage.rounds[1].note !== undefined && barrage.rounds[1].note !== null) {note1 = barrage.rounds[1].note;}
-            let type2 = barrage.rounds[2].type;
-            let dmgL2 = barrage.rounds[2].dmgL;
-            let dmgM2 = barrage.rounds[2].dmgM;
-            let dmgH2 = barrage.rounds[2].dmgH;
-            let note2 = "";
-            if (barrage.rounds[2].note !== undefined && barrage.rounds[2].note !== null) {note2 = barrage.rounds[2].note;}
-            let type3 = barrage.rounds[3].type;
-            let dmgL3 = barrage.rounds[3].dmgL;
-            let dmgM3 = barrage.rounds[3].dmgM;
-            let dmgH3 = barrage.rounds[3].dmgH;
-            let note3 = "";
-            if (barrage.rounds[3].note !== undefined && barrage.rounds[3].note !== null) {note2 = barrage.rounds[3].note;}
-            SkillOutput += `
-                <tr class="x${id}" data-toggle="modal" data-target=".${id}" onclick="modalCall('${id}')">
-                    <td rowspan="4" class="${gif}"><img class="icon" src="${icon}"></td>
-                    <td rowspan="4"><a href="#${id}">${name}</a></td>
-                    <td rowspan="4">${ship}</td>
-                    <td rowspan="4">${hull}</td>
-                    <td class="${type}">${type}</td>
-                    <td>${dmgL}</td>
-                    <td>${dmgM}</td>
-                    <td>${dmgH}</td>
-                    <td>${note}</td>
-                </tr>
-                <tr data-toggle="modal" data-target=".${id}">
-                    <td class="${type1}">${type1}</td>
-                    <td>${dmgL1}</td>
-                    <td>${dmgM1}</td>
-                    <td>${dmgH1}</td>
-                    <td>${note1}</td>
-                </tr>
-                <tr data-toggle="modal" data-target=".${id}">
-                    <td class="${type2}">${type2}</td>
-                    <td>${dmgL2}</td>
-                    <td>${dmgM2}</td>
-                    <td>${dmgH2}</td>
-                    <td>${note2}</td>
-                </tr>
-                <tr>
-                    <td class="${type3}">${type3}</td>
-                    <td>${dmgL3}</td>
-                    <td>${dmgM3}</td>
-                    <td>${dmgH3}</td>
-                    <td>${note3}</td>
-                </tr>
-            `}
-    }
-})
+function barrageCall() {
+    barrage.forEach((barrage)=> {
+        if (barrage.type == "ship") {
+            var id = barrage.id.replace(/\./g,'').replace(/\:/g,'');
+            var name = barrage.name;
+            var icon = barrage.icon;
+            // Ship
+                let ship01 = "";
+                let ship02 = "";
+                let ship03 = "";
+                let ship04 = "";
+                let ship05 = "";
+                let ship06 = "";
+                let ship07 = "";
+                let ship08 = "";
+                let ship09 = "";
+                let ship10 = "";
+                let ship11 = "";
+                let ship12 = "";
+                let ship13 = "";
+                let ship14 = "";
+                let ship15 = "";
+                let ship16 = "";
+                let ship17 = "";
+                let ship18 = "";
+                let ship19 = "";
+                let ship20 = "";
+                if (barrage.ships[0] !== undefined) {ship01 = barrage.ships[0]}
+                if (barrage.ships[1] !== undefined) {ship02 = ", " + barrage.ships[1]}
+                if (barrage.ships[2] !== undefined) {ship03 = ", " + barrage.ships[2]}
+                if (barrage.ships[3] !== undefined) {ship04 = ", " + barrage.ships[3]}
+                if (barrage.ships[4] !== undefined) {ship05 = ", " + barrage.ships[4]}
+                if (barrage.ships[5] !== undefined) {ship06 = ", " + barrage.ships[5]}
+                if (barrage.ships[6] !== undefined) {ship07 = ", " + barrage.ships[6]}
+                if (barrage.ships[7] !== undefined) {ship08 = ", " + barrage.ships[7]}
+                if (barrage.ships[8] !== undefined) {ship09 = ", " + barrage.ships[8]}
+                if (barrage.ships[9] !== undefined) {ship10 = ", " + barrage.ships[9]}
+                if (barrage.ships[10] !== undefined) {ship11 = ", " + barrage.ships[10]}
+                if (barrage.ships[11] !== undefined) {ship12 = ", " + barrage.ships[11]}
+                if (barrage.ships[12] !== undefined) {ship13 = ", " + barrage.ships[12]}
+                if (barrage.ships[13] !== undefined) {ship14 = ", " + barrage.ships[13]}
+                if (barrage.ships[14] !== undefined) {ship15 = ", " + barrage.ships[14]}
+                if (barrage.ships[15] !== undefined) {ship16 = ", " + barrage.ships[15]}
+                if (barrage.ships[16] !== undefined) {ship17 = ", " + barrage.ships[16]}
+                if (barrage.ships[17] !== undefined) {ship18 = ", " + barrage.ships[17]}
+                if (barrage.ships[18] !== undefined) {ship19 = ", " + barrage.ships[18]}
+                if (barrage.ships[19] !== undefined) {ship20 = ", " + barrage.ships[19]}
+            var ship = ship01+ship02+ship03+ship04+ship05+ship06+ship07+ship08+ship09+ship10+ship11+ship12+ship13+ship14+ship15+ship16+ship17+ship18+ship19+ship20;
+            var hull = barrage.hull;
+            var roundLength = barrage.rounds.length;
+            let type = barrage.rounds[0].type;
+            let dmgL = barrage.rounds[0].dmgL;
+            let dmgM = barrage.rounds[0].dmgM;
+            let dmgH = barrage.rounds[0].dmgH;
+            let note = "";
+            if (barrage.rounds[0].note !== undefined && barrage.rounds[0].note !== null) {note = barrage.rounds[0].note;}
+            let gif = "eqn";
+            if (barrage.image !== undefined && barrage.image !== null) {gif = "eqy"}
+            if (roundLength == 1) {
+                ShipOutput += `
+                    <tr class="x${id}" data-toggle="modal" data-target=".${id}" onclick="modalCall('${id}')">
+                        <td class="${gif}"><img class="icon" src="${icon}"></td>
+                        <td><a href="#${id}">${name}</a></td>
+                        <td>${ship}</td>
+                        <td>${hull}</td>
+                        <td class="${type}">${type}</td>
+                        <td>${dmgL}</td>
+                        <td>${dmgM}</td>
+                        <td>${dmgH}</td>
+                        <td>${note}</td>
+                    </tr>
+                `}
+            if (roundLength == 2) {
+                let type1 = barrage.rounds[1].type;
+                let dmgL1 = barrage.rounds[1].dmgL;
+                let dmgM1 = barrage.rounds[1].dmgM;
+                let dmgH1 = barrage.rounds[1].dmgH;
+                let note1 = "";
+                if (barrage.rounds[1].note !== undefined && barrage.rounds[1].note !== null) {note1 = barrage.rounds[1].note;}
+                ShipOutput += `
+                    <tr class="x${id}" data-toggle="modal" data-target=".${id}" onclick="modalCall('${id}')">
+                        <td rowspan="2" class="${gif}"><img class="icon" src="${icon}"></td>
+                        <td rowspan="2"><a href="#${id}">${name}</a></td>
+                        <td rowspan="2">${ship}</td>
+                        <td rowspan="2">${hull}</td>
+                        <td class="${type}">${type}</td>
+                        <td>${dmgL}</td>
+                        <td>${dmgM}</td>
+                        <td>${dmgH}</td>
+                        <td>${note}</td>
+                    </tr>
+                    <tr data-toggle="modal" data-target=".${id}">
+                        <td class="${type1}">${type1}</td>
+                        <td>${dmgL1}</td>
+                        <td>${dmgM1}</td>
+                        <td>${dmgH1}</td>
+                        <td>${note1}</td>
+                    </tr>
+                `}
+            if (roundLength == 3) {
+                let type1 = barrage.rounds[1].type;
+                let dmgL1 = barrage.rounds[1].dmgL;
+                let dmgM1 = barrage.rounds[1].dmgM;
+                let dmgH1 = barrage.rounds[1].dmgH;
+                let note1 = "";
+                if (barrage.rounds[1].note !== undefined && barrage.rounds[1].note !== null) {note1 = barrage.rounds[1].note;}
+                let type2 = barrage.rounds[2].type;
+                let dmgL2 = barrage.rounds[2].dmgL;
+                let dmgM2 = barrage.rounds[2].dmgM;
+                let dmgH2 = barrage.rounds[2].dmgH;
+                let note2 = "";
+                if (barrage.rounds[2].note !== undefined && barrage.rounds[2].note !== null) {note2 = barrage.rounds[2].note;}
+                ShipOutput += `
+                    <tr class="x${id}" data-toggle="modal" data-target=".${id}" onclick="modalCall('${id}')">
+                        <td rowspan="3" class="${gif}"><img class="icon" src="${icon}"></td>
+                        <td rowspan="3"><a href="#${id}">${name}</a></td>
+                        <td rowspan="3">${ship}</td>
+                        <td rowspan="3">${hull}</td>
+                        <td class="${type}">${type}</td>
+                        <td>${dmgL}</td>
+                        <td>${dmgM}</td>
+                        <td>${dmgH}</td>
+                        <td>${note}</td>
+                    </tr>
+                    <tr data-toggle="modal" data-target=".${id}">
+                        <td class="${type1}">${type1}</td>
+                        <td>${dmgL1}</td>
+                        <td>${dmgM1}</td>
+                        <td>${dmgH1}</td>
+                        <td>${note1}</td>
+                    </tr>
+                    <tr>
+                        <td class="${type2}">${type2}</td>
+                        <td>${dmgL2}</td>
+                        <td>${dmgM2}</td>
+                        <td>${dmgH2}</td>
+                        <td>${note2}</td>
+                    </tr>
+                `}
+            if (roundLength == 4) {
+                let type1 = barrage.rounds[1].type;
+                let dmgL1 = barrage.rounds[1].dmgL;
+                let dmgM1 = barrage.rounds[1].dmgM;
+                let dmgH1 = barrage.rounds[1].dmgH;
+                let note1 = "";
+                if (barrage.rounds[1].note !== undefined && barrage.rounds[1].note !== null) {note1 = barrage.rounds[1].note;}
+                let type2 = barrage.rounds[2].type;
+                let dmgL2 = barrage.rounds[2].dmgL;
+                let dmgM2 = barrage.rounds[2].dmgM;
+                let dmgH2 = barrage.rounds[2].dmgH;
+                let note2 = "";
+                if (barrage.rounds[2].note !== undefined && barrage.rounds[2].note !== null) {note2 = barrage.rounds[2].note;}
+                let type3 = barrage.rounds[3].type;
+                let dmgL3 = barrage.rounds[3].dmgL;
+                let dmgM3 = barrage.rounds[3].dmgM;
+                let dmgH3 = barrage.rounds[3].dmgH;
+                let note3 = "";
+                if (barrage.rounds[3].note !== undefined && barrage.rounds[3].note !== null) {note2 = barrage.rounds[3].note;}
+                ShipOutput += `
+                    <tr class="x${id}" data-toggle="modal" data-target=".${id}" onclick="modalCall('${id}')">
+                        <td rowspan="4" class="${gif}"><img class="icon" src="${icon}"></td>
+                        <td rowspan="4"><a href="#${id}">${name}</a></td>
+                        <td rowspan="4">${ship}</td>
+                        <td rowspan="4">${hull}</td>
+                        <td class="${type}">${type}</td>
+                        <td>${dmgL}</td>
+                        <td>${dmgM}</td>
+                        <td>${dmgH}</td>
+                        <td>${note}</td>
+                    </tr>
+                    <tr data-toggle="modal" data-target=".${id}">
+                        <td class="${type1}">${type1}</td>
+                        <td>${dmgL1}</td>
+                        <td>${dmgM1}</td>
+                        <td>${dmgH1}</td>
+                        <td>${note1}</td>
+                    </tr>
+                    <tr data-toggle="modal" data-target=".${id}">
+                        <td class="${type2}">${type2}</td>
+                        <td>${dmgL2}</td>
+                        <td>${dmgM2}</td>
+                        <td>${dmgH2}</td>
+                        <td>${note2}</td>
+                    </tr>
+                    <tr>
+                        <td class="${type3}">${type3}</td>
+                        <td>${dmgL3}</td>
+                        <td>${dmgM3}</td>
+                        <td>${dmgH3}</td>
+                        <td>${note3}</td>
+                    </tr>
+                `}
+        }
+        if (barrage.type == "class") {
+            var id = barrage.id.replace(/\./g,'').replace(/\:/g,'');
+            var name = barrage.name;
+            var icon = barrage.icon;
+            // Ship
+                let ship01 = "";
+                let ship02 = "";
+                let ship03 = "";
+                let ship04 = "";
+                let ship05 = "";
+                let ship06 = "";
+                let ship07 = "";
+                let ship08 = "";
+                let ship09 = "";
+                let ship10 = "";
+                let ship11 = "";
+                let ship12 = "";
+                let ship13 = "";
+                let ship14 = "";
+                let ship15 = "";
+                let ship16 = "";
+                let ship17 = "";
+                let ship18 = "";
+                let ship19 = "";
+                let ship20 = "";
+                if (barrage.ships[0] !== undefined) {ship01 = barrage.ships[0]}
+                if (barrage.ships[1] !== undefined) {ship02 = ", " + barrage.ships[1]}
+                if (barrage.ships[2] !== undefined) {ship03 = ", " + barrage.ships[2]}
+                if (barrage.ships[3] !== undefined) {ship04 = ", " + barrage.ships[3]}
+                if (barrage.ships[4] !== undefined) {ship05 = ", " + barrage.ships[4]}
+                if (barrage.ships[5] !== undefined) {ship06 = ", " + barrage.ships[5]}
+                if (barrage.ships[6] !== undefined) {ship07 = ", " + barrage.ships[6]}
+                if (barrage.ships[7] !== undefined) {ship08 = ", " + barrage.ships[7]}
+                if (barrage.ships[8] !== undefined) {ship09 = ", " + barrage.ships[8]}
+                if (barrage.ships[9] !== undefined) {ship10 = ", " + barrage.ships[9]}
+                if (barrage.ships[10] !== undefined) {ship11 = ", " + barrage.ships[10]}
+                if (barrage.ships[11] !== undefined) {ship12 = ", " + barrage.ships[11]}
+                if (barrage.ships[12] !== undefined) {ship13 = ", " + barrage.ships[12]}
+                if (barrage.ships[13] !== undefined) {ship14 = ", " + barrage.ships[13]}
+                if (barrage.ships[14] !== undefined) {ship15 = ", " + barrage.ships[14]}
+                if (barrage.ships[15] !== undefined) {ship16 = ", " + barrage.ships[15]}
+                if (barrage.ships[16] !== undefined) {ship17 = ", " + barrage.ships[16]}
+                if (barrage.ships[17] !== undefined) {ship18 = ", " + barrage.ships[17]}
+                if (barrage.ships[18] !== undefined) {ship19 = ", " + barrage.ships[18]}
+                if (barrage.ships[19] !== undefined) {ship20 = ", " + barrage.ships[19]}
+            var ship = ship01+ship02+ship03+ship04+ship05+ship06+ship07+ship08+ship09+ship10+ship11+ship12+ship13+ship14+ship15+ship16+ship17+ship18+ship19+ship20;
+            var hull = barrage.hull;
+            var roundLength = barrage.rounds.length;
+            let type = barrage.rounds[0].type;
+            let dmgL = barrage.rounds[0].dmgL;
+            let dmgM = barrage.rounds[0].dmgM;
+            let dmgH = barrage.rounds[0].dmgH;
+            let note = "";
+            if (barrage.rounds[0].note !== undefined && barrage.rounds[0].note !== null) {note = barrage.rounds[0].note;}
+            let gif = "eqn";
+            if (barrage.image !== undefined && barrage.image !== null) {gif = "eqy"}
+            if (roundLength == 1) {
+                ClassOutput += `
+                    <tr class="x${id}" data-toggle="modal" data-target=".${id}" onclick="modalCall('${id}')">
+                        <td class="${gif}"><img class="icon" src="${icon}"></td>
+                        <td><a href="#${id}">${name}</a></td>
+                        <td>${ship}</td>
+                        <td>${hull}</td>
+                        <td class="${type}">${type}</td>
+                        <td>${dmgL}</td>
+                        <td>${dmgM}</td>
+                        <td>${dmgH}</td>
+                        <td>${note}</td>
+                    </tr>
+                `}
+            if (roundLength == 2) {
+                let type1 = barrage.rounds[1].type;
+                let dmgL1 = barrage.rounds[1].dmgL;
+                let dmgM1 = barrage.rounds[1].dmgM;
+                let dmgH1 = barrage.rounds[1].dmgH;
+                let note1 = "";
+                if (barrage.rounds[1].note !== undefined && barrage.rounds[1].note !== null) {note1 = barrage.rounds[1].note;}
+                ClassOutput += `
+                    <tr class="x${id}" data-toggle="modal" data-target=".${id}" onclick="modalCall('${id}')">
+                        <td rowspan="2" class="${gif}"><img class="icon" src="${icon}"></td>
+                        <td rowspan="2"><a href="#${id}">${name}</a></td>
+                        <td rowspan="2">${ship}</td>
+                        <td rowspan="2">${hull}</td>
+                        <td class="${type}">${type}</td>
+                        <td>${dmgL}</td>
+                        <td>${dmgM}</td>
+                        <td>${dmgH}</td>
+                        <td>${note}</td>
+                    </tr>
+                    <tr data-toggle="modal" data-target=".${id}">
+                        <td class="${type1}">${type1}</td>
+                        <td>${dmgL1}</td>
+                        <td>${dmgM1}</td>
+                        <td>${dmgH1}</td>
+                        <td>${note1}</td>
+                    </tr>
+                `}
+            if (roundLength == 3) {
+                let type1 = barrage.rounds[1].type;
+                let dmgL1 = barrage.rounds[1].dmgL;
+                let dmgM1 = barrage.rounds[1].dmgM;
+                let dmgH1 = barrage.rounds[1].dmgH;
+                let note1 = "";
+                if (barrage.rounds[1].note !== undefined && barrage.rounds[1].note !== null) {note1 = barrage.rounds[1].note;}
+                let type2 = barrage.rounds[2].type;
+                let dmgL2 = barrage.rounds[2].dmgL;
+                let dmgM2 = barrage.rounds[2].dmgM;
+                let dmgH2 = barrage.rounds[2].dmgH;
+                let note2 = "";
+                if (barrage.rounds[2].note !== undefined && barrage.rounds[2].note !== null) {note2 = barrage.rounds[2].note;}
+                ClassOutput += `
+                    <tr class="x${id}" data-toggle="modal" data-target=".${id}" onclick="modalCall('${id}')">
+                        <td rowspan="3" class="${gif}"><img class="icon" src="${icon}"></td>
+                        <td rowspan="3"><a href="#${id}">${name}</a></td>
+                        <td rowspan="3">${ship}</td>
+                        <td rowspan="3">${hull}</td>
+                        <td class="${type}">${type}</td>
+                        <td>${dmgL}</td>
+                        <td>${dmgM}</td>
+                        <td>${dmgH}</td>
+                        <td>${note}</td>
+                    </tr>
+                    <tr data-toggle="modal" data-target=".${id}">
+                        <td class="${type1}">${type1}</td>
+                        <td>${dmgL1}</td>
+                        <td>${dmgM1}</td>
+                        <td>${dmgH1}</td>
+                        <td>${note1}</td>
+                    </tr>
+                    <tr>
+                        <td class="${type2}">${type2}</td>
+                        <td>${dmgL2}</td>
+                        <td>${dmgM2}</td>
+                        <td>${dmgH2}</td>
+                        <td>${note2}</td>
+                    </tr>
+                `}
+            if (roundLength == 4) {
+                let type1 = barrage.rounds[1].type;
+                let dmgL1 = barrage.rounds[1].dmgL;
+                let dmgM1 = barrage.rounds[1].dmgM;
+                let dmgH1 = barrage.rounds[1].dmgH;
+                let note1 = "";
+                if (barrage.rounds[1].note !== undefined && barrage.rounds[1].note !== null) {note1 = barrage.rounds[1].note;}
+                let type2 = barrage.rounds[2].type;
+                let dmgL2 = barrage.rounds[2].dmgL;
+                let dmgM2 = barrage.rounds[2].dmgM;
+                let dmgH2 = barrage.rounds[2].dmgH;
+                let note2 = "";
+                if (barrage.rounds[2].note !== undefined && barrage.rounds[2].note !== null) {note2 = barrage.rounds[2].note;}
+                let type3 = barrage.rounds[3].type;
+                let dmgL3 = barrage.rounds[3].dmgL;
+                let dmgM3 = barrage.rounds[3].dmgM;
+                let dmgH3 = barrage.rounds[3].dmgH;
+                let note3 = "";
+                if (barrage.rounds[3].note !== undefined && barrage.rounds[3].note !== null) {note2 = barrage.rounds[3].note;}
+                ClassOutput += `
+                    <tr class="x${id}" data-toggle="modal" data-target=".${id}" onclick="modalCall('${id}')">
+                        <td rowspan="4" class="${gif}"><img class="icon" src="${icon}"></td>
+                        <td rowspan="4"><a href="#${id}">${name}</a></td>
+                        <td rowspan="4">${ship}</td>
+                        <td rowspan="4">${hull}</td>
+                        <td class="${type}">${type}</td>
+                        <td>${dmgL}</td>
+                        <td>${dmgM}</td>
+                        <td>${dmgH}</td>
+                        <td>${note}</td>
+                    </tr>
+                    <tr data-toggle="modal" data-target=".${id}">
+                        <td class="${type1}">${type1}</td>
+                        <td>${dmgL1}</td>
+                        <td>${dmgM1}</td>
+                        <td>${dmgH1}</td>
+                        <td>${note1}</td>
+                    </tr>
+                    <tr data-toggle="modal" data-target=".${id}">
+                        <td class="${type2}">${type2}</td>
+                        <td>${dmgL2}</td>
+                        <td>${dmgM2}</td>
+                        <td>${dmgH2}</td>
+                        <td>${note2}</td>
+                    </tr>
+                    <tr>
+                        <td class="${type3}">${type3}</td>
+                        <td>${dmgL3}</td>
+                        <td>${dmgM3}</td>
+                        <td>${dmgH3}</td>
+                        <td>${note3}</td>
+                    </tr>
+                `}
+        }
+        if (barrage.type == "skill") {
+            var id = barrage.id.replace(/\./g,'').replace(/\:/g,'');
+            var name = barrage.name;
+            var icon = barrage.icon;
+            // Ship
+                let ship01 = "";
+                let ship02 = "";
+                let ship03 = "";
+                let ship04 = "";
+                let ship05 = "";
+                let ship06 = "";
+                let ship07 = "";
+                let ship08 = "";
+                let ship09 = "";
+                let ship10 = "";
+                let ship11 = "";
+                let ship12 = "";
+                let ship13 = "";
+                let ship14 = "";
+                let ship15 = "";
+                let ship16 = "";
+                let ship17 = "";
+                let ship18 = "";
+                let ship19 = "";
+                let ship20 = "";
+                if (barrage.ships[0] !== undefined) {ship01 = barrage.ships[0]}
+                if (barrage.ships[1] !== undefined) {ship02 = ", " + barrage.ships[1]}
+                if (barrage.ships[2] !== undefined) {ship03 = ", " + barrage.ships[2]}
+                if (barrage.ships[3] !== undefined) {ship04 = ", " + barrage.ships[3]}
+                if (barrage.ships[4] !== undefined) {ship05 = ", " + barrage.ships[4]}
+                if (barrage.ships[5] !== undefined) {ship06 = ", " + barrage.ships[5]}
+                if (barrage.ships[6] !== undefined) {ship07 = ", " + barrage.ships[6]}
+                if (barrage.ships[7] !== undefined) {ship08 = ", " + barrage.ships[7]}
+                if (barrage.ships[8] !== undefined) {ship09 = ", " + barrage.ships[8]}
+                if (barrage.ships[9] !== undefined) {ship10 = ", " + barrage.ships[9]}
+                if (barrage.ships[10] !== undefined) {ship11 = ", " + barrage.ships[10]}
+                if (barrage.ships[11] !== undefined) {ship12 = ", " + barrage.ships[11]}
+                if (barrage.ships[12] !== undefined) {ship13 = ", " + barrage.ships[12]}
+                if (barrage.ships[13] !== undefined) {ship14 = ", " + barrage.ships[13]}
+                if (barrage.ships[14] !== undefined) {ship15 = ", " + barrage.ships[14]}
+                if (barrage.ships[15] !== undefined) {ship16 = ", " + barrage.ships[15]}
+                if (barrage.ships[16] !== undefined) {ship17 = ", " + barrage.ships[16]}
+                if (barrage.ships[17] !== undefined) {ship18 = ", " + barrage.ships[17]}
+                if (barrage.ships[18] !== undefined) {ship19 = ", " + barrage.ships[18]}
+                if (barrage.ships[19] !== undefined) {ship20 = ", " + barrage.ships[19]}
+            var ship = ship01+ship02+ship03+ship04+ship05+ship06+ship07+ship08+ship09+ship10+ship11+ship12+ship13+ship14+ship15+ship16+ship17+ship18+ship19+ship20;
+            var hull = barrage.hull;
+            var roundLength = barrage.rounds.length;
+            let type = barrage.rounds[0].type;
+            let dmgL = barrage.rounds[0].dmgL;
+            let dmgM = barrage.rounds[0].dmgM;
+            let dmgH = barrage.rounds[0].dmgH;
+            let note = "";
+            if (barrage.rounds[0].note !== undefined && barrage.rounds[0].note !== null) {note = barrage.rounds[0].note;}
+            let gif = "eqn";
+            if (barrage.image !== undefined && barrage.image !== null) {gif = "eqy"}
+            if (roundLength == 1) {
+                SkillOutput += `
+                    <tr class="x${id}" data-toggle="modal" data-target=".${id}" onclick="modalCall('${id}')">
+                        <td class="${gif}"><img class="icon" src="${icon}"></td>
+                        <td><a href="#${id}">${name}</a></td>
+                        <td>${ship}</td>
+                        <td>${hull}</td>
+                        <td class="${type}">${type}</td>
+                        <td>${dmgL}</td>
+                        <td>${dmgM}</td>
+                        <td>${dmgH}</td>
+                        <td>${note}</td>
+                    </tr>
+                `}
+            if (roundLength == 2) {
+                let type1 = barrage.rounds[1].type;
+                let dmgL1 = barrage.rounds[1].dmgL;
+                let dmgM1 = barrage.rounds[1].dmgM;
+                let dmgH1 = barrage.rounds[1].dmgH;
+                let note1 = "";
+                if (barrage.rounds[1].note !== undefined && barrage.rounds[1].note !== null) {note1 = barrage.rounds[1].note;}
+                SkillOutput += `
+                    <tr class="x${id}" data-toggle="modal" data-target=".${id}" onclick="modalCall('${id}')">
+                        <td rowspan="2" class="${gif}"><img class="icon" src="${icon}"></td>
+                        <td rowspan="2"><a href="#${id}">${name}</a></td>
+                        <td rowspan="2">${ship}</td>
+                        <td rowspan="2">${hull}</td>
+                        <td class="${type}">${type}</td>
+                        <td>${dmgL}</td>
+                        <td>${dmgM}</td>
+                        <td>${dmgH}</td>
+                        <td>${note}</td>
+                    </tr>
+                    <tr data-toggle="modal" data-target=".${id}">
+                        <td class="${type1}">${type1}</td>
+                        <td>${dmgL1}</td>
+                        <td>${dmgM1}</td>
+                        <td>${dmgH1}</td>
+                        <td>${note1}</td>
+                    </tr>
+                `}
+            if (roundLength == 3) {
+                let type1 = barrage.rounds[1].type;
+                let dmgL1 = barrage.rounds[1].dmgL;
+                let dmgM1 = barrage.rounds[1].dmgM;
+                let dmgH1 = barrage.rounds[1].dmgH;
+                let note1 = "";
+                if (barrage.rounds[1].note !== undefined && barrage.rounds[1].note !== null) {note1 = barrage.rounds[1].note;}
+                let type2 = barrage.rounds[2].type;
+                let dmgL2 = barrage.rounds[2].dmgL;
+                let dmgM2 = barrage.rounds[2].dmgM;
+                let dmgH2 = barrage.rounds[2].dmgH;
+                let note2 = "";
+                if (barrage.rounds[2].note !== undefined && barrage.rounds[2].note !== null) {note2 = barrage.rounds[2].note;}
+                SkillOutput += `
+                    <tr class="x${id}" data-toggle="modal" data-target=".${id}" onclick="modalCall('${id}')">
+                        <td rowspan="3" class="${gif}"><img class="icon" src="${icon}"></td>
+                        <td rowspan="3"><a href="#${id}">${name}</a></td>
+                        <td rowspan="3">${ship}</td>
+                        <td rowspan="3">${hull}</td>
+                        <td class="${type}">${type}</td>
+                        <td>${dmgL}</td>
+                        <td>${dmgM}</td>
+                        <td>${dmgH}</td>
+                        <td>${note}</td>
+                    </tr>
+                    <tr data-toggle="modal" data-target=".${id}">
+                        <td class="${type1}">${type1}</td>
+                        <td>${dmgL1}</td>
+                        <td>${dmgM1}</td>
+                        <td>${dmgH1}</td>
+                        <td>${note1}</td>
+                    </tr>
+                    <tr>
+                        <td class="${type2}">${type2}</td>
+                        <td>${dmgL2}</td>
+                        <td>${dmgM2}</td>
+                        <td>${dmgH2}</td>
+                        <td>${note2}</td>
+                    </tr>
+                `}
+            if (roundLength == 4) {
+                let type1 = barrage.rounds[1].type;
+                let dmgL1 = barrage.rounds[1].dmgL;
+                let dmgM1 = barrage.rounds[1].dmgM;
+                let dmgH1 = barrage.rounds[1].dmgH;
+                let note1 = "";
+                if (barrage.rounds[1].note !== undefined && barrage.rounds[1].note !== null) {note1 = barrage.rounds[1].note;}
+                let type2 = barrage.rounds[2].type;
+                let dmgL2 = barrage.rounds[2].dmgL;
+                let dmgM2 = barrage.rounds[2].dmgM;
+                let dmgH2 = barrage.rounds[2].dmgH;
+                let note2 = "";
+                if (barrage.rounds[2].note !== undefined && barrage.rounds[2].note !== null) {note2 = barrage.rounds[2].note;}
+                let type3 = barrage.rounds[3].type;
+                let dmgL3 = barrage.rounds[3].dmgL;
+                let dmgM3 = barrage.rounds[3].dmgM;
+                let dmgH3 = barrage.rounds[3].dmgH;
+                let note3 = "";
+                if (barrage.rounds[3].note !== undefined && barrage.rounds[3].note !== null) {note2 = barrage.rounds[3].note;}
+                SkillOutput += `
+                    <tr class="x${id}" data-toggle="modal" data-target=".${id}" onclick="modalCall('${id}')">
+                        <td rowspan="4" class="${gif}"><img class="icon" src="${icon}"></td>
+                        <td rowspan="4"><a href="#${id}">${name}</a></td>
+                        <td rowspan="4">${ship}</td>
+                        <td rowspan="4">${hull}</td>
+                        <td class="${type}">${type}</td>
+                        <td>${dmgL}</td>
+                        <td>${dmgM}</td>
+                        <td>${dmgH}</td>
+                        <td>${note}</td>
+                    </tr>
+                    <tr data-toggle="modal" data-target=".${id}">
+                        <td class="${type1}">${type1}</td>
+                        <td>${dmgL1}</td>
+                        <td>${dmgM1}</td>
+                        <td>${dmgH1}</td>
+                        <td>${note1}</td>
+                    </tr>
+                    <tr data-toggle="modal" data-target=".${id}">
+                        <td class="${type2}">${type2}</td>
+                        <td>${dmgL2}</td>
+                        <td>${dmgM2}</td>
+                        <td>${dmgH2}</td>
+                        <td>${note2}</td>
+                    </tr>
+                    <tr>
+                        <td class="${type3}">${type3}</td>
+                        <td>${dmgL3}</td>
+                        <td>${dmgM3}</td>
+                        <td>${dmgH3}</td>
+                        <td>${note3}</td>
+                    </tr>
+                `}
+        }
+    })
+}
 
 function modalCreate (idx) {
     for (var i = 0; i < barrage.length; i++) {
