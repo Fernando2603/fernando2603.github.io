@@ -9,6 +9,8 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.11.3/datatables.min.css"/>
+	<script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.11.3/datatables.min.js"></script>
 	<script type="text/javascript" src="js/script.js"></script>
     	<script type="text/javascript" src="js/barrage-script.js"></script>
 	<script type="text/javascript" src="js/barrage.js"></script>
@@ -111,5 +113,8 @@
 <script>
 $(function () {$('[data-toggle="tooltip"]').tooltip()})
 $(".ShipOutput").append(ShipOutput)
+$("#ShipBarrage").dataTable({searching: false, paging: false, info: false});
+$("#ClassBarraeg").dataTable({searching: false, paging: false, info: false});
+$("#SkillBarrage").dataTable({searching: false, paging: false, info: false});
 </script>
 </html>
