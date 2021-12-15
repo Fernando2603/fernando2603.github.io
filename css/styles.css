@@ -1,12 +1,12 @@
 /* ROOT */
 	:root {
-		--URare-AL: linear-gradient(120deg,#fbffca,#baffbf,#a7efff,#ffabff);
-		--URare-AL2 : linear-gradient(135deg,#59AE6A,#48AE96,#60D9EC,#65A5D5,#9491E0,#C382A4);
-		--SRare-AL: #ee9;
-		--Elite-AL: #c4adff;
-		--Rare-AL: #9fe8ff;
-		--Normal-AL: #ccc;
-		--color-background: 237,241,245;
+	    --URare-AL: linear-gradient(120deg,#fbffca,#baffbf,#a7efff,#ffabff);
+	    --URare-AL2 : linear-gradient(135deg,#59AE6A,#48AE96,#60D9EC,#65A5D5,#9491E0,#C382A4);
+	    --SRare-AL: #ee9;
+	    --Elite-AL: #c4adff;
+	    --Rare-AL: #9fe8ff;
+	    --Normal-AL: #ccc;
+	    --color-background: 237,241,245;
 	    --color-foreground: 250,250,250;
 	    --color-foreground-grey: 245,246,246;
 	    --color-foreground-grey-dark: 234,236,237;
@@ -286,6 +286,7 @@
 
 /* Card ID */
 /* Card-01 - Azur Lane */
+	.fernando > cover {background-color: white;}
 	.azur-lane, .fernando {
 		box-shadow: 0 2px 20px rgb(255 0 0 / 100%);
 	}
