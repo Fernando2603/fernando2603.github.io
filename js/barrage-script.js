@@ -94,10 +94,6 @@ function barrageCall() {
                         <td>${note}</td>
                     </tr>
                     <tr data-toggle="modal" data-target=".${id}">
-                        <td style="display: none;"></td>
-                        <td style="display: none;"></td>
-                        <td style="display: none;"></td>
-                        <td style="display: none;"></td>
                         <td class="${type1}">${type1}</td>
                         <td>${dmgL1}</td>
                         <td>${dmgM1}</td>
@@ -131,10 +127,6 @@ function barrageCall() {
                         <td>${note}</td>
                     </tr>
                     <tr data-toggle="modal" data-target=".${id}">
-                        <td style="display: none;"></td>
-                        <td style="display: none;"></td>
-                        <td style="display: none;"></td>
-                        <td style="display: none;"></td>
                         <td class="${type1}">${type1}</td>
                         <td>${dmgL1}</td>
                         <td>${dmgM1}</td>
@@ -142,10 +134,6 @@ function barrageCall() {
                         <td>${note1}</td>
                     </tr>
                     <tr>
-                        <td style="display: none;"></td>
-                        <td style="display: none;"></td>
-                        <td style="display: none;"></td>
-                        <td style="display: none;"></td>
                         <td class="${type2}">${type2}</td>
                         <td>${dmgL2}</td>
                         <td>${dmgM2}</td>
@@ -185,10 +173,6 @@ function barrageCall() {
                         <td>${note}</td>
                     </tr>
                     <tr data-toggle="modal" data-target=".${id}">
-                        <td style="display: none;"></td>
-                        <td style="display: none;"></td>
-                        <td style="display: none;"></td>
-                        <td style="display: none;"></td>
                         <td class="${type1}">${type1}</td>
                         <td>${dmgL1}</td>
                         <td>${dmgM1}</td>
@@ -197,10 +181,6 @@ function barrageCall() {
                     </tr>
                     <tr data-toggle="modal" data-target=".${id}">
                         <td class="${type2}">${type2}</td>
-                        <td style="display: none;"></td>
-                        <td style="display: none;"></td>
-                        <td style="display: none;"></td>
-                        <td style="display: none;"></td>
                         <td>${dmgL2}</td>
                         <td>${dmgM2}</td>
                         <td>${dmgH2}</td>
@@ -208,10 +188,6 @@ function barrageCall() {
                     </tr>
                     <tr>
                         <td class="${type3}">${type3}</td>
-                        <td style="display: none;"></td>
-                        <td style="display: none;"></td>
-                        <td style="display: none;"></td>
-                        <td style="display: none;"></td>
                         <td>${dmgL3}</td>
                         <td>${dmgM3}</td>
                         <td>${dmgH3}</td>
@@ -309,10 +285,6 @@ function barrageCall() {
                         <td>${note}</td>
                     </tr>
                     <tr data-toggle="modal" data-target=".${id}">
-                        <td style="display: none;"></td>
-                        <td style="display: none;"></td>
-                        <td style="display: none;"></td>
-                        <td style="display: none;"></td>
                         <td class="${type1}">${type1}</td>
                         <td>${dmgL1}</td>
                         <td>${dmgM1}</td>
@@ -346,10 +318,6 @@ function barrageCall() {
                         <td>${note}</td>
                     </tr>
                     <tr data-toggle="modal" data-target=".${id}">
-                        <td style="display: none;"></td>
-                        <td style="display: none;"></td>
-                        <td style="display: none;"></td>
-                        <td style="display: none;"></td>
                         <td class="${type1}">${type1}</td>
                         <td>${dmgL1}</td>
                         <td>${dmgM1}</td>
@@ -357,10 +325,6 @@ function barrageCall() {
                         <td>${note1}</td>
                     </tr>
                     <tr>
-                        <td style="display: none;"></td>
-                        <td style="display: none;"></td>
-                        <td style="display: none;"></td>
-                        <td style="display: none;"></td>
                         <td class="${type2}">${type2}</td>
                         <td>${dmgL2}</td>
                         <td>${dmgM2}</td>
@@ -400,10 +364,6 @@ function barrageCall() {
                         <td>${note}</td>
                     </tr>
                     <tr data-toggle="modal" data-target=".${id}">
-                        <td style="display: none;"></td>
-                        <td style="display: none;"></td>
-                        <td style="display: none;"></td>
-                        <td style="display: none;"></td>
                         <td class="${type1}">${type1}</td>
                         <td>${dmgL1}</td>
                         <td>${dmgM1}</td>
@@ -411,10 +371,6 @@ function barrageCall() {
                         <td>${note1}</td>
                     </tr>
                     <tr data-toggle="modal" data-target=".${id}">
-                        <td style="display: none;"></td>
-                        <td style="display: none;"></td>
-                        <td style="display: none;"></td>
-                        <td style="display: none;"></td>
                         <td class="${type2}">${type2}</td>
                         <td>${dmgL2}</td>
                         <td>${dmgM2}</td>
@@ -422,10 +378,6 @@ function barrageCall() {
                         <td>${note2}</td>
                     </tr>
                     <tr>
-                        <td style="display: none;"></td>
-                        <td style="display: none;"></td>
-                        <td style="display: none;"></td>
-                        <td style="display: none;"></td>
                         <td class="${type3}">${type3}</td>
                         <td>${dmgL3}</td>
                         <td>${dmgM3}</td>
@@ -524,10 +476,6 @@ function barrageCall() {
                         <td>${note}</td>
                     </tr>
                     <tr data-toggle="modal" data-target=".${id}">
-                        <td style="display: none;"></td>
-                        <td style="display: none;"></td>
-                        <td style="display: none;"></td>
-                        <td style="display: none;"></td>
                         <td class="${type1}">${type1}</td>
                         <td>${dmgL1}</td>
                         <td>${dmgM1}</td>
@@ -561,10 +509,6 @@ function barrageCall() {
                         <td>${note}</td>
                     </tr>
                     <tr data-toggle="modal" data-target=".${id}">
-                        <td style="display: none;"></td>
-                        <td style="display: none;"></td>
-                        <td style="display: none;"></td>
-                        <td style="display: none;"></td>
                         <td class="${type1}">${type1}</td>
                         <td>${dmgL1}</td>
                         <td>${dmgM1}</td>
@@ -572,10 +516,6 @@ function barrageCall() {
                         <td>${note1}</td>
                     </tr>
                     <tr>
-                        <td style="display: none;"></td>
-                        <td style="display: none;"></td>
-                        <td style="display: none;"></td>
-                        <td style="display: none;"></td>
                         <td class="${type2}">${type2}</td>
                         <td>${dmgL2}</td>
                         <td>${dmgM2}</td>
@@ -615,10 +555,6 @@ function barrageCall() {
                         <td>${note}</td>
                     </tr>
                     <tr data-toggle="modal" data-target=".${id}">
-                        <td style="display: none;"></td>
-                        <td style="display: none;"></td>
-                        <td style="display: none;"></td>
-                        <td style="display: none;"></td>
                         <td class="${type1}">${type1}</td>
                         <td>${dmgL1}</td>
                         <td>${dmgM1}</td>
@@ -626,10 +562,6 @@ function barrageCall() {
                         <td>${note1}</td>
                     </tr>
                     <tr data-toggle="modal" data-target=".${id}">
-                        <td style="display: none;"></td>
-                        <td style="display: none;"></td>
-                        <td style="display: none;"></td>
-                        <td style="display: none;"></td>
                         <td class="${type2}">${type2}</td>
                         <td>${dmgL2}</td>
                         <td>${dmgM2}</td>
@@ -637,10 +569,6 @@ function barrageCall() {
                         <td>${note2}</td>
                     </tr>
                     <tr>
-                        <td style="display: none;"></td>
-                        <td style="display: none;"></td>
-                        <td style="display: none;"></td>
-                        <td style="display: none;"></td>
                         <td class="${type3}">${type3}</td>
                         <td>${dmgL3}</td>
                         <td>${dmgM3}</td>
