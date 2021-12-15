@@ -286,7 +286,7 @@
 
 /* Card ID */
 /* Card-01 - Azur Lane */
-	.fernando > cover {background-color: white;}
+	.fernando > .cover {background-color: white;}
 	.azur-lane, .fernando {
 		box-shadow: 0 2px 20px rgb(255 0 0 / 100%);
 	}
