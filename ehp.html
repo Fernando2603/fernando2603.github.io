@@ -6,6 +6,7 @@
 	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta content="utf-8" http-equiv="encoding">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -22,10 +23,58 @@
         .banner {padding: 0!important;}
         .banner img {height: 55px;}
         .auxicon {max-width: 50px!important; max-height: 50px!important; min-width: 50px!important; min-height: 50px!important;}
+        .p3 {width: 33.33%!important;}
+        .p4 {width: 25%!important;}
+        .trueColor {background-color: palegreen;}
+        .falseColor {background-color: #faa;}
+        #mainTable_wrapper > .row:first-child > div:first-child {display: none;}
+        #mainTable_wrapper > .row:first-child > div:nth-child(2) {flex: auto; max-width: 100%!important;}
+        #mainTable_filter > label > input {
+            margin-top: 10px;
+            width: 200px;
+            height: 30px;
+        }
+        .form-control-sm {font-size: inherit; text-align: center; vertical-align: middle;}
+        div.dataTables_wrapper div.dataTables_filter {text-align: center!important;}
+        .act-btn{
+            background: black;
+            display: block;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            color: white;
+            font-size: 30px;
+            font-weight: bold;
+            border-radius: 50%;
+            -webkit-border-radius: 50%;
+            text-decoration: none;
+            transition: ease all 0.3s;
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            z-index: 1;
+        }
+        .act-btn:hover{background: white;}
+        .act-btn2 {left: 70px!important;}
+        .mb0 {margin-bottom: 0px!important;}
 	</style>
 	<title>Effective Health Pool</title>
 </head>
 <body>
+    <a class="act-btn" href="#" onclick="searchBar()">
+        <div 
+            class="parent-button button"
+            data-toggle="tooltip"
+            data-placement="bottom"
+            title="Click here to Hide & Show search bar"
+        >
+            <i class="material-icons">settings</i>
+        </div>
+    </a>
+    <div class="alert alert-danger text-center align-middle mb0" role="alert">
+        <b>This page is under development! <i>[Last Updated Dec 18, 2021]</i><b>
+    </div>
     <table class="table table-hover align-middle text-center" id="mainTable">
         <thead>
             <tr>
@@ -87,7 +136,7 @@ function eHPCalculate(health, evasion, luck, attackerHit, attackerLuck, levelDif
     const attackerChance    = ((attackerLuck - defenderLuck) + levelDifference) / 1000;
     const accuracy          = 0.1 + attackerAccuracy + attackerChance + (accuracySkill - evarate);
     const eHP               = health / accuracy;
-    return eHP.toFixed(0);
+    return parseInt(eHP.toFixed(0));
 }
 
 let modalCurrent = "";
@@ -254,13 +303,13 @@ function shipModal(data) {
     <div class="modal fade" id="modal${id}" tabindex="-1">
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
-                <h3 class="text-center">${name}</h3>
+                <h1 class="text-center">${name}</h3>
                 <table class="table table-hover text-center align-middle">
                     <thead>
                      <tr>
-                        <th>Health</th>
-                        <th>Evasion</th>
-                        <th>Luck</th>
+                        <th class="p3">Health</th>
+                        <th class="p3">Evasion</th>
+                        <th class="p3">Luck</th>
                      </tr>
                      <tr>
                         <th>${baseHealth}</th>
@@ -272,15 +321,15 @@ function shipModal(data) {
                  <table class="table table-hover text-center align-middle">
                     <thead>
                         <tr>
-                            <th>Formation</th>
-                            <th>Ship Skill</th>
-                            <th>Item Skill</th>
-                            <th>Ship Level</th>
+                            <th class="p4">Formation</th>
+                            <th class="p4">Ship Skill</th>
+                            <th class="p4">Item Skill</th>
+                            <th class="p4">Ship Level</th>
                         </tr>
                         <tr>
                             <th>Double Line (30% more eva)</th>
-                            <th>False</th>
-                            <th>True</th>
+                            <th class="falseColor">False</th>
+                            <th class="trueColor">True</th>
                             <th>125</th>
                         </tr>
                         <tr>
@@ -531,23 +580,30 @@ function shipModal(data) {
         </div>
     </div>
     `;
+    const eHPString = [noGear, noGearToolkit, noGearRudder, noGearBeaver, noGearHP550, noGearHP500, noGearFuel, noGearEVA28, noGearNavalTreaty, noGearCamoGear, noGearOcean, noGearNyReport, noGearEVA15, doubleToolkit, doubleHP550, doubleHP500, doubleFuel, doubleEVA28, doubleCamoGear, doubleOcean, doubleNyReport, doubleEVA15, toolkitRudder, toolkitBeaver, toolkitHP550, toolkitHP500, toolkitFuel, toolkitEVA28, toolkitNavalTreaty, toolkitCamoGear, toolkitOcean, toolkitNyReport, toolkitEVA15, rudderBeaver, rudderHP550, rudderHP500, rudderFuel, rudderEVA28, rudderNavalTreaty, rudderCamoGear, rudderOcean, rudderNyReport, rudderEVA15, beaverHP550, beaverHP500, beaverFuel, beaverEVA28, beaverNavalTreaty, beaverCamoGear, beaverOcean, beaverNyReport, beaverEVA15, hp550HP500, hp550Fuel, hp550EVA28, hp550NavalTreaty, hp550CamoGear, hp550Ocean, hp550NyReport, hp550EVA15, hp500Fuel, hp500EVA28, hp500NavalTreaty, hp500CamoGear, hp500Ocean, hp500NyReport, hp500EVA15, fuelEVA28, fuelNavalTreaty, fuelCamoGear, fuelOcean, fuelNyReport, fuelEVA15, eva28NavalTreaty, eva28CamoGear, eva28Ocean, eva28NyReport, eva28EVA15, navalTreatyCamoGear, navalTreatyOcean, navalTreatyNyReport, navalTreatyEVA15, camoGearOcean, camoGearNyReport, camoGearEVA15, oceanNyReport, oceanEVA15, nyReportEVA15]
     $(".modalContainer").html(modalCurrent);
     $(function () {$('[data-toggle="tooltip"]').tooltip()})
+    let eHPArray = [];
+    for (var i = 0; i < eHPString.length; i++) {eHPArray.push(parseInt(eHPString[i]));}
+    let max = Math.max(...eHPArray);
+    let min = Math.min(...eHPArray);
+
+    function maxGet(idx) {return min+(((max-min)/10)*idx)}
     $('#eHPmodal').DataTable({
         searching: false, paging: false, info: false, ordering: false,
         'rowCallback': function(row, data, index){
             for(i = 0; i < 14; i++) {
-                if(data[i] > 0 && data[i] < 1500) {$(row).find(`th:eq(${i})`).css("background","#f97f6f")};
-                if(data[i] > 1500 && data[i] < 3000) {$(row).find(`th:eq(${i})`).css("background","#fa9573")};
-                if(data[i] > 3000 && data[i] < 4500) {$(row).find(`th:eq(${i})`).css("background","#fbab77")};
-                if(data[i] > 6000 && data[i] < 7500) {$(row).find(`th:eq(${i})`).css("background","#fed880")};
-                if(data[i] > 7500 && data[i] < 9000) {$(row).find(`th:eq(${i})`).css("background","#fbea84")};
-                if(data[i] > 9000 && data[i] < 10500) {$(row).find(`th:eq(${i})`).css("background","#e2e383")};
-                if(data[i] > 12000 && data[i] < 13500) {$(row).find(`th:eq(${i})`).css("background","#afd480")};
-                if(data[i] > 13500 && data[i] < 15000) {$(row).find(`th:eq(${i})`).css("background","#96cd7e")};
-                if(data[i] > 15000 && data[i] < 16500) {$(row).find(`th:eq(${i})`).css("background","#7dc67d")};
-                if(data[i] > 16500 && data[i] < 18000) {$(row).find(`th:eq(${i})`).css("background","#63be7b")};
-                if(data[i] > 18000) {$(row).find(`th:eq(${i})`).css("background","#63bf7b")};
+                if(data[i] > 0 && data[i] < maxGet(1)) {$(row).find(`th:eq(${i})`).css("background","#f97f6f")};
+                if(data[i] > maxGet(1) && data[i] < maxGet(2)) {$(row).find(`th:eq(${i})`).css("background","#fa9573")};
+                if(data[i] > maxGet(2) && data[i] < maxGet(3)) {$(row).find(`th:eq(${i})`).css("background","#fbab77")};
+                if(data[i] > maxGet(3) && data[i] < maxGet(4)) {$(row).find(`th:eq(${i})`).css("background","#fed880")};
+                if(data[i] > maxGet(4) && data[i] < maxGet(5)) {$(row).find(`th:eq(${i})`).css("background","#fbea84")};
+                if(data[i] > maxGet(5) && data[i] < maxGet(6)) {$(row).find(`th:eq(${i})`).css("background","#e2e383")};
+                if(data[i] > maxGet(6) && data[i] < maxGet(7)) {$(row).find(`th:eq(${i})`).css("background","#afd480")};
+                if(data[i] > maxGet(7) && data[i] < maxGet(8)) {$(row).find(`th:eq(${i})`).css("background","#96cd7e")};
+                if(data[i] > maxGet(8) && data[i] < maxGet(9)) {$(row).find(`th:eq(${i})`).css("background","#7dc67d")};
+                if(data[i] > maxGet(9) && data[i] < maxGet(10)) {$(row).find(`th:eq(${i})`).css("background","#63be7b")};
+                if(data[i] >= maxGet(10)) {$(row).find(`th:eq(${i})`).css("background","#63bf7b")};
             }
         }
     });
@@ -582,12 +638,30 @@ function shipCreate(azurAPI) {
         `;
     })
     $(".shipList").html(shipList)
-    $("#mainTable").dataTable({searching: false, paging: false, info: false});
+    $("#mainTable").dataTable({
+        searching: true, paging: false, info: false, 
+            language: {
+            searchPlaceholder: "Search ship",
+            search: ""
+          }
+      });
+    $("#mainTable_filter").hide();
 }
 function dataExtractor(azurAPI) {
     vanguardFilter(azurAPI);
     shipCreate(vanguard);
 }
 $(function () {$('[data-toggle="tooltip"]').tooltip()})
+
+var hideStatus = true;
+function searchBar() {
+    if(hideStatus) {
+        $("#mainTable_filter").show();
+        hideStatus = false;
+    } else {
+        $("#mainTable_filter").hide();
+        hideStatus = true;
+    }
+}
 </script>
 </html>
