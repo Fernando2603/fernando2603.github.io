@@ -21,7 +21,7 @@
         .rainbow, .Ultra {background: linear-gradient(120deg,#fbffca,#baffbf,#a7efff,#ffabff)!important;}
         .banner {padding: 0!important;}
         .banner img {height: 55px;}
-        .auxicon {max-width: 50px!important; max-height: 50px!important;}
+        .auxicon {max-width: 50px!important; max-height: 50px!important; min-width: 50px!important; min-height: 50px!important;}
 	</style>
 	<title>Effective Health Pool</title>
 </head>
@@ -271,27 +271,33 @@ function shipModal(data) {
                 </table>
                  <table class="table table-hover text-center align-middle">
                     <thead>
-                     <tr>
-                        <th>Formation</th>
-                        <th>Ship Skill</th>
-                        <th>Item Skill</th>
-                        <th>Ship Level</th>
-                        <th>Enemy Level</th>
-                        <th>Enemy Hit</th>
-                        <th>Enemy Luck</th>
-                     </tr>
-                     <tr>
-                        <th>Double Line (30% more eva)</th>
-                        <th>False</th>
-                        <th>True</th>
-                        <th>125</th>
-                        <th>125</th>
-                        <th>75</th>
-                        <th>25</th>
-                     </tr>
+                        <tr>
+                            <th>Formation</th>
+                            <th>Ship Skill</th>
+                            <th>Item Skill</th>
+                            <th>Ship Level</th>
+                        </tr>
+                        <tr>
+                            <th>Double Line (30% more eva)</th>
+                            <th>False</th>
+                            <th>True</th>
+                            <th>125</th>
+                        </tr>
+                        <tr>
+                            <th>Enemy Level</th>
+                            <th>Enemy Hit</th>
+                            <th>Enemy Luck</th>
+                            <th>Level Dffierence</th>
+                        </tr>
+                        <tr>
+                            <th>125</th>
+                            <th>75</th>
+                            <th>25</th>
+                            <th>0</th>
+                        </tr>
                     </thead>
                 </table>
-                <table class="table table-hover table-bordered text-center align-middle">
+                <table class="table table-bordered text-center align-middle" id="eHPmodal">
                     <thead>
                         <tr>
                             <th>eHP</th>
@@ -309,6 +315,8 @@ function shipModal(data) {
                             <th>${nyReport}</th>
                             <th>${eva15}</th>
                         </tr>
+                    </thead>
+                    <tbody>
                         <tr>
                             <th>${emptySlot}</th>
                             <th>${noGear}</th>
@@ -517,7 +525,7 @@ function shipModal(data) {
                             <th>${nyReportEVA15}</th>
                             <th>${doubleEVA15}</th>
                         </tr>
-                    </thead>
+                    </tbody>
                 </table>
             </div>
         </div>
@@ -525,6 +533,24 @@ function shipModal(data) {
     `;
     $(".modalContainer").html(modalCurrent);
     $(function () {$('[data-toggle="tooltip"]').tooltip()})
+    $('#eHPmodal').DataTable({
+        searching: false, paging: false, info: false, ordering: false,
+        'rowCallback': function(row, data, index){
+            for(i = 0; i < 14; i++) {
+                if(data[i] > 0 && data[i] < 1500) {$(row).find(`th:eq(${i})`).css("background","#f97f6f")};
+                if(data[i] > 1500 && data[i] < 3000) {$(row).find(`th:eq(${i})`).css("background","#fa9573")};
+                if(data[i] > 3000 && data[i] < 4500) {$(row).find(`th:eq(${i})`).css("background","#fbab77")};
+                if(data[i] > 6000 && data[i] < 7500) {$(row).find(`th:eq(${i})`).css("background","#fed880")};
+                if(data[i] > 7500 && data[i] < 9000) {$(row).find(`th:eq(${i})`).css("background","#fbea84")};
+                if(data[i] > 9000 && data[i] < 10500) {$(row).find(`th:eq(${i})`).css("background","#e2e383")};
+                if(data[i] > 12000 && data[i] < 13500) {$(row).find(`th:eq(${i})`).css("background","#afd480")};
+                if(data[i] > 13500 && data[i] < 15000) {$(row).find(`th:eq(${i})`).css("background","#96cd7e")};
+                if(data[i] > 15000 && data[i] < 16500) {$(row).find(`th:eq(${i})`).css("background","#7dc67d")};
+                if(data[i] > 16500 && data[i] < 18000) {$(row).find(`th:eq(${i})`).css("background","#63be7b")};
+                if(data[i] > 18000) {$(row).find(`th:eq(${i})`).css("background","#63bf7b")};
+            }
+        }
+    });
 }
 
 function shipCreate(azurAPI) {
