@@ -13,6 +13,7 @@
     <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.11.3/datatables.min.js"></script>
 	<script type="text/javascript" src="js/script.js"></script>
 	<style>
+        .table {margin-bottom: 0px!important;}
 		.table td, .table th {vertical-align: middle!important;}
 		.blue, .Rare {background-color: powderblue;}
 		.purple, .Elite {background-color: plum;}
@@ -20,8 +21,9 @@
         .rainbow, .Ultra {background: linear-gradient(120deg,#fbffca,#baffbf,#a7efff,#ffabff)!important;}
         .banner {padding: 0!important;}
         .banner img {height: 55px;}
+        .auxicon {max-width: 50px!important; max-height: 50px!important;}
 	</style>
-	<title>Effective Hit Points</title>
+	<title>Effective Health Pool</title>
 </head>
 <body>
     <table class="table table-hover align-middle text-center" id="mainTable">
@@ -38,6 +40,7 @@
         </thead>
         <tbody class="shipList"></tbody>
     </table>
+    <div class="modalContainer"></div>
 </body>
 <script>
 let vanguard = []; 
@@ -77,9 +80,9 @@ function vanguardFilter(azurAPI) {
 // calculate { accuracy = 0.1 + attackerAccuracy +  attackerChance + AccuracyVsShipTypeSkill - Evasion Rate Skill }
 // calculate { eHP = baseHP / accuracy }
 function eHPCalculate(health, evasion, luck, attackerHit, attackerLuck, levelDifference, accuracySkill, evarate) {
-    const baseHP            = parseInt(health);
-    const defenderEvasion   = parseInt(evasion);
-    const defenderLuck      = parseInt(luck);
+    const baseHP            = health
+    const defenderEvasion   = evasion
+    const defenderLuck      = luck
     const attackerAccuracy  = attackerHit / (attackerHit + defenderEvasion + 2);
     const attackerChance    = ((attackerLuck - defenderLuck) + levelDifference) / 1000;
     const accuracy          = 0.1 + attackerAccuracy + attackerChance + (accuracySkill - evarate);
@@ -87,14 +90,451 @@ function eHPCalculate(health, evasion, luck, attackerHit, attackerLuck, levelDif
     return eHP.toFixed(0);
 }
 
+let modalCurrent = "";
+function shipModal(data) {
+    const ship              = AzurAPI.find(({id}) => id === data);
+    console.log(ship);
+    const id                = ship.id;
+    const name              = ship.names.en;
+    const baseHealth        = parseInt(ship.stats.level125.health);
+    const baseEvasion       = parseInt(ship.stats.level125.evasion);
+    const baseLuck          = parseInt(ship.stats.level125.luck);
+    // formation : double line = x1.3
+    // formation : single line = x0.9
+    let formation       = 1.3;
+    let enemyLevel      = 125;
+    let attackerHit     = 75;
+    let attackerLuck    = 25;
+    let levelDifference = 125 - enemyLevel;
+    function eHPfor(health, evasion, accuracySkill, evarate) {
+        const finalEvasion = evasion * formation;
+        return eHPCalculate(health, finalEvasion, baseLuck, attackerHit, attackerLuck, levelDifference, accuracySkill, evarate);
+    }
+    // for HP550 current gear = Action Report: Operation AF, Celestial Body, Gamers Mark, Goldburn
+    // for HP500 current gear = Manjuu, Pearl Tears, Pyoko-Pyoko
+    // for EVA28 current gear = Cosmic Kicks, Gridman Calibur
+    // for CamoGear = Hydraulic Steering Gear, Naval Camouflage
+    // for EVA15 current gear = Awakening Pearl, Battle Tracto Max, Random Word Generator, SG Radar, Shining Bracelet, Team Emblem
+
+    const noGear                = eHPfor(baseHealth, baseEvasion, 0, 0);
+    const noGearToolkit         = eHPfor(((baseHealth+500)*1.06), baseEvasion, 0, 0);
+    const noGearRudder          = eHPfor((baseHealth+60), (baseEvasion+40), 0, 0.012);
+    const noGearBeaver          = eHPfor((baseHealth+75), (baseEvasion+35), 0, 0);
+    const noGearHP550           = eHPfor((baseHealth+550), baseEvasion, 0, 0);
+    const noGearHP500           = eHPfor((baseHealth+500), baseEvasion, 0, 0);
+    const noGearFuel            = eHPfor((baseHealth+350), (baseEvasion+5), 0, 0);
+    const noGearEVA28           = eHPfor(baseHealth, (baseEvasion+28), 0, 0);
+    const noGearNavalTreaty     = eHPfor(baseHealth, (baseEvasion+20), 0, 0);
+    const noGearCamoGear        = eHPfor((baseHealth+48), (baseEvasion+19), 0, 0);
+    const noGearOcean           = eHPfor((baseHealth+100), (baseEvasion+18), 0, 0);
+    const noGearNyReport        = eHPfor((baseHealth+120), (baseEvasion+15), 0, 0);
+    const noGearEVA15           = eHPfor(baseHealth, (baseEvasion+15), 0, 0);
+
+    const doubleToolkit         = eHPfor(((baseHealth+1000)*1.06), baseEvasion, 0, 0);
+    const doubleRudder          = "N/A";
+    const doubleBeaver          = "N/A";
+    const doubleHP550           = eHPfor((baseHealth+550+550), baseEvasion, 0, 0);
+    const doubleHP500           = eHPfor((baseHealth+500+500), baseEvasion, 0, 0);
+    const doubleFuel            = eHPfor((baseHealth+350+350), (baseEvasion+5+5), 0, 0);
+    const doubleEVA28           = eHPfor(baseHealth, (baseEvasion+28+28), 0, 0);
+    const doubleNavalTreaty     = "N/A";
+    const doubleCamoGear        = eHPfor((baseHealth+48+48), (baseEvasion+19+19), 0, 0);
+    const doubleOcean           = eHPfor((baseHealth+100+100), (baseEvasion+18+18), 0, 0);
+    const doubleNyReport        = eHPfor((baseHealth+120+120), (baseEvasion+15+15), 0, 0);
+    const doubleEVA15           = eHPfor(baseHealth, (baseEvasion+15+15), 0, 0);
+
+    const toolkitRudder         = eHPfor(((baseHealth+500+60)*1.06), (baseEvasion+40), 0, 0.012);
+    const toolkitBeaver         = eHPfor(((baseHealth+500+75)*1.06), (baseEvasion+35), 0, 0);
+    const toolkitHP550          = eHPfor(((baseHealth+550+500)*1.06), baseEvasion, 0, 0);
+    const toolkitHP500          = eHPfor(((baseHealth+500+500)*1.06), baseEvasion, 0, 0);
+    const toolkitFuel           = eHPfor(((baseHealth+500+350)*1.06), (baseEvasion+5), 0, 0);
+    const toolkitEVA28          = eHPfor(((baseHealth+500)*1.06), (baseEvasion+28), 0, 0);
+    const toolkitNavalTreaty    = eHPfor(((baseHealth+500)*1.06), (baseEvasion+20), 0, 0);
+    const toolkitCamoGear       = eHPfor(((baseHealth+500+48)*1.06), (baseEvasion+19), 0, 0);
+    const toolkitOcean          = eHPfor(((baseHealth+500+100)*1.06), (baseEvasion+18), 0, 0);
+    const toolkitNyReport       = eHPfor(((baseHealth+500+120)*1.06), (baseEvasion+15), 0, 0);
+    const toolkitEVA15          = eHPfor(((baseHealth+500)*1.06), (baseEvasion+15), 0, 0);
+
+    const rudderBeaver          = eHPfor((baseHealth+60+75), (baseEvasion+40+35), 0, 0.012);
+    const rudderHP550           = eHPfor((baseHealth+60+550), (baseEvasion+40), 0, 0.012);
+    const rudderHP500           = eHPfor((baseHealth+60+500), (baseEvasion+40), 0, 0.012);
+    const rudderFuel            = eHPfor((baseHealth+60+350), (baseEvasion+40+5), 0, 0.012);
+    const rudderEVA28           = eHPfor((baseHealth+60), (baseEvasion+40+28), 0, 0.012);
+    const rudderNavalTreaty     = eHPfor((baseHealth+60), (baseEvasion+40+20), 0, 0.012);
+    const rudderCamoGear        = eHPfor((baseHealth+60+48), (baseEvasion+40+19), 0, 0.012);
+    const rudderOcean           = eHPfor((baseHealth+60+100), (baseEvasion+40+18), 0, 0.012);
+    const rudderNyReport        = eHPfor((baseHealth+60+120), (baseEvasion+40+15), 0, 0.012);
+    const rudderEVA15           = eHPfor((baseHealth+60), (baseEvasion+40+15), 0, 0.012);
+
+    const beaverHP550           = eHPfor((baseHealth+75+550), (baseEvasion+35), 0, 0);
+    const beaverHP500           = eHPfor((baseHealth+75+500), (baseEvasion+35), 0, 0);
+    const beaverFuel            = eHPfor((baseHealth+75+350), (baseEvasion+35+5), 0, 0);
+    const beaverEVA28           = eHPfor((baseHealth+75), (baseEvasion+35+28), 0, 0);
+    const beaverNavalTreaty     = eHPfor((baseHealth+75), (baseEvasion+35+20), 0, 0);
+    const beaverCamoGear        = eHPfor((baseHealth+75+48), (baseEvasion+35+19), 0, 0);
+    const beaverOcean           = eHPfor((baseHealth+75+100), (baseEvasion+35+18), 0, 0);
+    const beaverNyReport        = eHPfor((baseHealth+75+120), (baseEvasion+35+15), 0, 0);
+    const beaverEVA15           = eHPfor((baseHealth+75), (baseEvasion+35+15), 0, 0);
+
+    const hp550HP500            = eHPfor((baseHealth+550+500), baseEvasion, 0, 0);
+    const hp550Fuel             = eHPfor((baseHealth+550+350), (baseEvasion+5), 0, 0);
+    const hp550EVA28            = eHPfor((baseHealth+550), (baseEvasion+28), 0, 0);
+    const hp550NavalTreaty      = eHPfor((baseHealth+550), (baseEvasion+20), 0, 0);
+    const hp550CamoGear         = eHPfor((baseHealth+550+48), (baseEvasion+19), 0, 0);
+    const hp550Ocean            = eHPfor((baseHealth+550+100), (baseEvasion+18), 0, 0);
+    const hp550NyReport         = eHPfor((baseHealth+550+120), (baseEvasion+15), 0, 0);
+    const hp550EVA15            = eHPfor((baseHealth+550), (baseEvasion+15), 0, 0);
+
+    const hp500Fuel             = eHPfor((baseHealth+500+350), (baseEvasion+5), 0, 0);
+    const hp500EVA28            = eHPfor((baseHealth+500), (baseEvasion+28), 0, 0);
+    const hp500NavalTreaty      = eHPfor((baseHealth+500), (baseEvasion+20), 0, 0);
+    const hp500CamoGear         = eHPfor((baseHealth+500+48), (baseEvasion+19), 0, 0);
+    const hp500Ocean            = eHPfor((baseHealth+500+100), (baseEvasion+18), 0, 0);
+    const hp500NyReport         = eHPfor((baseHealth+500+120), (baseEvasion+15), 0, 0);
+    const hp500EVA15            = eHPfor((baseHealth+500), (baseEvasion+15), 0, 0);
+
+    const fuelEVA28             = eHPfor((baseHealth+350), (baseEvasion+5+28), 0, 0);
+    const fuelNavalTreaty       = eHPfor((baseHealth+350), (baseEvasion+5+20), 0, 0);
+    const fuelCamoGear          = eHPfor((baseHealth+350+48), (baseEvasion+5+19), 0, 0);
+    const fuelOcean             = eHPfor((baseHealth+350+100), (baseEvasion+18), 0, 0);
+    const fuelNyReport          = eHPfor((baseHealth+350+120), (baseEvasion+15), 0, 0);
+    const fuelEVA15             = eHPfor((baseHealth+350), (baseEvasion+15), 0, 0);
+
+    const eva28NavalTreaty      = eHPfor(baseHealth, (baseEvasion+28+20), 0, 0);
+    const eva28CamoGear         = eHPfor((baseHealth+48), (baseEvasion+28+19), 0, 0);
+    const eva28Ocean            = eHPfor((baseHealth+100), (baseEvasion+28+18), 0, 0);
+    const eva28NyReport         = eHPfor((baseHealth+120), (baseEvasion+28+15), 0, 0);
+    const eva28EVA15            = eHPfor(baseHealth, (baseEvasion+28+15), 0, 0);
+
+    const navalTreatyCamoGear   = eHPfor((baseHealth+48), (baseEvasion+20+19), 0, 0);
+    const navalTreatyOcean      = eHPfor((baseHealth+100), (baseEvasion+20+18), 0, 0);
+    const navalTreatyNyReport   = eHPfor((baseHealth+120), (baseEvasion+20+15), 0, 0);
+    const navalTreatyEVA15      = eHPfor(baseHealth, (baseEvasion+20+15), 0, 0);
+
+    const camoGearOcean         = eHPfor((baseHealth+48+100), (baseEvasion+19+18), 0, 0);
+    const camoGearNyReport      = eHPfor((baseHealth+48+120), (baseEvasion+19+15), 0, 0);
+    const camoGearEVA15         = eHPfor((baseHealth+48), (baseEvasion+19+15), 0, 0);
+
+    const oceanNyReport         = eHPfor((baseHealth+100+120), (baseEvasion+18+15), 0, 0);
+    const oceanEVA15            = eHPfor((baseHealth+100), (baseEvasion+18+15), 0, 0);
+
+    const nyReportEVA15         = eHPfor((baseHealth+120), (baseEvasion+15+15), 0, 0);
+
+    // icon function
+    function iconGet(link, title) {
+        return `
+            <img 
+                class="auxicon" 
+                src="${link}" 
+                data-toggle="tooltip" 
+                data-placement="top" 
+                data-html="true"
+                title="${title}">
+        `
+    }
+    // icon placement
+    const emptySlot = iconGet("https://azurlane.netojuu.com/w/images/1/1c/Empty_slot.png", "Empty Slot")
+    const toolkit = iconGet("https://azurlane.netojuu.com/w/images/thumb/d/d5/2400.png/50px-2400.png", 
+        "<b>Repair Toolkit</b><br>500 HP<br>Restores 1% max HP every 15s");
+    const rudder = iconGet("https://azurlane.netojuu.com/w/images/thumb/4/48/1760.png/50px-1760.png", 
+        "<b>Improved Hydraulic Rudder</b><br>60 HP<br>40 EVA<br>Every 20 seconds, 30.0 percent chance to evade all attacks for 2 seconds")
+    const beaver = iconGet("https://azurlane.netojuu.com/w/images/thumb/b/be/500.png/50px-500.png", 
+        "<b>Little Beaver Squadron Tag</b><br>75 HP<br>35 EVA<br>Increases Movement Speed of all ships by 20%")
+    const hp550 = iconGet("https://azurlane.netojuu.com/w/images/thumb/8/81/940.png/50px-940.png",
+        "<img src=https://azurlane.netojuu.com/w/images/thumb/8/81/940.png/50px-940.png><b>AR: Operation AF</b><br><img src=https://azurlane.netojuu.com/w/images/thumb/e/e9/89400.png/50px-89400.png><b>Goldburn</b><br><img src=https://azurlane.netojuu.com/w/images/thumb/8/8a/89220.png/50px-89220.png><b>Celestial Body</b><br><img src=https://azurlane.netojuu.com/w/images/thumb/d/db/89080.png/50px-89080.png><b>Gamers Mark</b><br>550 HP")
+    const hp500 = iconGet("https://azurlane.netojuu.com/w/images/thumb/7/78/520.png/50px-520.png","<img src=https://azurlane.netojuu.com/w/images/thumb/7/78/520.png/50px-520.png><b>Pearl Tears</b><br><img src=https://azurlane.netojuu.com/w/images/thumb/1/15/840.png/50px-840.png><b>USS Manjuu</b><br><img src=https://azurlane.netojuu.com/w/images/thumb/8/84/89020.png/50px-89020.png><b>Pyoko-Pyoko</b><br>500 HP")
+    const fuel = iconGet("https://azurlane.netojuu.com/w/images/thumb/2/2b/2000.png/50px-2000.png", "<b>Fuel Filter</b><br>350 HP<br>5 EVA")
+    const eva28 = iconGet("https://azurlane.netojuu.com/w/images/thumb/a/a8/89200.png/50px-89200.png", "<img src=https://azurlane.netojuu.com/w/images/thumb/a/a8/89200.png/50px-89200.png><b>Cosmic Kics</b><br><img src=https://azurlane.netojuu.com/w/images/thumb/3/34/89320.png/50px-89320.png><b>Gridman Calibur</b><br>28 EVA")
+    const navalTreaty = iconGet("https://azurlane.netojuu.com/w/images/thumb/5/53/860.png/50px-860.png", "<b>Washington Naval Treaty</b><br>20 EVA<br>30 HIT")
+    const camoGear = iconGet("https://azurlane.netojuu.com/w/images/thumb/a/ac/1900.png/50px-1900.png", "<img src=https://azurlane.netojuu.com/w/images/thumb/a/ac/1900.png/50px-1900.png><b>Naval Camouflage</b><br><img src=https://azurlane.netojuu.com/w/images/thumb/c/c1/1700.png/50px-1700.png><b>Hydraulic Steering</b><br>48 HP<br>19 EVA")
+    const ocean = iconGet("https://azurlane.netojuu.com/w/images/thumb/8/85/1960.png/50px-1960.png", "<b>Ocean Soul Camouflage</b><br>100 HP<br>18 EVA")
+    const nyReport = iconGet("https://azurlane.netojuu.com/w/images/thumb/d/d1/760.png/50px-760.png", "<b>NY City Coast Recon Report</b><br>120 HP<br>15 EVA")
+    const eva15 = iconGet("https://azurlane.netojuu.com/w/images/thumb/9/9f/1500.png/50px-1500.png", "<img src=https://azurlane.netojuu.com/w/images/thumb/9/9f/1500.png/50px-1500.png><b>SG Radar</b><br><img src=https://azurlane.netojuu.com/w/images/thumb/2/2f/89240.png/50px-89240.png><b>Awakening Pearl</b><br><img src=https://azurlane.netojuu.com/w/images/thumb/1/1d/89300.png/50px-89300.png><b>Battle Tracto Max</b><br><img src=https://azurlane.netojuu.com/w/images/thumb/2/29/89000.png/50px-89000.png><b>RW Generator</b><img src=https://azurlane.netojuu.com/w/images/thumb/0/01/89280.png/50px-89280.png><b>Shining Bracelet</b><br><img src=https://azurlane.netojuu.com/w/images/thumb/5/55/89060.png/50px-89060.png><b>Team Emblem</b><br>15 EVA")
+    modalCurrent = `
+    <div class="modal fade" id="modal${id}" tabindex="-1">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <h3 class="text-center">${name}</h3>
+                <table class="table table-hover text-center align-middle">
+                    <thead>
+                     <tr>
+                        <th>Health</th>
+                        <th>Evasion</th>
+                        <th>Luck</th>
+                     </tr>
+                     <tr>
+                        <th>${baseHealth}</th>
+                        <th>${baseEvasion}</th>
+                        <th>${baseLuck}</th>
+                     </tr>
+                    </thead>
+                </table>
+                 <table class="table table-hover text-center align-middle">
+                    <thead>
+                     <tr>
+                        <th>Formation</th>
+                        <th>Ship Skill</th>
+                        <th>Item Skill</th>
+                        <th>Ship Level</th>
+                        <th>Enemy Level</th>
+                        <th>Enemy Hit</th>
+                        <th>Enemy Luck</th>
+                     </tr>
+                     <tr>
+                        <th>Double Line (30% more eva)</th>
+                        <th>False</th>
+                        <th>True</th>
+                        <th>125</th>
+                        <th>125</th>
+                        <th>75</th>
+                        <th>25</th>
+                     </tr>
+                    </thead>
+                </table>
+                <table class="table table-hover table-bordered text-center align-middle">
+                    <thead>
+                        <tr>
+                            <th>eHP</th>
+                            <th>${emptySlot}</th>
+                            <th>${toolkit}</th>
+                            <th>${rudder}</th>
+                            <th>${beaver}</th>
+                            <th>${hp550}</th>
+                            <th>${hp500}</th>
+                            <th>${fuel}</th>
+                            <th>${eva28}</th>
+                            <th>${navalTreaty}</th>
+                            <th>${camoGear}</th>
+                            <th>${ocean}</th>
+                            <th>${nyReport}</th>
+                            <th>${eva15}</th>
+                        </tr>
+                        <tr>
+                            <th>${emptySlot}</th>
+                            <th>${noGear}</th>
+                            <th>${noGearToolkit}</th>
+                            <th>${noGearRudder}</th>
+                            <th>${noGearBeaver}</th>
+                            <th>${noGearHP550}</th>
+                            <th>${noGearHP500}</th>
+                            <th>${noGearFuel}</th>
+                            <th>${noGearEVA28}</th>
+                            <th>${noGearNavalTreaty}</th>
+                            <th>${noGearCamoGear}</th>
+                            <th>${noGearOcean}</th>
+                            <th>${noGearNyReport}</th>
+                            <th>${noGearEVA15}</th>
+                        </tr>
+                        <tr>
+                            <th>${toolkit}</th>
+                            <th>${noGearToolkit}</th>
+                            <th>${doubleToolkit}</th>
+                            <th>${toolkitRudder}</th>
+                            <th>${toolkitBeaver}</th>
+                            <th>${toolkitHP550}</th>
+                            <th>${toolkitHP500}</th>
+                            <th>${toolkitFuel}</th>
+                            <th>${toolkitEVA28}</th>
+                            <th>${toolkitNavalTreaty}</th>
+                            <th>${toolkitCamoGear}</th>
+                            <th>${toolkitOcean}</th>
+                            <th>${toolkitNyReport}</th>
+                            <th>${toolkitEVA15}</th>
+                        </tr>
+                        <tr>
+                            <th>${rudder}</th>
+                            <th>${noGearRudder}</th>
+                            <th>${toolkitRudder}</th>
+                            <th>${doubleRudder}</th>
+                            <th>${rudderBeaver}</th>
+                            <th>${rudderHP550}</th>
+                            <th>${rudderHP500}</th>
+                            <th>${rudderFuel}</th>
+                            <th>${rudderEVA28}</th>
+                            <th>${rudderNavalTreaty}</th>
+                            <th>${rudderCamoGear}</th>
+                            <th>${rudderOcean}</th>
+                            <th>${rudderNyReport}</th>
+                            <th>${rudderEVA15}</th>
+                        </tr>
+                        <tr>
+                            <th>${beaver}</th>
+                            <th>${noGearBeaver}</th>
+                            <th>${toolkitBeaver}</th>
+                            <th>${rudderBeaver}</th>
+                            <th>${doubleBeaver}</th>
+                            <th>${beaverHP550}</th>
+                            <th>${beaverHP500}</th>
+                            <th>${beaverFuel}</th>
+                            <th>${beaverEVA28}</th>
+                            <th>${beaverNavalTreaty}</th>
+                            <th>${beaverCamoGear}</th>
+                            <th>${beaverOcean}</th>
+                            <th>${beaverNyReport}</th>
+                            <th>${beaverEVA15}</th>
+                        </tr>
+                        <tr>
+                            <th>${hp550}</th>
+                            <th>${noGearHP550}</th>
+                            <th>${toolkitHP550}</th>
+                            <th>${rudderHP550}</th>
+                            <th>${beaverHP550}</th>
+                            <th>${doubleHP550}</th>
+                            <th>${hp550HP500}</th>
+                            <th>${hp550Fuel}</th>
+                            <th>${hp550EVA28}</th>
+                            <th>${hp550NavalTreaty}</th>
+                            <th>${hp550CamoGear}</th>
+                            <th>${hp550Ocean}</th>
+                            <th>${hp550NyReport}</th>
+                            <th>${hp550EVA15}</th>
+                        </tr>
+                        <tr>
+                            <th>${hp500}</th>
+                            <th>${noGearHP500}</th>
+                            <th>${toolkitHP500}</th>
+                            <th>${rudderHP500}</th>
+                            <th>${beaverHP500}</th>
+                            <th>${hp550HP500}</th>
+                            <th>${doubleHP500}</th>
+                            <th>${hp500Fuel}</th>
+                            <th>${hp500EVA28}</th>
+                            <th>${hp500NavalTreaty}</th>
+                            <th>${hp500CamoGear}</th>
+                            <th>${hp500Ocean}</th>
+                            <th>${hp500NyReport}</th>
+                            <th>${hp500EVA15}</th>
+                        </tr>
+                        <tr>
+                            <th>${fuel}</th>
+                            <th>${noGearFuel}</th>
+                            <th>${toolkitFuel}</th>
+                            <th>${rudderFuel}</th>
+                            <th>${beaverFuel}</th>
+                            <th>${hp550Fuel}</th>
+                            <th>${hp500Fuel}</th>
+                            <th>${doubleFuel}</th>
+                            <th>${fuelEVA28}</th>
+                            <th>${fuelNavalTreaty}</th>
+                            <th>${fuelCamoGear}</th>
+                            <th>${fuelOcean}</th>
+                            <th>${fuelNyReport}</th>
+                            <th>${fuelEVA15}</th>
+                        </tr>
+                        <tr>
+                            <th>${eva28}</th>
+                            <th>${noGearEVA28}</th>
+                            <th>${toolkitEVA28}</th>
+                            <th>${rudderEVA28}</th>
+                            <th>${beaverEVA28}</th>
+                            <th>${hp550EVA28}</th>
+                            <th>${hp500EVA28}</th>
+                            <th>${fuelEVA28}</th>
+                            <th>${doubleEVA28}</th>
+                            <th>${eva28NavalTreaty}</th>
+                            <th>${eva28CamoGear}</th>
+                            <th>${eva28Ocean}</th>
+                            <th>${eva28NyReport}</th>
+                            <th>${eva28EVA15}</th>
+                        </tr>
+                        <tr>
+                            <th>${navalTreaty}</th>
+                            <th>${noGearNavalTreaty}</th>
+                            <th>${toolkitNavalTreaty}</th>
+                            <th>${rudderNavalTreaty}</th>
+                            <th>${beaverNavalTreaty}</th>
+                            <th>${hp550NavalTreaty}</th>
+                            <th>${hp500NavalTreaty}</th>
+                            <th>${fuelNavalTreaty}</th>
+                            <th>${eva28NavalTreaty}</th>
+                            <th>${doubleNavalTreaty}</th>
+                            <th>${navalTreatyCamoGear}</th>
+                            <th>${navalTreatyOcean}</th>
+                            <th>${navalTreatyNyReport}</th>
+                            <th>${navalTreatyEVA15}</th>
+                        </tr>
+                        <tr>
+                            <th>${camoGear}</th>
+                            <th>${noGearCamoGear}</th>
+                            <th>${toolkitCamoGear}</th>
+                            <th>${rudderCamoGear}</th>
+                            <th>${beaverCamoGear}</th>
+                            <th>${hp550CamoGear}</th>
+                            <th>${hp500CamoGear}</th>
+                            <th>${fuelCamoGear}</th>
+                            <th>${eva28CamoGear}</th>
+                            <th>${navalTreatyCamoGear}</th>
+                            <th>${doubleCamoGear}</th>
+                            <th>${camoGearOcean}</th>
+                            <th>${camoGearNyReport}</th>
+                            <th>${camoGearEVA15}</th>
+                        </tr>
+                        <tr>
+                            <th>${ocean}</th>
+                            <th>${noGearOcean}</th>
+                            <th>${toolkitOcean}</th>
+                            <th>${rudderOcean}</th>
+                            <th>${beaverOcean}</th>
+                            <th>${hp550Ocean}</th>
+                            <th>${hp500Ocean}</th>
+                            <th>${fuelOcean}</th>
+                            <th>${eva28Ocean}</th>
+                            <th>${navalTreatyOcean}</th>
+                            <th>${camoGearOcean}</th>
+                            <th>${doubleOcean}</th>
+                            <th>${oceanNyReport}</th>
+                            <th>${oceanEVA15}</th>
+                        </tr>
+                        <tr>
+                            <th>${nyReport}</th>
+                            <th>${noGearNyReport}</th>
+                            <th>${toolkitNyReport}</th>
+                            <th>${rudderNyReport}</th>
+                            <th>${beaverNyReport}</th>
+                            <th>${hp550NyReport}</th>
+                            <th>${hp500NyReport}</th>
+                            <th>${fuelNyReport}</th>
+                            <th>${eva28NyReport}</th>
+                            <th>${navalTreatyNyReport}</th>
+                            <th>${camoGearNyReport}</th>
+                            <th>${oceanNyReport}</th>
+                            <th>${doubleNyReport}</th>
+                            <th>${nyReportEVA15}</th>
+                        </tr>
+                        <tr>
+                            <th>${eva15}</th>
+                            <th>${noGearEVA15}</th>
+                            <th>${toolkitEVA15}</th>
+                            <th>${rudderEVA15}</th>
+                            <th>${beaverEVA15}</th>
+                            <th>${hp550EVA15}</th>
+                            <th>${hp500EVA15}</th>
+                            <th>${fuelEVA15}</th>
+                            <th>${eva28EVA15}</th>
+                            <th>${navalTreatyEVA15}</th>
+                            <th>${camoGearEVA15}</th>
+                            <th>${oceanEVA15}</th>
+                            <th>${nyReportEVA15}</th>
+                            <th>${doubleEVA15}</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+    `;
+    $(".modalContainer").html(modalCurrent);
+    $(function () {$('[data-toggle="tooltip"]').tooltip()})
+}
+
 function shipCreate(azurAPI) {
     azurAPI.forEach((ship) => {
         const id                = ship.id;
         const name              = ship.names.en;
         const type              = ship.hullType;
-        const health            = ship.stats.level125.health;
-        const evasion           = ship.stats.level125.evasion;
-        const luck              = ship.stats.level125.luck;
+        const health            = parseInt(ship.stats.level125.health);
+        const evasion           = parseInt(ship.stats.level125.evasion);
+        const luck              = parseInt(ship.stats.level125.luck);
         const enemyLevel        = 125;
         const attackerHit       = 75;
         const attackerLuck      = 25;
@@ -102,23 +542,9 @@ function shipCreate(azurAPI) {
         const accuracySkill     = 0;
         const evarate           = 0;
         const eHP               = eHPCalculate(health, evasion, luck, attackerHit, attackerLuck, levelDifference, accuracySkill, evarate);
-        if(ship.names.en === "22") {
-            console.log(name)
-            console.log(type)
-            console.log(health)
-            console.log(evasion)
-            console.log(luck)
-            console.log(enemyLevel)
-            console.log(attackerHit)
-            console.log(attackerLuck)
-            console.log(levelDifference)
-            console.log(accuracySkill)
-            console.log(evarate)
-            console.log(eHP)
-        }
         const notes             = "blank";
         shipList += `
-            <tr>
+            <tr data-toggle="modal" data-target="#modal${id}" onclick="shipModal('${id}')">
                 <th>${id}</th>
                 <th>${name}</th>
                 <th>${type}</th>
