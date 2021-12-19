@@ -4,7 +4,6 @@
     <link rel="icon" href="Images/al-favicon.png">
 <head>
 	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta content="utf-8" http-equiv="encoding">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -625,11 +624,24 @@ function shipCreate(azurAPI) {
         const evarate           = 0;
         const eHP               = eHPCalculate(health, evasion, luck, attackerHit, attackerLuck, levelDifference, accuracySkill, evarate);
         const notes             = "blank";
+        function getHullType(idx) {
+            let typeImage = "";
+            if(idx === "Destroyer") {typeImage = "DD"; hullSort = 1};
+            if(idx === "Light Cruiser") {typeImage = "CL"; hullSort = 2};
+            if(idx === "Heavy Cruiser") {typeImage = "CA"; hullSort = 3};
+            if(idx === "Large Cruiser") {typeImage = "CB"; hullSort = 4};
+            if(idx === "Munition Ship") {typeImage = "AE"; hullSort = 5};
+            if(idx === "Submarine") {typeImage = "SS"; hullSort = 6};
+            if(idx === "Submarine Carrier") {typeImage = "SSV"; hullSort = 7};
+            return `<img src=https://raw.githubusercontent.com/Fernando2603/AzurLane/main/images/hullType/${typeImage}.png>`;
+        }
+        let hullSort = 0;
+        const hullType          = getHullType(type);
         shipList += `
             <tr data-toggle="modal" data-target="#modal${id}" onclick="shipModal('${id}')">
                 <th>${id}</th>
                 <th>${name}</th>
-                <th>${type}</th>
+                <th data-sort="${hullSort}">${hullType}</th>
                 <th>${health}</th>
                 <th>${evasion}</th>
                 <th>${luck}</th>
