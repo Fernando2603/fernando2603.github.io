@@ -23,7 +23,7 @@ var userKai = [
    //90, // Cygnet
    //91, // Foxhound
    //92, // Fortune
-   //101, // Javelin
+   101, // Javelin
    //104, // Leander
    105, // Achilles
    //106, // Ajax
@@ -42,12 +42,12 @@ var userKai = [
    171, // Hatsuharu
    //174, // Hatsushimo
    //175, // Ariake
-   //176, // Yuugure
+   176, // Yuugure
    //179, // Yuubari
    183, // Isuzu
    //186, // Kinu
    //187, // Abukuma
-   //188, // Mogami
+   188, // Mogami
    //190, // Furutaka
    //191, // Kako
    //208, // Fusou
@@ -71,8 +71,8 @@ var userKai = [
    //272, // Kisaragi
    //301, // Nicholas
    //308, // Sendai
-   //309, // Jintsuu
-   //318, // Hamakaze
+   309, // Jintsuu
+   318, // Hamakaze
    //319, // Tanikaze
    //348, // Forbin
    //349, // Emile Bertin
@@ -80,7 +80,7 @@ var userKai = [
    //361, // Newcastle
    //372, // Curacoa
    //373, // Curlew
-   //377, // Independence
+   377, // Independence
    //424, // Kasumi
    434, // Pamiat Merkuria
 ]
