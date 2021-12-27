@@ -1,4 +1,4 @@
-var retrofitVersion = "Retrofit - v14122021";
+var retrofitVersion = "Retrofit - v27122021";
 var userKai = [
    5, // Cassin
    6, // Downes
@@ -28,7 +28,7 @@ var userKai = [
    105, // Achilles
    //106, // Ajax
    //119, // London
-   //122, // Suffolk
+   122, // Suffolk
    //125, // York
    126, // Exeter
    131, // Warspite
@@ -55,7 +55,7 @@ var userKai = [
    210, // Ise
    211, // Hyuuga
    222, // Shouhou
-   //226, // Souryuu
+   226, // Souryuu
    227, // Hiryuu
    //233, // Z1
    236, // Z23
@@ -69,8 +69,8 @@ var userKai = [
    //270, // Matsukaze
    //271, // Mutsuki
    //272, // Kisaragi
-   //301, // Nicholas
-   //308, // Sendai
+   301, // Nicholas
+   308, // Sendai
    309, // Jintsuu
    318, // Hamakaze
    //319, // Tanikaze
