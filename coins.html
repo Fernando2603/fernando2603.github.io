@@ -147,7 +147,8 @@
 	var userPurple	= 0;
 	var userGold 	= 0;
 	var userCoins 	= 0;
-
+	
+	let counter = 0;
 	let output 		= "";
 	let retrofitList = "";
 	for(var x = 0; x < retrofit.length; x++) {
@@ -168,6 +169,8 @@
 	retrofit.forEach((kai) => {
 		exist = userKai.find(element => element === kai.id);
 		if(exist === undefined) {
+			counter++
+			console.log(counter)
 			retrofitList += `
 				<tr>
 					<th>${kai.id}</th>
