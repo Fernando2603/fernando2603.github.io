@@ -262,6 +262,7 @@ teste += `<span ${missingBorder}><code class="count">   {</code>
 
    				count++;
    				if(count === azurAPI.length) {
+					$(".demo").html(teste);
    					console.log("%cCompleted!","color: limegreen;");
 					console.log("Banner Source : https://bit.ly/326ZcTX");
 					console.log("Repository	   : https://github.com/Fernando2603/AzurLane");
@@ -280,9 +281,6 @@ teste += `<span ${missingBorder}><code class="count">   {</code>
    						console.log("type %c\"showUnknown()\" %cto show all list", "color:yellow", "color:white")
    						console.log("type %cunknownArray%c, %cunknownIconArray%c, %cunknownChibiArray %cor %cunknownShipyardArray %cto show the list", "color:yellow", "color:white", "color:yellow", "color:white", "color:yellow", "color:white", "color:yellow", "color:white")
    					} else {console.log("%cNo unknown banner!","color: limegreen;")}
-   				}
-   				if(count > 516) {
-   					$(".demo").html(teste);
    				}
 			})
 		}
