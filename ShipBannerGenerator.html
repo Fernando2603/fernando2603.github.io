@@ -8,17 +8,19 @@
 		<style>
 			body {background: black; color: white;}
 			ul, li {list-style-type: none; margin-top: 0px; margin-bottom: 0px;}
+			.font-weight-bold {font-weight: bold;}
 			.filled {color: white;}
 			.unfilled {color: #c00000; background-color: #faa;}
 			pre {margin-top: 0px; margin-bottom: 0px;}
 			.missingBorder {background-color: blueviolet;}
 			.missingSkin {text-align: center; vertical-align: center; background-color: #faa; color: #c00000; font-weight: bolder;}
-			.unknownStatus > .count:nth-child(1), .unknownStatus > .count:nth-child(2), .unknownStatus > .count:nth-child(7) {color: darkorange;}
-			.unknownBanner > .count:nth-child(3) {color: darkorange;}
-			.unknownIcon > .count:nth-child(4) {color: darkorange;}
-			.unknownChibi > .count:nth-child(5) {color: darkorange;}
-			.unknownShipyard > .count:nth-child(6) {color: darkorange;}
-			.missingBorder .filled {background-color: #c6efce; color: #006100;}
+			.unknownStatus > .count:nth-child(1), .unknownStatus > .count:nth-child(7) {color: darkorange;}
+			.unknownStatus .count .skinName {color: darkorange;} 
+			.unknownBanner .count .skinBanner {color: darkorange;}
+			.unknownIcon .count .skinIcon {color: darkorange;}
+			.unknownChibi .count .skinChibi {color: darkorange;}
+			.unknownShipyard .count .skinShipyard {color: darkorange;}
+			.missingBorder .filled, .missingBorder .filled font {background-color: #c6efce; color: #006100;}
 			.missingBorder > .count::before {background-color: darkviolet; color: white;}
 			.missingBorder > .unknownBanner {background-color: antiquewhite!important; color: #9c6500!important;}
 			pre.code {
@@ -34,7 +36,7 @@
 			.count::before {
 			  content: counter(listing) ". ";
 			  display: inline-block;
-			  background-color: dimgray;
+			  background-color: black;
 			  width: 50px;         /* now works */
 			  padding-left: auto; /* now works */
 			  margin-left: auto;  /* now works */
@@ -58,11 +60,13 @@
 				background-color: springgreen;
 				color: black;
 			}
+			.syntax-green {color: #7ee787;}
+			.syntax-lightblue {color: #a5d6ff}
 		</style>
 	</head>
 	<body>
 		<div class="missingSkin"></div>
-		<div>
+		<div class="font-weight-bold">
 			<pre class="code"><code class="count">[</code></pre>
 			<pre class="demo code"></pre>
 			<pre class="code"><code class="count">]</code></pre>
@@ -214,6 +218,8 @@
 							}
 						}
 					}
+					let bC_syntax_green = "syntax-green"; // new patch 09-02-2022
+					let bC_syntax_lightblue = "syntax-lightblue"; // new patch 09-02-2022
 					if(bannerStatus) {lastSparator = ""};
 					let unknownClass = "";
 					if(unknownStatus) {
@@ -228,23 +234,37 @@
 						unknownClass = ` unknownStatus${uSBanner + uSIcon + uSChibi + uSShipyard}`;
 					};
 					let bannerClass = `class=\"filled${unknownClass}\"`;
-					if(bannerStatus) {bannerClass = `class=\"unfilled\"`; parentFill = true;};
+					if(bannerStatus) {
+						bannerClass = `class=\"unfilled\"`; 
+						parentFill = true;
+						bC_syntax_green = "syntax-green-disable"; // new patch 09-02-2022
+						bC_syntax_lightblue = "syntax-lightblue-disable"; // new patch 09-02-2022
+					};
+					const font_skinName 	= `<font class="${bC_syntax_lightblue} skinName">\"${skin.name.replace(/\"/g,"\\\"")}\"</font>`; // new patch 09-02-2022
+					const font_skinBanner 	= `<font class="${bC_syntax_lightblue} skinBanner">\"${skinbanner}\"</font>`; // new patch 09-02-2022
+					const font_skinIcon		= `<font class="${bC_syntax_lightblue} skinIcon">\"${skinIcon}\"</font>`; // new patch 09-02-2022
+					const font_skinChibi	= `<font class="${bC_syntax_lightblue} skinChibi">\"${skinChibi}\"</font>`; // new patch 09-02-2022
+					const font_skinShipyard = `<font class="${bC_syntax_lightblue} skinShipyard">\"${skinShipyard}\"</font>`; // new patch 09-02-2022
 // pre alignment weird
 skins += `
 <span ${bannerClass}><code class="count">         {</code>
-<code class="count">            \"name\":\"${skin.name.replace(/\"/g,"\\\"")}\",</code>
-<code class="count">            \"banner\":\"${skinbanner}\",</code>
-<code class="count">            \"icon\":\"${skinIcon}\",</code>
-<code class="count">            \"chibi\":\"${skinChibi}\",</code>
-<code class="count">            \"shipyard\":\"${skinShipyard}\"</code>
+<code class="count">            <font class="${bC_syntax_green}">\"name\"</font>:${font_skinName},</code>
+<code class="count">            <font class="${bC_syntax_green}">\"banner\"</font>:${font_skinBanner},</code>
+<code class="count">            <font class="${bC_syntax_green}">\"icon\"</font>:${font_skinIcon},</code>
+<code class="count">            <font class="${bC_syntax_green}">\"chibi\"</font>:${font_skinChibi},</code>
+<code class="count">            <font class="${bC_syntax_green}">\"shipyard\"</font>:${font_skinShipyard}</code>
 <code class="count">         }${lastSparator}</code></span>`
 				}) // forEach Separator in ship.skins;
 
 
 				let missingBorder = "";
+				let mB_syntax_green = "syntax-green"; // new patch 09-02-2022
+				let mB_syntax_lightblue = "syntax-lightblue"; // new patch 09-02-2022
 				if(parentFill) {
 					missingArray.push(ship.names.en);
 					missingBorder = "class=\"missingBorder\"";
+					mB_syntax_green = "syntax-green-disable"; // new patch 09-02-2022
+					mB_syntax_lightblue = "syntax-lightblue-disable"; // new patch 09-02-2022
 				}
 				var parentLength = azurAPI.length - 1;
 
@@ -253,9 +273,9 @@ let namepatch = ship.names.en;
 if(namepatch === "Hiryu.META") {namepatch = "Hiryuu META"}
 if(namepatch === "Royal.META") {namepatch = "Ark Royal META"}
 teste += `<span ${missingBorder}><code class="count">   {</code>
-<code class="count">      \"id\":\"${ship.id}\",</code>
-<code class="count">      \"names\":\"${namepatch}\",</code>
-<code class="count">      \"skins\":[</code>${skins}
+<code class="count">      <font class="${mB_syntax_green}">\"id\"</font>:<font class="${mB_syntax_lightblue}">\"${ship.id}\"</font>,</code>
+<code class="count">      <font class="${mB_syntax_green}">\"names\"</font>:<font class="${mB_syntax_lightblue}">\"${namepatch}\"</font>,</code>
+<code class="count">      <font class="${mB_syntax_green}">\"skins\"</font>:[</code>${skins}
 <code class="count">      ]</code>
 <code class="count">   }${parentSparator}</code>
 </span>`	
