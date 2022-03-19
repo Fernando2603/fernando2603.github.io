@@ -71,8 +71,7 @@
 		Promise.all([
 			fetch("https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/ships.json")
 			.then(res => res.json()),
-			// fetch("https://raw.githubusercontent.com/Fernando2603/AzurLane/main/ShipBanner.json")
-			fetch("https://raw.githubusercontent.com/Fernando2603/fernando2603.github.io/main/dummy.json")
+			fetch("https://raw.githubusercontent.com/Fernando2603/AzurLane/main/ShipBanner.json")
 			.then(res => res.json())
 		]).then(
 			([azurAPI, shipBanner]) => {
