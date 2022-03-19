@@ -94,7 +94,7 @@
 				for(i = 0; i < data.queue.length; i++) {
 					if(ship.fleet === data.queue[i]) {arhp = que[i]};
 				}
-				if(shipBanner.find( ({ names }) => names === shipname)) {banner = shipBanner.find( ({ names }) => names === shipname ).skins[0].banner;}
+				if(shipBanner.find( ({ name }) => name === shipname)) {banner = shipBanner.find( ({ name }) => name === shipname ).skins[0].banner;}
 				shiplist += `
 					<tr class="fleet-${ship.fleet}">
 						<th>${ship.fleet}</th>
