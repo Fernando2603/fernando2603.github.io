@@ -71,7 +71,8 @@
 		Promise.all([
 			fetch("https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/ships.json")
 			.then(res => res.json()),
-			fetch("https://raw.githubusercontent.com/Fernando2603/AzurLane/main/ShipBanner.json")
+			// fetch("https://raw.githubusercontent.com/Fernando2603/AzurLane/main/ShipBanner.json")
+			.fetch("https://raw.githubusercontent.com/Fernando2603/fernando2603.github.io/main/dummy.json")
 			.then(res => res.json())
 		]).then(
 			([azurAPI, shipBanner]) => {
@@ -149,17 +150,8 @@
 			azurAPI.forEach((ship) => {
 				let skins		= "";
 				var ship_name	= ship.names.en.replace(/ /g,"_");
-				var img_name	= ship_name.replace("_μ","_µ");
-				var lib_name	= ship_name.replace("_μ","").replace("_µ","").replace("-chan", "");
-
-				if(lib_name === "Anniversary_Kizuna_AI" || lib_name === "Elegant_Kizuna_AI" || lib_name === "Super_Gamer_Kizuna_AI") {lib_name	= "Kizuna_AI"};
-				if(ship.nationality === "META")		{lib_name	= "META"};
-				if(lib_name === "Kaga(BB)")			{lib_name	= "Kaga";						img_name	= "Kaga_(Battleship)"};
-				if(lib_name === "Kasumi")			{lib_name	= "Kasumi_Venus_Vacation";		img_name	= "Kasumi_(Venus_Vacation)"};
-				if(lib_name === "Kasumi_Retrofit")	{lib_name	= "Kasumi";						img_name	= "Kasumi"};
-				if(ship.id === "Collab001")			{lib_name	= "Neptune_Neptunia";			img_name	= "Neptune_(Neptunia)"};
-				if(lib_name === "Pamiat'_Merkuria") {lib_name	= "Pamiat_Merkuria";			img_name	= "Pamiat_Merkuria"};
-				if(lib_name === "Ōkami_Mio")		{img_name	= "Ookami_Mio"};
+				var ship_id		= ship.id;
+				let lib_name	= ship.id;
 
 				let parent_fill			= false;
 				let banner_id			= 0;
@@ -172,10 +164,10 @@
 				console.log("%c#Rendering " + azurAPI.length + " Ship", "color:yellow");
 				ship.skins.forEach((skin) => {
 					const skin_link			= "https://raw.githubusercontent.com/Fernando2603/AzurLane/main/images/skins/";
-					let skin_banner			= skin_link + lib_name + "/" + img_name + "Banner.png";
-					let skin_icon			= skin_link + lib_name + "/" + img_name + "Icon.png";
-					let skin_chibi			= skin_link + lib_name + "/" + img_name + "ChibiIcon.png";
-					let skin_shipyard		= skin_link + lib_name + "/" + img_name + "ShipyardIcon.png";
+					let skin_banner			= skin_link + lib_name + "/" + "Banner.png";
+					let skin_icon			= skin_link + lib_name + "/" + "Icon.png";
+					let skin_chibi			= skin_link + lib_name + "/" + "ChibiIcon.png";
+					let skin_shipyard		= skin_link + lib_name + "/" + "ShipyardIcon.png";
 					let banner_status		= true;
 					let unknownStatus		= false;
 					let unknownBanner		= false;
@@ -186,7 +178,7 @@
 					if(banner_id.skins !== undefined) {
 						for(var i = 0; i < banner_id.skins.length; i++) {
 							if(banner_id.skins[i].name === skin.name) {
-								const unknown_skin_link = "https://raw.githubusercontent.com/Fernando2603/AzurLane/main/images/skins/Unknown/Unknown";
+								const unknown_skin_link = "https://raw.githubusercontent.com/Fernando2603/AzurLane/main/images/skins/000/";
 								skin_banner		= banner_id.skins[i].banner;
 								skin_icon		= banner_id.skins[i].icon;
 								skin_chibi		= banner_id.skins[i].chibi;
